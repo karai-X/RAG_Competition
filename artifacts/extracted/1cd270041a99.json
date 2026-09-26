@@ -1,0 +1,38 @@
+{
+ "doc_id": "1cd270041a99",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/data/train.csv",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "csv",
+ "md5": "48ba57be1b263b927a4accfa4b6bf322",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| id | loan_amnt | term | interest_rate | grade | employment_length | purpose | credit_score | application_type | loan_status |\n|---|---|---|---|---|---|---|---|---|---|\n| 0 | 1256.7108 | 5 years | 10.60377869 | B1 | 5 years | debt_consolidation | 680.4317659 | Individual | 0 |\n| 1 | 569.5596067 | 3 years | 17.30556544 | C5 | 3 years | house | 713.0631282 | Individual | 0 |\n| 2 | 1118.83805 | 3 years | 14.04134157 | C3 | 2 years | debt_consolidation | 696.137378 | Individual | 1 |\n| 3 | 610.7217277 | 3 years | 13.04834802 | C2 | 5 years | medical | 656.3730904 | Individual | 0 |\n| 4 | 1180.02684 | 3 years | 11.38486247 | B3 | 10 years | debt_consolidation | 657.211233 | Individual | 0 |\n| 5 | 1172.219819 | 3 years | 11.39718304 | B3 | 5 years | debt_consolidation | 712.157342 | Joint App | 0 |\n| 6 | 2433.646304 | 3 years | 10.10181044 | B3 | 10 years | debt_consolidation | 713.2019707 | Individual | 0 |\n| 7 | 1021.9603 | 5 years | 18.09302821 | D4 | 4 years | debt_consolidation | 658.2994753 | Individual | 0 |\n| 8 | 1200.74142 | 5 years | 11.0905065 | B1 | 7 years | debt_consolidation | 771.9640874 | Individual | 0 |\n| 9 | 1731.132899 | 5 years | 17.73240798 | D3 | 4 years | debt_consolidation | 657.732889 | Individual | 1 |\n| 10 | 3517.81442 | 5 years | 17.67489417 | D3 | 5 years | debt_consolidation | 675.9959048 | Individual | 0 |\n| 11 | 1138.61238 | 3 years | 13.83419115 | C1 | 10 years | debt_consolidation | 658.2411451 | Individual | 0 |\n| 12 | 1493.010459 | 3 years | 6.884324802 | A1 | 0 years | credit_card | 722.4684121 | Joint App | 0 |\n| 13 | 1138.156973 | 3 years | 14.2537142 | C5 | 6 years | house | 727.7930126 | Individual | 0 |\n| 14 | 1216.649361 | 3 years | 14.85282714 | C5 | 10 years | credit_card | 681.0775638 | Individual | 0 |\n| 15 | 1117.901967 | 3 years | 11.13501505 | B2 | 9 years | debt_consolidation | 678.455296 | Individual | 0 |\n| 16 | 1200.108241 | 3 years | 13.53819052 | C2 | 10 years | debt_consolidation | 661.8360037 | Joint App | 1 |\n| 17 | 3347.320281 | 3 years | 18.14503372 | C5 | 6 years | house | 658.7728397 | Individual | 0 |\n| 18 | 607.8591359 | 5 years | 13.91814021 | A3 | 3 years | other | 711.4747089 | Individual | 0 |\n| 19 | 1084.770085 | 3 years | 13.34123386 | C1 | 6 years | debt_consolidation | 680.3856589 | Individual | 1 |\n| 20 | 588.796192 | 3 years | 11.84229441 | B4 | 3 years | credit_card | 658.5515223 | Individual | 0 |\n| 21 | 3305.292017 | 3 years | 10.53674638 | B2 | 10 years | debt_consolidation | 729.7285224 | Joint App | 0 |\n| 22 | 1043.372181 | 3 years | 6.276508049 | A1 | 0 years | debt_consolidation | 716.9506951 | Individual | 0 |\n| 23 | 2162.669838 | 5 years | 7.199168703 | A5 | 2 years | credit_card | 672.5360141 | Individual | 0 |\n| 24 | 2441.04673 | 5 years | 23.40934748 | D3 | 3 years | debt_consolidation | 667.2449015 | Joint App | 0 |\n\n(全17500行×10列のうち先頭25行のみ表示。全量の集計・条件抽出は run_python でこのファイルを直接読むこと)",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_rows": 17500,
+  "n_cols": 10,
+  "columns": [
+   "id",
+   "loan_amnt",
+   "term",
+   "interest_rate",
+   "grade",
+   "employment_length",
+   "purpose",
+   "credit_score",
+   "application_type",
+   "loan_status"
+  ],
+  "truncated": true
+ },
+ "error": null,
+ "warnings": []
+}

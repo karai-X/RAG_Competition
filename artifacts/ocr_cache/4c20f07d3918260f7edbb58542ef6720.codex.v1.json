@@ -1,0 +1,13 @@
+{
+ "md5": "4c20f07d3918260f7edbb58542ef6720",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### 左グラフ\n\n- タイトル：term の分布 上位10カテゴリ\n- 横軸：件数\n- 縦軸：term\n- カテゴリ（上から）：\n  - 5 years\n  - 3 years\n\n### 中央グラフ\n\n- タイトル：grade の分布 上位10カテゴリ\n- 横軸：件数\n- 縦軸：grade\n- カテゴリ（上から）：\n  - C5\n  - A5\n  - D4\n  - B2\n  - B1\n  - B4\n  - B3\n  - D3\n  - C2\n  - C4\n\n### 右グラフ\n\n- タイトル：purpose の分布 上位10カテゴリ\n- 横軸：件数\n- 縦軸：purpose\n- カテゴリ（上から）：\n  - small_business\n  - major_purchase\n  - car\n  - medical\n  - house\n  - home_improvement\n  - other\n  - credit_card\n  - debt_consolidation",
+ "figure_description": "横に3つ並んだ横棒グラフ。凡例はない。すべての棒は緑色で塗られ、背景には薄い灰色の縦グリッド線がある。\n\n左：タイトルは「term の分布 上位10カテゴリ」。横軸ラベルは「件数」、縦軸ラベルは「term」。横軸の表示目盛りは 0、2000、4000、6000、8000、10000、12000。カテゴリは上から「5 years」「3 years」。数値ラベルはない。「3 years」の棒が「5 years」より長い。\n\n中央：タイトルは「grade の分布 上位10カテゴリ」。横軸ラベルは「件数」、縦軸ラベルは「grade」。横軸の表示目盛りは 0、250、500、750、1000、1250、1500、1750。カテゴリは上から「C5」「A5」「D4」「B2」「B1」「B4」「B3」「D3」「C2」「C4」。数値ラベルはない。棒の長さは「C4」が最長で、次いで「C2」「D3」「B3」「B4」「B1」「B2」「D4」「A5」「C5」の順に見える。\n\n右：タイトルは「purpose の分布 上位10カテゴリ」。横軸ラベルは「件数」、縦軸ラベルは「purpose」。横軸の表示目盛りは 0、2000、4000、6000、8000、10000。カテゴリは上から「small_business」「major_purchase」「car」「medical」「house」「home_improvement」「other」「credit_card」「debt_consolidation」。数値ラベルはない。「debt_consolidation」の棒が最長で、「credit_card」が次に長い。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 30.04,
+ "source": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell12_img3.png"
+}

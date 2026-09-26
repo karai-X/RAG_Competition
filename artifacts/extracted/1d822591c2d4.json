@@ -1,0 +1,28 @@
+{
+ "doc_id": "1d822591c2d4",
+ "relpath": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/date_feature_trend.png",
+ "mount": "",
+ "project": "医療法人社団 蒼樹会 みなみ野女性医療センター",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "f7b61a224502466c9f06ef779965e948",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/date_feature_trend.png (1894x614) md5:f7b61a22 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: その他]\n日付分析対象列はありません",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1894,
+  "height": 614,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

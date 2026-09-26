@@ -1,0 +1,13 @@
+{
+ "md5": "5972874515a70a6c890a162dbbfd0d43",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "[c:青]分析進捗報告書[/c]\n\n[c:青]1. 報告サマリー[/c]\n\n- チェックポイント：M02 中間レビュー（2025-04-24）\n\n- 報告対象期間：2025-04-03～2025-04-24\n\n- チェックポイント段階（Report facts JSON）：interim（中間）— 中間分析フェーズとしての報告です。\n\n- 概要：データ理解フェーズから中間レビューにかけて、基準となる線形ベースラインを起点にした実験群（trial_index 1〜5）が実行され、可視化対象の試行（visible_trials）の中で最良の試行（best_visible_trial）は trial_id=T04（threshold_tuned_linear）です。中間時点では前処理方針（特に 0 値＝疑似欠損扱い）と評価指標の確定がレビューの中心課題です。\n\n[c:青]2. 進捗状況[/c]\n\n- 進捗ステータス（中間時点）：interim_analysis（中間分析実施中、実験ログ出力あり）\n\n- 実施済み（報告事実に基づく）\n\n  - visible_trials（trial_index 1〜5）を含む実験群の実行とメトリクス計上（analysis.metrics に登録）。\n\n  - ベースライン参照（T01）から段階的改善（クラスバランス付与、特徴拡張、閾値調整）を実施。\n\n  - 中間レビュー（M02）開催（本チェックポイント）に合わせ、前処理・評価案の提示準備を実施。\n\n- オープンアクション（Report facts JSON.prior_state より）\n\n  - 未完了アクション数：8件（A01〜A09 のうち該当項目。詳細は 4. に記載）\n\n- スケジュールとのトレーサビリティ\n\n  - 主要マイルストーン：MS2（データ理解完了 2025-04-15）は経過、MS3（前処理・評価方針レビュー完了 2025-04-23）は資料準備を経て中間レビュー前段階、MS4（中間レビュー 2025-04-24）が本チェックポイントです。中間レビューでの合意を受けて、モデル構築段（MS6 以降）へ移行予定。\n\n[c:青]3. 主要な分析結果[/c]\n\n- 実験可視化範囲：report facts JSON.analysis.visible_trials（trial_index 1〜5）に限定して報告します。中間段階のため、公開済みの可視試行のみ利用しています。\n\n- ベスト可視試行（best_visible_trial）\n\n  - 試行：trial_index=4（trial_id=T04, threshold_tuned_linear）\n\n  - モデル種別：linear_baseline（線形ベースライン系の決定調整版）",
+ "figure_description": "",
+ "layout": "",
+ "confident": false,
+ "error": null,
+ "latency_sec": 57.38,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/報告資料/報告資料_2025-04-24.pdf p1"
+}

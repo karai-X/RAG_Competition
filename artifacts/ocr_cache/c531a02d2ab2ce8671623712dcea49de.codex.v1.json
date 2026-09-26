@@ -1,0 +1,13 @@
+{
+ "md5": "c531a02d2ab2ce8671623712dcea49de",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### 欠損率 上位20列\n\n| 順位 | 列名 | 欠損率(%) |\n|---:|---|---:|\n| 1 | Attr37 | 45.3% |\n| 2 | Attr21 | 7.2% |\n| 3 | Attr27 | 7.1% |\n| 4 | Attr60 | 5.6% |\n| 5 | Attr45 | 5.6% |\n| 6 | Attr28 | 2.2% |\n| 7 | Attr53 | 2.2% |\n| 8 | Attr54 | 2.2% |\n| 9 | Attr64 | 2.2% |\n| 10 | Attr24 | 2.1% |\n| 11 | Attr41 | 2.0% |\n| 12 | Attr32 | 0.9% |\n| 13 | Attr52 | 0.8% |\n| 14 | Attr47 | 0.8% |\n| 15 | Attr19 | 0.4% |\n| 16 | Attr31 | 0.4% |\n| 17 | Attr23 | 0.4% |\n| 18 | Attr13 | 0.4% |\n| 19 | Attr44 | 0.4% |\n| 20 | Attr39 | 0.4% |",
+ "figure_description": "横棒グラフ。タイトルは「欠損率 上位20列」。横軸ラベルは「欠損率(%)」で、表示されている目盛りは0、10、20、30、40。縦軸ラベルは「列名」で、上からAttr37、Attr21、Attr27、Attr60、Attr45、Attr28、Attr53、Attr54、Attr64、Attr24、Attr41、Attr32、Attr52、Attr47、Attr19、Attr31、Attr23、Attr13、Attr44、Attr39。凡例はない。全20本の棒は赤橙色で塗られている。棒の数値ラベルは順に45.3%、7.2%、7.1%、5.6%、5.6%、2.2%、2.2%、2.2%、2.2%、2.1%、2.0%、0.9%、0.8%、0.8%、0.4%、0.4%、0.4%、0.4%、0.4%、0.4%。縦方向および横方向に薄い灰色のグリッド線がある。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 22.65,
+ "source": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell10_img2.png"
+}

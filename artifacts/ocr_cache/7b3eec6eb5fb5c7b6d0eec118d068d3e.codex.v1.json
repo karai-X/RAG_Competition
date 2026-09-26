@@ -1,0 +1,13 @@
+{
+ "md5": "7b3eec6eb5fb5c7b6d0eec118d068d3e",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "▪ secondary_metric (accuracy) = 0.46313963573287076\n\n▪ selected_feature_count = 16, excluded_feature_count = 1\n\n○ T05（trial_role: ordered_linear, feature_search）\n\n　▪ primary_metric (f1_macro) = 0.44880715148629163\n\n　▪ secondary_metric (accuracy) = 0.4722463139635733\n\n　▪ selected_feature_count = 22, excluded_feature_count = 1\n\n- 要点（解釈）\n\n  - ベースライン（T01）からの段階的改善が確認される。特徴カバレッジを広げ（categorical limit 増加等）、順序性特徴を導入（T03/T05）することで Macro F1 が改善している（T01→T03 の増分は明確）。\n\n  - 最良の可視試行は T03（f1_macro=0.44929547342163884, accuracy=0.47311361665221163）。T05（ordered features を追加）も類似の性能を示しており、順序情報が有効である可能性が示唆される。\n\n> [c:濃い灰色]データスチュワード不可[/c]\n\n  - T04（閾値調整）は若干の改善（または調整）を示すが、必ずしも一貫して最大値には到達していないため、意思決定時の評価基準（主指標／近接誤差の許容）に依存する。\n\n  - selected_feature_count は実行ログで 16（analysis.metrics.selected_feature_count）等が報告されており、特徴選択の変更が性能に寄与している。\n\n- 補足（評価ルール）\n\n  - これらの数値は中間チェックポイントでの「可視試行」に基づくものであり、最終的なハイパーパラメータ最適化や別モデルファミリ（非線形モデル）への移行後の性能は未評価。最終判断は追加検証後に提示予定。",
+ "figure_description": "",
+ "layout": "",
+ "confident": false,
+ "error": null,
+ "latency_sec": 115.78,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-09-08.pdf p4"
+}

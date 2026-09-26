@@ -1,0 +1,13 @@
+{
+ "md5": "3169b7aeff588bd30377d03f7c9376c3",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "目的変数の分布\n\n件数\n\nクラス\n\n| クラス | 件数 |\n|---:|---:|\n| 0 | 6988 |\n| 1 | 364 |",
+ "figure_description": "縦棒グラフ。タイトルは「目的変数の分布」。横軸ラベルは「クラス」で、目盛りは「0」「1」。縦軸ラベルは「件数」で、目盛りは0、1000、2000、3000、4000、5000、6000、7000。クラス0の棒は紫色で、数値ラベルは6988。クラス1の棒は紫色で、数値ラベルは364。凡例はない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 13.82,
+ "source": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell16_img5.png"
+}

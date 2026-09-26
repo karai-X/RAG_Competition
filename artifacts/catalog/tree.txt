@@ -1,0 +1,607 @@
+プロジェクト/
+  京橋信用ソリューションズ株式会社/
+    00.提案/
+      提案書_final.pptx  [pptx; 18スライド; 版違い: 提案書_v1.pptx]
+      提案書_v1.pptx  [pptx; 18スライド; 版違い: 提案書_final.pptx]
+    01.契約/
+      契約書.docx  [docx; 表1]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: WBSタスク一覧, マイルストーン, 会議体・チェックポイント, リソース計画]
+    03.データ/
+      train.csv  [csv; 27128行×18列: id, age, job, marital, education, default, balance, housing, loan, contact, day, month, duration, campaign, pdays, previous, poutcome, y; 大規模(要run_python)]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×11列: trial_index, status, model_type, use_date_features, random_state, test_size, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 27128行×18列: id, age, job, marital, education, default, balance, housing, loan, contact, day, month, duration, campaign, pdays, previous, poutcome, y; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 20セル]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 1774x1776; 画像1]
+            feature_correlation_heatmap.png  [png; 1371x1177; 画像1]
+            figure_06.png  [png; 1474x726; 画像1]
+            missing_rate_top20.png  [png; 1475x1056; 画像1]
+            numeric_distribution_top6.png  [png; 2071x1776; 画像1]
+            target_distribution.png  [png; 875x576; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-10-01.pdf  [pdf; 8ページ]
+        会議録_2025-10-29.pdf  [pdf; 9ページ]
+        会議録_2025-11-11.pdf  [pdf; 9ページ]
+      報告資料/
+        報告資料_2025-10-01.docx  [docx]
+        報告資料_2025-10-29.docx  [docx]
+    06.報告書/
+      京橋信用ソリューションズ株式会社_最終報告.pptx  [pptx; 17スライド; グラフ1]
+  医療法人社団 恒一会 かえで総合病院/
+    00.提案/
+      提案書.pptx  [pptx; 19スライド]
+    01.契約/
+      契約書_pw-kaede20250902.docx  [docx; 暗号化]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: ; 暗号化]
+    03.データ/
+      train.csv  [csv; 3500行×12列: id, Age, Gender, T_Bil, D_Bil, ALP, ALT_GPT, AST_GOT, TP, Alb, AG_ratio, disease; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: グラフ, Pivot, train; ピボット1; 画像10]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×20列: trial_index, trial_role, planner_stage, improves_on, trial_goal, selection_reason, change_summary, status, model_type, use_date_features, use_cyclical_time_features, random_state, test_size, split_strategy, transform_target, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+        run_summary.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 3500行×12列: id, Age, Gender, T_Bil, D_Bil, ALP, ALT_GPT, AST_GOT, TP, Alb, AG_ratio, disease; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 20セル; 画像6]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 2674x726; 画像1]
+            date_feature_trend.png  [png; 1476x575; 画像1]
+            feature_correlation_heatmap.png  [png; 1388x1176; 画像1]
+            missing_rate_top20.png  [png; 1476x875; 画像1]
+            numeric_distribution_top6.png  [png; 2673x1326; 画像1]
+            target_distribution.png  [png; 875x576; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-09-02.docx  [docx; 表1]
+        会議録_2025-09-16.docx  [docx; 表1]
+        会議録_2025-09-30.docx  [docx; 表1]
+      報告資料/
+        報告資料_2025-09-02.docx  [docx]
+        報告資料_2025-09-16.docx  [docx]
+    06.報告書/
+      医療法人社団 恒一会 かえで総合病院_最終報告.pptx  [pptx; 18スライド; グラフ1; 版違い: 医療法人社団 恒一会 かえで総合病院_最終報告_old.pptx]
+      医療法人社団 恒一会 かえで総合病院_最終報告_old.pptx  [pptx; 18スライド; 版違い: 医療法人社団 恒一会 かえで総合病院_最終報告.pptx]
+  医療法人社団 蒼樹会 みなみ野女性医療センター/
+    00.提案/
+      提案書.pptx  [pptx; 14スライド]
+      糖尿病統計情報.docx  [docx; 表7]
+    01.契約/
+      契約書.docx  [docx; 表1]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: スケジュール管理表]
+    03.データ/
+      train.csv  [csv; 3000行×10列: index, Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: Sheet1, train]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×20列: trial_index, trial_role, planner_stage, improves_on, trial_goal, selection_reason, change_summary, status, model_type, use_date_features, use_cyclical_time_features, random_state, test_size, split_strategy, transform_target, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+        run_summary.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 3000行×10列: index, Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 20セル; 画像7]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 1176x426; 画像1]
+            date_feature_trend.png  [png; 1894x614; 画像1]
+            feature_correlation_heatmap.png  [png; 1294x1176; 画像1]
+            missing_rate_top20.png  [png; 1475x576; 画像1]
+            numeric_distribution_top6.png  [png; 2372x1176; 画像1]
+            overview_schema.png  [png; 1476x576; 画像1]
+            target_distribution.png  [png; 875x576; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-04-03.pdf  [pdf; 6ページ; スキャン6p]
+        会議録_2025-04-24.pdf  [pdf; 6ページ; スキャン6p]
+        会議録_2025-05-15.pdf  [pdf; 6ページ; スキャン6p]
+      報告資料/
+        報告資料_2025-04-03.pdf  [pdf; 5ページ; スキャン5p]
+        報告資料_2025-04-24.pdf  [pdf; 6ページ; スキャン6p]
+    06.報告書/
+      医療法人社団 蒼樹会 みなみ野女性医療センター_最終報告.pdf  [pdf; 15ページ; スキャン15p]
+  医療法人社団 蒼泉会 ひがし丘総合病院/
+    00.提案/
+      提案書.pptx  [pptx; 15スライド]
+    01.契約/
+      契約書.docx  [docx; 表2]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: WBS, マイルストーン, リソース配分, リスク管理]
+    03.データ/
+      train.csv  [csv; 1600行×8列: id, age, sex, bmi, children, smoker, region, charges; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: Sheet1, Sheet2, train; ピボット4]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×14列: trial_index, trial_role, improves_on, trial_goal, status, model_type, use_date_features, random_state, test_size, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 1600行×8列: id, age, sex, bmi, children, smoker, region, charges; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 21セル; 画像5]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            date_feature_trend.png  [png; 1176x425; 画像1]
+            feature_correlation_heatmap.png  [png; 1101x877; 画像1]
+            missing_rate_top20.png  [png; 1475x576; 画像1]
+            numeric_distribution_top6.png  [png; 2225x1116; 画像1]
+            target_distribution.png  [png; 1025x651; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-07-08.docx  [docx; 表1]
+        会議録_2025-07-22.docx  [docx; 表1]
+        会議録_2025-08-05.docx  [docx; 表1]
+      報告資料/
+        報告資料_2025-07-08.docx  [docx; 表9]
+        報告資料_2025-07-22.docx  [docx; 表2]
+    06.報告書/
+      医療法人社団 蒼泉会 ひがし丘総合病院_最終報告.pdf  [pdf; 18ページ]
+  株式会社東都人材プラットフォーム/
+    00.提案/
+      データサイエンス市場の未来予測.pdf  [pdf; 15ページ; スキャン15p]
+      データサイエンティスト調査.docx  [docx; 表3; EMF表1; 画像1]
+      提案書.pptx  [pptx; 16スライド]
+    01.契約/
+      契約書.docx  [docx; 表1]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: スケジュール]
+    03.データ/
+      train.csv  [csv; 11529行×10列: id, Gender, Age, Country, Education, Major, Profession, Industry, Experience, target; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: Sheet1, Sheet2, train; EMF表1; 画像1]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×20列: trial_index, trial_role, planner_stage, improves_on, trial_goal, selection_reason, change_summary, status, model_type, use_date_features, use_cyclical_time_features, random_state, test_size, split_strategy, transform_target, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+        run_summary.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 11529行×10列: id, Gender, Age, Country, Education, Major, Profession, Industry, Experience, target; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 20セル; 画像6]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 1773x2226; 画像1]
+            date_feature_trend.png  [png; 1894x614; 画像1]
+            feature_correlation_heatmap.png  [png; 1176x875; 画像1]
+            missing_rate_top20.png  [png; 1475x876; 画像1]
+            numeric_distribution_top6.png  [png; 1775x575; 画像1]
+            target_distribution.png  [png; 1175x726; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-08-18.docx  [docx; 表1; コメント1]
+        会議録_2025-09-08.docx  [docx; 表1]
+        会議録_2025-09-26.docx  [docx; 表1]
+      報告資料/
+        報告資料_2025-08-18.pdf  [pdf; 7ページ; スキャン7p]
+        報告資料_2025-09-08.pdf  [pdf; 9ページ; スキャン9p]
+    06.報告書/
+      株式会社東都人材プラットフォーム_最終報告.pptx  [pptx; 16スライド; グラフ1]
+  株式会社青嶺不動産アセットマネジメント/
+    00.提案/
+      old/
+        提案書.pptx  [pptx; 15スライド; 版違い: 提案書.pptx]
+      ニューヨーク不動産市場の最新動向調査.pdf  [pdf; 10ページ]
+      提案書.pptx  [pptx; 15スライド; 版違い: 提案書.pptx]
+    01.契約/
+      契約書.docx  [docx; 表4]
+    02.計画/
+      スケジュール_r1.xlsx  [xlsx; シート: スケジュール; 版違い: スケジュール_r2.xlsx]
+      スケジュール_r2.xlsx  [xlsx; シート: スケジュール; 版違い: スケジュール_r1.xlsx]
+    03.データ/
+      train.csv  [csv; 37751行×18列: id, BOROUGH, NEIGHBORHOOD, BUILDING CLASS CATEGORY, TAX CLASS AT PRESENT, BLOCK, LOT, BUILDING CLASS AT PRESENT, ZIP CODE, RESIDENTIAL UNITS, COMMERCIAL UNITS, TOTAL UNITS, LAND SQUARE FEET, GROSS SQUARE FEET, YEAR BUILT, TAX CLASS AT TIME OF SALE, BUILDING CLASS AT TIME OF SALE, SALE PRICE; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: Sheet2, Sheet1, train]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×20列: trial_index, trial_role, planner_stage, improves_on, trial_goal, selection_reason, change_summary, status, model_type, use_date_features, use_cyclical_time_features, random_state, test_size, split_strategy, transform_target, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+        run_summary.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 37751行×18列: id, BOROUGH, NEIGHBORHOOD, BUILDING CLASS CATEGORY, TAX CLASS AT PRESENT, BLOCK, LOT, BUILDING CLASS AT PRESENT, ZIP CODE, RESIDENTIAL UNITS, COMMERCIAL UNITS, TOTAL UNITS, LAND SQUARE FEET, GROSS SQUARE FEET, YEAR BUILT, TAX CLASS AT TIME OF SALE, BUILDING CLASS AT TIME OF SALE, SALE PRICE; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 20セル; 画像6]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 1176x575; 画像1]
+            date_feature_trend.png  [png; 1894x614; 画像1]
+            feature_correlation_heatmap.png  [png; 1680x1475; 画像1]
+            missing_rate_top20.png  [png; 1775x876; 画像1]
+            numeric_distribution_top6.png  [png; 1471x3576; 画像1]
+            target_distribution.png  [png; 2073x725; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-08-06.docx  [docx; 表1]
+        会議録_2025-08-26.docx  [docx; 表1]
+        会議録_2025-09-16.docx  [docx; 表1]
+      報告資料/
+        報告資料_2025-08-06.pdf  [pdf; 5ページ]
+        報告資料_2025-08-26.pdf  [pdf; 4ページ]
+    06.報告書/
+      株式会社青嶺不動産アセットマネジメント_最終報告.pptx  [pptx; 17スライド]
+  株式会社青潮モビリティサービス/
+    00.提案/
+      提案書.pptx  [pptx; 16スライド]
+    01.契約/
+      契約書.docx  [docx; 表3]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: WBSスケジュール_rev, WBSスケジュール]
+    03.データ/
+      train.tsv  [tsv; 8645行×15列: id, dteday, season, yr, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed, cnt; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: Sheet1, Sheet2, Sheet3, train; ピボット2; グラフ3]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×20列: trial_index, trial_role, planner_stage, improves_on, trial_goal, selection_reason, change_summary, status, model_type, use_date_features, use_cyclical_time_features, random_state, test_size, split_strategy, transform_target, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+        run_summary.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.tsv  [tsv; 8645行×15列: id, dteday, season, yr, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed, cnt; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 20セル; 画像6]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 1773x1776; 画像1]
+            date_feature_trend.png  [png; 1774x876; 画像1]
+            feature_correlation_heatmap.png  [png; 1659x1475; 画像1]
+            missing_rate_top20.png  [png; 1475x876; 画像1]
+            numeric_distribution_top6.png  [png; 2675x1176; 画像1]
+            target_distribution.png  [png; 1474x876; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-07-23.docx  [docx; 表1]
+        会議録_2025-08-06.docx  [docx; 表1]
+        会議録_2025-08-26.docx  [docx; 表1]
+      報告資料/
+        基礎分析.docx  [docx; グラフ2]
+        基礎分析.pptx  [pptx; 1スライド; EMF表1; 画像1]
+        報告資料_2025-07-23.docx  [docx]
+        報告資料_2025-08-06.docx  [docx]
+    06.報告書/
+      株式会社青潮モビリティサービス_最終報告.pdf  [pdf; 13ページ; スキャン13p]
+  株式会社青葉バイオメディカル機器/
+    00.提案/
+      提案書.pdf  [pdf; 15ページ; スキャン15p]
+    01.契約/
+      契約書.docx  [docx; 表1; 版違い: 契約書_draft.docx]
+      契約書_draft.docx  [docx; 表1; 版違い: 契約書.docx]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: WBS, マイルストーン・CP, リソース配分]
+    03.データ/
+      train.csv  [csv; 735行×33列: id, Age, Attrition, BusinessTravel, DailyRate, Department, DistanceFromHome, Education, EducationField, EnvironmentSatisfaction, Gender, HourlyRate, JobInvolvement, JobLevel, JobRole, JobSatisfaction, MaritalStatus, MonthlyIncome, NumCompaniesWorked, Over18; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: Pivot, train; ピボット1]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×20列: trial_index, trial_role, planner_stage, improves_on, trial_goal, selection_reason, change_summary, status, model_type, use_date_features, use_cyclical_time_features, random_state, test_size, split_strategy, transform_target, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+        run_summary.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 735行×33列: id, Age, Attrition, BusinessTravel, DailyRate, Department, DistanceFromHome, Education, EducationField, EnvironmentSatisfaction, Gender, HourlyRate, JobInvolvement, JobLevel, JobRole, JobSatisfaction, MaritalStatus, MonthlyIncome, NumCompaniesWorked, Over18; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 6セル]
+        pyproject.toml  [toml]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+    05.会議/
+      会議録/
+        会議録_2025-06-23.docx  [docx; 表1]
+        会議録_2025-07-11.docx  [docx; 表1]
+        会議録_2025-07-25.docx  [docx; 表1]
+      報告資料/
+        報告資料_2025-06-23.docx  [docx; 表5]
+        報告資料_2025-07-11.docx  [docx; 表8]
+    06.報告書/
+      株式会社青葉バイオメディカル機器_最終報告.pptx  [pptx; 21スライド]
+  白峰信用リスク評価株式会社/
+    00.提案/
+      提案書.pptx  [pptx; 19スライド; 版違い: 提案書old.pptx]
+      提案書old.pptx  [pptx; 19スライド; 画像1; 版違い: 提案書.pptx]
+    01.契約/
+      契約書.docx  [docx; 表1]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: WBS, マイルストーン, リソース計画, リスク・ルール]
+    03.データ/
+      train.csv  [csv; 7352行×66列: id, Attr1, Attr2, Attr3, Attr4, Attr5, Attr6, Attr7, Attr8, Attr9, Attr10, Attr11, Attr12, Attr13, Attr14, Attr15, Attr16, Attr17, Attr18, Attr19; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: Sheet5, Sheet3, Sheet2, Sheet1, train; ピボット2]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×11列: trial_index, status, model_type, use_date_features, random_state, test_size, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+      analysis_project/
+        README.md  [md]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 7352行×66列: id, Attr1, Attr2, Attr3, Attr4, Attr5, Attr6, Attr7, Attr8, Attr9, Attr10, Attr11, Attr12, Attr13, Attr14, Attr15, Attr16, Attr17, Attr18, Attr19; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 22セル; 画像7; 版違い: 01_eda_old.ipynb]
+          01_eda_old.ipynb  [ipynb; 22セル; 画像7; 版違い: 01_eda.ipynb]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 2675x738; 画像1]
+            date_feature_trend.png  [png; 1474x726; 画像1]
+            feature_correlation_heatmap.png  [png; 1665x1468; 画像1]
+            missing_rate_top20.png  [png; 1474x1176; 画像1]
+            numeric_distribution_top6.png  [png; 2675x1473; 画像1]
+            target_distribution.png  [png; 1025x726; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-05-13.pdf  [pdf; 4ページ; スキャン4p]
+        会議録_2025-05-27.pdf  [pdf; 5ページ; スキャン5p]
+        会議録_2025-06-17.pdf  [pdf; 4ページ; スキャン4p]
+        会議録_2025-07-15.pdf  [pdf; 4ページ; スキャン4p]
+      報告資料/
+        報告資料_2025-05-13.pdf  [pdf; 3ページ; スキャン3p]
+        報告資料_2025-05-27.pdf  [pdf; 4ページ; スキャン4p]
+        報告資料_2025-06-17.pdf  [pdf; 4ページ; スキャン4p]
+    06.報告書/
+      白峰信用リスク評価株式会社_最終報告.pptx  [pptx; 19スライド; グラフ1]
+  青葉与信マネジメント株式会社/
+    00.提案/
+      提案書_v1.pptx  [pptx; 15スライド; 版違い: 提案書_v2.pptx, 提案書_v3.pptx]
+      提案書_v2.pptx  [pptx; 15スライド; 版違い: 提案書_v1.pptx, 提案書_v3.pptx]
+      提案書_v3.pptx  [pptx; 15スライド; 版違い: 提案書_v1.pptx, 提案書_v2.pptx]
+    01.契約/
+      契約書.docx  [docx; 表1]
+    02.計画/
+      スケジュール.xlsx  [xlsx; シート: sheet1, Sheet2, Sheet3]
+    03.データ/
+      train.csv  [csv; 17500行×10列: id, loan_amnt, term, interest_rate, grade, employment_length, purpose, credit_score, application_type, loan_status; 大規模(要run_python)]
+      train.xlsx  [xlsx; シート: 回帰分析, 標準化, 抽出, train]
+      カラム説明.md  [md]
+    04.分析/
+      analysis_outputs/
+        experiments/
+          leaderboard.csv  [csv; 10行×12列: trial_index, status, model_type, n_estimators, use_date_features, random_state, test_size, task_type, primary_metric, primary_value, secondary_metric, secondary_value]
+        metrics.json  [json]
+      analysis_project/
+        README.md  [md]
+        artifacts/
+          analysis_outputs/
+            metrics.json  [json]
+            run_summary.json  [json]
+            train_preview.csv  [csv; 200行×10列: id, loan_amnt, term, interest_rate, grade, employment_length, purpose, credit_score, application_type, loan_status; 大規模(要run_python)]
+        configs/
+          project_config.json  [json]
+        data/
+          train.csv  [csv; 17500行×10列: id, loan_amnt, term, interest_rate, grade, employment_length, purpose, credit_score, application_type, loan_status; 大規模(要run_python)]
+          カラム説明.md  [md]
+        notebooks/
+          01_eda.ipynb  [ipynb; 20セル; 画像6]
+        pyproject.toml  [toml]
+        reports/
+          figures/
+            categorical_distribution_top3.png  [png; 2674x726; 画像1]
+            date_feature_trend.png  [png; 1176x575; 画像1]
+            feature_correlation_heatmap.png  [png; 1002x877; 画像1]
+            missing_rate_top20.png  [png; 1474x876; 画像1]
+            numeric_distribution_top6.png  [png; 2675x1476; 画像1]
+            target_distribution.png  [png; 875x726; 画像1]
+        requirements.txt  [txt]
+        scripts/
+          bootstrap_env.py  [py]
+          run_train.py  [py]
+        src/
+          __init__.py  [py]
+          common.py  [py]
+          eda.py  [py]
+          evaluate.py  [py]
+          features.py  [py]
+          infer.py  [py]
+          modeling.py  [py]
+          preprocess.py  [py]
+        uv.lock  [lock; 大規模(要run_python)]
+    05.会議/
+      会議録/
+        会議録_2025-04-09.pdf  [pdf; 7ページ]
+        会議録_2025-04-29.pdf  [pdf; 10ページ]
+        会議録_2025-05-27.pdf  [pdf; 9ページ]
+      報告資料/
+        報告資料_2025-04-09.docx  [docx]
+        報告資料_2025-04-29.docx  [docx]
+    06.報告書/
+      old/
+        青葉与信マネジメント株式会社_最終報告.pptx  [pptx; 14スライド; グラフ1; 版違い: 青葉与信マネジメント株式会社_最終報告.pptx]
+      青葉与信マネジメント株式会社_最終報告.pptx  [pptx; 15スライド; グラフ1; 版違い: 青葉与信マネジメント株式会社_最終報告.pptx]
+社内管理/
+  データアステル社内管理_決裁基準.md  [md]
+  データアステル社内規定_パスワード導出規則.docx  [docx]
+  座席表.pptx  [pptx; 1スライド; 画像1]
+  社内用語集.docx  [docx; 表9]

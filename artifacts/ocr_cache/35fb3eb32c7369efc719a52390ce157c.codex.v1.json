@@ -1,0 +1,13 @@
+{
+ "md5": "35fb3eb32c7369efc719a52390ce157c",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "- タイトル：欠損率 上位20列\n- 横軸：欠損率（%）\n- 縦軸：列名\n- 列名：\n  - id\n  - dteday\n  - season\n  - yr\n  - mnth\n  - hr\n  - holiday\n  - weekday\n  - workingday\n  - weathersit\n  - temp\n  - atemp\n  - hum\n  - windspeed\n  - cnt",
+ "figure_description": "欠損率を示すグラフ。タイトルは「欠損率 上位20列」。横軸ラベルは「欠損率（%）」で、目盛りは -0.04、-0.02、0.00、0.02、0.04。縦軸ラベルは「列名」で、上から id、dteday、season、yr、mnth、hr、holiday、weekday、workingday、weathersit、temp、atemp、hum、windspeed、cnt。凡例はない。データを示す棒・点・線および数値ラベルは表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 13.71,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell8_img1.png"
+}

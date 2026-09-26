@@ -1,0 +1,38 @@
+{
+ "md5": "830c74db874832f8229fddaa5d981f79",
+ "question": "右側の枠「株式会社データアステル」の中に「PM：伊藤 翔太 / リードDS：鈴木 美咲」と書かれていますか？",
+ "engine": "claude_cli",
+ "prompt_version": "v4",
+ "scope": "画像全体（左右2つの枠のうち、右側の枠「株式会社データアステル (Analytics/Model Owner)」）",
+ "reference": "右側の枠「株式会社データアステル」",
+ "facing": "",
+ "candidates": [
+  {
+   "label": "株式会社データアステル (Analytics/Model Owner) の枠内テキスト「PM：伊藤 翔太 / リードDS：鈴木 美咲」",
+   "binding": "右側の枠の見出し「株式会社データアステル (Analytics/Model Owner)」の直下、区切り線の上に記載されたテキスト行。引出線はなく、枠の境界内に含まれることで対応付け",
+   "sector": "unknown",
+   "relations": [
+    "右側の枠「株式会社データアステル」に包含",
+    "見出し「株式会社データアステル (Analytics/Model Owner)」の直下に位置",
+    "水平区切り線の上に位置"
+   ],
+   "matches_question": true,
+   "evidence": "右側の枠内に「PM：伊藤 翔太 / リードDS：鈴木 美咲」と明記されており、質問の文言と完全一致する"
+  },
+  {
+   "label": "株式会社青潮モビリティサービス (Data/Business Owner) の枠内テキスト「担当窓口：高山 拓海 様」",
+   "binding": "左側の枠の見出し直下に記載されたテキスト行。枠の境界内に含まれることで対応付け",
+   "sector": "unknown",
+   "relations": [
+    "左側の枠「株式会社青潮モビリティサービス」に包含",
+    "右側の枠には含まれない"
+   ],
+   "matches_question": false,
+   "evidence": "「PM：伊藤 翔太 / リードDS：鈴木 美咲」は左側の枠には記載されておらず、左側は「担当窓口：高山 拓海 様」である"
+  }
+ ],
+ "exhaustive": true,
+ "confident": true,
+ "error": null,
+ "latency_sec": 19.39
+}

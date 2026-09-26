@@ -1,0 +1,25 @@
+{
+ "doc_id": "f26f43fb83a8",
+ "relpath": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/data/カラム説明.md",
+ "mount": "",
+ "project": "株式会社東都人材プラットフォーム",
+ "category": "04.分析",
+ "filetype": "md",
+ "md5": "55e8429284253fcdf8ddd43fdbac9ac9",
+ "pages": [
+  {
+   "no": 1,
+   "text": "### train.csv\n\nid: index<br>\nfeatures: Gender,Age,Country,Education,Major,Profession,Industry,Experience<br>\ntarget: 収入クラス（予測ターゲット）<br>\n0,less than 10k<br>\n1,between 10k and 30k<br>\n2,between 30k and 50k<br>\n3,between 50k and 80k<br>\n4,between 80k and 125k<br>\n5,more than 100k<br>",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 281,
+  "n_lines": 11
+ },
+ "error": null,
+ "warnings": []
+}

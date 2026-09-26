@@ -1,0 +1,28 @@
+{
+ "doc_id": "85d2d0232487",
+ "relpath": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png",
+ "mount": "",
+ "project": "医療法人社団 蒼樹会 みなみ野女性医療センター",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "2641119139c959a4a41c0e3d0addb3af",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png (1294x1176) md5:26411191 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n### 数値特徴量の相関ヒートマップ\n\n|  | index | Pregnancies | Glucose | BloodPressure | SkinThickness | Insulin | BMI | DiabetesPedigreeFunction | Age | Outcome |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| index | [c:白]1.00[/c] | 0.00 | 0.04 | 0.02 | -0.01 | 0.00 | -0.02 | 0.03 | 0.02 | 0.01 |\n| Pregnancies | 0.00 | [c:白]1.00[/c] | 0.07 | -0.01 | 0.00 | -0.03 | 0.01 | -0.03 | 0.42 | 0.20 |\n| Glucose | 0.04 | 0.07 | [c:白]1.00[/c] | 0.01 | 0.02 | 0.01 | 0.01 | 0.05 | 0.04 | 0.06 |\n| BloodPressure | 0.02 | -0.01 | 0.01 | [c:白]1.00[/c] | 0.04 | 0.04 | 0.24 | 0.10 | 0.02 | 0.05 |\n| SkinThickness | -0.01 | 0.00 | 0.02 | 0.04 | [c:白]1.00[/c] | 0.17 | 0.09 | 0.14 | 0.03 | 0.00 |\n| Insulin | 0.00 | -0.03 | 0.01 | 0.04 | 0.17 | [c:白]1.00[/c] | 0.17 | 0.22 | 0.05 | 0.08 |\n| BMI | -0.02 | 0.01 | 0.01 | 0.24 | 0.09 | 0.17 | [c:白]1.00[/c] | 0.07 | 0.08 | 0.24 |\n| DiabetesPedigreeFunction | 0.03 | -0.03 | 0.05 | 0.10 | 0.14 | 0.22 | 0.07 | [c:白]1.00[/c] | 0.07 | 0.10 |\n| Age | 0.02 | 0.42 | 0.04 | 0.02 | 0.03 | 0.05 | 0.08 | 0.07 | [c:白]1.00[/c] | 0.27 |\n| Outcome | 0.01 | 0.20 | 0.06 | 0.05 | 0.00 | 0.08 | 0.24 | 0.10 | 0.27 | [c:白]1.00[/c] |\n[図の説明] 種類：数値特徴量同士の相関係数を示す正方形のヒートマップ。横軸・縦軸ともに、index、Pregnancies、Glucose、BloodPressure、SkinThickness、Insulin、BMI、DiabetesPedigreeFunction、Age、Outcomeの順。横軸ラベルは縦向き。各セル内に小数第2位までの数値ラベルがあり、行列は対角線を挟んで対称。対角セルはすべて1.00で濃い赤に塗られ、文字は白。右側に縦型のカラーバーがあり、目盛りは0.0、0.2、0.4、0.6、0.8、1.0。色は下側の淡い青灰色から灰色・薄い桃色・赤を経て、上側の濃い赤へ連続的に変化する。負の値（-0.03、-0.02、-0.01）は淡い青灰色、0.00は明るい灰色、0.01～0.10は明るい灰色からごく薄い桃色、0.14・0.17・0.20・0.22・0.24・0.27は薄い桃色から淡いサーモン色、0.42はサーモン色、1.00は濃い赤で塗られている。最大の非対角値はPregnanciesとAgeの0.42。Outcomeとの相関は、index 0.01、Pregnancies 0.20、Glucose 0.06、BloodPressure 0.05、SkinThickness 0.00、Insulin 0.08、BMI 0.24、DiabetesPedigreeFunction 0.10、Age 0.27、Outcome自身1.00。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1294,
+  "height": 1176,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

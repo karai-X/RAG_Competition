@@ -1,0 +1,13 @@
+{
+ "md5": "42689619d00247065783ce755ae4242e",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "数値特徴量の相関ヒートマップ\n\n相関を計算できる数値列が不足しています",
+ "figure_description": "数値特徴量の相関ヒートマップ。相関を計算できる数値列が不足しているため、ヒートマップ本体、軸ラベル、凡例、目盛り、数値は表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 8.11,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell16_img5.png"
+}

@@ -1,0 +1,25 @@
+{
+ "doc_id": "ec4468381877",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_outputs/run_summary.json",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "01d1fd896a9d4ed4b65b8563db4ddf8f",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"target_column\": \"SALE PRICE\",\n  \"date_column\": \"TAX CLASS AT TIME OF SALE\",\n  \"task_type\": \"regression\",\n  \"use_date_features\": true,\n  \"use_numeric_interactions\": true,\n  \"use_cyclical_time_features\": true,\n  \"use_ordered_category_features\": false,\n  \"group_rare_categories\": false,\n  \"rare_category_min_count\": 20,\n  \"use_categorical_frequency_features\": false,\n  \"categorical_frequency_min_unique\": 3,\n  \"categorical_frequency_max_unique\": 200,\n  \"use_class_target_encoding\": false,\n  \"class_target_encoding_min_unique\": 2,\n  \"class_target_encoding_max_unique\": 100,\n  \"class_target_encoding_smoothing\": 20.0,\n  \"drop_original_categorical_after_target_encoding\": false,\n  \"tune_class_decision_weights\": false,\n  \"model_type\": \"random_forest\",\n  \"model_params\": {},\n  \"split_strategy\": \"time_ordered\",\n  \"split_ordering_basis\": \"date_column:TAX CLASS AT TIME OF SALE\",\n  \"transform_target\": \"none\",\n  \"validation_size\": 0.1,\n  \"early_stopping\": true,\n  \"early_stopping_patience\": 2,\n  \"output_dir\": \"artifacts/analysis_outputs\",\n  \"selected_feature_count\": 19,\n  \"excluded_feature_columns\": [\n    {\n      \"column\": \"id\",\n      \"reason\": \"identifier_like_name\"\n    },\n    {\n      \"column\": \"NEIGHBORHOOD\",\n      \"reason\": \"high_cardinality_categorical\",\n      \"unique_count\": 251,\n      \"threshold\": 100\n    },\n    {\n      \"column\": \"BUILDING CLASS AT PRESENT\",\n      \"reason\": \"high_cardinality_categorical\",\n      \"unique_count\": 123,\n      \"threshold\": 100\n    },\n    {\n      \"column\": \"BUILDING CLASS AT TIME OF SALE\",\n      \"reason\": \"high_cardinality_categorical\",\n      \"unique_count\": 121,\n      \"threshold\": 100\n    }\n  ],\n  \"categorical_unique_limit\": 100,\n  \"ordered_feature_columns\": [],\n  \"class_target_encoding\": [],\n  \"class_decision_tuning\": {}\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 1769,
+  "n_lines": 59
+ },
+ "error": null,
+ "warnings": []
+}

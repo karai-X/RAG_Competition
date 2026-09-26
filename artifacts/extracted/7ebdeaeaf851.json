@@ -1,0 +1,28 @@
+{
+ "doc_id": "7ebdeaeaf851",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/target_distribution.png",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "5ad924e05ae8b3b9274631f7ef93cea5",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/target_distribution.png (875x726) md5:5ad924e0 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n### 目的変数の分布\n\n- 縦軸：件数\n- 横軸：目的変数\n- 目的変数 0：13741\n- 目的変数 1：3759\n[図の説明] 縦棒グラフ。タイトルは「目的変数の分布」。横軸ラベルは「目的変数」で、項目は「0」「1」。縦軸ラベルは「件数」で、目盛りは0、2000、4000、6000、8000、10000、12000、14000。目的変数「0」の棒は緑青色で塗られ、値は13741。目的変数「1」の棒はサーモン色で塗られ、値は3759。各棒の上部に数値ラベルが表示されている。凡例はない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/target_distribution.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 875,
+  "height": 726,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "aa2d2b8496faada5c09e99ac812a08e6",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "図表",
+ "markdown": "# **分析結果② 最終代表モデルの評価**\n\n## **最終モデルKPIスコアカード**\n\n**最終代表モデル: hist_gradient_boosting**\n\n| KPI | スコア |\n|---|---:|\n| **Accuracy** | **0.8083** |\n| **F1_macro** | [c:赤茶色]**0.6977**[/c] |\n| **ROC-AUC** | **0.8101** |\n| **Brier score** | **0.1354** |\n| **Precision@Top10%** | **0.7500** |\n\n## **学習/検証挙動（過学習の兆候なし）**\n\n| 指標 | Train | Validation |\n|---|---:|---:|\n| **Accuracy** | **0.885** | **0.876** |\n| **F1_macro** | **0.820** | **0.808** |\n\n**両指標において学習データと検証データのスコアが近似しており、安定した汎化性能を確認。**\n\n書式・配色注記：\n\n- KPIスコアカード全体は、薄い灰色の枠線で囲まれた白色系の長方形内に配置されている。\n- 「F1_macro」のスコア「0.6977」のみ赤茶色の文字で、その他のKPI名・数値は黒色の太字。\n- グラフのTrainの棒は濃い灰色、Validationの棒は薄い灰色で塗られている。\n- AccuracyのTrainおよびF1_macroのTrainの数値ラベルは白色文字、Validationの数値ラベルは黒色文字。",
+ "figure_description": "右側に横棒グラフ「学習/検証挙動（過学習の兆候なし）」がある。縦方向のカテゴリは上からAccuracy、F1_macro。各カテゴリにTrainとValidationの2本の横棒があり、Trainは濃い灰色、Validationは薄い灰色で塗られている。凡例枠はなく、各棒の内部に系列名と値が直接表示されている。AccuracyはTrain 0.885、Validation 0.876。F1_macroはTrain 0.820、Validation 0.808。横軸の数値ラベルおよび目盛り値は表示されていない。薄い縦グリッド線が表示されている。両指標ともTrainとValidationの棒の長さが近い。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 26.65,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/06.報告書/医療法人社団 蒼樹会 みなみ野女性医療センター_最終報告.pdf p6"
+}

@@ -1,0 +1,25 @@
+{
+ "doc_id": "7197c125e4c9",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/configs/project_config.json",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "164b3fb40dae7af37668b9f89861575d",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"data_csv\": \"data/train.csv\",\n  \"column_doc\": \"data/カラム説明.md\",\n  \"target_column\": \"charges\",\n  \"date_column\": null,\n  \"use_date_features\": true,\n  \"use_numeric_interactions\": true,\n  \"model_type\": \"random_forest\",\n  \"model_params\": {\n    \"n_estimators\": 500,\n    \"max_depth\": 12,\n    \"min_samples_leaf\": 2,\n    \"class_weight\": \"balanced\",\n    \"max_features\": \"sqrt\"\n  },\n  \"output_dir\": \"artifacts/analysis_outputs\",\n  \"random_state\": 42,\n  \"test_size\": 0.2,\n  \"feature_plan\": {\n    \"exclude_identifier_like_columns\": true,\n    \"identifier_exact_names\": [\n      \"id\",\n      \"uuid\",\n      \"code\"\n    ],\n    \"identifier_prefixes\": [\n      \"id_\",\n      \"uuid_\",\n      \"code_\"\n    ],\n    \"identifier_suffixes\": [\n      \"_id\",\n      \"_uuid\",\n      \"_code\"\n    ],\n    \"categorical_encoding\": \"one_hot\",\n    \"categorical_unique_limit\": 50,\n    \"exclude_high_cardinality_at_or_above_limit\": true,\n    \"numeric_imputation\": \"median\",\n    \"categorical_imputation\": \"most_frequent\",\n    \"date_features_enabled\": false,\n    \"date_feature_source_column\": \"\"\n  },\n  \"analysis_spec_path\": \"artifacts/06a_analysis_spec.json\",\n  \"task_type\": \"classification\"\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 1148,
+  "n_lines": 47
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "57f7e426c3bb266c058f4dd65435c57f",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "欠損率 上位20項目\n\n欠損は確認されませんでした",
+ "figure_description": "欠損率の上位20項目を示す領域だが、欠損がないためグラフは描画されていない。軸ラベル、凡例、目盛り、数値ラベルはない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 11.82,
+ "source": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+}

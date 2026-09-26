@@ -1,0 +1,13 @@
+{
+ "md5": "883ed3eb8078b45488df60da7d5ba864",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### タイトル\n\n数値特徴量の相関ヒートマップ\n\n### 横軸目盛（左から）\n\nid / season / yr / mnth / hr / holiday / weekday / workingday / weathersit / temp / atemp / hum / windspeed / cnt\n\n### 縦軸目盛（上から）\n\nid / season / yr / mnth / hr / holiday / weekday / workingday / weathersit / temp / atemp / hum / windspeed / cnt\n\n### カラーバー目盛（上から）\n\n1.0 / 0.8 / 0.6 / 0.4 / 0.2 / 0.0 / -0.2",
+ "figure_description": "数値特徴量の相関を示す正方形のヒートマップ。横軸と縦軸には同じ14項目が並び、横軸ラベルは縦向きに表示されている。軸タイトルおよびセル内の数値ラベルはない。右側に縦型カラーバーがあり、上端側の濃赤から赤・橙・淡橙・灰白を経て、下端側の青へ連続的に変化する。表示目盛は上から1.0、0.8、0.6、0.4、0.2、0.0、-0.2。1.0は濃赤、0.0付近は灰白、-0.2付近は青で示されている。yrの行と列はすべて白く、値や色は表示されていない。yr以外の同一項目同士の対角セルは濃赤で、id–mnthおよびtemp–atempも濃赤。id–season、season–mnthは赤。hr–cnt、temp–cnt、atemp–cnt、weathersit–humは橙系。holiday–workingday、hr–hum、weathersit–cnt、hum–windspeed、hum–cntは青系。id–windspeed、season–windspeed、mnth–windspeed、weathersit–temp、weathersit–atempも青または青灰色。その他のセルは主に灰白、淡橙、青灰色で塗られている。配色は対角線を挟んで対称になっている。各セルの具体的な数値は画像内に記載されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 77.81,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell16_img5.png"
+}

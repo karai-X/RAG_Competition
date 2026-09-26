@@ -1,0 +1,28 @@
+{
+ "doc_id": "f1323bd19388",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "dc13302a14b6f4bc6d7cb1d75a5a92d9",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1775x876) md5:dc13302a — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\nタイトル：欠損率 上位20列\n\n縦軸ラベル：列名\n\n横軸ラベル：欠損率 (%)\n\n項目：\n- GROSS SQUARE FEET：35.9%\n- LAND SQUARE FEET：35.1%\n[図の説明] 横向き棒グラフ。タイトルは「欠損率 上位20列」。縦軸ラベルは「列名」で、上から「GROSS SQUARE FEET」「LAND SQUARE FEET」の2項目。横軸ラベルは「欠損率 (%)」で、表示されている目盛りは0、5、10、15、20、25、30、35。GROSS SQUARE FEETの欠損率は35.9%、LAND SQUARE FEETの欠損率は35.1%。両項目の棒は赤橙色で塗られている。薄い灰色のグリッド線がある。凡例はない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1775,
+  "height": 876,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

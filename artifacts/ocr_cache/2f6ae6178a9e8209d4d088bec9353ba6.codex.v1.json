@@ -1,0 +1,13 @@
+{
+ "md5": "2f6ae6178a9e8209d4d088bec9353ba6",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "その他",
+ "markdown": "カテゴリ列は見つかりませんでした",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 5.36,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell12_img4.png"
+}

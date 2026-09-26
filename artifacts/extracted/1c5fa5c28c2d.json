@@ -1,0 +1,28 @@
+{
+ "doc_id": "1c5fa5c28c2d",
+ "relpath": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/date_feature_trend.png",
+ "mount": "",
+ "project": "株式会社青潮モビリティサービス",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "b48c734579393f42e1e971163c5dc443",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/date_feature_trend.png (1774x876) md5:b48c7345 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n- タイトル：dteday による時系列推移\n- 縦軸：平均値\n- 横軸：日付\n[図の説明] 時系列の折れ線グラフ。青色の1本の折れ線で推移を示している。凡例および各データ点の数値ラベルはない。横軸ラベルは「日付」で、表示目盛りは「2011-01」「2011-03」「2011-05」「2011-07」「2011-09」「2011-11」「2012-01」。縦軸ラベルは「平均値」で、表示目盛りは「50」「100」「150」「200」「250」。折れ線は2011年1月から春にかけて上昇し、夏ごろに高い水準となった後、秋から年末にかけて低下している。期間中には複数の急な上下動がある。背景には灰色の縦横グリッド線が表示されている。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1774,
+  "height": 876,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

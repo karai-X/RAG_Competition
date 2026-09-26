@@ -83,16 +83,40 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 │   │   └── chain.py        切り詰めない完全経路のJSONL記録
 │   └── submit/             回答CSVの形式検証とzip化
 ├── portfolio/              解説ページ（GitHub Pages で公開。100問の記録を同梱）
-├── share/共有ドライブ/       データソース。ここだけを読む
-├── artifacts/              抽出・OCR・索引の成果物
-├── logs/                   回答と経路
-└── jobs/                   CLI前処理の状態
+├── share/共有ドライブ/       データソース。ここだけを読む（同梱）
+├── artifacts/              抽出・OCR・索引の成果物（前処理済みのものを同梱）
+├── logs/                   回答と経路（.gitignore 対象）
+└── jobs/                   CLI前処理の状態（.gitignore 対象）
 ```
 
-`share/` `artifacts/` `logs/` `jobs/` `.env` は `.gitignore` の対象です。
-リポジトリをクローンしただけでは資料も索引も入っていないため、
-CLIを動かすには資料の配置と前処理が要ります。
-配布するときは前処理を済ませた `artifacts/` と `share/` を同梱します（下の「配布」を参照）。
+資料（`share/`）と前処理済みの成果物（`artifacts/`）はリポジトリに同梱しています。
+クローンして「セットアップ」を済ませれば、前処理をせずに Web UI から質問できます。
+同梱しないのは `.env`（APIキー）、`logs/`、`jobs/`、`artifacts/embed_cache/`（前処理をやり直すときだけ使う埋め込みのキャッシュ）です。
+資料を含むため、リポジトリは約310MBあります。
+
+---
+
+## クイックスタート — clone して質問するまで
+
+資料と前処理済みの索引は同梱しているので、Gemini の APIキーがあれば前処理なしで質問できます（Windows）。
+
+```powershell
+winget install --exact --id astral-sh.uv   # uv が無ければ。入れたら PowerShell を開き直す
+git clone https://github.com/<ユーザー名>/<リポジトリ名>.git
+cd <リポジトリ名>
+uv sync --frozen                           # Python 3.13.3 と依存関係をそろえる
+uv run streamlit run streamlit_app.py      # → http://127.0.0.1:8501/
+```
+
+1. 「設定」画面で Gemini APIキーを入力して保存する。
+2. 画像読み取りエンジンを選ぶ。既定は Claude Code CLI（サブスクリプション）で、`claude` にログイン済みならそのまま使える。
+   Codex CLI も選べる（どちらも APIキーでの従量課金に切り替えられる）。
+   どちらも使わない場合は「Gemini」を選ぶと、同じ Gemini の APIキーで動く。
+   Claude Code / Codex のインストールとログインは、下の「セットアップ」の1〜2を参照。
+3. 「質問する」画面で質問を入力して実行する。最初の1問は、索引の読み込みと、
+   密ベクトル・リランカのモデルのダウンロード（Hugging Face）に時間がかかる。
+
+前処理をやり直す場合や、Codex / Claude Code を使う場合は、下の「セットアップ」を参照してください。
 
 ---
 
@@ -104,6 +128,8 @@ Windowsで動かします。PowerShellを開いてリポジトリのフォルダ
 ### 1. 必要なCLIのインストール
 
 環境管理に `uv`、画像OCRにCodex CLI、回答時の画像検証にClaude CLIを使います。
+Codex CLI は前処理（画像OCR）をやり直すときだけ要ります。
+Claude CLI は、画像読み取りエンジンを Gemini にするなら要りません。
 Claude CLIがWindowsで使用するGit for Windowsも同時に用意します。
 
 ```powershell
@@ -160,14 +186,17 @@ Codex CLIとClaude CLIをサブスクリプションで使う場合、キーは�
 
 ## 使い方
 
-### 1. 資料を配置する
+### 1. 資料
 
-データソースとして読むのは次の2フォルダだけです。
+データソースとして読むのは次の2フォルダだけです。どちらもリポジトリに同梱しています。
 
 - `share/共有ドライブ/プロジェクト/` — 案件フォルダ
 - `share/共有ドライブ/社内管理/` — 横断参照フォルダ
 
 ### 2. 前処理
+
+同梱の `artifacts/` は前処理済みなので、そのまま質問できます。
+資料を追加・変更したときだけ、次を実行します。
 
 ```powershell
 uv run python rag_cli.py preprocess                  # 全資料
@@ -230,15 +259,20 @@ uv run streamlit run streamlit_app.py    # → http://127.0.0.1:8501/
 
 ## 配布
 
-前処理を済ませた状態で配布します。受け取った側では前処理は不要です。
+リポジトリそのものが、前処理を済ませた配布物です。受け取った側では前処理は不要です。
 
-| 同梱する | 同梱しない |
+| リポジトリに入っている | 入っていない |
 | --- | --- |
-| リポジトリ一式、`artifacts/`（抽出・OCR・索引）、`share/共有ドライブ/`（資料） | `.env`（APIキー）、`.venv/`、`checkpoints.sqlite*` |
+| コード一式、`share/共有ドライブ/`（資料）、`artifacts/`（抽出・OCR・索引） | `.env`（APIキー）、`.venv/`、`logs/`、`jobs/`、`artifacts/embed_cache/` |
 
-`logs/` は任意です。`logs/csv-20260830-072745/` を同梱すると、100問の記録の画面で切り詰めない完全な経路を読めます。
 受け取った側は「セットアップ」の1〜3を済ませてから Web UI を起動し、設定画面で APIキーを入力します。
-初回の質問では、カタログと検索索引の読み込みに数十秒かかります。
+初回の質問では、カタログと検索索引の読み込みと、密ベクトル・リランカのモデルのダウンロードに時間がかかります。
+
+- `share/` と `artifacts/` は `.gitattributes` で改行コードの変換を止めています。
+  変換されるとファイルの md5 が変わり、前処理の台帳と食い違うためです。
+- 暗号化ファイル2つの抽出結果は、前処理直後の状態（本文を読めず、decrypt で開くよう案内する状態）で入っています。
+- `logs/` は入れていません。100問の記録の画面は、同梱の要約版（`portfolio/data/questions.js`）を表示します。
+  `logs/csv-20260830-072745/` を置くと、切り詰めない完全な経路を読めます。
 
 ---
 
@@ -340,7 +374,7 @@ Codex CLIには `--ignore-user-config` を渡すため、利用者の設定フ�
 
 ## 注意
 
-- 対象のコーパスと質問は、**架空の企業・案件で構成された評価用データ**です。
+- 同梱のコーパスと質問は、**架空の企業・案件で構成された評価用データ**です。
 - 回答経路の画面は実行の記録を表示するだけで、回答の正誤判定は含みません。
 - `.env` は `.gitignore` 対象です。APIキーをコミットしないでください。
 
@@ -349,6 +383,6 @@ Codex CLIには `--ignore-user-config` を渡すため、利用者の設定フ�
 ## ライセンス
 
 コードは [MIT License](LICENSE) です。
-ただし、`portfolio/data/` と `portfolio/materials/` に含まれる質問文・資料の抜粋・資料の画像は、
+ただし、`share/` の資料、そこから作った `artifacts/`、`portfolio/data/` と `portfolio/materials/` に含まれる質問文・資料の抜粋・資料の画像は、
 [SIGNATE「AI Engineering Challenge ～煩雑な社内ドライブをハックせよ～」](https://user.competition.signate.jp/ja/competition/detail/?competition=098a4365f4514c2fa197d4e16548b3bb)
 で提供されたデータに由来するもので、MIT License の対象外です。

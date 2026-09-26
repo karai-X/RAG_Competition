@@ -1,0 +1,13 @@
+{
+ "md5": "d8611d8bdc65d8d12bff80bd720c353d",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### 目的変数の分布\n\n- 縦軸：件数\n- 横軸：目的変数\n- 目的変数 0：13741\n- 目的変数 1：3759",
+ "figure_description": "縦棒グラフ。タイトルは「目的変数の分布」。横軸ラベルは「目的変数」で、項目は「0」「1」。縦軸ラベルは「件数」で、目盛りは0、2000、4000、6000、8000、10000、12000、14000。目的変数「0」の棒は緑青色で塗られ、値は13741。目的変数「1」の棒はサーモン色で塗られ、値は3759。各棒の上部に数値ラベルが表示されている。凡例はない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 14.42,
+ "source": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/target_distribution.png"
+}

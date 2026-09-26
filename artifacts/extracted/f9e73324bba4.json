@@ -1,0 +1,40 @@
+{
+ "doc_id": "f9e73324bba4",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_outputs/experiments/leaderboard.csv",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "csv",
+ "md5": "eeed9edc3cf373faa768db99fcf83110",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| trial_index | status | model_type | n_estimators | use_date_features | random_state | test_size | task_type | primary_metric | primary_value | secondary_metric | secondary_value |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| 10 | ok | extra_trees | 500 | True | 42 | 0.2 | classification | f1_macro | 0.60266642 | accuracy | 0.77800000 |\n| 6 | ok | extra_trees | 300 | True | 42 | 0.2 | classification | f1_macro | 0.59534963 | accuracy | 0.77514286 |\n| 7 | ok | gradient_boosting | 300 | True | 42 | 0.2 | classification | f1_macro | 0.58988905 | accuracy | 0.80114286 |\n| 1 | ok | random_forest | 300 | True | 42 | 0.2 | classification | f1_macro | 0.58929290 | accuracy | 0.79800000 |\n| 2 | ok | random_forest | 300 | True | 77 | 0.2 | classification | f1_macro | 0.58554085 | accuracy | 0.79514286 |\n| 5 | ok | random_forest | 300 | True | 42 | 0.25 | classification | f1_macro | 0.58335535 | accuracy | 0.79565714 |\n| 4 | ok | random_forest | 300 | True | 42 | 0.15 | classification | f1_macro | 0.58061249 | accuracy | 0.79733333 |\n| 3 | ok | random_forest | 300 | True | 123 | 0.2 | classification | f1_macro | 0.56521018 | accuracy | 0.78828571 |\n| 8 | ok | linear_baseline | - | True | 42 | 0.2 | classification | f1_macro | 0.56086213 | accuracy | 0.79542857 |\n| 9 | ok | random_forest | - | True | 42 | 0.2 | classification | f1_macro | 0.50638250 | accuracy | 0.79342857 |",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_rows": 10,
+  "n_cols": 12,
+  "columns": [
+   "trial_index",
+   "status",
+   "model_type",
+   "n_estimators",
+   "use_date_features",
+   "random_state",
+   "test_size",
+   "task_type",
+   "primary_metric",
+   "primary_value",
+   "secondary_metric",
+   "secondary_value"
+  ],
+  "truncated": false
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,93 @@
+{
+ "doc_id": "34576afd0ef6",
+ "relpath": "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-09-08.pdf",
+ "mount": "",
+ "project": "株式会社東都人材プラットフォーム",
+ "category": "05.会議",
+ "filetype": "pdf",
+ "md5": "358f29c5590e8b51668020e9cab9a626",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## ページ 1\n\n[画像読み取り]\n[画像種別: スキャン文書]\n# [c:灰色]分析進捗報告書[/c]\n\n[c:灰色]（チェックポイント：M02 中間報告 / 日付：2025-09-08）[/c]  \n[c:灰色]報告対象期間：2025-08-18 ～ 2025-09-08[/c]\n\n## [c:灰色]1. 報告サマリー[/c]\n\n- [c:灰色]目的：提供データ（target=収入クラス）を用いた初期分析の中間報告（EDA、前処理方針、ベースライン初期結果、公平性の初期確認）を実施し、最終化に向けた論点整理を行う。[/c]\n\n- [c:灰色]ステージ：interim（中間分析段階）。本報告は中間時点の状況を記載。最終的なモデル決定や運用導入の結論は含まない。[/c]\n\n- [c:灰色]主要進捗概要：初期の線形ベースライン系の試行（visible trials T01-T05）が実行済み、最も良好な試行はT02（model=linear_baseline）で、主指標 f1_macro=0.44929547342163884、accuracy=0.47311361665221163（詳細はセクション3）。[/c]\n\n  [c:濃い灰色]データアセスメントドラフト[/c]\n\n- [c:灰色]未解決の主要事項：欠損処理方針、カテゴリ統合ルール、主指標確定、継続採用モデル方針など（チェックポイントの期待決定事項に該当）—現時点では発注者の合意待ち。[/c]\n\n- [c:灰色]トレース性：本報告は会議（M01/M02）議事録、WBS タスク（Txx）、および分析実行ログ（artifacts/analysis_outputs）に紐づく。open_action_count=10（未解決アクション）を含む。[/c]\n\n## [c:灰色]2. 進捗状況[/c]\n\n- [c:灰色]会議／ガバナンス[/c]\n[注: 読み取りに不確かな箇所あり]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## ページ 2\n\n[画像読み取り]\n[画像種別: スキャン文書]\n- キックオフ（M01：2025-08-18）は完了（議事録：artifacts/meeting_minutes/会議録_2025-08-18.md）。中間報告会（M02：2025-09-08）を本チェックポイントとして実施。\n\n- 中間報告での期待決定事項（欠損処理方針、カテゴリ統合方針、主指標／補助指標、継続モデル方針等）は「合意待ち／決定保留」のものが残る（後述のアクション参照）。\n\n- 分析実行（as-of チェックポイント）\n\n  - 可視化・モデル試行：実験ラン（visible_trials）として T01〜T05 が実行され、各試行の評価指標が得られている（詳細はセクション 3）。\n\n  - モデル/実行設定共通点：各試行は random_holdout split（test_size=0.2、random_state=42）で実施。モデル群は線形ベースライン系を中心に段階的改善を行っている（trial_role 等は実行ログに\n\n[c:濃い灰色]データアステル-ドラフト[/c]\n\n  - 前処理・特徴選択：feature selection により selected_feature_count および excluded_feature_count が記録されている（後述）。\n\n- 現在のアクション（トレース）\n\n  - prior_state.open_action_count = 10（未解決アクション数）。主要未完了アクションの例（Report facts JSON.prior_state.open_actions より）：\n\n    - T02: キックオフ議事録配布 — Owner: 藤田 彩 — Due: 2025-08-19 — Status: Open\n\n    - T03: 分析計画書（初版）作成 — Owner: 渡辺 遥 / 藤田 彩 — Due: 2025-08-21 — Status: 未着手\n\n    - T04: 分析環境準備・データ読込確認 — Owner: 斎藤 悠斗 — Due: 2025-08-21 — Status: 未着手\n[注: 読み取りに不確かな箇所あり]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## ページ 3\n\n[画像読み取り]\n[画像種別: スキャン文書]\n- T06〜T12 等：EDA・前処理方針・ベースライン構築・中間資料作成（期限は WBS に準じるが多く未着手／未完了）。\n  - スケジュール照合：中間報告（MS4）は 2025-09-08（本チェックポイント）に設定。変更管理チェック（MS5）は 2025-09-09 に予定。\n\n### 3. <u>主要な分析結果</u>\n\n（interim における「可視試行」のみを引用。最終的なチャンピオンモデルや後段結論は報告しない。）\n\n- 実行済みの可視試行（Report facts JSON.analysis.visible_trials より）\n  - T01（trial_role: linear_baseline, baseline）\n    - primary_metric (f1_macro) = 0.30928788048979766\n    - secondary_metric (accuracy) = 0.3668690372940156\n    - selected_feature_count = 7, excluded_feature_count = 2\n  - T02（trial_role: linear_baseline_balanced, targeted_improvement）\n    - primary_metric (f1_macro) = 0.32018748128232216\n    - secondary_metric (accuracy) = 0.3525585429314831\n    - selected_feature_count = 7, excluded_feature_count = 2\n  - T03（trial_role: richer_linear_baseline, feature_search）— best_visible_trial\n    - primary_metric (f1_macro) = 0.44929547342163884\n    - secondary_metric (accuracy) = 0.47311361665221163\n    - selected_feature_count = 16, excluded_feature_count = 1\n  - T04（trial_role: threshold_tuned_linear, decision_tuning）\n    - primary_metric (f1_macro) = 0.4411577182086925\n\n[c:濃い灰色]データアセスメントドラフト[/c]\n\n（上記の色付き文字は文書中央に大きく重ねて表示）\n[注: 読み取りに不確かな箇所あり]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## ページ 4\n\n[画像読み取り]\n[画像種別: スキャン文書]\n▪ secondary_metric (accuracy) = 0.46313963573287076\n\n▪ selected_feature_count = 16, excluded_feature_count = 1\n\n○ T05（trial_role: ordered_linear, feature_search）\n\n　▪ primary_metric (f1_macro) = 0.44880715148629163\n\n　▪ secondary_metric (accuracy) = 0.4722463139635733\n\n　▪ selected_feature_count = 22, excluded_feature_count = 1\n\n- 要点（解釈）\n\n  - ベースライン（T01）からの段階的改善が確認される。特徴カバレッジを広げ（categorical limit 増加等）、順序性特徴を導入（T03/T05）することで Macro F1 が改善している（T01→T03 の増分は明確）。\n\n  - 最良の可視試行は T03（f1_macro=0.44929547342163884, accuracy=0.47311361665221163）。T05（ordered features を追加）も類似の性能を示しており、順序情報が有効である可能性が示唆される。\n\n> [c:濃い灰色]データスチュワード不可[/c]\n\n  - T04（閾値調整）は若干の改善（または調整）を示すが、必ずしも一貫して最大値には到達していないため、意思決定時の評価基準（主指標／近接誤差の許容）に依存する。\n\n  - selected_feature_count は実行ログで 16（analysis.metrics.selected_feature_count）等が報告されており、特徴選択の変更が性能に寄与している。\n\n- 補足（評価ルール）\n\n  - これらの数値は中間チェックポイントでの「可視試行」に基づくものであり、最終的なハイパーパラメータ最適化や別モデルファミリ（非線形モデル）への移行後の性能は未評価。最終判断は追加検証後に提示予定。\n[注: 読み取りに不確かな箇所あり]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## ページ 5\n\n[画像読み取り]\n[画像種別: スキャン文書]\n[c:灰色]4. データ品質と実装状況[/c]\n\n- [c:灰色]データ件数[/c]\n  - [c:灰色]元資料には「レコード数：11,529 件」との記載あり（プロジェクト概要）。ただし本レポートの数値整合性は Report facts JSON に基づく必要があるため、11,529 件は report facts JSON に明示されていない旨を注記します（→表記：「assumption: 11,529 件」）。[/c]\n    - [c:灰色]データ件数については現在のアクション（T04：データ読込確認）で確定予定。[/c]\n\n- [c:灰色]欠損状況（プロジェクト前提）[/c]\n  - [c:灰色]Major 欠損 112 件、Experience 欠損 55 件はプロジェクト前提として整理済（ただし、これらの具体処理結果は中間時点での前処理方針確定待ち）。[/c]\n\n- [c:灰色]前処理実装状況[/c]\n  - [c:灰色]feature selection / ordered category の導入が行われ、selected_feature_count / excluded_feature_count は analysis.metrics に反映（selected_feature_count=16, excluded_feature_count=1）。[/c]\n\n[c:濃い灰色]データステルスドラフト[/c]\n\n  - [c:灰色]class target encoding の適用・ドロップ等は実行設定に依存（configs/project_config.json に use_class_target_encoding=true、drop_original_categorical_after_target_encoding=true が設定されているため、実行では該当処理が試行されている可能性がある）。詳細は run_summary / metrics の出力ファイルを参照。[/c]\n\n- [c:灰色]再現性・アーティファクト[/c]\n  - [c:灰色]実行結果、メトリクスは artifacts/analysis_outputs 以下に保存（run_summary.json / metrics.json / experiments/leaderboard.json 参照）。trace.source_files にパスが記録されているため、再現性の確認が可能。[/c]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## ページ 6\n\n[画像読み取り]\n[画像種別: スキャン文書]\n## [c:灰色]5. リスクと対応策[/c]\n\n- [c:灰色]リスク一覧（優先度順に簡潔化）[/c]\n\n  1. [c:灰色]公平性・バイアスリスク（高）[/c]\n\n     - [c:灰色]説明：Gender/Age/Country 等のセンシティブ属性を含むため、結果解釈が差別的に受け取られるリスク。[/c]\n     - [c:灰色]対応策：属性利用目的を限定し、出力に必ず注記を付与。属性別性能差は観測値として提示し、因果主張は行わない。成果物に注意書きを明記。[/c]\n\n  2. [c:灰色]欠損処理・カテゴリ集約の未確定（中）[/c]\n\n     - [c:灰色]説明：Major/Experience の欠損処理や国・職種の長尾カテゴリ取り扱いが未最終化。[/c]\n\n[c:濃い灰色]データアップロード[/c]\n\n     - [c:灰色]対応策：中間報告後の変更管理（MSS: 2025-09-09）で方針決定。頻度閾値、group_rare_categories の設定を明文化し、影響度試験を実施。[/c]\n\n  3. [c:灰色]スコープ／スケジュール超過（中）[/c]\n\n     - [c:灰色]説明：追加要求で想定工数（170 時間）を超過する可能性。[/c]\n     - [c:灰色]対応策：中間報告を変更管理ゲートとし、追加は time_and_materials ベースで別途見積。優先度付けで中間→最終に必要な作業を凍結。[/c]\n\n  4. [c:灰色]データ受領・環境確認の遅延（中）[/c]\n\n     - [c:灰色]説明：T04（環境／読み込み確認）が未完了のまま進行すると再現性や遅延発生のリスク。[/c]\n[注: 読み取りに不確かな箇所あり]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## ページ 7\n\n[画像読み取り]\n[画像種別: スキャン文書]\n▪ 対応策：斎藤（DE）をオーナーとして優先対応。読込ログ・アクセス権確認を最優先アクションとする。\n\n## 6. 次回までの実施事項\n\n（優先度・担当・期限を明記し、WBS/アクションに紐づけ）\n\n- 優先度 A（中間報告合意に直結）\n\n  - 欠損処理方針の確定（WBS: T09） — Owner: 渡辺 遥 / 斎藤 悠斗 — Due: 2025-09-03（※中間報告時点での目標日。実際の合意は発注者承認が必要）\n\n  - カテゴリ統合ルールの提示（group_rare_categories 等、閾値含む） — Owner: 渡辺 / 斎藤 — Due: 中間報告合意 → MS5 2025-09-09 変更管理で最終化\n\n  - 主指標／補助指標の最終合意（主指標候補: Macro-F1） — Owner: 発注者（石川） / PM（佐藤） — Decision expected at M02（チェックポイントの期待決定事項）\n\n[c:濃灰色]データアセットマップ[/c]\n\n- 優先度 B（モデル改善／評価）\n\n  - ベースライン改良の継続（非線形モデル採用の可否含む） — Owner: 渡辺 — 次版評価の実行（中間報告後に優先順位を決定）\n\n  - 順序特徴（Age/Experience/Education）の追加効果検証（T05 相当の再検証／堅牢性評価） — Owner: 渡辺 — Due: 直近改善スプリント内\n\n- 優先度 C（事務／トレース）\n\n  - キックオフ議事録配布（T02） — Owner: 藤田 彩 — Due: 即時（遅延中）\n\n  - 分析環境・データ読み込み確認（T04） — Owner: 斎藤 悠斗 — Due: 即時（未着手→優先対応）\n[注: 読み取りに不確かな箇所あり]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## ページ 8\n\n[画像読み取り]\n[画像種別: スキャン文書]\n- 中間報告議事録配布（M02 議事録）— Owner: 藤田 — Due: 2025-09-09（会議後）\n\n備考：上記は WBS のタスク ID（T09 等）や prior_state.open_actions と整合。MS5（変更管理判定）は 2025-09-09 を予定。\n\n## **7.** 経営/PM 向け補足\n\n- 現状の評価感（経営視点）\n  - 中間段階で得られた可視試行のうち、線形ベースラインを拡張した T03 相当で Macro F1 ≈ 0.4493、Accuracy ≈ 0.4731 を達成している点は、カテゴリ主体のデータに対して説明可能性を保ちつつ実務的に有用な初期成果を示す良い兆候です。ただし、これは中間成果であり、最終的な業務適用判断はさらなる検証（外部妥当性、属性別性能差の詳細確認、運用上のルール化）を前提としてください。\n\n[c:濃い灰色]データアステル-ドラフト[/c]\n\n- 意思決定ポイント（短期）\n\n  1. 中間報告で期待される決定事項（欠損処理、カテゴリ集約、主指標の確定、継続モデル方針）を速やかに合意いただくことで、最終報告までの改善作業が確実に進みます。\n\n  2. 追加で「非線形モデル（ツリーベース等）を試す」か否かは、ビジネス上の説明可能性要件と精度向上の期待値のバランスで判断してください。説明可能性優先であれば現状の線形拡張路線を最小限継続、性能最優先であれば後続で別途検証フェーズを推奨します（追加工数見積が必要）。\n\n- 予算／契約上の注意\n  - 本フェーズの契約形態は time_and_materials。追加要求（スコープ外）は別途見積りとなる点を改めてご確認ください。現在の想定総工数は 170 時間（project facts に記載）。中間での大幅な方針変更は追加\n[注: 読み取りに不確かな箇所あり]",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## ページ 9\n\n[画像読み取り]\n[画像種別: スキャン文書]\nコストの発生要因となります。\n\n- 推奨アクション（短期、経営判断）\n\n  1. MS5（変更管理判定：2025-09-09）で「追加検証項目」と「必須納品項目」を明確に切り分け、優先度を決定する。\n  2. データアクセス／環境確認（T04）を最優先で完了させ、再現性・監査対応を強化する。\n  3. 公平性に関する表現ルール（成果物に必ず付す注意書き、属性別出力フォーマット）を合意しておく。\n\n―以上―\n\n# データアステル-ドラフト",
+   "label": "",
+   "needs_vision": true,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_pages": 9,
+  "scanned_pages": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "n_styled_pages": 0,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

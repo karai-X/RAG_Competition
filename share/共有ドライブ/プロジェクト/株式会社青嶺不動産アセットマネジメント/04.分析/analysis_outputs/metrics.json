@@ -1,0 +1,124 @@
+{
+  "task_type": "regression",
+  "encoding": "utf-8-sig",
+  "target_column": "SALE PRICE",
+  "date_column": "TAX CLASS AT TIME OF SALE",
+  "use_date_features": true,
+  "use_numeric_interactions": true,
+  "use_cyclical_time_features": true,
+  "use_ordered_category_features": false,
+  "group_rare_categories": false,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": false,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": false,
+  "drop_original_categorical_after_target_encoding": false,
+  "tune_class_decision_weights": false,
+  "model_type": "random_forest",
+  "model_params": {},
+  "split_strategy": "time_ordered",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": {
+    "enabled": false,
+    "reason": "manual early stopping is not implemented for model_type=random_forest"
+  },
+  "early_stopping_patience": 2,
+  "row_count": 37751,
+  "feature_count": 19,
+  "train_rows": 26426,
+  "validation_rows": 3775,
+  "test_rows": 7550,
+  "split_ordering_basis": "date_column:TAX CLASS AT TIME OF SALE",
+  "rmse": 699838.6429110917,
+  "mae": 424774.25445903646,
+  "r2": 0.4816102792909708,
+  "train_metrics": {
+    "rmse": 177092.3822229335,
+    "mae": 94147.04505150042,
+    "r2": 0.9323014425212934
+  },
+  "validation_metrics": {
+    "rmse": 575867.121984747,
+    "mae": 346281.86324282247,
+    "r2": 0.58814802273088
+  },
+  "eda_summary": {
+    "row_count": 37751,
+    "column_count": 18,
+    "target_column": "SALE PRICE",
+    "missing_ratio_top10": {
+      "GROSS SQUARE FEET": 0.3590633360705677,
+      "LAND SQUARE FEET": 0.3513019522661651,
+      "BOROUGH": 0.0,
+      "id": 0.0,
+      "NEIGHBORHOOD": 0.0,
+      "BUILDING CLASS CATEGORY": 0.0,
+      "LOT": 0.0,
+      "BUILDING CLASS AT PRESENT": 0.0,
+      "TAX CLASS AT PRESENT": 0.0,
+      "BLOCK": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 6467
+  },
+  "feature_selection": {
+    "selected_columns": [
+      "BOROUGH",
+      "BUILDING CLASS CATEGORY",
+      "TAX CLASS AT PRESENT",
+      "BLOCK",
+      "LOT",
+      "ZIP CODE",
+      "RESIDENTIAL UNITS",
+      "COMMERCIAL UNITS",
+      "TOTAL UNITS",
+      "LAND SQUARE FEET",
+      "GROSS SQUARE FEET",
+      "YEAR BUILT",
+      "TAX CLASS AT TIME OF SALE",
+      "BOROUGH__x__BLOCK",
+      "BOROUGH__x__LOT",
+      "BOROUGH__x__ZIP CODE",
+      "BLOCK__x__LOT",
+      "BLOCK__x__ZIP CODE",
+      "LOT__x__ZIP CODE"
+    ],
+    "excluded_columns": [
+      {
+        "column": "id",
+        "reason": "identifier_like_name"
+      },
+      {
+        "column": "NEIGHBORHOOD",
+        "reason": "high_cardinality_categorical",
+        "unique_count": 251,
+        "threshold": 100
+      },
+      {
+        "column": "BUILDING CLASS AT PRESENT",
+        "reason": "high_cardinality_categorical",
+        "unique_count": 123,
+        "threshold": 100
+      },
+      {
+        "column": "BUILDING CLASS AT TIME OF SALE",
+        "reason": "high_cardinality_categorical",
+        "unique_count": 121,
+        "threshold": 100
+      }
+    ],
+    "grouped_rare_columns": [],
+    "added_frequency_columns": [],
+    "categorical_unique_limit": 100,
+    "group_rare_categories": false,
+    "rare_category_min_count": 20,
+    "use_categorical_frequency_features": false,
+    "categorical_frequency_min_unique": 3,
+    "categorical_frequency_max_unique": 200
+  },
+  "ordered_feature_columns": [],
+  "selected_feature_count": 19,
+  "excluded_feature_count": 4
+}

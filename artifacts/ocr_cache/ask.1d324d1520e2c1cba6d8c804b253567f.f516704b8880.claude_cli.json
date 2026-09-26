@@ -1,0 +1,10 @@
+{
+ "md5": "1d324d1520e2c1cba6d8c804b253567f",
+ "question": "このヒートマップにおいて、目的変数（charges）と最も相関が高い数値特徴量は何ですか？",
+ "engine": "claude_cli",
+ "answer": "bmi",
+ "evidence": "ヒートマップの charges 行（最下行）を見ると、id=0.01、age=0.10、bmi=0.17、children=0.03 であり、bmi の 0.17 が最も高い相関値となっている。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 11.2
+}

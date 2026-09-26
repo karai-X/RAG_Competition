@@ -1,0 +1,53 @@
+{
+ "doc_id": "72e56324bbc7",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/05.会議/報告資料/報告資料_2025-08-06.pdf",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "05.会議",
+ "filetype": "pdf",
+ "md5": "592c93fa03beea9fe04aa0acc9b1b0c3",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## ページ 1\n\n[c:0F4761]分析進捗報告書[/c]\r\n[c:0F4761]1. 報告サマリー[/c]\r\n• チェックポイント: M01（キックオフ）\r\n• チェックポイント日付: 2025-08-06（報告対象期間: 2025-08-06 to 2025-08-06）\r\n• チェックポイント段階: kickoff（事前準備／計画段階、実装・学習未着手）※\r\nanalysis.checkpoint_stage=kickoff に準拠\r\n• <u>**現時点の総括:**</u>\r\no **キックオフ（M01）は予定通りの実施扱い（議題: 目的変数 SALE PRICE、対象データ、スコープ、**\r\n**役割分担、会議運営）。ただし該当議事メモは現時点で未登録（No meeting minutes found** \r\n**/ prior_state.minutes_files = []）。**\r\no 実装状況: planning_only（モデル学習・評価結果は未存在／公開不可）。visible_trials は空\r\n（no_model_results）。\r\no <u>**商務トピック（Report facts に基づく）: 想定総工数 170 時間、見込金額（税抜）4,250,000**</u>\r\n<u>**円、消費税 425,000 円、見込金額（税込）**</u><u>***4,675,000 円***</u><u>**、支払スキームは最終一括精算（支払**</u>\r\n<u>**条件: 検収後 5 営業日以内）**</u><u>。</u>\r\n[c:0F4761]2. 進捗状況[/c]\r\n• キックオフ（MS1）は実施済（会議 ID=M01、2025-08-06）。会議計画は\r\nartifacts/04a_meeting_plan.csv に格納。チェックポイント情報は報告事実 JSON の checkpoint \r\nに一致。\r\n• <u>**現フェーズの状態（要点）**</u>\r\no 計画／前提固定フェーズ開始済み（スコープ・役割の明確化）。\r\no データ受領・読込の検証タスク（T03）および分析計画メモ作成タスク（T05）は予定フェーズ→着\r\n手予定。\r\no open_action_count は 0（報告事実 JSON.prior_state.open_action_count = 0）。\r\no 実験・モデル結果の公開はなし（analysis.visible_trials = []、best_visible_trial = null）。\r\n• <u>**スケジュールとのトレース（主要マイルストーン）**</u>\r\no MS1（キックオフ完了）: 2025-08-06（本チェックポイント）\r\no 次ゲート: MS2（分析計画メモ確定）: 2025-08-12（予定） — ここで前処理方針と品質点検観\r\n点を確定予定。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## ページ 2\n\no 中間報告ゲート: MS4（中間報告承認）: 2025-08-26（予定）\r\n[c:0F4761]3. 主要な分析結果[/c]\r\n（注）現在はキックオフ段階のため、モデル結果や最終評価指標は存在しません。以下はデータ理解フェーズでの初\r\n期観察・要確認事項です。数値の多くはプロジェクト概要に基づくため Report facts JSON に未記載の項目は\r\n「（assumption）」と明示しています。\r\n• <u>**目的変数関連**</u>\r\no 目的変数: SALE PRICE（設定済）。（config 等により target_column は SALE PRICE と確\r\n定）\r\no SALE PRICE のサンプル要約（参照資料ベース）: レコード数 37,751（assumption）、最小\r\n100,700（assumption）、最大 4,996,841（assumption）、平均 約 870,378.47\r\n（assumption）。分布は右に歪んでいる可能性が高く、対数変換の検討が必要。\r\n• <u>**データ品質関連の初期発見（要対応）**</u>\r\no 面積項目の欠損が多い: LAND SQUARE FEET 欠損 13,262 件（assumption）、GROSS \r\nSQUARE FEET 欠損 13,555 件（assumption）。0 値も混在。\r\no 築年・郵便番号の異常値疑い: YEAR BUILT 最小 0、平均 ≒ 1,817.78（assumption）／ZIP \r\nCODE に 0 が含まれる（assumption）。入力誤・欠損代替・非開示を切り分ける必要あり。\r\no 建物クラス・税区分の欠損: TAX CLASS AT PRESENT 欠損 362（assumption）、\r\nBUILDING CLASS AT PRESENT 欠損 362（assumption）。\r\no 立地変数（BOROUGH, NEIGHBORHOOD, ZIP CODE）は価格差の主要要因と想定。\r\nBOROUGH は 1–5 のコード（Manhattan 等）で重要軸。\r\no 設定ミス・確認要: analysis/config において date_column が \"TAX CLASS AT TIME OF \r\nSALE\" に設定されている（configs/project_config.json / analysis_spec）。当該列名は日\r\n付でない可能性が高く、日付列指定の再確認が必要（未解決事項）。\r\n• <u>**実験状況**</u>\r\no 現時点で可視化された試行（visible_trials）は無し（analysis.visible_trials = []）。モデル学\r\n習・評価は実施前（implementation_status = planning_only）。\r\n[c:0F4761]4. データ品質と実装状況[/c]\r\n• <u>**データ品質（要点、数値は原資料に基づく／assumption 表示）**</u>\r\no 総レコード数: 37,751（assumption）\r\no 欠損/異常の注目点:\r\n▪ *LAND SQUARE FEET 欠損 13,262（assumption）*\r\n▪ *GROSS SQUARE FEET 欠損 13,555（assumption）*",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## ページ 3\n\n▪ *TAX CLASS AT PRESENT, BUILDING CLASS AT PRESENT 欠損 それぞれ 362*\r\n*（assumption）*\r\n▪ *YEAR BUILT に 0 を含む（assumption）*\r\no 結論: 面積系・築年・一部カテゴリに対する補完方針／除外基準を早期に確定する必要あり（中間報\r\n告前に合意）。\r\n• <u>**実装・環境状況**</u>\r\no プロジェクトのコード基盤・設定ファイルは生成済（analysis_project README、\r\nconfigs/project_config.json 等が存在）。\r\no 実行設定（configs）では split_strategy=time_ordered、early_stopping=true 等が設\r\n定されているが、これらを確定するためのデータ前提（有効な日付列の有無等）を確認する必要あ\r\nり。\r\no 現時点でモデル学習は未実行（planning_only）。出力可能なモデルメトリクスは存在しない\r\n（no_model_results）。\r\n[c:0F4761]5. リスクと対応策[/c]\r\n• <u>**リスク 1: 立地起因の偏り（location-driven bias）**</u>\r\no 影響: 立地が価格変動の大半を説明し、建物属性の寄与推定が歪む可能性。\r\no 対応: BOROUGH レベルで階層比較を行い、立地調整（階層固定効果等）の方針を中間報告\r\n（MS4）までに決定。担当: 渡辺（リード DS）／期限: 2025-08-26（中間報告）。\r\n• <u>**リスク 2: 市況（時系列）情報の欠落または誤指定（日付列誤設定）**</u>\r\no 影響: 市況サイクルを調整できず解釈が限定される。\r\no 対応: date_column 設定の是非確認（現在: “TAX CLASS AT TIME OF SALE” → 要確認）。\r\n担当: 岡田（DE）＋渡辺（DS）／期限: 2025-08-08（データ受領確認）→ 2025-08-12（計画\r\nメモ確定）。\r\n• <u>**リスク 3: 面積・築年等の欠損・異常値**</u>\r\no 影響: 面積をキーとする説明力低下、補完によるバイアス導入。\r\no 対応: 欠損・ゼロ値の切り分けルール（除外・補完・カテゴリ化）を MS2（2025-08-12）で合意し、\r\n影響件数を明記する。担当: 渡辺／岡田。\r\n• <u>**リスク 4: 高カーディナリティ変数による過学習**</u>\r\no 影響: NEIGHBORHOOD や BBL 等をそのまま使うと過学習。\r\no 対応: 高カーディナリティは除外または集約（階層集約／頻度エンコーディング等）を適用。方針は\r\nMS2 で決定。担当: 渡辺。\r\n• 運用上の注意（商務）\r\no 追加要求は time_and_materials で別途見積（Report facts/commercial に記載）。変更多\r\n発時は 2025-08-27 の変更管理チェックポイントで工数影響を明示すること。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## ページ 4\n\n[c:0F4761]6. 次回までの実施事項[/c]\r\n（責任者・期限を明記してスケジュールと紐付け）\r\n1. データ受領確認・読込検証（T03）\r\no 担当: 岡田 佑樹（データエンジニア）\r\no 期限: 2025-08-08（予定）\r\no 成果物: 読込確認レポート（artifacts/analysis_outputs/train_preview.csv など）\r\n2. 分析計画メモ／実施方針書の確定（MS2 / T05）\r\no 担当: 藤田 彩（BA）／渡辺（DS）／小林（QA）\r\no 期限: 2025-08-12（予定）\r\no 成果物: 分析計画メモ（前処理方針、欠損処理基準、日付列定義を明記）\r\n3. date_column の実態確認（設定ミスの有無確認）\r\no 担当: 岡田＋渡辺\r\no 期限: 2025-08-08（優先）→ 結果は分析計画メモに反映\r\n4. 欠損・ゼロ値・異常値の件数確定（T06）\r\no 担当: 岡田／渡辺\r\no 期限: 2025-08-15（予定）\r\no 成果物: 品質点検一覧（件数と方針）\r\n5. 中間報告資料（EDA 図表含む）作成（T10）\r\no 担当: 渡辺／藤田\r\no 期限: 2025-08-25（内部レビュー）／中間報告会 2025-08-26（MS4）\r\n6. 変更管理チェックポイントの準備（T12）\r\no 担当: 佐藤（PM）\r\no 期限: 2025-08-27（変更要求発生時の工数試算に備える）\r\n※ 上記タスクはプロジェクトスケジュール（WBS）と整合。重要な締切（MS2:2025-08-12、MS3:2025-08-\r\n22、MS4:2025-08-26）を優先。\r\n[c:0F4761]7. 経営/PM 向け補足[/c]\r\n• 契約・商務状況（Report facts JSON に基づく）",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## ページ 5\n\no 契約開始日: 2025-08-06（適用開始）\r\no 期間: 6 週間（プロジェクト期間）\r\no 想定総工数: 170 時間（project_facts / commercial）\r\no 見込金額（税抜）: 4,250,000 円、消費税: 425,000 円、見込金額（税込）: 4,675,000 円（支\r\n払は最終一括精算）\r\no 支払スケジュール: 最終一括（支払期日: 検収後 5 営業日以内）\r\n• 現時点での経営判断ポイント（要決定）\r\n1. date_column の正確な指定（分析方針と前処理に影響） — 早急な確認を推奨。\r\n2. 中間ゲート（2025-08-26）での前処理方針承認（欠損処理・除外基準の承認）がないとモデリン\r\nグ工程に着手できない旨を注意。\r\n3. 追加データやスコープ拡張要求がある場合、time_and_materials のため早期に見積が発生。\r\n2025-08-27 の変更管理 CP で調整を推奨。\r\n• 当チェックポイントのエビデンス／参照ファイル\r\no ミーティング企画: artifacts/04a_meeting_plan.csv\r\no 分析設定: configs/project_config.json（date_column 等の設定を含む）\r\no Report facts JSON（本報告は同データを基準に作成）: トレース情報は\r\nartifacts/00a_project_facts.json 等に保存\r\n備考: 本報告は analysis.checkpoint_stage = “kickoff” のルールに従い、「モデル学習済・評価済」の記載\r\nは一切行っていません。モデルの学習・評価結果が可視化された段階で、visible_trials / best_visible_trial \r\nに基づく定量報告を行います。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_pages": 5,
+  "scanned_pages": [],
+  "n_styled_pages": 5
+ },
+ "error": null,
+ "warnings": []
+}

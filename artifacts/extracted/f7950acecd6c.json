@@ -1,0 +1,176 @@
+{
+ "doc_id": "f7950acecd6c",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/notebooks/01_eda.ipynb",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "ipynb",
+ "md5": "e9775bc424361f86a1a200438895f3ed",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## cell1 (markdown)\n\n# EDAノートブック\n\n本ノートブックは、分析業務で使うEDAを固定手順で実行するための定型版です。\n可視化結果は相対パスで `reports/figures` に保存します。",
+   "label": "cell1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## cell2 (markdown)\n\n## 固定EDA計画\n1. データ読み込みと基本確認\n2. 列型・記述統計の確認\n3. 欠損率の集計と可視化\n4. 数値列の分布確認\n5. カテゴリ列の主要分布確認\n6. 目的変数の分布と偏り確認\n7. 数値特徴量の相関確認\n8. 日付列の時系列傾向確認（存在時）\n9. 観察結果サマリ",
+   "label": "cell2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## cell3 (code)\n\n```python\nfrom pathlib import Path\nimport warnings\n\nimport matplotlib.font_manager as fm\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n\nplt.style.use(\"seaborn-v0_8-whitegrid\")\nsns.set_context(\"notebook\")\nwarnings.filterwarnings(\"ignore\", message=\"Glyph .* missing from font\")\nplt.rcParams[\"axes.unicode_minus\"] = False\n\nJP_FONT_CANDIDATES = [\n    \"Yu Gothic\",\n    \"Meiryo\",\n    \"MS Gothic\",\n    \"Noto Sans CJK JP\",\n    \"IPAexGothic\",\n    \"IPAGothic\",\n    \"TakaoGothic\",\n]\n\n\ndef configure_japanese_font() -> str:\n    available = {f.name for f in fm.fontManager.ttflist}\n    for name in JP_FONT_CANDIDATES:\n        if name in available:\n            plt.rcParams[\"font.family\"] = name\n            return name\n    plt.rcParams[\"font.sans-serif\"] = JP_FONT_CANDIDATES + list(plt.rcParams.get(\"font.sans-serif\", []))\n    return \"\"\n\n\nselected_font = configure_japanese_font()\nif selected_font:\n    print(f\"日本語フォント: {selected_font}\")\nelse:\n    print(\"日本語フォント候補が見つからないため、既定フォントで描画します。\")\n\nENCODINGS = (\"utf-8-sig\", \"utf-8\", \"cp932\", \"shift_jis\", \"euc_jp\")\n\ncwd = Path.cwd()\nif (cwd / \"configs\" / \"project_config.json\").exists():\n    analysis_root = cwd\nelif (cwd.name == \"notebooks\") and (cwd.parent / \"configs\" / \"project_config.json\").exists():\n    analysis_root = cwd.parent\nelif (cwd / \"artifacts\" / \"analysis_project\" / \"configs\" / \"project_config.json\").exists():\n    analysis_root = cwd / \"artifacts\" / \"analysis_project\"\nelse:\n    analysis_root = cwd\n\nFIG_DIR = analysis_root / \"reports\" / \"figures\"\nFIG_DIR.mkdir(parents=True, exist_ok=True)\n\n\ndef load_csv_auto(path: Path):\n    sep = \"\t\" if path.suffix.lower() == \".tsv\" else \",\"\n    for enc in ENCODINGS:\n        try:\n            return pd.read_csv(path, encoding=enc, sep=sep), enc\n        except UnicodeDecodeError:\n            continue\n    raise RuntimeError(\"CSVを既知エンコーディングで読み込めませんでした\")\n\n\ndef is_pure_day_number_column(series: pd.Series) -> bool:\n    numeric = pd.to_numeric(series, errors=\"coerce\").dropna()\n    if numeric.empty:\n        return False\n    if not np.all(np.isclose(numeric, np.round(numeric))):\n        return False\n    return bool(((numeric >= 1) & (numeric <= 31)).all())\n```\n\n[出力]\n```\n日本語フォント: Yu Gothic\n```",
+   "label": "cell3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## cell4 (code)\n\n```python\ncsv_rel = Path(\"data/train.csv\")\ncandidates = [\n    analysis_root / csv_rel,\n    Path(\"data/train.csv\"),\n    Path(\"artifacts/analysis_project\") / csv_rel,\n]\ncsv_path = next((p for p in candidates if p.exists()), candidates[0])\ndf, used_encoding = load_csv_auto(csv_path)\ntarget_col = \"charges\"\nif target_col not in df.columns:\n    target_col = df.columns[-1]\ndate_col_hint = \"None\".strip() or None\n\nprint(f\"読み込みエンコーディング: {used_encoding}\")\nprint(f\"行数: {len(df):,} / 列数: {df.shape[1]:,}\")\nprint(f\"目的変数列: {target_col}\")\ndisplay(df.head(10))\n```\n\n[出力]\n```\n読み込みエンコーディング: utf-8-sig\n行数: 1,600 / 列数: 8\n目的変数列: charges\n```\n\n[実行結果]\n```\n   id  age     sex        bmi  children smoker     region  charges\n0   0   26    male  32.665465         3     no  southeast        0\n1   1   41    male  29.798725         1     no  southwest        0\n2   2   28    male  32.722029         0    yes  northwest        1\n3   3   20  female  38.429831         2     no  southeast        0\n4   4   45  female  29.641854         1     no  northwest        0\n5   5   20    male  37.785937         2    yes  southeast        1\n6   6   37    male  43.393374         2     no  northeast        0\n7   7   41  female  32.280407         1     no  northeast        0\n8   8   40    male  28.865828         1     no  northeast        0\n9   9   54  female  33.870887         2     no  northeast        0\n```\n\n[出力に表(HTML)あり]",
+   "label": "cell4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## cell5 (markdown)\n\n## 1. データ概要",
+   "label": "cell5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## cell6 (code)\n\n```python\ntry:\n    import math\n    from pathlib import Path\n\n    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)\n\n    print('【データ概要】')\n    print(f'行数: {df.shape[0]}')\n    print(f'列数: {df.shape[1]}')\n    print('\\n【列情報】')\n    info_df = pd.DataFrame({\n        '列名': df.columns,\n        '型': [str(df[c].dtype) for c in df.columns],\n        '欠損数': [int(df[c].isna().sum()) for c in df.columns],\n        '欠損率(%)': [float(df[c].isna().mean() * 100) for c in df.columns],\n        'ユニーク数': [int(df[c].nunique(dropna=True)) for c in df.columns]\n    })\n    print(info_df)\n\n    print('\\n【先頭5行】')\n    print(df.head())\n\n    print('\\n【基本統計量】')\n    print(df.describe(include='all').transpose())\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: overview_code: {_eda_exc}\")\n    dtype_summary = (\n        df.dtypes.astype(str)\n        .rename(\"dtype\")\n        .reset_index()\n        .rename(columns={\"index\": \"column\"})\n    )\n    type_counts = dtype_summary[\"dtype\"].value_counts().rename_axis(\"dtype\").reset_index(name=\"count\")\n    print(\"列型サマリ\")\n    display(type_counts)\n    numeric_cols = df.select_dtypes(include=[\"number\"]).columns.tolist()\n    category_cols = [c for c in df.columns if c not in numeric_cols]\n    print(f\"数値列数: {len(numeric_cols)} / カテゴリ列数: {len(category_cols)}\")\n    display(dtype_summary.head(30))\n```\n\n[出力]\n```\n【データ概要】\n```\n\n[出力]\n```\n\n行数: 1600\n列数: 8\n\n【列情報】\n         列名        型  欠損数  欠損率(%)  ユニーク数\n0        id    int64    0     0.0   1600\n1       age    int64    0     0.0     47\n2       sex      str    0     0.0      2\n3       bmi  float64    0     0.0   1600\n4  children    int64    0     0.0      6\n5    smoker      str    0     0.0      2\n6    region      str    0     0.0      4\n7   charges    int64    0     0.0      3\n\n【先頭5行】\n   id  age     sex        bmi  children smoker     region  charges\n0   0   26    male  32.665465         3     no  southeast        0\n1   1   41    male  29.798725         1     no  southwest        0\n2   2   28    male  32.722029         0    yes  northwest        1\n3   3   20  female  38.429831         2     no  southeast        0\n4   4   45  female  29.641854         1     no  northwest        0\n\n【基本統計量】\n           count unique        top  freq       mean        std        min  \\\nid        1600.0    NaN        NaN   NaN  1007.8625  575.26841        0.0   \nage       1600.0    NaN        NaN   NaN     38.985  13.555012       18.0   \nsex         1600      2       male   841        NaN        NaN        NaN   \nbmi       1600.0    NaN        NaN   NaN  32.424376   5.766915  20.627626   \nchildren  1600.0    NaN        NaN   NaN   1.014375   1.259031        0.0   \nsmoker      1600      2         no  1261        NaN        NaN        NaN   \nregion      1600      4  northeast   414        NaN        NaN        NaN   \ncharges   1600.0    NaN        NaN   NaN    0.30625   0.628656        0.0   \n\n                25%        50%        75%        max  \nid           515.75     1010.5    1509.25     1999.0  \nage            27.0       40.0       50.0       64.0  \nsex             NaN        NaN        NaN        NaN  \nbmi       28.634267  32.268786  37.069581  47.290644  \nchildren        0.0        1.0        2.0        5.0  \nsmoker          NaN        NaN        NaN        NaN  \nregion          NaN        NaN        NaN        NaN  \ncharges         0.0        0.0        0.0        2.0\n```",
+   "label": "cell6",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## cell7 (markdown)\n\n## 2. 欠損分析",
+   "label": "cell7",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## cell8 (code)\n\n```python\ntry:\n    from pathlib import Path\n\n    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)\n\n    missing_cnt = df.isna().sum().sort_values(ascending=False)\n    missing_rate = (df.isna().mean() * 100).sort_values(ascending=False)\n    missing_df = pd.DataFrame({'欠損数': missing_cnt, '欠損率(%)': missing_rate})\n    print('【欠損値サマリー】')\n    print(missing_df[missing_df['欠損数'] > 0])\n\n    plot_df = missing_df.head(20).sort_values('欠損率(%)', ascending=True)\n    plt.figure(figsize=(10, max(4, len(plot_df) * 0.35)))\n    plt.barh(plot_df.index.astype(str), plot_df['欠損率(%)'], color='tomato')\n    plt.xlabel('欠損率(%)')\n    plt.ylabel('列名')\n    plt.title('欠損率 上位20列')\n    plt.tight_layout()\n    plt.savefig(Path(FIG_DIR) / 'missing_rate_top20.png', dpi=150, bbox_inches='tight')\n    plt.show()\n    plt.close()\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: missing_code: {_eda_exc}\")\n    missing_rate = (df.isna().mean() * 100).sort_values(ascending=False)\n    display(missing_rate.rename(\"欠損率(%)\").to_frame().head(20))\n    top_missing = missing_rate.head(20)\n    fig, ax = plt.subplots(figsize=(12, 5))\n    top_missing.plot(kind=\"bar\", ax=ax, color=\"#4c78a8\")\n    ax.set_title(\"欠損率 上位20列\")\n    ax.set_ylabel(\"欠損率(%)\")\n    ax.set_xlabel(\"列名\")\n    plt.xticks(rotation=45, ha=\"right\")\n    plt.tight_layout()\n    plt.savefig(FIG_DIR / \"missing_rate_top20.png\", dpi=160, bbox_inches=\"tight\")\n    plt.show()\n```\n\n[出力]\n```\n【欠損値サマリー】\nEmpty DataFrame\nColumns: [欠損数, 欠損率(%)]\nIndex: []\n```\n\n[実行結果]\n```\n<Figure size 1000x400 with 1 Axes>\n```\n\n[出力画像: f7950acecd6c/cell8_img1.png md5:0aa237f6 — read_image で確認可能]\n\n[画像読み取り] cell8_img1.png\n[画像種別: グラフ]\n### 欠損率 上位20列\n\n- 縦軸ラベル：列名\n- 横軸ラベル：欠損率(%)\n- 列名：\n  - charges\n  - region\n  - smoker\n  - children\n  - bmi\n  - sex\n  - age\n  - id\n- 横軸目盛り：-0.04、-0.02、0.00、0.02、0.04\n[図の説明] 横向き棒グラフ用の座標軸だが、棒やデータ点は表示されていない。タイトルは「欠損率 上位20列」。縦軸は「列名」で、上から charges、region、smoker、children、bmi、sex、age、id。横軸は「欠損率(%)」で、目盛りは -0.04、-0.02、0.00、0.02、0.04。凡例はない。灰色の縦横グリッド線が表示されている。読み取れるデータ数値や数値ラベルはない。",
+   "label": "cell8",
+   "needs_vision": true,
+   "assets": [
+    "f7950acecd6c/cell8_img1.png"
+   ]
+  },
+  {
+   "no": 9,
+   "text": "## cell9 (markdown)\n\n## 3. 数値特徴量の分布",
+   "label": "cell9",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 10,
+   "text": "## cell10 (code)\n\n```python\ntry:\n    import math\n    from pathlib import Path\n\n    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)\n\n    num_cols = df.select_dtypes(include=[np.number]).columns.tolist()\n    plot_cols = num_cols[:6]\n\n    if len(plot_cols) > 0:\n        n = len(plot_cols)\n        ncols = 3 if n >= 3 else n\n        nrows = math.ceil(n / ncols)\n        fig, axes = plt.subplots(nrows, ncols, figsize=(5 * ncols, 3.8 * nrows))\n        axes = np.array(axes).reshape(-1)\n        for ax, col in zip(axes, plot_cols):\n            series = df[col].dropna()\n            sns.histplot(series, kde=True, ax=ax, color='steelblue')\n            ax.set_title(f'{col} の分布')\n            ax.set_xlabel(col)\n            ax.set_ylabel('件数')\n        for ax in axes[len(plot_cols):]:\n            ax.axis('off')\n        plt.tight_layout()\n        plt.savefig(Path(FIG_DIR) / 'numeric_distribution_top6.png', dpi=150, bbox_inches='tight')\n        plt.show()\n        plt.close()\n\n    print('【数値列サマリー】')\n    if len(num_cols) > 0:\n        print(df[num_cols].describe().transpose())\n    else:\n        print(pd.DataFrame())\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: numeric_code: {_eda_exc}\")\n    numeric_cols = df.select_dtypes(include=[\"number\"]).columns.tolist()\n    if numeric_cols:\n        display(df[numeric_cols].describe().T.head(20))\n    target_col_local = \"charges\"\n    if target_col_local not in df.columns:\n        target_col_local = df.columns[-1]\n    plot_cols = [c for c in numeric_cols if c != target_col_local][:6]\n    fig, axes = plt.subplots(2, 3, figsize=(15, 8))\n    axes = axes.flatten()\n    for i, ax in enumerate(axes):\n        if i < len(plot_cols):\n            col = plot_cols[i]\n            sns.histplot(df[col], bins=30, ax=ax, color=\"#1f77b4\")\n            ax.set_title(f\"{col} の分布\")\n        else:\n            ax.axis(\"off\")\n    plt.tight_layout()\n    plt.savefig(FIG_DIR / \"numeric_distribution_top6.png\", dpi=160, bbox_inches=\"tight\")\n    plt.show()\n```\n\n[実行結果]\n```\n<Figure size 1500x760 with 6 Axes>\n```\n\n[出力画像: f7950acecd6c/cell10_img2.png md5:7f5acc56 — read_image で確認可能]\n\n[出力]\n```\n【数値列サマリー】\n           count         mean         std        min         25%          50%  \\\nid        1600.0  1007.862500  575.268410   0.000000  515.750000  1010.500000   \nage       1600.0    38.985000   13.555012  18.000000   27.000000    40.000000   \nbmi       1600.0    32.424376    5.766915  20.627626   28.634267    32.268786   \nchildren  1600.0     1.014375    1.259031   0.000000    0.000000     1.000000   \ncharges   1600.0     0.306250    0.628656   0.000000    0.000000     0.000000   \n\n                  75%          max  \nid        1509.250000  1999.000000  \nage         50.000000    64.000000  \nbmi         37.069581    47.290644  \nchildren     2.000000     5.000000  \ncharges      0.000000     2.000000\n```\n\n[画像読み取り] cell10_img2.png\n[画像種別: グラフ]\n## 上段左\n\n- タイトル：id の分布\n- 横軸：id\n- 縦軸：件数\n\n## 上段中央\n\n- タイトル：age の分布\n- 横軸：age\n- 縦軸：件数\n\n## 上段右\n\n- タイトル：bmi の分布\n- 横軸：bmi\n- 縦軸：件数\n\n## 下段左\n\n- タイトル：children の分布\n- 横軸：children\n- 縦軸：件数\n\n## 下段中央\n\n- タイトル：charges の分布\n- 横軸：charges\n- 縦軸：件数\n[図の説明] 5個のヒストグラムを、上段3個・下段2個で配置した図。各ヒストグラムには青色の密度曲線が重ねられている。棒は淡い青色で塗られ、黒色の枠線が付いている。凡例はない。背景には灰色の縦横グリッド線がある。下段右側は空白。\n\n1. 上段左「id の分布」\n- 種類：ヒストグラム＋密度曲線\n- 横軸：id\n- 横軸目盛り：0、500、1000、1500、2000\n- 縦軸：件数\n- 縦軸目盛り：0、20、40、60、80、100、120、140\n- 棒はidの全域にわたっておおむね同程度の高さで並ぶ。\n\n2. 上段中央「age の分布」\n- 種類：ヒストグラム＋密度曲線\n- 横軸：age\n- 横軸目盛り：20、30、40、50、60\n- 縦軸：件数\n- 縦軸目盛り：0、25、50、75、100、125、150、175\n- 年齢範囲の各区間に棒が分布している。\n\n3. 上段右「bmi の分布」\n- 種類：ヒストグラム＋密度曲線\n- 横軸：bmi\n- 横軸目盛り：20、25、30、35、40、45\n- 縦軸：件数\n- 縦軸目盛り：0、50、100、150、200、250\n- 棒は複数のまとまりに分かれており、30台前半付近の棒が最も高い。\n\n4. 下段左「children の分布」\n- 種類：ヒストグラム＋密度曲線\n- 横軸：children\n- 横軸目盛り：0、1、2、3、4、5\n- 縦軸：件数\n- 縦軸目盛り：0、100、200、300、400、500、600、700、800\n- childrenが0、1、2、3、4、5の位置に棒があり、0が最も高く、値が大きくなるにつれて全体として低くなる。\n\n5. 下段中央「charges の分布」\n- 種類：ヒストグラム＋密度曲線\n- 横軸：charges\n- 横軸目盛り：0.0、0.5、1.0、1.5、2.0\n- 縦軸：件数\n- 縦軸目盛り：0、200、400、600、800、1000、1200\n- chargesが0.0、1.0、2.0付近に棒があり、0.0付近の棒が最も高い。",
+   "label": "cell10",
+   "needs_vision": true,
+   "assets": [
+    "f7950acecd6c/cell10_img2.png"
+   ]
+  },
+  {
+   "no": 11,
+   "text": "## cell11 (markdown)\n\n## 4. カテゴリ特徴量の分布",
+   "label": "cell11",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 12,
+   "text": "## cell12 (code)\n\n```python\ntry:\n    import math\n    from pathlib import Path\n\n    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)\n\n    cat_cols = [c for c in df.columns if c != target_col and (df[c].dtype == 'object' or str(df[c].dtype) == 'category')]\n    plot_cols = cat_cols[:3]\n\n    if len(plot_cols) > 0:\n        n = len(plot_cols)\n        fig, axes = plt.subplots(1, n, figsize=(6 * n, 4))\n        if n == 1:\n            axes = [axes]\n        for ax, col in zip(axes, plot_cols):\n            vc = df[col].fillna('欠損').value_counts().head(15)\n            sns.barplot(x=vc.values, y=vc.index.astype(str), ax=ax, color='mediumpurple')\n            ax.set_title(f'{col} のカテゴリ分布')\n            ax.set_xlabel('件数')\n            ax.set_ylabel(col)\n        plt.tight_layout()\n        plt.savefig(Path(FIG_DIR) / 'categorical_distribution_top3.png', dpi=150, bbox_inches='tight')\n        plt.show()\n        plt.close()\n\n    print('【カテゴリ列サマリー】')\n    summary = []\n    for col in cat_cols:\n        summary.append({\n            '列名': col,\n            'ユニーク数': int(df[col].nunique(dropna=True)),\n            '最頻値': None if df[col].dropna().empty else df[col].mode(dropna=True).iloc[0],\n            '最頻値件数': 0 if df[col].dropna().empty else int(df[col].value_counts(dropna=True).iloc[0])\n        })\n    print(pd.DataFrame(summary))\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: categorical_code: {_eda_exc}\")\n    category_cols = [c for c in df.columns if not pd.api.types.is_numeric_dtype(df[c])]\n    plot_cols = category_cols[:3]\n    fig, axes = plt.subplots(1, 3, figsize=(18, 4))\n    for i, ax in enumerate(axes):\n        if i < len(plot_cols):\n            col = plot_cols[i]\n            vc = df[col].astype(str).fillna(\"欠損\").value_counts().head(10)\n            vc.plot(kind=\"bar\", ax=ax, color=\"#59a14f\")\n            ax.set_title(f\"{col} 上位カテゴリ\")\n            ax.tick_params(axis=\"x\", rotation=45)\n        else:\n            ax.axis(\"off\")\n    plt.tight_layout()\n    plt.savefig(FIG_DIR / \"categorical_distribution_top3.png\", dpi=160, bbox_inches=\"tight\")\n    plt.show()\n```\n\n[出力]\n```\n【カテゴリ列サマリー】\nEmpty DataFrame\nColumns: []\nIndex: []\n```",
+   "label": "cell12",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 13,
+   "text": "## cell13 (markdown)\n\n## 5. 目的変数分析",
+   "label": "cell13",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 14,
+   "text": "## cell14 (code)\n\n```python\ntry:\n    from pathlib import Path\n\n    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)\n\n    print('【目的変数の確認】')\n    print(f'目的変数名: {target_col}')\n\n    if target_col in df.columns:\n        y = df[target_col]\n        print('\\n【目的変数サマリー】')\n        print(y.describe())\n        print('\\n【目的変数の度数】')\n        print(y.value_counts(dropna=False).sort_index())\n\n        plt.figure(figsize=(7, 4.5))\n        if pd.api.types.is_numeric_dtype(y):\n            unique_count = y.nunique(dropna=True)\n            if unique_count <= 10:\n                vc = y.value_counts(dropna=False).sort_index()\n                sns.barplot(x=vc.index.astype(str), y=vc.values, color='seagreen')\n                plt.xlabel(target_col)\n                plt.ylabel('件数')\n                plt.title('目的変数の分布')\n            else:\n                sns.histplot(y.dropna(), kde=True, color='seagreen')\n                plt.xlabel(target_col)\n                plt.ylabel('件数')\n                plt.title('目的変数の分布')\n        else:\n            vc = y.fillna('欠損').value_counts()\n            sns.barplot(x=vc.index.astype(str), y=vc.values, color='seagreen')\n            plt.xlabel(target_col)\n            plt.ylabel('件数')\n            plt.title('目的変数の分布')\n        plt.tight_layout()\n        plt.savefig(Path(FIG_DIR) / 'target_distribution.png', dpi=150, bbox_inches='tight')\n        plt.show()\n        plt.close()\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: target_code: {_eda_exc}\")\n    series = df[target_col]\n    fig, ax = plt.subplots(1, 2, figsize=(14, 4))\n    if pd.api.types.is_numeric_dtype(series):\n        uniq = series.dropna().nunique()\n        if uniq > 20:\n            sns.histplot(series.dropna(), bins=30, ax=ax[0], color=\"#f28e2b\")\n            ax[0].set_title(\"目的変数ヒストグラム\")\n            sns.boxplot(x=series.dropna(), ax=ax[1], color=\"#e15759\")\n            ax[1].set_title(\"目的変数ボックスプロット\")\n        else:\n            vc = series.value_counts(dropna=False).sort_index()\n            vc.plot(kind=\"bar\", ax=ax[0], color=\"#f28e2b\")\n            ax[0].set_title(\"目的変数カテゴリ分布\")\n            (vc / vc.sum() * 100).round(2).plot(kind=\"bar\", ax=ax[1], color=\"#e15759\")\n            ax[1].set_title(\"目的変数カテゴリ比率(%)\")\n    else:\n        vc = series.astype(str).fillna(\"欠損\").value_counts().head(20)\n        vc.plot(kind=\"bar\", ax=ax[0], color=\"#f28e2b\")\n        ax[0].set_title(\"目的変数カテゴリ分布\")\n        (vc / vc.sum() * 100).round(2).plot(kind=\"bar\", ax=ax[1], color=\"#e15759\")\n        ax[1].set_title(\"目的変数カテゴリ比率(%)\")\n    plt.tight_layout()\n    plt.savefig(FIG_DIR / \"target_distribution.png\", dpi=160, bbox_inches=\"tight\")\n    plt.show()\n```\n\n[出力]\n```\n【目的変数の確認】\n目的変数名: charges\n\n【目的変数サマリー】\ncount    1600.000000\nmean        0.306250\nstd         0.628656\nmin         0.000000\n25%         0.000000\n50%         0.000000\n75%         0.000000\nmax         2.000000\nName: charges, dtype: float64\n\n【目的変数の度数】\ncharges\n0    1256\n1     198\n2     146\nName: count, dtype: int64\n```\n\n[実行結果]\n```\n<Figure size 700x450 with 1 Axes>\n```\n\n[出力画像: f7950acecd6c/cell14_img3.png md5:9ffcf41d — read_image で確認可能]\n\n[画像読み取り] cell14_img3.png\n[画像種別: グラフ]\nタイトル：目的変数の分布\n\n縦軸：件数\n\n横軸：charges\n[図の説明] 縦棒グラフ。横軸ラベルは「charges」で、目盛りは「0」「1」「2」。縦軸ラベルは「件数」で、目盛りは「0」「200」「400」「600」「800」「1000」「1200」。凡例はない。濃い緑色の棒が3本あり、charges「0」の棒は1200を超え、charges「1」の棒は200、charges「2」の棒は200未満まで伸びている。各棒に数値ラベルは表示されていない。背景には灰色の横グリッド線がある。",
+   "label": "cell14",
+   "needs_vision": true,
+   "assets": [
+    "f7950acecd6c/cell14_img3.png"
+   ]
+  },
+  {
+   "no": 15,
+   "text": "## cell15 (markdown)\n\n## 6. 相関分析",
+   "label": "cell15",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 16,
+   "text": "## cell16 (markdown)\n\n最も相関が高いのはchargesとageの組み合わせ",
+   "label": "cell16",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 17,
+   "text": "## cell17 (code)\n\n```python\ntry:\n    from pathlib import Path\n\n    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)\n\n    num_df = df.select_dtypes(include=[np.number]).copy()\n    if target_col in df.columns and target_col not in num_df.columns:\n        try:\n            num_df[target_col] = pd.to_numeric(df[target_col], errors='coerce')\n        except Exception:\n            pass\n\n    corr = num_df.corr(numeric_only=True)\n    print('【相関行列】')\n    print(corr)\n\n    if corr.shape[0] > 0:\n        plt.figure(figsize=(8, 6))\n        sns.heatmap(corr, annot=True, fmt='.2f', cmap='coolwarm', center=0, square=False)\n        plt.title('特徴量の相関ヒートマップ')\n        plt.tight_layout()\n        plt.savefig(Path(FIG_DIR) / 'feature_correlation_heatmap.png', dpi=150, bbox_inches='tight')\n        plt.show()\n        plt.close()\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: corr_code: {_eda_exc}\")\n    numeric_cols = df.select_dtypes(include=[\"number\"]).columns.tolist()\n    fig, ax = plt.subplots(figsize=(10, 8))\n    if len(numeric_cols) >= 2:\n        corr = df[numeric_cols[:20]].corr(numeric_only=True)\n        sns.heatmap(corr, cmap=\"coolwarm\", center=0, ax=ax)\n        ax.set_title(\"数値特徴量の相関ヒートマップ（先頭20列）\")\n    else:\n        ax.axis(\"off\")\n        ax.text(0.5, 0.5, \"相関分析に十分な数値列がありません\", ha=\"center\", va=\"center\", fontsize=12)\n    plt.tight_layout()\n    plt.savefig(FIG_DIR / \"feature_correlation_heatmap.png\", dpi=160, bbox_inches=\"tight\")\n    plt.show()\n```\n\n[出力]\n```\n【相関行列】\n                id       age       bmi  children   charges\nid        1.000000  0.005803  0.039221  0.012440  0.013463\nage       0.005803  1.000000  0.019885  0.011519  0.102112\nbmi       0.039221  0.019885  1.000000  0.083677  0.171282\nchildren  0.012440  0.011519  0.083677  1.000000  0.026830\ncharges   0.013463  0.102112  0.171282  0.026830  1.000000\n```\n\n[実行結果]\n```\n<Figure size 800x600 with 2 Axes>\n```\n\n[出力画像: f7950acecd6c/cell17_img4.png md5:b40ae224 — read_image で確認可能]\n\n[画像読み取り] cell17_img4.png\n[画像種別: グラフ]\n特徴量の相関ヒートマップ\n\n|  | id | age | bmi | children | charges |\n|---|---:|---:|---:|---:|---:|\n| id | 1.00 | 0.01 | 0.04 | 0.01 | 0.01 |\n| age | 0.01 | 1.00 | 0.02 | 0.01 | 0.10 |\n| bmi | 0.04 | 0.02 | 1.00 | 0.08 | 0.17 |\n| children | 0.01 | 0.01 | 0.08 | 1.00 | 0.03 |\n| charges | 0.01 | 0.10 | 0.17 | 0.03 | 1.00 |\n[図の説明] 相関行列のヒートマップ。タイトルは「特徴量の相関ヒートマップ」。横軸・縦軸ともに、id、age、bmi、children、charges の順に並ぶ。各セルに相関値が表示されている。行列は対称で、対角成分はすべて1.00。右側に縦型のカラーバーがあり、目盛りは0.2、0.4、0.6、0.8、1.0。値が低いセルほど淡い灰色、値が高いセルほど赤色が濃く、1.00のセルは濃い赤色で塗られている。0.01、0.02、0.03、0.04のセルは淡い灰色、0.08のセルは淡いベージュ色、0.10のセルは薄い赤みのあるベージュ色、0.17のセルは薄いサーモン色で塗られている。読み取れる組み合わせは、id-age 0.01、id-bmi 0.04、id-children 0.01、id-charges 0.01、age-bmi 0.02、age-children 0.01、age-charges 0.10、bmi-children 0.08、bmi-charges 0.17、children-charges 0.03であり、対称位置にも同じ値が表示されている。",
+   "label": "cell17",
+   "needs_vision": true,
+   "assets": [
+    "f7950acecd6c/cell17_img4.png"
+   ]
+  },
+  {
+   "no": 18,
+   "text": "## cell18 (markdown)\n\n## 7. 日付分析",
+   "label": "cell18",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 19,
+   "text": "## cell19 (code)\n\n```python\ntry:\n    from pathlib import Path\n\n    Path(FIG_DIR).mkdir(parents=True, exist_ok=True)\n\n    def is_pure_day_number_column(series):\n        s = pd.to_numeric(series, errors='coerce')\n        valid = s.dropna()\n        if len(valid) == 0:\n            return False\n        return valid.between(1, 31).all()\n\n    selected_date_col = None\n    if date_col_hint is not None and str(date_col_hint).lower() != 'none' and date_col_hint in df.columns:\n        if not is_pure_day_number_column(df[date_col_hint]):\n            converted = pd.to_datetime(df[date_col_hint], errors='coerce')\n            if converted.notna().sum() > 0:\n                selected_date_col = date_col_hint\n    else:\n        for col in df.columns:\n            if is_pure_day_number_column(df[col]):\n                continue\n            if df[col].dtype == 'object' or str(df[col].dtype).startswith('datetime'):\n                converted = pd.to_datetime(df[col], errors='coerce')\n                if converted.notna().sum() > 0:\n                    selected_date_col = col\n                    break\n\n    if selected_date_col is not None:\n        temp = df[[selected_date_col] + ([target_col] if target_col in df.columns else [])].copy()\n        temp[selected_date_col] = pd.to_datetime(temp[selected_date_col], errors='coerce')\n        temp = temp.dropna(subset=[selected_date_col])\n        temp = temp.sort_values(selected_date_col)\n        if target_col in temp.columns and pd.api.types.is_numeric_dtype(temp[target_col]):\n            trend = temp.set_index(selected_date_col)[target_col].resample('M').mean()\n        else:\n            trend = temp.set_index(selected_date_col).resample('M').size()\n        plt.figure(figsize=(10, 4.5))\n        plt.plot(trend.index, trend.values, marker='o', color='darkorange')\n        plt.xlabel('日付')\n        plt.ylabel('平均値' if target_col in temp.columns and pd.api.types.is_numeric_dtype(temp[target_col]) else '件数')\n        plt.title('日付特徴量の推移')\n        plt.tight_layout()\n        plt.savefig(Path(FIG_DIR) / 'date_feature_trend.png', dpi=150, bbox_inches='tight')\n        plt.show()\n        plt.close()\n        print('【日付列】')\n        print(selected_date_col)\n    else:\n        plt.figure(figsize=(8, 3))\n        plt.text(0.5, 0.5, '利用可能な日付列はありません', ha='center', va='center', fontsize=14)\n        plt.axis('off')\n        plt.title('日付特徴量の推移')\n        plt.tight_layout()\n        plt.savefig(Path(FIG_DIR) / 'date_feature_trend.png', dpi=150, bbox_inches='tight')\n        plt.show()\n        plt.close()\n        print('【日付列】')\n        print('該当なし')\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: date_code: {_eda_exc}\")\n    date_col = \"None\".strip() or date_col_hint\n    fig, ax = plt.subplots(figsize=(12, 4))\n    if date_col and date_col in df.columns and date_col != target_col:\n        pure_day = is_pure_day_number_column(df[date_col])\n        if pure_day:\n            ax.axis(\"off\")\n            ax.text(0.5, 0.5, f\"{date_col} は純粋な日番号列のため日付展開を行いません\", ha=\"center\", va=\"center\", fontsize=12)\n        else:\n            parsed = pd.to_datetime(df[date_col], errors=\"coerce\")\n            valid = parsed.notna()\n            if valid.sum() > 0:\n                tmp = df.loc[valid, [target_col]].copy()\n                tmp[\"_date\"] = parsed.loc[valid]\n                if pd.api.types.is_numeric_dtype(tmp[target_col]):\n                    monthly = tmp.set_index(\"_date\")[target_col].resample(\"M\").mean()\n                    monthly.plot(ax=ax, color=\"#4e79a7\", marker=\"o\")\n                    ax.set_title(\"月次の目的変数平均\")\n                    ax.set_ylabel(\"平均値\")\n                else:\n                    monthly = tmp.assign(_value=1).set_index(\"_date\")[\"_value\"].resample(\"M\").sum()\n                    monthly.plot(ax=ax, color=\"#4e79a7\", marker=\"o\")\n                    ax.set_title(\"月次レコード件数\")\n                    ax.set_ylabel(\"件数\")\n                ax.set_xlabel(\"日付\")\n            else:\n                ax.axis(\"off\")\n                ax.text(0.5, 0.5, f\"{date_col} を日付として解釈できませんでした\", ha=\"center\", va=\"center\", fontsize=12)\n    else:\n        ax.axis(\"off\")\n        ax.text(0.5, 0.5, \"日付分析対象列はありません\", ha=\"center\", va=\"center\", fontsize=12)\n    plt.tight_layout()\n    plt.savefig(FIG_DIR / \"date_feature_trend.png\", dpi=160, bbox_inches=\"tight\")\n    plt.show()\n```\n\n[実行結果]\n```\n<Figure size 800x300 with 1 Axes>\n```\n\n[出力画像: f7950acecd6c/cell19_img5.png md5:6b62abe9 — read_image で確認可能]\n\n[出力]\n```\n【日付列】\n該当なし\n```\n\n[画像読み取り] cell19_img5.png\n[画像種別: グラフ]\n日付特徴量の推移\n\n利用可能な日付列はありません\n[図の説明] 「日付特徴量の推移」という題名のグラフ領域。軸ラベル、凡例、目盛り、数値データは表示されておらず、中央に「利用可能な日付列はありません」と表示されている。",
+   "label": "cell19",
+   "needs_vision": true,
+   "assets": [
+    "f7950acecd6c/cell19_img5.png"
+   ]
+  },
+  {
+   "no": 20,
+   "text": "## cell20 (markdown)\n\n## 8. 観察結果サマリ",
+   "label": "cell20",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 21,
+   "text": "## cell21 (code)\n\n```python\ntry:\n    print('【EDAサマリー】')\n    rows, cols = df.shape\n    num_cols = df.select_dtypes(include=[np.number]).columns.tolist()\n    cat_cols = [c for c in df.columns if df[c].dtype == 'object' or str(df[c].dtype) == 'category']\n    missing_total = int(df.isna().sum().sum())\n    print(f'行数: {rows}')\n    print(f'列数: {cols}')\n    print(f'数値列数: {len(num_cols)}')\n    print(f'カテゴリ列数: {len(cat_cols)}')\n    print(f'総欠損数: {missing_total}')\n\n    if target_col in df.columns:\n        print('\\n【目的変数の要約】')\n        print(df[target_col].value_counts(dropna=False).sort_index())\n\n    print('\\n【列ごとのユニーク数】')\n    print(df.nunique(dropna=True).sort_values(ascending=False))\nexcept Exception as _eda_exc:\n    print(f\"[warn] EDA section fallback: summary_code: {_eda_exc}\")\n    summary_rows = []\n    summary_rows.append(f\"レコード数: {len(df):,}\")\n    summary_rows.append(f\"列数: {df.shape[1]:,}\")\n    summary_rows.append(f\"欠損率上位列: {', '.join((df.isna().mean()*100).sort_values(ascending=False).head(3).index.tolist())}\")\n    summary_rows.append(f\"数値列数: {len(df.select_dtypes(include=['number']).columns)}\")\n    summary_rows.append(f\"カテゴリ列数: {len([c for c in df.columns if not pd.api.types.is_numeric_dtype(df[c])])}\")\n    summary_rows.append(f\"目的変数候補: {target_col}\")\n    print(\"主要サマリ\")\n    for row in summary_rows:\n        print(f\"- {row}\")\n```\n\n[出力]\n```\n【EDAサマリー】\n行数: 1600\n列数: 8\n数値列数: 5\nカテゴリ列数: 0\n総欠損数: 0\n\n【目的変数の要約】\ncharges\n0    1256\n1     198\n2     146\nName: count, dtype: int64\n\n【列ごとのユニーク数】\nid          1600\nbmi         1600\nage           47\nchildren       6\nregion         4\ncharges        3\nsex            2\nsmoker         2\ndtype: int64\n```",
+   "label": "cell21",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_cells": 21,
+  "n_images": 5,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

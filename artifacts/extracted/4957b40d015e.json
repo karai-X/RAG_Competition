@@ -1,0 +1,28 @@
+{
+ "doc_id": "4957b40d015e",
+ "relpath": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/target_distribution.png",
+ "mount": "",
+ "project": "株式会社青潮モビリティサービス",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "aa2487f72b6046a8197778f3bc3da2d3",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/target_distribution.png (1474x876) md5:aa2487f7 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n- タイトル：cnt の分布\n- 横軸ラベル：cnt\n- 縦軸ラベル：度数\n[図の説明] ヒストグラムに滑らかな分布曲線を重ねたグラフ。横軸は「cnt」で、目盛りは 0、100、200、300、400、500、600。縦軸は「度数」で、目盛りは 0、200、400、600、800、1000、1200、1400、1600。棒は淡いピンク色で塗られ、黒色の枠線が付いている。分布曲線は赤みのあるオレンジ色。棒は横軸の小さい領域で高く、右側へ進むにつれて全体として低くなる。凡例はない。灰色の縦横グリッド線がある。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/target_distribution.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1474,
+  "height": 876,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "d2df2e87fdc7f7d842f5c411ff7071dd",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "○　目的：追加要望の契約内外判定、  \n　　以降の作業計画確定（責任者：伊  \n　　藤）\n\n議事録確認／承認：本会議録は配布後、3営業  \n日以内に記載内容の訂正・追加がある場合は伊  \n藤まで通知すること（未連絡の場合は本議事録  \nを合意記録として扱う）。",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 14.23,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/会議録/会議録_2025-04-03.pdf p6"
+}

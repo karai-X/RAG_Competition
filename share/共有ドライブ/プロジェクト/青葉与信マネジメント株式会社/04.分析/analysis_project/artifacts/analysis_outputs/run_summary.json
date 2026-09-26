@@ -1,0 +1,13 @@
+{
+  "target_column": "loan_status",
+  "date_column": null,
+  "task_type": "classification",
+  "use_date_features": true,
+  "model_type": "extra_trees",
+  "model_params": {
+    "n_estimators": 300,
+    "max_depth": null,
+    "min_samples_leaf": 1
+  },
+  "output_dir": "artifacts/analysis_outputs"
+}

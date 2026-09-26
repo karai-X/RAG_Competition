@@ -1,0 +1,260 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "target",
+  "date_column": "",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": false,
+  "use_ordered_category_features": true,
+  "group_rare_categories": true,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": false,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": true,
+  "drop_original_categorical_after_target_encoding": true,
+  "tune_class_decision_weights": false,
+  "model_type": "hist_gradient_boosting",
+  "model_params": {
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "max_iter": 232,
+    "min_samples_leaf": 15,
+    "l2_regularization": 3.0
+  },
+  "split_strategy": "random_holdout",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": {
+    "enabled": true,
+    "mode": "holdout_validation",
+    "iteration_key": "max_iter",
+    "best_iteration": 232,
+    "patience": 2,
+    "min_delta": 0.0,
+    "validation_history": [
+      {
+        "iteration": 116,
+        "metric": 0.45364971688808314
+      },
+      {
+        "iteration": 232,
+        "metric": 0.46401014731083784
+      },
+      {
+        "iteration": 348,
+        "metric": 0.4577907554118627
+      },
+      {
+        "iteration": 700,
+        "metric": 0.46301382882675296
+      }
+    ]
+  },
+  "early_stopping_patience": 2,
+  "row_count": 11529,
+  "feature_count": 14,
+  "train_rows": 8070,
+  "validation_rows": 1153,
+  "test_rows": 2306,
+  "split_ordering_basis": "random_holdout",
+  "accuracy": 0.51040763226366,
+  "f1_macro": 0.47362603575377893,
+  "train_metrics": {
+    "accuracy": 0.6603469640644362,
+    "f1_macro": 0.6452186871876684
+  },
+  "validation_metrics": {
+    "accuracy": 0.6400693842150911,
+    "f1_macro": 0.6201663586784566
+  },
+  "class_target_encoding": [
+    {
+      "source_column": "Gender",
+      "unique_count": 4,
+      "added_features": [
+        "Gender__p0",
+        "Gender__p1",
+        "Gender__p3",
+        "Gender__p2",
+        "Gender__p4",
+        "Gender__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    },
+    {
+      "source_column": "Age",
+      "unique_count": 12,
+      "added_features": [
+        "Age__p0",
+        "Age__p1",
+        "Age__p3",
+        "Age__p2",
+        "Age__p4",
+        "Age__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    },
+    {
+      "source_column": "Country",
+      "unique_count": 58,
+      "added_features": [
+        "Country__p0",
+        "Country__p1",
+        "Country__p3",
+        "Country__p2",
+        "Country__p4",
+        "Country__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    },
+    {
+      "source_column": "Education",
+      "unique_count": 7,
+      "added_features": [
+        "Education__p0",
+        "Education__p1",
+        "Education__p3",
+        "Education__p2",
+        "Education__p4",
+        "Education__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    },
+    {
+      "source_column": "Major",
+      "unique_count": 13,
+      "added_features": [
+        "Major__p0",
+        "Major__p1",
+        "Major__p3",
+        "Major__p2",
+        "Major__p4",
+        "Major__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    },
+    {
+      "source_column": "Profession",
+      "unique_count": 20,
+      "added_features": [
+        "Profession__p0",
+        "Profession__p1",
+        "Profession__p3",
+        "Profession__p2",
+        "Profession__p4",
+        "Profession__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    },
+    {
+      "source_column": "Industry",
+      "unique_count": 19,
+      "added_features": [
+        "Industry__p0",
+        "Industry__p1",
+        "Industry__p3",
+        "Industry__p2",
+        "Industry__p4",
+        "Industry__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    },
+    {
+      "source_column": "Experience",
+      "unique_count": 11,
+      "added_features": [
+        "Experience__p0",
+        "Experience__p1",
+        "Experience__p3",
+        "Experience__p2",
+        "Experience__p4",
+        "Experience__p5"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    }
+  ],
+  "eda_summary": {
+    "row_count": 11529,
+    "column_count": 10,
+    "target_column": "target",
+    "missing_ratio_top10": {
+      "Major": 0.009714632665452338,
+      "Experience": 0.004770578541070344,
+      "Gender": 0.0,
+      "id": 0.0,
+      "Country": 0.0,
+      "Age": 0.0,
+      "Education": 0.0,
+      "Profession": 0.0,
+      "Industry": 0.0,
+      "target": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 6
+  },
+  "feature_selection": {
+    "selected_columns": [
+      "Gender",
+      "Age",
+      "Country",
+      "Education",
+      "Major",
+      "Profession",
+      "Industry",
+      "Experience",
+      "Age_ord",
+      "Experience_ord",
+      "Education_ord",
+      "Age_x_Experience",
+      "Age_minus_Experience",
+      "Education_x_Experience"
+    ],
+    "excluded_columns": [
+      {
+        "column": "id",
+        "reason": "identifier_like_name"
+      }
+    ],
+    "grouped_rare_columns": [
+      {
+        "column": "Age",
+        "rare_value_count": 1,
+        "original_unique_count": 12,
+        "min_count": 20
+      },
+      {
+        "column": "Profession",
+        "rare_value_count": 1,
+        "original_unique_count": 20,
+        "min_count": 20
+      }
+    ],
+    "added_frequency_columns": [],
+    "categorical_unique_limit": 100,
+    "group_rare_categories": true,
+    "rare_category_min_count": 20,
+    "use_categorical_frequency_features": false,
+    "categorical_frequency_min_unique": 3,
+    "categorical_frequency_max_unique": 200
+  },
+  "ordered_feature_columns": [
+    "Age_ord",
+    "Experience_ord",
+    "Education_ord",
+    "Age_x_Experience",
+    "Age_minus_Experience",
+    "Education_x_Experience"
+  ],
+  "selected_feature_count": 14,
+  "excluded_feature_count": 1
+}

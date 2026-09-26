@@ -1,0 +1,137 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "disease",
+  "date_column": "",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": false,
+  "use_ordered_category_features": true,
+  "group_rare_categories": true,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": false,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": true,
+  "drop_original_categorical_after_target_encoding": true,
+  "tune_class_decision_weights": false,
+  "model_type": "hist_gradient_boosting",
+  "model_params": {
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "max_iter": 400,
+    "min_samples_leaf": 30,
+    "l2_regularization": 1.0
+  },
+  "split_strategy": "random_holdout",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": {
+    "enabled": true,
+    "mode": "holdout_validation",
+    "iteration_key": "max_iter",
+    "best_iteration": 400,
+    "patience": 2,
+    "min_delta": 0.0,
+    "validation_history": [
+      {
+        "iteration": 66,
+        "metric": 0.8712202301311212
+      },
+      {
+        "iteration": 132,
+        "metric": 0.8656048615980501
+      },
+      {
+        "iteration": 198,
+        "metric": 0.8831346622591739
+      },
+      {
+        "iteration": 400,
+        "metric": 0.8948211960332565
+      }
+    ]
+  },
+  "early_stopping_patience": 2,
+  "row_count": 3500,
+  "feature_count": 10,
+  "train_rows": 2450,
+  "validation_rows": 350,
+  "test_rows": 700,
+  "split_ordering_basis": "random_holdout",
+  "accuracy": 0.8328571428571429,
+  "f1_macro": 0.8291582445227382,
+  "auc_roc": 0.9052947069768226,
+  "brier_score": 0.12283748907616863,
+  "precision_at_top10pct": 0.9714285714285714,
+  "train_metrics": {
+    "accuracy": 0.9024489795918368,
+    "f1_macro": 0.8991517934722422
+  },
+  "validation_metrics": {
+    "accuracy": 0.9542857142857143,
+    "f1_macro": 0.9530846821487216
+  },
+  "class_target_encoding": [
+    {
+      "source_column": "Gender",
+      "unique_count": 2,
+      "added_features": [
+        "Gender__p0",
+        "Gender__p1"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    }
+  ],
+  "eda_summary": {
+    "row_count": 3500,
+    "column_count": 12,
+    "target_column": "disease",
+    "missing_ratio_top10": {
+      "id": 0.0,
+      "Age": 0.0,
+      "Gender": 0.0,
+      "T_Bil": 0.0,
+      "D_Bil": 0.0,
+      "ALP": 0.0,
+      "ALT_GPT": 0.0,
+      "AST_GOT": 0.0,
+      "TP": 0.0,
+      "Alb": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 2
+  },
+  "feature_selection": {
+    "selected_columns": [
+      "Age",
+      "Gender",
+      "T_Bil",
+      "D_Bil",
+      "ALP",
+      "ALT_GPT",
+      "AST_GOT",
+      "TP",
+      "Alb",
+      "AG_ratio"
+    ],
+    "excluded_columns": [
+      {
+        "column": "id",
+        "reason": "identifier_like_name"
+      }
+    ],
+    "grouped_rare_columns": [],
+    "added_frequency_columns": [],
+    "categorical_unique_limit": 100,
+    "group_rare_categories": true,
+    "rare_category_min_count": 20,
+    "use_categorical_frequency_features": false,
+    "categorical_frequency_min_unique": 3,
+    "categorical_frequency_max_unique": 200
+  },
+  "ordered_feature_columns": [],
+  "selected_feature_count": 10,
+  "excluded_feature_count": 1
+}

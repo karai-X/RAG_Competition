@@ -1,0 +1,13 @@
+{
+ "md5": "9b40190c1518fa10758de430c0e07cfd",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "（assumption）\n\n- 上記はプロジェクト概要に基づく記述を引用した仮定値であり、正式な値はデータプロファイリングで確定します。\n\n- 可視化済トライアル／モデル結果\n  - visible_trials = [], best_visible_trial = null（Report facts）のため、現時点で参照可能な実験結果・ベンチマークはありません。\n\n結論（この節の要点） 解析方針（疑似欠損処理の比較、複数モデル比較、Recall/ROC-AUC重視等）は企画段階で確立済。実際の数値・寄与因子はデータプロファイリングと中間レビュー後に提示します。\n\n---\n\n## [c:青緑]4. データ品質と実装状況[/c]\n\n- データ品質（初期の留意点）\n  - 形式的欠損がない一方で0値の存在が実務的には未測定や代入値の可能性が高い点は重要論点（仮定：対象列に0値あり－詳細はデータプロファイルで確定）。該当列候補：BloodPressure, SkinThickness, Insulin, BMI（項目名はプロジェクト仕様に準拠）。\n  - 一部の極端値（例：Insulin の非常に大きな値、BMI の極端に小さい値）は外れ値検討対象（これらの具体数値は data profiling 実行後に確定）。\n\n- 実装状況\n  - 分析用コードや実行スクリプト等のリポジトリは用意されている（analysis project のコード群・config が存在することは確認済み）が、Report facts の analysis.implementation_status は “planning_only” のため、現時点で「解析パイプラインの本番的実行・学習・評価」は未実行。\n  - 設計・設定としては target_column が Outcome に設定され、split_strategy・前処理方針等の config が用意されている（詳細は analysis project config を参照）。ただしこれらは「実行可能な設計」であり、現時点での評価結果を示すものではありません。\n\n- トレーサビリティ\n  - データプロファイリング→前処理案策定→中間レビュー承認（MS4）→モデル構築の流れを予定。各段階は議事録・前処理方針書等でトレーサブルに管理。\n\n---",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 36.08,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/報告資料/報告資料_2025-04-03.pdf p3"
+}

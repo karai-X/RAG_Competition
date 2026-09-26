@@ -1,0 +1,119 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "Outcome",
+  "date_column": "",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": false,
+  "use_ordered_category_features": true,
+  "group_rare_categories": true,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": false,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": true,
+  "drop_original_categorical_after_target_encoding": true,
+  "tune_class_decision_weights": false,
+  "model_type": "hist_gradient_boosting",
+  "model_params": {
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "max_iter": 400,
+    "min_samples_leaf": 30,
+    "l2_regularization": 1.0
+  },
+  "split_strategy": "random_holdout",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": {
+    "enabled": true,
+    "mode": "holdout_validation",
+    "iteration_key": "max_iter",
+    "best_iteration": 400,
+    "patience": 2,
+    "min_delta": 0.0,
+    "validation_history": [
+      {
+        "iteration": 66,
+        "metric": 0.648802555606262
+      },
+      {
+        "iteration": 132,
+        "metric": 0.6725383920505872
+      },
+      {
+        "iteration": 198,
+        "metric": 0.6706674473067915
+      },
+      {
+        "iteration": 400,
+        "metric": 0.6770833333333334
+      }
+    ]
+  },
+  "early_stopping_patience": 2,
+  "row_count": 3000,
+  "feature_count": 9,
+  "train_rows": 2100,
+  "validation_rows": 300,
+  "test_rows": 600,
+  "split_ordering_basis": "random_holdout",
+  "accuracy": 0.8083333333333333,
+  "f1_macro": 0.6976747242924932,
+  "auc_roc": 0.8100717663080903,
+  "brier_score": 0.13541262685080327,
+  "precision_at_top10pct": 0.75,
+  "train_metrics": {
+    "accuracy": 0.8852380952380953,
+    "f1_macro": 0.8208444206718848
+  },
+  "validation_metrics": {
+    "accuracy": 0.8766666666666667,
+    "f1_macro": 0.8084853085802033
+  },
+  "eda_summary": {
+    "row_count": 3000,
+    "column_count": 10,
+    "target_column": "Outcome",
+    "missing_ratio_top10": {
+      "index": 0.0,
+      "Pregnancies": 0.0,
+      "Glucose": 0.0,
+      "BloodPressure": 0.0,
+      "SkinThickness": 0.0,
+      "Insulin": 0.0,
+      "BMI": 0.0,
+      "DiabetesPedigreeFunction": 0.0,
+      "Age": 0.0,
+      "Outcome": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 2
+  },
+  "feature_selection": {
+    "selected_columns": [
+      "index",
+      "Pregnancies",
+      "Glucose",
+      "BloodPressure",
+      "SkinThickness",
+      "Insulin",
+      "BMI",
+      "DiabetesPedigreeFunction",
+      "Age"
+    ],
+    "excluded_columns": [],
+    "grouped_rare_columns": [],
+    "added_frequency_columns": [],
+    "categorical_unique_limit": 100,
+    "group_rare_categories": true,
+    "rare_category_min_count": 20,
+    "use_categorical_frequency_features": false,
+    "categorical_frequency_min_unique": 3,
+    "categorical_frequency_max_unique": 200
+  },
+  "ordered_feature_columns": [],
+  "selected_feature_count": 9,
+  "excluded_feature_count": 0
+}

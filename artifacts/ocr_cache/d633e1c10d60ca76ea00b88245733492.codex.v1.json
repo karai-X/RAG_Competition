@@ -1,0 +1,13 @@
+{
+ "md5": "d633e1c10d60ca76ea00b88245733492",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "数値特徴量の相関ヒートマップ\n\n相関を計算できる数値列が不足しています",
+ "figure_description": "相関ヒートマップ。タイトルは「数値特徴量の相関ヒートマップ」。中央に「相関を計算できる数値列が不足しています」と表示されている。軸ラベル、凡例、目盛り、数値、色付きセルはない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 9.18,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+}

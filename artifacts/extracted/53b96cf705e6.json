@@ -1,0 +1,25 @@
+{
+ "doc_id": "53b96cf705e6",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_outputs/metrics.json",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "c8fafbeabdd6e10462fe6ad7bd26291e",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"task_type\": \"classification\",\n  \"encoding\": \"utf-8-sig\",\n  \"target_column\": \"charges\",\n  \"date_column\": \"\",\n  \"use_date_features\": true,\n  \"use_numeric_interactions\": true,\n  \"model_type\": \"random_forest\",\n  \"model_params\": {\n    \"n_estimators\": 500,\n    \"max_depth\": 12,\n    \"min_samples_leaf\": 2,\n    \"class_weight\": \"balanced\",\n    \"max_features\": \"sqrt\"\n  },\n  \"row_count\": 1600,\n  \"feature_count\": 9,\n  \"train_rows\": 1280,\n  \"test_rows\": 320,\n  \"accuracy\": 0.865625,\n  \"f1_macro\": 0.7422917255604067,\n  \"eda_summary\": {\n    \"row_count\": 1600,\n    \"column_count\": 8,\n    \"target_column\": \"charges\",\n    \"missing_ratio_top10\": {\n      \"id\": 0.0,\n      \"age\": 0.0,\n      \"sex\": 0.0,\n      \"bmi\": 0.0,\n      \"children\": 0.0,\n      \"smoker\": 0.0,\n      \"region\": 0.0,\n      \"charges\": 0.0\n    },\n    \"target_dtype\": \"int64\",\n    \"target_unique\": 3\n  },\n  \"feature_selection\": {\n    \"selected_columns\": [\n      \"age\",\n      \"sex\",\n      \"bmi\",\n      \"children\",\n      \"smoker\",\n      \"region\",\n      \"age__x__bmi\",\n      \"age__x__children\",\n      \"bmi__x__children\"\n    ],\n    \"excluded_columns\": [\n      {\n        \"column\": \"id\",\n        \"reason\": \"identifier_like_name\"\n      },\n      {\n        \"column\": \"id__x__age\",\n        \"reason\": \"identifier_like_name\"\n      },\n      {\n        \"column\": \"id__x__bmi\",\n        \"reason\": \"identifier_like_name\"\n      },\n      {\n        \"column\": \"id__x__children\",\n        \"reason\": \"identifier_like_name\"\n      }\n    ],\n    \"categorical_unique_limit\": 50\n  },\n  \"selected_feature_count\": 9,\n  \"excluded_feature_count\": 4\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 1569,
+  "n_lines": 74
+ },
+ "error": null,
+ "warnings": []
+}

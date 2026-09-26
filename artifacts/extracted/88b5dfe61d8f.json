@@ -1,0 +1,25 @@
+{
+ "doc_id": "88b5dfe61d8f",
+ "relpath": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/data/カラム説明.md",
+ "mount": "",
+ "project": "医療法人社団 蒼樹会 みなみ野女性医療センター",
+ "category": "04.分析",
+ "filetype": "md",
+ "md5": "84b1636d598c9c8eb72b23308b436bf6",
+ "pages": [
+  {
+   "no": 1,
+   "text": "### train.csv\n\n| カラム | ヘッダ名称 | データ型 | 説明 |\n| --- | --- | --- | --- |\n| 0 | index | int | インデックスとして使用 |\n| 1 | Pregnancies | int | 妊娠した回数 |\n| 2 | Glucose | int | 経口ブドウ糖負荷試験における2時間の血漿ブドウ糖濃度 |\n| 3 | BloodPressure | int | 拡張期血圧 |\n| 4 | SkinThickness | int | 皮膚のひだの厚さ |\n| 5 | Insulin | int | 血清インスリン |\n| 6 | BMI | float | BMI |\n| 7 | Age | int | 年齢 |\n| 8 | DiabetesPedigreeFunction | float | 糖尿病血統（家族歴に基づいて糖尿病にかかる可能性をスコアリングした数値） |\n| 9 | **Outcome** | int | 糖尿病であるか（糖尿病の場合1、でない場合0） |\n\n※黄色く色付けされた変数（上記表の **Outcome**）が目的変数です（評価用データには含まれません）。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 532,
+  "n_lines": 16
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "da1d6e56e4f62ccd36003f50459b9380",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### 上段\n\njob の分布（上位15件）\n\n- 縦軸：job\n- 横軸：件数\n- 項目：blue-collar、management、technician、admin.、services、retired、self-employed、entrepreneur、unemployed、housemaid、student、unknown\n\n### 中段\n\nmarital の分布（上位15件）\n\n- 縦軸：marital\n- 横軸：件数\n- 項目：married、single、divorced\n\n### 下段\n\neducation の分布（上位15件）\n\n- 縦軸：education\n- 横軸：件数\n- 項目：secondary、tertiary、primary、unknown",
+ "figure_description": "縦に3段配置された横棒グラフ。凡例はない。\n\n【上段：job の分布（上位15件）】\n横軸は「件数」で、目盛りは 0、1000、2000、3000、4000、5000、6000。縦軸は「job」。上から blue-collar、management、technician、admin.、services、retired、self-employed、entrepreneur、unemployed、housemaid、student、unknown の順。棒には数値ラベルがない。棒の長さは上から順に短くなる。棒の塗り色は、blue-collar が濃い紫、management が濃い青紫、technician が青、admin. が青みの強いくすんだ青、services が青緑、retired が青緑、self-employed が緑がかった青緑、entrepreneur が緑、unemployed が緑、housemaid が明るい緑、student が黄緑、unknown が黄色みのある黄緑。\n\n【中段：marital の分布（上位15件）】\n横軸は「件数」で、目盛りは 0、2000、4000、6000、8000、10000、12000、14000、16000。縦軸は「marital」。上から married、single、divorced の順。棒には数値ラベルがない。棒の塗り色は、married が濃い青、single が青緑、divorced が明るい緑。\n\n【下段：education の分布（上位15件）】\n横軸は「件数」で、目盛りは 0、2000、4000、6000、8000、10000、12000、14000。縦軸は「education」。上から secondary、tertiary、primary、unknown の順。棒には数値ラベルがない。棒の塗り色は、secondary が濃い青紫、tertiary が青緑、primary が緑、unknown が黄緑。\n\n全グラフとも背景は白で、縦方向に薄い灰色のグリッド線がある。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 33.79,
+ "source": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "4dd7556b26ec095838fe6a7c0c47443f",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### Gender のカテゴリ分布 上位10件\n\n- 縦軸ラベル：Gender\n- 横軸ラベル：件数\n- カテゴリ：Male、Female、Prefer not to say、Prefer to self-describe\n- 横軸目盛り：0、2000、4000、6000、8000、10000\n\n### Age のカテゴリ分布 上位10件\n\n- 縦軸ラベル：Age\n- 横軸ラベル：件数\n- カテゴリ：25-29、30-34、22-24、35-39、18-21、40-44、45-49、50-54、55-59、60-69\n- 横軸目盛り：0、500、1000、1500、2000、2500、3000\n\n### Country のカテゴリ分布 上位10件\n\n- 縦軸ラベル：Country\n- 横軸ラベル：件数\n- カテゴリ：United States of America、India、China、Other、Russia、Brazil、Germany、United Kingdom of Great Britain and Northern Ireland、Canada、Japan\n- 横軸目盛り：0、500、1000、1500、2000、2500",
+ "figure_description": "縦に3つ並んだ横棒グラフ。いずれも凡例はなく、カテゴリ別の件数を多い順に表示している。棒そのものに数値ラベルはない。\n\n1つ目は「Gender のカテゴリ分布 上位10件」。縦軸は「Gender」、横軸は「件数」。横軸目盛りは0、2000、4000、6000、8000、10000。上からMale、Female、Prefer not to say、Prefer to self-describeの順。棒の色は、Maleが濃い青紫、Femaleが青緑、Prefer not to sayが緑、Prefer to self-describeが黄緑。\n\n2つ目は「Age のカテゴリ分布 上位10件」。縦軸は「Age」、横軸は「件数」。横軸目盛りは0、500、1000、1500、2000、2500、3000。上から25-29、30-34、22-24、35-39、18-21、40-44、45-49、50-54、55-59、60-69の順。棒の色は上から、濃い紫、青紫、青、青緑、青緑、緑、緑、薄緑、黄緑、黄緑。\n\n3つ目は「Country のカテゴリ分布 上位10件」。縦軸は「Country」、横軸は「件数」。横軸目盛りは0、500、1000、1500、2000、2500。上からUnited States of America、India、China、Other、Russia、Brazil、Germany、United Kingdom of Great Britain and Northern Ireland、Canada、Japanの順。棒の色は上から、濃い紫、青紫、青、青緑、青緑、緑、緑、薄緑、黄緑、黄緑。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 25.63,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell12_img3.png"
+}

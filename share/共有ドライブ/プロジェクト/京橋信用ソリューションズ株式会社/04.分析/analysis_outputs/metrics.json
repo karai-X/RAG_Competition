@@ -1,0 +1,37 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "y",
+  "date_column": "day",
+  "use_date_features": true,
+  "model_type": "gradient_boosting",
+  "model_params": {},
+  "row_count": 27128,
+  "feature_count": 17,
+  "train_rows": 21702,
+  "test_rows": 5426,
+  "accuracy": 0.8999262808698857,
+  "f1_macro": 0.7224266113840854,
+  "auc_roc": 0.9249547626208591,
+  "brier_score": 0.06627112835317771,
+  "precision_at_top10pct": 0.5893186003683242,
+  "eda_summary": {
+    "row_count": 27128,
+    "column_count": 18,
+    "target_column": "y",
+    "missing_ratio_top10": {
+      "id": 0.0,
+      "age": 0.0,
+      "job": 0.0,
+      "marital": 0.0,
+      "education": 0.0,
+      "default": 0.0,
+      "balance": 0.0,
+      "housing": 0.0,
+      "loan": 0.0,
+      "contact": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 2
+  }
+}

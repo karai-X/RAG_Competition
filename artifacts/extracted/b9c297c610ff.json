@@ -1,0 +1,28 @@
+{
+ "doc_id": "b9c297c610ff",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "ed44d3a7e818ac606c3e4dcd5dce5d8f",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1475x1056) md5:ed44d3a7 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\nタイトル：欠損率 上位20項目\n\n横軸：欠損率（%）\n\n縦軸：列名\n\n縦軸項目（上から順）：\n\n1. id\n2. age\n3. job\n4. marital\n5. education\n6. default\n7. balance\n8. housing\n9. loan\n10. contact\n11. day\n12. month\n13. duration\n14. campaign\n15. pdays\n16. previous\n17. poutcome\n18. y\n[図の説明] 横棒グラフ用の座標領域。タイトルは「欠損率 上位20項目」。横軸ラベルは「欠損率（%）」で、読み取れる目盛りは左から -0.04、-0.02、0.00、0.02、0.04。縦軸ラベルは「列名」で、項目は上から id、age、job、marital、education、default、balance、housing、loan、contact、day、month、duration、campaign、pdays、previous、poutcome、y。棒および数値ラベルは表示されていない。凡例はない。縦方向の灰色のグリッド線が各横軸目盛り位置に表示されている。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1475,
+  "height": 1056,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

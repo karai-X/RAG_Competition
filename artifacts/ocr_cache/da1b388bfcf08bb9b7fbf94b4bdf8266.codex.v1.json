@@ -1,0 +1,13 @@
+{
+ "md5": "da1b388bfcf08bb9b7fbf94b4bdf8266",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "目的変数の分布\n\n- 縦軸ラベル：件数\n- 横軸ラベル：charges\n- 横軸目盛り：0、1、2\n- 縦軸目盛り：0、200、400、600、800、1000、1200",
+ "figure_description": "縦棒グラフ。横軸は「charges」で、目盛りは0、1、2。縦軸は「件数」で、目盛りは0から1200まで200刻み。凡例はない。0、1、2の各値に対応する緑色で塗られた棒が1本ずつある。0の棒が最も高く、1200の目盛りを上回っている。1の棒は200の目盛り付近、2の棒は200の目盛りより低い。各棒の数値ラベルは記載されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 17.91,
+ "source": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/target_distribution.png"
+}

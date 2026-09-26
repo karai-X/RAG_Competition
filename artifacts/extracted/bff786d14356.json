@@ -1,0 +1,28 @@
+{
+ "doc_id": "bff786d14356",
+ "relpath": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png",
+ "mount": "",
+ "project": "株式会社青潮モビリティサービス",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "a4fcfe93fe388912977e28ee684037ce",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png (1659x1475) md5:a4fcfe93 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n数値特徴量の相関ヒートマップ\n\n横軸（左から）: id、season、yr、mnth、hr、holiday、weekday、workingday、weathersit、temp、atemp、hum、windspeed、cnt\n\n縦軸（上から）: id、season、yr、mnth、hr、holiday、weekday、workingday、weathersit、temp、atemp、hum、windspeed、cnt\n\nカラーバー目盛り（上から）: 1.0、0.8、0.6、0.4、0.2、0.0、-0.2\n[図の説明] 種類: 数値特徴量どうしの相関ヒートマップ。横軸と縦軸には同じ14項目が並ぶ。各セル内に数値ラベルはない。\n\n凡例: 右側に縦方向のカラーバーがある。1.0側が濃赤、0.8付近が赤、0.6付近が赤橙、0.4付近が橙、0.2付近が薄橙、0.0付近が薄灰、-0.2付近が薄青。下端側は青色が濃くなる。\n\n`yr`の行と列は、交点を含めてすべて白色で塗りがない。その他のセル配置は対角線を軸に対称。対角セルは、`yr`を除きすべて濃赤。\n\nセルの塗り色（数値表示はないため、以下は画像上の色のみ。対称部分は上三角側で記載）:\n\n- `id`: `id`=濃赤、`season`=赤、`yr`=白、`mnth`=濃赤、`hr`=灰、`holiday`=灰、`weekday`=灰、`workingday`=灰、`weathersit`=青みの灰、`temp`=薄橙、`atemp`=薄橙、`hum`=薄橙、`windspeed`=薄青、`cnt`=薄橙。\n- `season`: `season`=濃赤、`yr`=白、`mnth`=赤、`hr`=灰、`holiday`=灰、`weekday`=灰、`workingday`=灰、`weathersit`=青みの灰、`temp`=橙、`atemp`=橙、`hum`=薄橙、`windspeed`=薄青、`cnt`=薄橙。\n- `yr`: `yr`以降を含む行・列全体が白。\n- `mnth`: `mnth`=濃赤、`hr`=青みの灰、`holiday`=灰、`weekday`=灰、`workingday`=灰、`weathersit`=青みの灰、`temp`=薄橙、`atemp`=薄橙、`hum`=薄橙、`windspeed`=薄青、`cnt`=薄橙。\n- `hr`: `hr`=濃赤、`holiday`=灰、`weekday`=灰、`workingday`=灰、`weathersit`=青みの灰、`temp`=ごく薄い橙、`atemp`=ごく薄い橙、`hum`=青、`windspeed`=ごく薄い橙、`cnt`=橙。\n- `holiday`: `holiday`=濃赤、`weekday`=薄青、`workingday`=青、`weathersit`=灰、`temp`=青みの灰、`atemp`=青みの灰、`hum`=青みの灰、`windspeed`=灰、`cnt`=青みの灰。\n- `weekday`: `weekday`=濃赤、`workingday`=灰、`weathersit`=灰、`temp`=青みの灰、`atemp`=青みの灰、`hum`=青みの灰、`windspeed`=灰、`cnt`=灰。\n- `workingday`: `workingday`=濃赤、`weathersit`=ごく薄い橙、`temp`=ごく薄い橙、`atemp`=ごく薄い橙、`hum`=灰、`windspeed`=灰、`cnt`=灰。\n- `weathersit`: `weathersit`=濃赤、`temp`=薄青、`atemp`=薄青、`hum`=橙、`windspeed`=灰、`cnt`=薄青。\n- `temp`: `temp`=濃赤、`atemp`=濃赤、`hum`=青みの灰、`windspeed`=灰、`cnt`=橙。\n- `atemp`: `atemp`=濃赤、`hum`=青みの灰、`windspeed`=青みの灰、`cnt`=橙。\n- `hum`: `hum`=濃赤、`windspeed`=青、`cnt`=青。\n- `windspeed`: `windspeed`=濃赤、`cnt`=ごく薄い橙。\n- `cnt`: `cnt`=濃赤。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1659,
+  "height": 1475,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

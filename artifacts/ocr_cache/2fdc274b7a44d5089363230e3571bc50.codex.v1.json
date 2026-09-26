@@ -1,0 +1,13 @@
+{
+ "md5": "2fdc274b7a44d5089363230e3571bc50",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "- キックオフ（M01：2025-08-18）は完了（議事録：artifacts/meeting_minutes/会議録_2025-08-18.md）。中間報告会（M02：2025-09-08）を本チェックポイントとして実施。\n\n- 中間報告での期待決定事項（欠損処理方針、カテゴリ統合方針、主指標／補助指標、継続モデル方針等）は「合意待ち／決定保留」のものが残る（後述のアクション参照）。\n\n- 分析実行（as-of チェックポイント）\n\n  - 可視化・モデル試行：実験ラン（visible_trials）として T01〜T05 が実行され、各試行の評価指標が得られている（詳細はセクション 3）。\n\n  - モデル/実行設定共通点：各試行は random_holdout split（test_size=0.2、random_state=42）で実施。モデル群は線形ベースライン系を中心に段階的改善を行っている（trial_role 等は実行ログに\n\n[c:濃い灰色]データアステル-ドラフト[/c]\n\n  - 前処理・特徴選択：feature selection により selected_feature_count および excluded_feature_count が記録されている（後述）。\n\n- 現在のアクション（トレース）\n\n  - prior_state.open_action_count = 10（未解決アクション数）。主要未完了アクションの例（Report facts JSON.prior_state.open_actions より）：\n\n    - T02: キックオフ議事録配布 — Owner: 藤田 彩 — Due: 2025-08-19 — Status: Open\n\n    - T03: 分析計画書（初版）作成 — Owner: 渡辺 遥 / 藤田 彩 — Due: 2025-08-21 — Status: 未着手\n\n    - T04: 分析環境準備・データ読込確認 — Owner: 斎藤 悠斗 — Due: 2025-08-21 — Status: 未着手",
+ "figure_description": "",
+ "layout": "",
+ "confident": false,
+ "error": null,
+ "latency_sec": 80.04,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-09-08.pdf p2"
+}

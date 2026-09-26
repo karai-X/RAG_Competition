@@ -1,0 +1,41 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "loan_status",
+  "date_column": "",
+  "use_date_features": true,
+  "model_type": "extra_trees",
+  "model_params": {
+    "n_estimators": 500,
+    "max_depth": null,
+    "min_samples_leaf": 1
+  },
+  "row_count": 17500,
+  "feature_count": 9,
+  "train_rows": 14000,
+  "test_rows": 3500,
+  "accuracy": 0.778,
+  "f1_macro": 0.6026664231577025,
+  "auc_roc": 0.7126713528601072,
+  "brier_score": 0.15813333485714287,
+  "precision_at_top10pct": 0.48857142857142855,
+  "eda_summary": {
+    "row_count": 17500,
+    "column_count": 10,
+    "target_column": "loan_status",
+    "missing_ratio_top10": {
+      "id": 0.0,
+      "loan_amnt": 0.0,
+      "term": 0.0,
+      "interest_rate": 0.0,
+      "grade": 0.0,
+      "employment_length": 0.0,
+      "purpose": 0.0,
+      "credit_score": 0.0,
+      "application_type": 0.0,
+      "loan_status": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 2
+  }
+}

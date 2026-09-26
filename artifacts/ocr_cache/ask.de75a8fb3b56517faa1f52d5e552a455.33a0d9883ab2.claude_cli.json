@@ -1,0 +1,10 @@
+{
+ "md5": "de75a8fb3b56517faa1f52d5e552a455",
+ "question": "京橋信用ソリューションズの顧客データにおいて、目的変数と最も強い負の相関を持つカラムは何ですか。",
+ "engine": "claude_cli",
+ "answer": "campaign",
+ "evidence": "相関ヒートマップの最下行（目的変数 y の行）を確認すると、campaign との交差セルだけがはっきりと青み（負の相関）を帯びており、他のカラム（duration は明確な正の相関、pdays・previous・balance などは薄い正〜ほぼゼロ）と比べて最も強い負の相関を示しているため。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 15.69
+}

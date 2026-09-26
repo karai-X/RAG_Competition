@@ -1,0 +1,25 @@
+{
+ "doc_id": "e5b03481bf52",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/preprocess.py",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "649f7c9d5aaf9a4f2eab80594dff071a",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n\ndef split_feature_target(df: pd.DataFrame, target_col: str) -> tuple[pd.DataFrame, pd.Series]:\n    if target_col not in df.columns:\n        raise KeyError(f\"target column not found: {target_col}\")\n    y = df[target_col]\n    X = df.drop(columns=[target_col]).copy()\n    if X.empty:\n        raise ValueError(\"no feature columns available after target split\")\n    return X, y\n\n\ndef train_test_holdout_split(\n    X: pd.DataFrame,\n    y: pd.Series,\n    task_type: str,\n    test_size: float,\n    random_state: int,\n) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:\n    split_kwargs: dict[str, object] = {\"test_size\": test_size, \"random_state\": random_state}\n    if task_type == \"classification\":\n        try:\n            return train_test_split(X, y, stratify=y, **split_kwargs)\n        except Exception:\n            return train_test_split(X, y, **split_kwargs)\n    return train_test_split(X, y, **split_kwargs)\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 1030,
+  "n_lines": 31
+ },
+ "error": null,
+ "warnings": []
+}

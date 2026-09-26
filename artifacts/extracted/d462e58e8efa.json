@@ -1,0 +1,39 @@
+{
+ "doc_id": "d462e58e8efa",
+ "relpath": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_outputs/experiments/leaderboard.csv",
+ "mount": "",
+ "project": "白峰信用リスク評価株式会社",
+ "category": "04.分析",
+ "filetype": "csv",
+ "md5": "5d91042ff0ef1b1bdafa916512327e19",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| trial_index | status | model_type | use_date_features | random_state | test_size | task_type | primary_metric | primary_value | secondary_metric | secondary_value |\n|---|---|---|---|---|---|---|---|---|---|---|\n| 7 | ok | gradient_boosting | True | 42 | 0.2 | classification | f1_macro | 0.60785098 | accuracy | 0.95649218 |\n| 1 | ok | random_forest | True | 42 | 0.2 | classification | f1_macro | 0.49989801 | accuracy | 0.94901428 |\n| 5 | ok | random_forest | True | 42 | 0.25 | classification | f1_macro | 0.49754112 | accuracy | 0.94940152 |\n| 10 | ok | extra_trees | True | 42 | 0.2 | classification | f1_macro | 0.48727780 | accuracy | 0.95037390 |\n| 9 | ok | random_forest | True | 42 | 0.2 | classification | f1_macro | 0.48727780 | accuracy | 0.95037390 |\n| 6 | ok | extra_trees | True | 42 | 0.2 | classification | f1_macro | 0.48727780 | accuracy | 0.95037390 |\n| 8 | ok | linear_baseline | True | 42 | 0.2 | classification | f1_macro | 0.48709902 | accuracy | 0.94969409 |\n| 2 | ok | random_forest | True | 77 | 0.2 | classification | f1_macro | 0.48709902 | accuracy | 0.94969409 |\n| 3 | ok | random_forest | True | 123 | 0.2 | classification | f1_macro | 0.48656195 | accuracy | 0.94765466 |\n| 4 | ok | random_forest | True | 42 | 0.15 | classification | f1_macro | 0.48649907 | accuracy | 0.94741614 |",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_rows": 10,
+  "n_cols": 11,
+  "columns": [
+   "trial_index",
+   "status",
+   "model_type",
+   "use_date_features",
+   "random_state",
+   "test_size",
+   "task_type",
+   "primary_metric",
+   "primary_value",
+   "secondary_metric",
+   "secondary_value"
+  ],
+  "truncated": false
+ },
+ "error": null,
+ "warnings": []
+}

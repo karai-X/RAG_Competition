@@ -1,0 +1,39 @@
+{
+ "doc_id": "00ebca6dbf72",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_outputs/experiments/leaderboard.csv",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "csv",
+ "md5": "27c2f85dcd78cd4eb3c60f268bea6030",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| trial_index | status | model_type | use_date_features | random_state | test_size | task_type | primary_metric | primary_value | secondary_metric | secondary_value |\n|---|---|---|---|---|---|---|---|---|---|---|\n| 7 | ok | gradient_boosting | True | 42 | 0.2 | classification | f1_macro | 0.72242661 | accuracy | 0.89992628 |\n| 3 | ok | random_forest | True | 123 | 0.2 | classification | f1_macro | 0.71486251 | accuracy | 0.90527092 |\n| 1 | ok | random_forest | True | 42 | 0.2 | classification | f1_macro | 0.70972492 | accuracy | 0.90269075 |\n| 4 | ok | random_forest | True | 42 | 0.15 | classification | f1_macro | 0.70495779 | accuracy | 0.90270270 |\n| 2 | ok | random_forest | True | 77 | 0.2 | classification | f1_macro | 0.70171522 | accuracy | 0.89955769 |\n| 5 | ok | random_forest | True | 42 | 0.25 | classification | f1_macro | 0.70148502 | accuracy | 0.90327337 |\n| 6 | ok | extra_trees | True | 42 | 0.2 | classification | f1_macro | 0.67720644 | accuracy | 0.89568743 |\n| 10 | ok | extra_trees | True | 42 | 0.2 | classification | f1_macro | 0.67519069 | accuracy | 0.89513454 |\n| 8 | ok | linear_baseline | True | 42 | 0.2 | classification | f1_macro | 0.65288622 | accuracy | 0.89163288 |\n| 9 | ok | random_forest | True | 42 | 0.2 | classification | f1_macro | 0.65197067 | accuracy | 0.89863620 |",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_rows": 10,
+  "n_cols": 11,
+  "columns": [
+   "trial_index",
+   "status",
+   "model_type",
+   "use_date_features",
+   "random_state",
+   "test_size",
+   "task_type",
+   "primary_metric",
+   "primary_value",
+   "secondary_metric",
+   "secondary_value"
+  ],
+  "truncated": false
+ },
+ "error": null,
+ "warnings": []
+}

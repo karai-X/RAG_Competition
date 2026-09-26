@@ -1,0 +1,13 @@
+{
+ "md5": "95f6b6cb6af4ee4849844cb2f19541d9",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### 欠損率 上位20列\n\n- 縦軸ラベル：列名\n- 横軸ラベル：欠損率(%)\n- 列名：\n  - charges\n  - region\n  - smoker\n  - children\n  - bmi\n  - sex\n  - age\n  - id\n- 横軸目盛り：-0.04、-0.02、0.00、0.02、0.04",
+ "figure_description": "横向き棒グラフ用の座標軸だが、棒やデータ点は表示されていない。タイトルは「欠損率 上位20列」。縦軸は「列名」で、上から charges、region、smoker、children、bmi、sex、age、id。横軸は「欠損率(%)」で、目盛りは -0.04、-0.02、0.00、0.02、0.04。凡例はない。灰色の縦横グリッド線が表示されている。読み取れるデータ数値や数値ラベルはない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 13.13,
+ "source": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell8_img1.png"
+}

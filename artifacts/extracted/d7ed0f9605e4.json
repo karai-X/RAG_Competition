@@ -1,0 +1,25 @@
+{
+ "doc_id": "d7ed0f9605e4",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/eda.py",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "e0d92020b9c84686338c4329c0df88be",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nfrom typing import Any\n\nimport pandas as pd\n\n\ndef summarize_dataframe(df: pd.DataFrame, target_col: str) -> dict[str, Any]:\n    # REGION: EDA_SUMMARY_RULES START\n    summary: dict[str, Any] = {\n        \"row_count\": int(df.shape[0]),\n        \"column_count\": int(df.shape[1]),\n        \"target_column\": target_col,\n        \"missing_ratio_top10\": df.isna().mean().sort_values(ascending=False).head(10).to_dict(),\n    }\n    if target_col in df.columns:\n        summary[\"target_dtype\"] = str(df[target_col].dtype)\n        summary[\"target_unique\"] = int(df[target_col].nunique(dropna=True))\n    # REGION: EDA_SUMMARY_RULES END\n    return summary\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 675,
+  "n_lines": 21
+ },
+ "error": null,
+ "warnings": []
+}

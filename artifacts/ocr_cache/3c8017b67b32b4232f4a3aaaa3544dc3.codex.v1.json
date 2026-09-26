@@ -1,0 +1,13 @@
+{
+ "md5": "3c8017b67b32b4232f4a3aaaa3544dc3",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "タイトル：欠損率 上位20列\n\n縦軸ラベル：列名\n\n横軸ラベル：欠損率 (%)\n\n項目：\n- GROSS SQUARE FEET：35.9%\n- LAND SQUARE FEET：35.1%",
+ "figure_description": "横向き棒グラフ。タイトルは「欠損率 上位20列」。縦軸ラベルは「列名」で、上から「GROSS SQUARE FEET」「LAND SQUARE FEET」の2項目。横軸ラベルは「欠損率 (%)」で、表示されている目盛りは0、5、10、15、20、25、30、35。GROSS SQUARE FEETの欠損率は35.9%、LAND SQUARE FEETの欠損率は35.1%。両項目の棒は赤橙色で塗られている。薄い灰色のグリッド線がある。凡例はない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 16.39,
+ "source": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+}

@@ -1,0 +1,25 @@
+{
+ "doc_id": "b126b2974232",
+ "relpath": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_outputs/metrics.json",
+ "mount": "",
+ "project": "医療法人社団 恒一会 かえで総合病院",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "3a18791df488a832f57c732a3305e050",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"task_type\": \"classification\",\n  \"encoding\": \"utf-8-sig\",\n  \"target_column\": \"disease\",\n  \"date_column\": \"\",\n  \"use_date_features\": true,\n  \"use_numeric_interactions\": false,\n  \"use_cyclical_time_features\": false,\n  \"use_ordered_category_features\": true,\n  \"group_rare_categories\": true,\n  \"rare_category_min_count\": 20,\n  \"use_categorical_frequency_features\": false,\n  \"categorical_frequency_min_unique\": 3,\n  \"categorical_frequency_max_unique\": 200,\n  \"use_class_target_encoding\": true,\n  \"drop_original_categorical_after_target_encoding\": true,\n  \"tune_class_decision_weights\": false,\n  \"model_type\": \"hist_gradient_boosting\",\n  \"model_params\": {\n    \"learning_rate\": 0.03,\n    \"max_depth\": 4,\n    \"max_iter\": 400,\n    \"min_samples_leaf\": 30,\n    \"l2_regularization\": 1.0\n  },\n  \"split_strategy\": \"random_holdout\",\n  \"transform_target\": \"none\",\n  \"validation_size\": 0.1,\n  \"early_stopping\": {\n    \"enabled\": true,\n    \"mode\": \"holdout_validation\",\n    \"iteration_key\": \"max_iter\",\n    \"best_iteration\": 400,\n    \"patience\": 2,\n    \"min_delta\": 0.0,\n    \"validation_history\": [\n      {\n        \"iteration\": 66,\n        \"metric\": 0.8712202301311212\n      },\n      {\n        \"iteration\": 132,\n        \"metric\": 0.8656048615980501\n      },\n      {\n        \"iteration\": 198,\n        \"metric\": 0.8831346622591739\n      },\n      {\n        \"iteration\": 400,\n        \"metric\": 0.8948211960332565\n      }\n    ]\n  },\n  \"early_stopping_patience\": 2,\n  \"row_count\": 3500,\n  \"feature_count\": 10,\n  \"train_rows\": 2450,\n  \"validation_rows\": 350,\n  \"test_rows\": 700,\n  \"split_ordering_basis\": \"random_holdout\",\n  \"accuracy\": 0.8328571428571429,\n  \"f1_macro\": 0.8291582445227382,\n  \"auc_roc\": 0.9052947069768226,\n  \"brier_score\": 0.12283748907616863,\n  \"precision_at_top10pct\": 0.9714285714285714,\n  \"train_metrics\": {\n    \"accuracy\": 0.9024489795918368,\n    \"f1_macro\": 0.8991517934722422\n  },\n  \"validation_metrics\": {\n    \"accuracy\": 0.9542857142857143,\n    \"f1_macro\": 0.9530846821487216\n  },\n  \"class_target_encoding\": [\n    {\n      \"source_column\": \"Gender\",\n      \"unique_count\": 2,\n      \"added_features\": [\n        \"Gender__p0\",\n        \"Gender__p1\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    }\n  ],\n  \"eda_summary\": {\n    \"row_count\": 3500,\n    \"column_count\": 12,\n    \"target_column\": \"disease\",\n    \"missing_ratio_top10\": {\n      \"id\": 0.0,\n      \"Age\": 0.0,\n      \"Gender\": 0.0,\n      \"T_Bil\": 0.0,\n      \"D_Bil\": 0.0,\n      \"ALP\": 0.0,\n      \"ALT_GPT\": 0.0,\n      \"AST_GOT\": 0.0,\n      \"TP\": 0.0,\n      \"Alb\": 0.0\n    },\n    \"target_dtype\": \"int64\",\n    \"target_unique\": 2\n  },\n  \"feature_selection\": {\n    \"selected_columns\": [\n      \"Age\",\n      \"Gender\",\n      \"T_Bil\",\n      \"D_Bil\",\n      \"ALP\",\n      \"ALT_GPT\",\n      \"AST_GOT\",\n      \"TP\",\n      \"Alb\",\n      \"AG_ratio\"\n    ],\n    \"excluded_columns\": [\n      {\n        \"column\": \"id\",\n        \"reason\": \"identifier_like_name\"\n      }\n    ],\n    \"grouped_rare_columns\": [],\n    \"added_frequency_columns\": [],\n    \"categorical_unique_limit\": 100,\n    \"group_rare_categories\": true,\n    \"rare_category_min_count\": 20,\n    \"use_categorical_frequency_features\": false,\n    \"categorical_frequency_min_unique\": 3,\n    \"categorical_frequency_max_unique\": 200\n  },\n  \"ordered_feature_columns\": [],\n  \"selected_feature_count\": 10,\n  \"excluded_feature_count\": 1\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 3328,
+  "n_lines": 138
+ },
+ "error": null,
+ "warnings": []
+}

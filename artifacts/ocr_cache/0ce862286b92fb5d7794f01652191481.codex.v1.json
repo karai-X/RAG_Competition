@@ -1,0 +1,13 @@
+{
+ "md5": "0ce862286b92fb5d7794f01652191481",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "図表",
+ "markdown": "**結論：2030年に向けた4つの戦略的アクション**\n\n|  |  |\n|---|---|\n| **Data Strategy**<br>**Action 1: 「非構造化データ」の中核化**<br><br>**全データの9割を生成AIで「データ製品」へ変換。**<br>**単発ではなく「能力の経路」を整備。** | **Process Redesign**<br>**Action 2: 「エージェント型」ワークフロー**<br><br>**既存プロセスの自動化ではなく、AIが自律的に完遂することを前提とした根本的なRedesignを実施。** |\n| **Talent & Culture**<br>**Action 3: 人材の昇華と民主化**<br><br>**専門家を「AIアーキテクト」へ引き上げ、No-Codeツールで全社員をシチズン・データサイエンティスト化。** | **Governance**<br>**Action 4:「デジタル・トラスト」の武器化**<br><br>**透明性の高い情報開示とXAIを通じ、顧客の信頼を勝ち取る競争優位の軸とする。** |\n\n**2030**  \n**Intelligence**  \n**Infrastructure**\n\n**データの量を競う段階は終わり、データをいかに「賢く、安全に、自律的に」社会価値へ変換できるかの競争が始まっている。データサイエンスはあらゆるビジネスを支えるインフラとなった。**",
+ "figure_description": "4象限の戦略図。中央に赤茶色の輪郭線を持つ白い円があり、その内部に「2030 Intelligence Infrastructure」と記載されている。中央の円から上下左右へ黒い線が伸び、全体を4象限に分割している。左上は「Data Strategy／Action 1」、右上は「Process Redesign／Action 2」、左下は「Talent & Culture／Action 3」、右下は「Governance／Action 4」。軸ラベル、凡例、目盛り、数値データはない。背景は白色で、右上・左下・右下に薄い灰色の幾何学模様が配置されている。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 21.03,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/00.提案/データサイエンス市場の未来予測.pdf p15"
+}

@@ -1,0 +1,28 @@
+{
+ "doc_id": "f2e9acd6cd09",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "e882812e4e3b41ecddb7ccc73ee98fc2",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1475x576) md5:e882812e — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n- タイトル：欠損率 上位20列\n- 縦軸ラベル：列名\n- 横軸ラベル：欠損率(%)\n- 縦軸項目（上から順）：\n  - charges\n  - region\n  - smoker\n  - children\n  - bmi\n  - sex\n  - age\n  - id\n- 横軸目盛り：-0.04、-0.02、0.00、0.02、0.04\n[図の説明] 横棒グラフ用の座標領域。タイトルは「欠損率 上位20列」。横軸は「欠損率(%)」で、表示されている目盛りは -0.04、-0.02、0.00、0.02、0.04。縦軸は「列名」で、上から charges、region、smoker、children、bmi、sex、age、id。灰色の縦横グリッド線がある。棒、データ点、数値ラベル、凡例は表示されていない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1475,
+  "height": 576,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

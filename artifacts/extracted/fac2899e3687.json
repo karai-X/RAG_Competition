@@ -1,0 +1,28 @@
+{
+ "doc_id": "fac2899e3687",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "2f4da9ce1488452895c5077da49d3983",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png (1101x877) md5:2f4da9ce — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n### タイトル\n\n特徴量の相関ヒートマップ\n\n|  | id | age | bmi | children | charges |\n|---|---:|---:|---:|---:|---:|\n| id | 1.00 | 0.01 | 0.04 | 0.01 | 0.01 |\n| age | 0.01 | 1.00 | 0.02 | 0.01 | 0.10 |\n| bmi | 0.04 | 0.02 | 1.00 | 0.08 | 0.17 |\n| children | 0.01 | 0.01 | 0.08 | 1.00 | 0.03 |\n| charges | 0.01 | 0.10 | 0.17 | 0.03 | 1.00 |\n[図の説明] 相関行列のヒートマップ。横軸と縦軸の項目は、どちらも id、age、bmi、children、charges。軸タイトルはない。各セルに相関値が小数第2位まで表示されている。右側に連続色のカラーバーがあり、目盛りは下から 0.2、0.4、0.6、0.8、1.0。値が小さいセルは薄い灰色から淡い桃色、値が大きくなるほど赤が濃くなり、1.00のセルは濃い赤で塗られ、文字は白色。0.17のセル（bmi–charges、charges–bmi）は淡い桃色、0.10のセル（age–charges、charges–age）と0.08のセル（bmi–children、children–bmi）はごく淡い桃色。0.04、0.03、0.02、0.01のセルは薄い灰色を基調とした色で塗られている。1.00以外の数値文字は濃い灰色。凡例はカラーバーのみ。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1101,
+  "height": 877,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

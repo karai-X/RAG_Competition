@@ -1,0 +1,13 @@
+{
+ "md5": "ba61db6d4313b4cbebd352203fc89ea4",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "## 特徴量相関ヒートマップ\n\n- 横軸（左から）: Attr25、Attr10、Attr2、Attr38、Attr3、Attr51、Attr6、Attr35、Attr22、Attr24、Attr33、Attr29、Attr48、Attr14、Attr7\n- 縦軸（上から）: Attr25、Attr10、Attr2、Attr38、Attr3、Attr51、Attr6、Attr35、Attr22、Attr24、Attr33、Attr29、Attr48、Attr14、Attr7\n- カラーバー目盛り（下から）: [c:青]-0.75[/c]、[c:青]-0.50[/c]、[c:淡い青]-0.25[/c]、[c:灰色]0.00[/c]、[c:淡い橙]0.25[/c]、[c:橙]0.50[/c]、[c:赤]0.75[/c]、[c:濃い赤]1.00[/c]",
+ "figure_description": "種類は15×15の特徴量相関ヒートマップ。横軸と縦軸には同じ15個の特徴量が同じ順序で配置されている。軸自体の名称は記載されていない。各セル内に数値ラベルはない。\n\n右側の縦型カラーバーは、負の値を青系、0.00付近を灰色、正の値を橙～赤系で表す。表示されている対応は、-0.75が濃い青、-0.50が青、-0.25が淡い青、0.00が灰色、0.25が淡い橙、0.50が橙、0.75が赤、1.00が濃い赤。カラーバーの下端には-0.75より濃い青色の領域があるが、その端点の数値ラベルは記載されていない。\n\n対角セルはすべて濃い赤。Attr25・Attr10・Attr38・Attr3・Attr6の相互セルは濃い赤で、これらとAttr2・Attr51とのセルは濃い青。Attr2とAttr51の相互セルは濃い赤。\n\nAttr35・Attr22・Attr48・Attr14・Attr7の相互セルは赤～濃い赤で、まとまった赤色の領域を形成している。Attr24は、Attr25・Attr10・Attr38・Attr3・Attr6・Attr35・Attr22・Attr48・Attr14・Attr7とのセルが淡い橙色、Attr2・Attr51とのセルが淡い青色、Attr33とのセルが灰色、Attr29とのセルが青みを帯びた灰色。Attr33とAttr29の相互セルは淡い青色で、それ以外の多くのセルは灰色または灰色に近い色。各セルの具体的な数値は画像内に記載されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 42.55,
+ "source": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+}

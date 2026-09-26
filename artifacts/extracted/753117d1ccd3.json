@@ -1,0 +1,28 @@
+{
+ "doc_id": "753117d1ccd3",
+ "relpath": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "医療法人社団 蒼樹会 みなみ野女性医療センター",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "2a16bead6d44e426ddbbbd36afca57d1",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1475x576) md5:2a16bead — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\nタイトル：欠損率 上位20列\n\nX軸：欠損率(%)\n\nY軸：列名\n\nY軸項目：\n\n| 列名 |\n|---|\n| index |\n| Pregnancies |\n| Glucose |\n| BloodPressure |\n| SkinThickness |\n| Insulin |\n| BMI |\n| DiabetesPedigreeFunction |\n| Age |\n| Outcome |\n\nX軸目盛り：-0.04、-0.02、0.00、0.02、0.04\n[図の説明] 横棒グラフ用の座標領域。タイトルは「欠損率 上位20列」。X軸ラベルは「欠損率(%)」で、表示されている目盛りは左から -0.04、-0.02、0.00、0.02、0.04。Y軸ラベルは「列名」で、上から index、Pregnancies、Glucose、BloodPressure、SkinThickness、Insulin、BMI、DiabetesPedigreeFunction、Age、Outcome。凡例はない。グレーの縦横グリッド線が表示されている。棒、データ点、数値ラベルは表示されていない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1475,
+  "height": 576,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

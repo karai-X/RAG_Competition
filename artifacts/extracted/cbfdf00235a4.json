@@ -1,0 +1,28 @@
+{
+ "doc_id": "cbfdf00235a4",
+ "relpath": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "医療法人社団 恒一会 かえで総合病院",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "8d4569a8c4155826aa2e29552fe671a1",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1476x875) md5:8d4569a8 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n欠損率 上位20項目\n\n欠損は確認されませんでした\n[図の説明] 欠損率の上位20項目を示す領域だが、欠損がないためグラフは描画されていない。軸ラベル、凡例、目盛り、数値ラベルはない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1476,
+  "height": 875,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

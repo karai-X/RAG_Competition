@@ -1,0 +1,61 @@
+{
+ "doc_id": "8289b30011eb",
+ "relpath": "プロジェクト/株式会社青葉バイオメディカル機器/03.データ/train.csv",
+ "mount": "",
+ "project": "株式会社青葉バイオメディカル機器",
+ "category": "03.データ",
+ "filetype": "csv",
+ "md5": "7e4599317aa9df52ca6e59b2ecce7248",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| id | Age | Attrition | BusinessTravel | DailyRate | Department | DistanceFromHome | Education | EducationField | EnvironmentSatisfaction | Gender | HourlyRate | JobInvolvement | JobLevel | JobRole | JobSatisfaction | MaritalStatus | MonthlyIncome | NumCompaniesWorked | Over18 | OverTime | PercentSalaryHike | PerformanceRating | RelationshipSatisfaction | StandardHours | StockOptionLevel | TotalWorkingYears | TrainingTimesLastYear | WorkLifeBalance | YearsAtCompany | YearsInCurrentRole | YearsSinceLastPromotion | YearsWithCurrManager |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| train_0000 | 41 | No | Non-Travel | 256 | Sales | 10 | 2 | Medical | 3 | Male | 40 | 1 | 2 | Sales Executive | 2 | Single | 6151 | 1 | Y | No | 13 | 3 | 1 | 80 | 0 | 19 | 4 | 3 | 19 | 2 | 11 | 9 |\n| train_0001 | 26 | Yes | Travel_Rarely | 1449 | Research & Development | 16 | 4 | Medical | 1 | Male | 45 | 3 | 1 | Laboratory Technician | 2 | Divorced | 2373 | 2 | Y | Yes | 13 | 3 | 4 | 80 | 1 | 5 | 2 | 3 | 3 | 2 | 0 | 2 |\n| train_0002 | 18 | Yes | Travel_Frequently | 1306 | Sales | 5 | 3 | Marketing | 2 | Male | 69 | 3 | 1 | Sales Representative | 2 | Single | 1878 | 1 | Y | Yes | 14 | 3 | 4 | 80 | 0 | 0 | 3 | 3 | 0 | 0 | 0 | 0 |\n| train_0003 | 42 | No | Travel_Frequently | 555 | Sales | 26 | 3 | Marketing | 3 | Female | 77 | 3 | 4 | Sales Executive | 2 | Married | 13525 | 5 | Y | No | 14 | 3 | 4 | 80 | 1 | 23 | 2 | 4 | 20 | 4 | 4 | 8 |\n| train_0004 | 24 | Yes | Travel_Rarely | 813 | Research & Development | 1 | 3 | Medical | 2 | Male | 61 | 3 | 1 | Research Scientist | 4 | Married | 2293 | 2 | Y | Yes | 16 | 3 | 1 | 80 | 1 | 6 | 2 | 2 | 2 | 0 | 2 | 0 |\n| train_0005 | 45 | No | Travel_Rarely | 1038 | Research & Development | 20 | 3 | Medical | 2 | Male | 95 | 1 | 3 | Healthcare Representative | 1 | Divorced | 10851 | 2 | Y | Yes | 18 | 3 | 2 | 80 | 1 | 24 | 2 | 3 | 7 | 7 | 0 | 7 |\n| train_0006 | 24 | No | Travel_Rarely | 1206 | Research & Development | 17 | 1 | Medical | 4 | Female | 41 | 2 | 2 | Manufacturing Director | 3 | Divorced | 4377 | 1 | Y | No | 15 | 3 | 2 | 80 | 2 | 5 | 6 | 3 | 4 | 2 | 3 | 2 |\n| train_0007 | 50 | No | Travel_Rarely | 328 | Research & Development | 1 | 3 | Medical | 3 | Male | 86 | 2 | 1 | Laboratory Technician | 3 | Married | 3690 | 2 | Y | No | 15 | 3 | 4 | 80 | 1 | 5 | 2 | 2 | 3 | 2 | 0 | 2 |\n| train_0008 | 31 | No | Travel_Rarely | 408 | Research & Development | 9 | 4 | Life Sciences | 3 | Male | 42 | 2 | 1 | Research Scientist | 2 | Single | 2657 | 0 | Y | Yes | 16 | 3 | 4 | 80 | 0 | 3 | 5 | 3 | 2 | 2 | 2 | 2 |\n| train_0009 | 35 | No | Travel_Frequently | 944 | Sales | 1 | 3 | Marketing | 3 | Female | 92 | 3 | 3 | Sales Executive | 3 | Single | 8789 | 1 | Y | No | 14 | 3 | 1 | 80 | 0 | 10 | 3 | 4 | 10 | 7 | 0 | 8 |\n| train_0010 | 23 | No | Travel_Rarely | 1309 | Research & Development | 26 | 1 | Life Sciences | 3 | Male | 83 | 3 | 1 | Research Scientist | 4 | Divorced | 2904 | 1 | Y | No | 12 | 3 | 3 | 80 | 2 | 4 | 2 | 2 | 4 | 2 | 0 | 2 |\n| train_0011 | 47 | No | Non-Travel | 1169 | Research & Development | 14 | 4 | Technical Degree | 3 | Male | 64 | 3 | 2 | Research Scientist | 2 | Married | 5467 | 8 | Y | No | 18 | 3 | 3 | 80 | 1 | 16 | 4 | 4 | 8 | 7 | 1 | 7 |\n| train_0012 | 35 | No | Travel_Rarely | 464 | Research & Development | 4 | 2 | Other | 3 | Male | 75 | 3 | 1 | Laboratory Technician | 4 | Divorced | 1951 | 1 | Y | No | 12 | 3 | 3 | 80 | 1 | 1 | 3 | 3 | 1 | 0 | 0 | 0 |\n| train_0013 | 31 | No | Travel_Rarely | 1112 | Sales | 5 | 4 | Life Sciences | 1 | Female | 67 | 3 | 2 | Sales Executive | 4 | Married | 5476 | 1 | Y | No | 11 | 3 | 1 | 80 | 2 | 10 | 2 | 3 | 10 | 0 | 0 | 2 |\n| train_0014 | 28 | No | Travel_Rarely | 1083 | Research & Development | 29 | 1 | Life Sciences | 3 | Male | 96 | 1 | 2 | Manufacturing Director | 2 | Married | 6549 | 1 | Y | No | 14 | 3 | 2 | 80 | 2 | 8 | 2 | 2 | 8 | 6 | 1 | 7 |\n| train_0015 | 26 | No | Travel_Rarely | 683 | Research & Development | 2 | 1 | Medical | 1 | Male | 36 | 2 | 1 | Research Scientist | 4 | Single | 3904 | 0 | Y | No | 12 | 3 | 4 | 80 | 0 | 5 | 2 | 3 | 4 | 3 | 1 | 1 |\n| train_0016 | 46 | No | Travel_Rarely | 991 | Human Resources | 1 | 2 | Life Sciences | 4 | Female | 44 | 3 | 1 | Human Resources | 1 | Single | 3423 | 6 | Y | No | 12 | 3 | 3 | 80 | 0 | 10 | 3 | 4 | 7 | 6 | 5 | 7 |\n| train_0017 | 23 | No | Travel_Rarely | 507 | Research & Development | 20 | 1 | Life Sciences | 1 | Male | 97 | 3 | 2 | Laboratory Technician | 3 | Single | 2272 | 0 | Y | No | 14 | 3 | 2 | 80 | 0 | 5 | 2 | 3 | 4 | 3 | 1 | 2 |\n| train_0018 | 59 | No | Travel_Rarely | 1089 | Sales | 1 | 2 | Technical Degree | 2 | Male | 66 | 3 | 3 | Manager | 4 | Married | 11904 | 3 | Y | Yes | 14 | 3 | 3 | 80 | 1 | 14 | 1 | 1 | 6 | 4 | 0 | 4 |\n| train_0019 | 27 | No | Travel_Rarely | 155 | Research & Development | 4 | 3 | Life Sciences | 2 | Male | 87 | 4 | 2 | Manufacturing Director | 2 | Married | 6142 | 1 | Y | Yes | 20 | 4 | 2 | 80 | 1 | 6 | 0 | 3 | 6 | 2 | 0 | 3 |\n| train_0020 | 37 | No | Travel_Rarely | 571 | Research & Development | 10 | 1 | Life Sciences | 4 | Female | 82 | 3 | 1 | Research Scientist | 1 | Divorced | 2782 | 0 | Y | Yes | 13 | 3 | 2 | 80 | 2 | 6 | 3 | 2 | 5 | 3 | 4 | 3 |\n| train_0021 | 37 | No | Travel_Rarely | 558 | Sales | 2 | 3 | Marketing | 4 | Male | 75 | 3 | 2 | Sales Executive | 3 | Married | 9602 | 4 | Y | Yes | 11 | 3 | 3 | 80 | 1 | 17 | 3 | 2 | 3 | 0 | 1 | 0 |\n| train_0022 | 28 | Yes | Travel_Frequently | 1009 | Research & Development | 1 | 3 | Medical | 1 | Male | 45 | 2 | 1 | Laboratory Technician | 2 | Divorced | 2596 | 1 | Y | No | 15 | 3 | 1 | 80 | 2 | 1 | 2 | 3 | 1 | 0 | 0 | 0 |\n| train_0023 | 43 | No | Non-Travel | 1344 | Research & Development | 7 | 3 | Medical | 4 | Male | 37 | 4 | 1 | Research Scientist | 4 | Divorced | 2089 | 4 | Y | No | 14 | 3 | 4 | 80 | 3 | 7 | 3 | 4 | 5 | 4 | 2 | 2 |\n| train_0024 | 30 | No | Travel_Rarely | 1358 | Sales | 16 | 1 | Life Sciences | 4 | Male | 96 | 3 | 2 | Sales Executive | 3 | Married | 5301 | 8 | Y | No | 15 | 3 | 3 | 80 | 2 | 4 | 2 | 2 | 2 | 1 | 2 | 2 |\n\n(全735行×33列のうち先頭25行のみ表示。全量の集計・条件抽出は run_python でこのファイルを直接読むこと)",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_rows": 735,
+  "n_cols": 33,
+  "columns": [
+   "id",
+   "Age",
+   "Attrition",
+   "BusinessTravel",
+   "DailyRate",
+   "Department",
+   "DistanceFromHome",
+   "Education",
+   "EducationField",
+   "EnvironmentSatisfaction",
+   "Gender",
+   "HourlyRate",
+   "JobInvolvement",
+   "JobLevel",
+   "JobRole",
+   "JobSatisfaction",
+   "MaritalStatus",
+   "MonthlyIncome",
+   "NumCompaniesWorked",
+   "Over18",
+   "OverTime",
+   "PercentSalaryHike",
+   "PerformanceRating",
+   "RelationshipSatisfaction",
+   "StandardHours",
+   "StockOptionLevel",
+   "TotalWorkingYears",
+   "TrainingTimesLastYear",
+   "WorkLifeBalance",
+   "YearsAtCompany",
+   "YearsInCurrentRole",
+   "YearsSinceLastPromotion",
+   "YearsWithCurrManager"
+  ],
+  "truncated": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -60,7 +60,9 @@ def image_engine_problems() -> list[dict]:
         return [{"what": f"画像読み取りエンジン「{engine}」", "fix": "設定画面で選び直してください"}]
     problems = []
     if not shutil.which(cli):
-        problems.append({"what": f"{cli} CLI", "fix": f"{cli} をインストールして PATH を通してください"})
+        problems.append({"what": f"{cli} CLI",
+                         "fix": f"{cli} をインストールして PATH を通すか、"
+                                "設定画面で画像読み取りエンジンを Gemini に切り替えてください"})
     if auth == "api" and not (os.environ.get(key)
                               or (cli == "codex" and os.environ.get("OPENAI_API_KEY"))):
         problems.append({"what": f"{cli} 用の API キー", "fix": "設定画面で入力してください"})

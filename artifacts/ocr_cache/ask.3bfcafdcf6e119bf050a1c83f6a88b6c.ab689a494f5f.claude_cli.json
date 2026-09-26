@@ -1,0 +1,10 @@
+{
+ "md5": "3bfcafdcf6e119bf050a1c83f6a88b6c",
+ "question": "ヒートマップにおいて、chargesと最も相関が高い数値特徴量は何ですか？その相関係数の数値も教えてください。",
+ "engine": "claude_cli",
+ "answer": "chargesと最も相関が高い数値特徴量は bmi で、相関係数は 0.17 です。",
+ "evidence": "ヒートマップの charges の行（最下段）を確認すると、id=0.01、age=0.10、bmi=0.17、children=0.03 であり、bmi の 0.17 が最大でした。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 11.4
+}

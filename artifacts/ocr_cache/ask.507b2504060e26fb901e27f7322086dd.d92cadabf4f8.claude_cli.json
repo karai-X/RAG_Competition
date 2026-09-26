@@ -1,0 +1,10 @@
+{
+ "md5": "507b2504060e26fb901e27f7322086dd",
+ "question": "分析データの中で、1つでも欠損値がある行数が最も多い案件を、主略称で答えてください。",
+ "engine": "claude_cli",
+ "answer": "画像からは判断できません（案件や主略称の情報が画像に含まれていないため回答不能）",
+ "evidence": "画像は「欠損率 上位20列」と題した横棒グラフで、index・Pregnancies・Glucose・BloodPressure・SkinThickness・Insulin・BMI・DiabetesPedigreeFunction・Age・Outcome という単一データセット（Pima糖尿病データ）の列別欠損率を示していますが、すべての列で欠損率0%（棒が表示されていない）であり、複数の案件や主略称に関する情報は一切含まれていません。",
+ "confident": false,
+ "error": null,
+ "latency_sec": 12.56
+}

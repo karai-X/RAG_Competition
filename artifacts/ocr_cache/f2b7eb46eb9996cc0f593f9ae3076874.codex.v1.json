@@ -1,0 +1,13 @@
+{
+ "md5": "f2b7eb46eb9996cc0f593f9ae3076874",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "タイトル：欠損率 上位20列\n\nX軸：欠損率(%)\n\nY軸：列名\n\nY軸項目：\n\n| 列名 |\n|---|\n| index |\n| Pregnancies |\n| Glucose |\n| BloodPressure |\n| SkinThickness |\n| Insulin |\n| BMI |\n| DiabetesPedigreeFunction |\n| Age |\n| Outcome |\n\nX軸目盛り：-0.04、-0.02、0.00、0.02、0.04",
+ "figure_description": "横棒グラフ用の座標領域。タイトルは「欠損率 上位20列」。X軸ラベルは「欠損率(%)」で、表示されている目盛りは左から -0.04、-0.02、0.00、0.02、0.04。Y軸ラベルは「列名」で、上から index、Pregnancies、Glucose、BloodPressure、SkinThickness、Insulin、BMI、DiabetesPedigreeFunction、Age、Outcome。凡例はない。グレーの縦横グリッド線が表示されている。棒、データ点、数値ラベルは表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 17.83,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+}

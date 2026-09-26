@@ -1,0 +1,10 @@
+{
+ "md5": "72063b7f24d10cd65f015326693b9d79",
+ "question": "このページに記載されているQAレビュー担当者の名前を教えてください。",
+ "engine": "claude_cli",
+ "answer": "池田 直哉",
+ "evidence": "右下の「品質管理（Quality Control）」ボックス内の「QAレビュー: 数値確認完了（担当: 池田 直哉）」という記載",
+ "confident": true,
+ "error": null,
+ "latency_sec": 15.31
+}

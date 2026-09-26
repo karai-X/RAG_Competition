@@ -1,0 +1,10 @@
+{
+ "md5": "5afdd8d7c8c7bed9f5e72d5a9a218274",
+ "question": "蒼樹会 みなみ野女性医療センターの分析結果として予測に影響が高いと報告されている特徴量の中で、最もターゲットとの相関が高い特徴量を答えてください。",
+ "engine": "claude_cli",
+ "answer": "Age",
+ "evidence": "画像は「数値特徴量の相関ヒートマップ」で、ターゲットである Outcome の行(最下行)を見ると、Age が 0.27 で最も高く、次いで BMI が 0.24、Pregnancies が 0.20 でした。予測に影響が高いと報告されている特徴量(Age・BMI・Pregnancies など)の中でも Age が Outcome との相関が最大です。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 14.89
+}

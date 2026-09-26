@@ -1,0 +1,25 @@
+{
+ "doc_id": "1fbd69407898",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/pyproject.toml",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "toml",
+ "md5": "dacf2873e8dad95a05ca087cf228fd31",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```toml\n[project]\nname = \"analysis-project-manual\"\nversion = \"0.1.0\"\ndescription = \"Generated practical analysis project\"\nrequires-python = \">=3.10\"\ndependencies = [\n  \"numpy>=1.26.0\",\n  \"pandas>=2.2.0\",\n  \"scikit-learn>=1.5.0\",\n  \"matplotlib>=3.9.0\",\n  \"seaborn>=0.13.0\",\n  \"jupyterlab>=4.2.0\",\n  \"ipykernel>=6.29.0\",\n]\n\n[tool.uv]\npackage = false\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 340,
+  "n_lines": 18
+ },
+ "error": null,
+ "warnings": []
+}

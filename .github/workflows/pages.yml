@@ -25,7 +25,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # リポジトリには資料（share/）と前処理の成果物（artifacts/）も入っているので、
+      # 公開に要る portfolio/ だけを取り出す
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: portfolio
       - name: Collect static files
         run: |
           mkdir -p _site

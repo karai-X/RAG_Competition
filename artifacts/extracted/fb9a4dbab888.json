@@ -1,0 +1,25 @@
+{
+ "doc_id": "fb9a4dbab888",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/requirements.txt",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "txt",
+ "md5": "319531fc030916efb2e602f80e26559b",
+ "pages": [
+  {
+   "no": 1,
+   "text": "numpy>=1.26.0\npandas>=2.2.0\nscikit-learn>=1.5.0\nmatplotlib>=3.9.0\nseaborn>=0.13.0\njupyterlab>=4.2.0\nipykernel>=6.29.0\n",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 118,
+  "n_lines": 8
+ },
+ "error": null,
+ "warnings": []
+}

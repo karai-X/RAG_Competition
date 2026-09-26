@@ -1,0 +1,25 @@
+{
+ "doc_id": "737214815983",
+ "relpath": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_outputs/run_summary.json",
+ "mount": "",
+ "project": "株式会社東都人材プラットフォーム",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "33352dbe420ef236ab21c828ae11001b",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"target_column\": \"target\",\n  \"date_column\": null,\n  \"task_type\": \"classification\",\n  \"use_date_features\": true,\n  \"use_numeric_interactions\": false,\n  \"use_cyclical_time_features\": false,\n  \"use_ordered_category_features\": true,\n  \"group_rare_categories\": true,\n  \"rare_category_min_count\": 20,\n  \"use_categorical_frequency_features\": false,\n  \"categorical_frequency_min_unique\": 3,\n  \"categorical_frequency_max_unique\": 200,\n  \"use_class_target_encoding\": true,\n  \"class_target_encoding_min_unique\": 2,\n  \"class_target_encoding_max_unique\": 100,\n  \"class_target_encoding_smoothing\": 20.0,\n  \"drop_original_categorical_after_target_encoding\": true,\n  \"tune_class_decision_weights\": false,\n  \"model_type\": \"hist_gradient_boosting\",\n  \"model_params\": {\n    \"learning_rate\": 0.03,\n    \"max_depth\": 4,\n    \"max_iter\": 232,\n    \"min_samples_leaf\": 15,\n    \"l2_regularization\": 3.0\n  },\n  \"split_strategy\": \"random_holdout\",\n  \"split_ordering_basis\": \"random_holdout\",\n  \"transform_target\": \"none\",\n  \"validation_size\": 0.1,\n  \"early_stopping\": true,\n  \"early_stopping_patience\": 2,\n  \"output_dir\": \"artifacts/analysis_outputs\",\n  \"selected_feature_count\": 14,\n  \"excluded_feature_columns\": [\n    {\n      \"column\": \"id\",\n      \"reason\": \"identifier_like_name\"\n    }\n  ],\n  \"categorical_unique_limit\": 100,\n  \"ordered_feature_columns\": [\n    \"Age_ord\",\n    \"Experience_ord\",\n    \"Education_ord\",\n    \"Age_x_Experience\",\n    \"Age_minus_Experience\",\n    \"Education_x_Experience\"\n  ],\n  \"class_target_encoding\": [\n    {\n      \"source_column\": \"Gender\",\n      \"unique_count\": 4,\n      \"added_features\": [\n        \"Gender__p0\",\n        \"Gender__p1\",\n        \"Gender__p3\",\n        \"Gender__p2\",\n        \"Gender__p4\",\n        \"Gender__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    },\n    {\n      \"source_column\": \"Age\",\n      \"unique_count\": 12,\n      \"added_features\": [\n        \"Age__p0\",\n        \"Age__p1\",\n        \"Age__p3\",\n        \"Age__p2\",\n        \"Age__p4\",\n        \"Age__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    },\n    {\n      \"source_column\": \"Country\",\n      \"unique_count\": 58,\n      \"added_features\": [\n        \"Country__p0\",\n        \"Country__p1\",\n        \"Country__p3\",\n        \"Country__p2\",\n        \"Country__p4\",\n        \"Country__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    },\n    {\n      \"source_column\": \"Education\",\n      \"unique_count\": 7,\n      \"added_features\": [\n        \"Education__p0\",\n        \"Education__p1\",\n        \"Education__p3\",\n        \"Education__p2\",\n        \"Education__p4\",\n        \"Education__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    },\n    {\n      \"source_column\": \"Major\",\n      \"unique_count\": 13,\n      \"added_features\": [\n        \"Major__p0\",\n        \"Major__p1\",\n        \"Major__p3\",\n        \"Major__p2\",\n        \"Major__p4\",\n        \"Major__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    },\n    {\n      \"source_column\": \"Profession\",\n      \"unique_count\": 20,\n      \"added_features\": [\n        \"Profession__p0\",\n        \"Profession__p1\",\n        \"Profession__p3\",\n        \"Profession__p2\",\n        \"Profession__p4\",\n        \"Profession__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    },\n    {\n      \"source_column\": \"Industry\",\n      \"unique_count\": 19,\n      \"added_features\": [\n        \"Industry__p0\",\n        \"Industry__p1\",\n        \"Industry__p3\",\n        \"Industry__p2\",\n        \"Industry__p4\",\n        \"Industry__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    },\n    {\n      \"source_column\": \"Experience\",\n      \"unique_count\": 11,\n      \"added_features\": [\n        \"Experience__p0\",\n        \"Experience__p1\",\n        \"Experience__p3\",\n        \"Experience__p2\",\n        \"Experience__p4\",\n        \"Experience__p5\"\n      ],\n      \"smoothing\": 20.0,\n      \"n_splits\": 5\n    }\n  ],\n  \"class_decision_tuning\": {}\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 3876,
+  "n_lines": 167
+ },
+ "error": null,
+ "warnings": []
+}

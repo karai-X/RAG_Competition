@@ -1,0 +1,10 @@
+{
+ "md5": "4318751a80c08d5737f2995a7a116d56",
+ "question": "各案件のPP・契約書・PLAN・FRにおいて、DA側の実施体制として役割付きで記載されている人物は全部で何人ですか。",
+ "engine": "claude_cli",
+ "answer": "6人（中村 誠：Exec Sponsor、加藤 大輔：Project Manager、渡辺 遥：Lead Data Scientist、斎藤 悠斗：Data Engineer、井上 里奈：Business Analyst、清水 麻衣：QA Reviewer）",
+ "evidence": "スライド右側の「ベンダー体制（株式会社データアステル）」の枠内に、役割名（Exec Sponsor / Project Manager / Lead Data Scientist / Data Engineer / Business Analyst / QA Reviewer）付きで6名の氏名と担当内容が記載されている。左側のクライアント体制（山田 太一）はDA側ではないため除外。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 16.55
+}

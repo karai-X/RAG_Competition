@@ -1,0 +1,28 @@
+{
+ "doc_id": "99b752a1cf93",
+ "relpath": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png",
+ "mount": "",
+ "project": "株式会社東都人材プラットフォーム",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "2a19689d46ec56864970271910377ab3",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png (1176x875) md5:2a19689d — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n数値特徴量の相関ヒートマップ\n\n相関を計算できる数値列が不足しています\n[図の説明] 相関ヒートマップ。タイトルは「数値特徴量の相関ヒートマップ」。中央に「相関を計算できる数値列が不足しています」と表示されている。軸ラベル、凡例、目盛り、数値、色付きセルはない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1176,
+  "height": 875,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

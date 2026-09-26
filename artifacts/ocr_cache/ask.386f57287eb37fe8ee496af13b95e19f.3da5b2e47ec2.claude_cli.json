@@ -1,0 +1,10 @@
+{
+ "md5": "386f57287eb37fe8ee496af13b95e19f",
+ "question": "MINAMINOにおいて、M01時点では未完了で、M02までの間に完了したAIのうち、伊藤さんが担当しているものを抽出してください。",
+ "engine": "claude_cli",
+ "answer": "該当する項目はありません(0件)。画像内で伊藤さん(伊藤翔太)が担当しているアクションアイテムはA04(変更管理判定)のみですが、そのStatusは「Open」であり、M02までに完了していません。M02までに完了(Closed)しているのはA01・A02(鈴木美咲/岡田佑樹)、A03(松本真央/鈴木美咲)で、いずれも伊藤さんの担当ではありません。",
+ "evidence": "画像のセクション「6. アクションアイテム」の表(ID/Action/Owner/Due Date/Status列)。A01・A02・A03はStatusがClosed(A01とA03には「M02で提示」との記載)、A04はOwnerが伊藤翔太でStatusがOpen、A06は林さくらでOpen。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 26.47
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "d7753c7b045c360df24115bddcf74976",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "- [c:灰色]実行段階のアウトプット（モデル評価・実験結果）は未発生[/c]\n  [c:灰色]（visible_trials = []、best_visible_trial = null）。[/c]\n- [c:灰色]スケジュール整合（主要マイルストーン）[/c]\n  - [c:灰色]次回主要会議（中間報告）：M02 2025-09-08（スケジュールに固定済み）[/c]\n  - [c:灰色]最終報告：M03 2025-09-26（スケジュールに固定済み）[/c]\n- [c:灰色]商業条件（要点、Report facts / Project facts に準拠）[/c]\n  - [c:灰色]契約形態：time_and_materials[/c]\n  - [c:灰色]想定総工数（assumption でない）：170 時間[/c]\n    [c:灰色]（project_facts.estimated_total_hours = 170）[/c]\n  - [c:灰色]時間単価：25,000 円/時間（project_facts.hourly_rate_jpy = 25000）[/c]\n  - [c:灰色]見込金額（税抜）：4,250,000 円、消費税 425,000 円、税込見込[/c]\n    [c:灰色]4,675,000 円（project_facts に準拠）[/c]\n  - [c:灰色]支払　：最終一括　（検収完了後）営業日以内。Report[/c]\n    [c:灰色]facts JSON/commercial.payment_schedule に準拠）[/c]\n\n[c:黒]データアセスメント[/c]\n\n## [c:灰色]3. 主要な分析結果[/c]\n\n- [c:灰色]本チェックポイント（kickoff）時点の事実[/c]\n  - [c:灰色]モデル実験・評価結果は存在しない（analysis.results_visibility =[/c]\n    [c:灰色]no_model_results、visible_trials = []）。したがって、性能指標やチャ[/c]\n    [c:灰色]ンピオンモデルの記載は行わない。[/c]\n  - [c:灰色]初期的に確認済みの分析計画と重点観点（合意内容）[/c]\n    - [c:灰色]目的変数：target（6 クラスタクラス分類、順序性あり）[/c]\n    - [c:灰色]重点観点：target のクラス分布、欠損状況（Major, Experience[/c]\n      [c:灰色]等）、Country/Profession/Industry の偏在、[/c]\n      [c:灰色]Gender/Age/Country の公平性観点、順序性を伴うカテゴリの[/c]\n      [c:灰色]扱い[/c]\n  - [c:灰色]既知の実データ特性（計画段階の前提・観察）[/c]",
+ "figure_description": "",
+ "layout": "",
+ "confident": false,
+ "error": null,
+ "latency_sec": 88.63,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-08-18.pdf p2"
+}

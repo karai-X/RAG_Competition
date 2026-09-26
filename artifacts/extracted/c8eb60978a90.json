@@ -1,0 +1,28 @@
+{
+ "doc_id": "c8eb60978a90",
+ "relpath": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "株式会社東都人材プラットフォーム",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "7754b2f4aa39c33577f366f919b33d62",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1475x876) md5:7754b2f4 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n- タイトル：欠損率 上位20列\n- 横軸ラベル：欠損率(%)\n- 縦軸ラベル：列名\n- 項目：\n  - Major\n  - Experience\n- 横軸目盛り：0.0、0.2、0.4、0.6、0.8、1.0\n[図の説明] 横向き棒グラフ。凡例はない。横軸は「欠損率(%)」で、目盛りは0.0、0.2、0.4、0.6、0.8、1.0。縦軸は「列名」で、「Major」と「Experience」が並ぶ。Majorの棒は濃い赤色で塗られ、1.0の目盛りの少し手前まで伸びている。Experienceの棒は薄いサーモン色で塗られ、0.4と0.6の目盛りの間まで伸びている。各棒の数値ラベルは表示されていない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1475,
+  "height": 876,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

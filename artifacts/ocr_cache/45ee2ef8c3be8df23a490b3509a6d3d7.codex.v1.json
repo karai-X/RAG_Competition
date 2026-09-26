@@ -1,0 +1,13 @@
+{
+ "md5": "45ee2ef8c3be8df23a490b3509a6d3d7",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "日付特徴の推移\n\n使用可能な日付列は見つかりませんでした",
+ "figure_description": "「日付特徴の推移」というタイトルのグラフ領域。中央に「使用可能な日付列は見つかりませんでした」と表示されている。軸ラベル、凡例、目盛り、数値、データ系列は表示されていない。背景は白色、文字は濃い灰色。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 9.14,
+ "source": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+}

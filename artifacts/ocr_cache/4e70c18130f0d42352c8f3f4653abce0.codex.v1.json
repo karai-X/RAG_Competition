@@ -1,0 +1,13 @@
+{
+ "md5": "4e70c18130f0d42352c8f3f4653abce0",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "特徴量相関ヒートマップ",
+ "figure_description": "相関係数を色で表した正方形のヒートマップ。横軸のラベルは左から Attr25、Attr10、Attr2、Attr38、Attr3、Attr51、Attr6、Attr35、Attr22、Attr24、Attr33、Attr29、Attr48、Attr14、Attr7。縦軸のラベルは上から Attr25、Attr10、Attr2、Attr38、Attr3、Attr51、Attr6、Attr35、Attr22、Attr24、Attr33、Attr29、Attr48、Attr14、Attr7。軸名の記載はない。右側に縦型のカラーバーがあり、目盛りは上から 1.00、0.75、0.50、0.25、0.00、-0.25、-0.50、-0.75。正の値は赤系、0.00付近は灰色、負の値は青系で塗られ、値が正方向に大きいほど濃い赤、負方向に大きいほど濃い青になる。各セル内に数値ラベルはない。主対角線上のセルは濃い赤で塗られている。ヒートマップは主対角線を挟んで対称な配色になっている。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 20.46,
+ "source": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell18_img6.png"
+}

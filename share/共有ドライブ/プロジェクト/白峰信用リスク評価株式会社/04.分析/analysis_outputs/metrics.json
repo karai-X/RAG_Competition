@@ -1,0 +1,37 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "class",
+  "date_column": "",
+  "use_date_features": true,
+  "model_type": "gradient_boosting",
+  "model_params": {},
+  "row_count": 7352,
+  "feature_count": 65,
+  "train_rows": 5881,
+  "test_rows": 1471,
+  "accuracy": 0.9564921821889871,
+  "f1_macro": 0.6078509780399214,
+  "auc_roc": 0.8590109157896799,
+  "brier_score": 0.03791797906804155,
+  "precision_at_top10pct": 0.25675675675675674,
+  "eda_summary": {
+    "row_count": 7352,
+    "column_count": 66,
+    "target_column": "class",
+    "missing_ratio_top10": {
+      "Attr37": 0.45252992383025026,
+      "Attr21": 0.07236126224156691,
+      "Attr27": 0.07113710554951033,
+      "Attr60": 0.055767138193688795,
+      "Attr45": 0.05563112078346028,
+      "Attr53": 0.02189880304678999,
+      "Attr64": 0.02189880304678999,
+      "Attr54": 0.02189880304678999,
+      "Attr28": 0.02189880304678999,
+      "Attr24": 0.020810663764961917
+    },
+    "target_dtype": "int64",
+    "target_unique": 2
+  }
+}

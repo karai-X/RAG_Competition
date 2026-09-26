@@ -1,0 +1,13 @@
+{
+ "md5": "4a8a807c78b69022ca8337edb3ad0018",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "その他",
+ "markdown": "TAX CLASS AT TIME OF SALE は純粋な日番号列のため日付展開を行いません",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 5.75,
+ "source": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+}

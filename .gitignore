@@ -4,13 +4,19 @@
 !.env.example
 .streamlit/secrets.toml
 
-# コンペの資料と、そこから作ったもの。リポジトリには含めない（README の「配布」を参照）
-share/
-artifacts/
+# 資料（share/）と前処理済みの成果物（artifacts/）は、クローンしてすぐ動くように同梱する。
+# 前処理をやり直すときにしか使わない埋め込みのキャッシュだけは載せない
+artifacts/embed_cache/
+
+# 実行のたびに増えるもの
 logs/
 jobs/
 checkpoints.sqlite*
 questions_test*.csv
+
+# Office のロックファイル（資料ではない。前処理の走査でも除外している）
+~$*
+.~lock.*
 
 # Python の環境とキャッシュ
 .venv/

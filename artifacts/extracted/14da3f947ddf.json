@@ -1,0 +1,25 @@
+{
+ "doc_id": "14da3f947ddf",
+ "relpath": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/__init__.py",
+ "mount": "",
+ "project": "白峰信用リスク評価株式会社",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "d41d8cd98f00b204e9800998ecf8427e",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 0,
+  "n_lines": 1
+ },
+ "error": null,
+ "warnings": []
+}

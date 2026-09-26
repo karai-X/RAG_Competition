@@ -1,0 +1,28 @@
+{
+ "doc_id": "31baaa8f3e68",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/date_feature_trend.png",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "f4892a1e08527d2159c78b5228f9de6b",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/date_feature_trend.png (1176x575) md5:f4892a1e — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: その他]\n日付特徴量の確認\n\n有効な日付列は見つかりませんでした",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1176,
+  "height": 575,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

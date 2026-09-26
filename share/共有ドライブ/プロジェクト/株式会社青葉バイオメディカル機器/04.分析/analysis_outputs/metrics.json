@@ -1,0 +1,160 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "Attrition",
+  "date_column": "",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": false,
+  "use_ordered_category_features": false,
+  "group_rare_categories": true,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": true,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": false,
+  "drop_original_categorical_after_target_encoding": false,
+  "tune_class_decision_weights": false,
+  "scale_numeric_features": false,
+  "model_type": "extra_trees",
+  "model_params": {
+    "n_estimators": 500,
+    "max_depth": 10,
+    "min_samples_leaf": 8,
+    "class_weight": "balanced",
+    "max_features": "sqrt"
+  },
+  "split_strategy": "random_holdout",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": false,
+  "early_stopping_patience": 2,
+  "row_count": 735,
+  "feature_count": 36,
+  "train_rows": 514,
+  "validation_rows": 74,
+  "test_rows": 147,
+  "split_ordering_basis": "random_holdout",
+  "accuracy": 0.8231292517006803,
+  "f1_macro": 0.6525454545454545,
+  "auc_roc": 0.7121311475409836,
+  "brier_score": 0.150815400835753,
+  "precision_at_top10pct": 0.4666666666666667,
+  "train_metrics": {
+    "accuracy": 0.9182879377431906,
+    "f1_macro": 0.8760706330799788
+  },
+  "validation_metrics": {
+    "accuracy": 0.7837837837837838,
+    "f1_macro": 0.6476190476190476
+  },
+  "eda_summary": {
+    "row_count": 735,
+    "column_count": 33,
+    "target_column": "Attrition",
+    "missing_ratio_top10": {
+      "id": 0.0,
+      "Age": 0.0,
+      "Attrition": 0.0,
+      "BusinessTravel": 0.0,
+      "DailyRate": 0.0,
+      "Department": 0.0,
+      "DistanceFromHome": 0.0,
+      "Education": 0.0,
+      "EducationField": 0.0,
+      "EnvironmentSatisfaction": 0.0
+    },
+    "target_dtype": "str",
+    "target_unique": 2
+  },
+  "feature_selection": {
+    "selected_columns": [
+      "Age",
+      "BusinessTravel",
+      "DailyRate",
+      "Department",
+      "DistanceFromHome",
+      "Education",
+      "EducationField",
+      "EnvironmentSatisfaction",
+      "Gender",
+      "HourlyRate",
+      "JobInvolvement",
+      "JobLevel",
+      "JobRole",
+      "JobSatisfaction",
+      "MaritalStatus",
+      "MonthlyIncome",
+      "NumCompaniesWorked",
+      "Over18",
+      "OverTime",
+      "PercentSalaryHike",
+      "PerformanceRating",
+      "RelationshipSatisfaction",
+      "StandardHours",
+      "StockOptionLevel",
+      "TotalWorkingYears",
+      "TrainingTimesLastYear",
+      "WorkLifeBalance",
+      "YearsAtCompany",
+      "YearsInCurrentRole",
+      "YearsSinceLastPromotion",
+      "YearsWithCurrManager",
+      "BusinessTravel__freq",
+      "Department__freq",
+      "EducationField__freq",
+      "JobRole__freq",
+      "MaritalStatus__freq"
+    ],
+    "excluded_columns": [
+      {
+        "column": "id",
+        "reason": "identifier_like_name"
+      }
+    ],
+    "grouped_rare_columns": [
+      {
+        "column": "EducationField",
+        "rare_value_count": 1,
+        "original_unique_count": 6,
+        "min_count": 20
+      }
+    ],
+    "added_frequency_columns": [
+      {
+        "source_column": "BusinessTravel",
+        "feature_column": "BusinessTravel__freq",
+        "unique_count": 3
+      },
+      {
+        "source_column": "Department",
+        "feature_column": "Department__freq",
+        "unique_count": 3
+      },
+      {
+        "source_column": "EducationField",
+        "feature_column": "EducationField__freq",
+        "unique_count": 6
+      },
+      {
+        "source_column": "JobRole",
+        "feature_column": "JobRole__freq",
+        "unique_count": 9
+      },
+      {
+        "source_column": "MaritalStatus",
+        "feature_column": "MaritalStatus__freq",
+        "unique_count": 3
+      }
+    ],
+    "categorical_unique_limit": 100,
+    "group_rare_categories": true,
+    "rare_category_min_count": 20,
+    "use_categorical_frequency_features": true,
+    "categorical_frequency_min_unique": 3,
+    "categorical_frequency_max_unique": 200
+  },
+  "ordered_feature_columns": [],
+  "selected_feature_count": 36,
+  "excluded_feature_count": 1
+}

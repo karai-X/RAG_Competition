@@ -1,0 +1,46 @@
+{
+ "doc_id": "82125ed4d019",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/data/train.csv",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "04.分析",
+ "filetype": "csv",
+ "md5": "5e1c554ca7436e061116929cda2ed1b9",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| id | BOROUGH | NEIGHBORHOOD | BUILDING CLASS CATEGORY | TAX CLASS AT PRESENT | BLOCK | LOT | BUILDING CLASS AT PRESENT | ZIP CODE | RESIDENTIAL UNITS | COMMERCIAL UNITS | TOTAL UNITS | LAND SQUARE FEET | GROSS SQUARE FEET | YEAR BUILT | TAX CLASS AT TIME OF SALE | BUILDING CLASS AT TIME OF SALE | SALE PRICE |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| train_00000 | 3 | CROWN HEIGHTS | 09 COOPS - WALKUP APARTMENTS | 2C | 1162 | 19 | C6 | 11238 | 0 | 0 | 0 | 0 | 0 | 1920 | 2 | C6 | 832444 |\n| train_00001 | 5 | SUNNYSIDE | 01 ONE FAMILY DWELLINGS | 1 | 681 | 242 | A2 | 10301 | 1 | 0 | 1 | 4774 | 975 | 1945 | 1 | A2 | 490000 |\n| train_00002 | 4 | FLUSHING-NORTH | 01 ONE FAMILY DWELLINGS | 1 | 4929 | 7 | A1 | 11358 | 1 | 0 | 1 | 4387 | 1260 | 1930 | 1 | A1 | 817500 |\n| train_00003 | 3 | DOWNTOWN-METROTECH | 13 CONDOS - ELEVATOR APARTMENTS | 2 | 2058 | 1118 | R4 | 11201 | 1 | 0 | 1 | 0 | 0 | 1800 | 2 | R4 | 1250000 |\n| train_00004 | 4 | KEW GARDENS | 10 COOPS - ELEVATOR APARTMENTS | 2 | 3335 | 23 | D4 | 11415 | 0 | 0 | 0 |  |  | 1974 | 2 | D4 | 212000 |\n| train_00005 | 4 | REGO PARK | 02 TWO FAMILY DWELLINGS | 1 | 3159 | 94 | B3 | 11374 | 2 | 0 | 2 | 1600 | 1264 | 1935 | 1 | B3 | 765000 |\n| train_00006 | 2 | MORRISANIA/LONGWOOD | 01 ONE FAMILY DWELLINGS | 1 | 2669 | 14 | A1 | 10456 | 1 | 0 | 1 | 1983 | 1686 | 1920 | 1 | A1 | 430000 |\n| train_00007 | 4 | ASTORIA | 07 RENTALS - WALKUP APARTMENTS | 2A | 795 | 54 | C3 | 11105 | 4 | 0 | 4 | 2500 | 3450 | 1925 | 2 | C3 | 1545000 |\n| train_00008 | 3 | PARK SLOPE | 09 COOPS - WALKUP APARTMENTS | 2 | 1103 | 66 | C6 | 11215 | 0 | 0 | 0 | 0 | 0 | 1900 | 2 | C6 | 759000 |\n| train_00009 | 2 | BAYCHESTER | 04 TAX CLASS 1 CONDOS | 1A | 4939 | 1005 | R3 | 10466 | 1 | 0 | 1 | 0 | 0 | 2013 | 1 | R3 | 343746 |\n| train_00010 | 4 | SPRINGFIELD GARDENS | 06 TAX CLASS 1 - OTHER | 1 | 12282 | 41 | Z0 | 0 | 0 | 0 | 0 | 2200 |  | 0 | 1 | Z0 | 490000 |\n| train_00011 | 3 | MIDWOOD | 10 COOPS - ELEVATOR APARTMENTS | 2 | 6700 | 38 | D4 | 11230 | 0 | 0 | 0 | 0 | 0 | 1941 | 2 | D4 | 190000 |\n| train_00012 | 4 | GLEN OAKS | 10 COOPS - ELEVATOR APARTMENTS | 2 | 8489 | 1 | D4 | 11005 | 0 | 0 | 0 |  |  | 1972 | 2 | D4 | 725000 |\n| train_00013 | 5 | ANNADALE | 02 TWO FAMILY DWELLINGS | 1 | 6235 | 36 | B2 | 10312 | 2 | 0 | 2 | 4000 |  | 2016 | 1 | B2 | 884859 |\n| train_00014 | 5 | ARDEN HEIGHTS | 01 ONE FAMILY DWELLINGS | 1 | 5743 | 242 | A5 | 10312 | 1 | 0 | 1 | 500 | 1354 | 2002 | 1 | A5 | 330000 |\n| train_00015 | 4 | BEECHHURST | 10 COOPS - ELEVATOR APARTMENTS | 2 | 4574 | 80 | D4 | 11357 | 0 | 0 | 0 |  |  | 1956 | 2 | D4 | 656000 |\n| train_00016 | 3 | CANARSIE | 02 TWO FAMILY DWELLINGS | 1 | 4752 | 57 | B1 | 11236 | 2 | 0 | 2 | 2000 | 2280 | 1955 | 1 | B1 | 313500 |\n| train_00017 | 4 | MASPETH | 05 TAX CLASS 1 VACANT LAND | 1B | 2388 | 8 | V0 | 0 | 0 | 0 | 0 | 2000 |  | 0 | 1 | V0 | 1680000 |\n| train_00018 | 2 | HIGHBRIDGE/MORRIS HEIGHTS | 02 TWO FAMILY DWELLINGS | 1 | 2870 | 12 | B2 | 10453 | 2 | 0 | 2 | 2250 | 2846 | 1925 | 1 | B2 | 400000 |\n| train_00019 | 4 | ELMHURST | 10 COOPS - ELEVATOR APARTMENTS | 2 | 1911 | 1 | D4 | 11373 | 0 | 0 | 0 |  |  | 1964 | 2 | D4 | 158000 |\n| train_00020 | 3 | DOWNTOWN-FULTON FERRY | 13 CONDOS - ELEVATOR APARTMENTS | 2 | 31 | 1459 | R4 | 11201 | 1 | 0 | 1 | 0 | 0 | 1905 | 2 | R4 | 2314482 |\n| train_00021 | 3 | MIDWOOD | 13 CONDOS - ELEVATOR APARTMENTS | 2 | 6766 | 1103 | R4 | 11230 | 1 | 0 | 1 | 0 | 0 | 2012 | 2 | R4 | 815000 |\n| train_00022 | 2 | CITY ISLAND | 01 ONE FAMILY DWELLINGS | 1 | 5625 | 1 | A1 | 10464 | 1 | 0 | 1 | 5601 | 2324 | 1910 | 1 | A1 | 1030000 |\n| train_00023 | 4 | EAST ELMHURST | 02 TWO FAMILY DWELLINGS | 1 | 1090 | 42 | B2 | 11369 | 2 | 0 | 2 | 4000 | 2200 | 1950 | 1 | B2 | 999500 |\n| train_00024 | 3 | SHEEPSHEAD BAY | 10 COOPS - ELEVATOR APARTMENTS | 2 | 7433 | 150 | D4 | 11235 | 0 | 0 | 0 | 0 | 0 | 1963 | 2 | D4 | 145000 |\n\n(全37751行×18列のうち先頭25行のみ表示。全量の集計・条件抽出は run_python でこのファイルを直接読むこと)",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_rows": 37751,
+  "n_cols": 18,
+  "columns": [
+   "id",
+   "BOROUGH",
+   "NEIGHBORHOOD",
+   "BUILDING CLASS CATEGORY",
+   "TAX CLASS AT PRESENT",
+   "BLOCK",
+   "LOT",
+   "BUILDING CLASS AT PRESENT",
+   "ZIP CODE",
+   "RESIDENTIAL UNITS",
+   "COMMERCIAL UNITS",
+   "TOTAL UNITS",
+   "LAND SQUARE FEET",
+   "GROSS SQUARE FEET",
+   "YEAR BUILT",
+   "TAX CLASS AT TIME OF SALE",
+   "BUILDING CLASS AT TIME OF SALE",
+   "SALE PRICE"
+  ],
+  "truncated": true
+ },
+ "error": null,
+ "warnings": []
+}

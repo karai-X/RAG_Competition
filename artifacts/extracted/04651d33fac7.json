@@ -1,0 +1,28 @@
+{
+ "doc_id": "04651d33fac7",
+ "relpath": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/overview_schema.png",
+ "mount": "",
+ "project": "医療法人社団 蒼樹会 みなみ野女性医療センター",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "b36dd673ed9fcef4265bcd81fa08df07",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/overview_schema.png (1476x576) md5:b36dd673 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: 表]\n列名とデータ型の一覧\n\n| 列名 | データ型 |\n|---|---|\n| index | int64 |\n| Pregnancies | int64 |\n| Glucose | int64 |\n| BloodPressure | int64 |\n| SkinThickness | int64 |\n| Insulin | int64 |\n| BMI | float64 |\n| DiabetesPedigreeFunction | float64 |\n| Age | int64 |\n| Outcome | int64 |",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/overview_schema.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1476,
+  "height": 576,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "f3dc4c5ece111d3463f556775a2db55d",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### Gender のカテゴリ分布 上位10件\n\n- Gender\n- Male\n- Female\n- Prefer not to say\n- Prefer to self-describe\n- 件数\n- 0\n- 2000\n- 4000\n- 6000\n- 8000\n- 10000\n\n### Age のカテゴリ分布 上位10件\n\n- Age\n- 25-29\n- 30-34\n- 22-24\n- 35-39\n- 18-21\n- 40-44\n- 45-49\n- 50-54\n- 55-59\n- 60-69\n- 件数\n- 0\n- 500\n- 1000\n- 1500\n- 2000\n- 2500\n- 3000\n\n### Country のカテゴリ分布 上位10件\n\n- Country\n- United States of America\n- India\n- China\n- Other\n- Russia\n- Brazil\n- Germany\n- United Kingdom of Great Britain and Northern Ireland\n- Canada\n- Japan\n- 件数\n- 0\n- 500\n- 1000\n- 1500\n- 2000\n- 2500",
+ "figure_description": "縦に3段配置された横棒グラフ。いずれも凡例はなく、横軸は「件数」、縦方向にカテゴリを表示し、薄い灰色の縦グリッド線と枠線がある。棒上の数値ラベルはない。\n\n1. 「Gender のカテゴリ分布 上位10件」\n- 種類：横棒グラフ\n- 横軸：件数\n- 横軸目盛り：0、2000、4000、6000、8000、10000\n- 縦軸：Gender\n- 上からのカテゴリと棒の色：Male＝濃い青紫色、Female＝青緑色、Prefer not to say＝緑がかった青色、Prefer to self-describe＝淡い黄緑色\n- 棒の長さは上から順に短くなっている。各棒の件数を示す数値ラベルはない。\n\n2. 「Age のカテゴリ分布 上位10件」\n- 種類：横棒グラフ\n- 横軸：件数\n- 横軸目盛り：0、500、1000、1500、2000、2500、3000\n- 縦軸：Age\n- 上からのカテゴリと棒の色：25-29＝濃紫色、30-34＝青紫色、22-24＝濃い青色、35-39＝青緑色、18-21＝青緑色、40-44＝緑がかった青色、45-49＝緑色、50-54＝明るい緑色、55-59＝黄緑色、60-69＝黄色がかった黄緑色\n- 棒の長さは上から順に短くなっている。各棒の件数を示す数値ラベルはない。\n\n3. 「Country のカテゴリ分布 上位10件」\n- 種類：横棒グラフ\n- 横軸：件数\n- 横軸目盛り：0、500、1000、1500、2000、2500\n- 縦軸：Country\n- 上からのカテゴリと棒の色：United States of America＝濃紫色、India＝青紫色、China＝濃い青色、Other＝青緑色、Russia＝青緑色、Brazil＝緑がかった青色、Germany＝緑色、United Kingdom of Great Britain and Northern Ireland＝明るい緑色、Canada＝黄緑色、Japan＝黄色がかった黄緑色\n- 棒の長さは上から順に短くなっている。各棒の件数を示す数値ラベルはない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 59.87,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+}

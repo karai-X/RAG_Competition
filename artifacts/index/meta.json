@@ -1,0 +1,7 @@
+{
+ "n_chunks": 10918,
+ "n_docs": 403,
+ "embed_model": "cl-nagoya/ruri-v3-310m",
+ "n_new_embeddings": 10918,
+ "elapsed_sec": 3874.1
+}

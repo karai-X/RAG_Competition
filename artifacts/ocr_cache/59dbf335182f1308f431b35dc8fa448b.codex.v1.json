@@ -1,0 +1,13 @@
+{
+ "md5": "59dbf335182f1308f431b35dc8fa448b",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "## 左側\n\n- タイトル：SALE PRICE の分布\n- 横軸：SALE PRICE\n- 縦軸：件数\n- 横軸の倍率表示：1e6\n\n## 右側\n\n- タイトル：SALE PRICE の対数分布\n- 横軸：log1p(SALE PRICE)\n- 縦軸：件数",
+ "figure_description": "横に並んだ2つのヒストグラム。\n\n左側は「SALE PRICE の分布」。紫色で塗られ、黒色の輪郭線が付いた棒によるヒストグラムに、紫色の曲線が重ねられている。横軸は「SALE PRICE」で、目盛りは0、1、2、3、4、5、倍率表示は1e6。縦軸は「件数」で、目盛りは0、1000、2000、3000、4000、5000。分布は低いSALE PRICE側に棒が集中し、高いSALE PRICE側へ長く伸びている。凡例はない。\n\n右側は「SALE PRICE の対数分布」。薄いオレンジ色で塗られ、黒色の輪郭線が付いた棒によるヒストグラムに、オレンジ色の曲線が重ねられている。横軸は「log1p(SALE PRICE)」で、目盛りは11.5、12.0、12.5、13.0、13.5、14.0、14.5、15.0、15.5。縦軸は「件数」で、目盛りは0、500、1000、1500、2000。棒と曲線は13.0～13.5付近で高く、左右に向かって低くなっている。凡例はない。\n\n両グラフとも、灰色の縦横グリッド線が表示されている。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 28.27,
+ "source": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell14_img4.png"
+}

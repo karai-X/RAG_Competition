@@ -1,0 +1,13 @@
+{
+ "md5": "2123b8f8dcb6ddabc3609cefb7f4a68c",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "- T06〜T12 等：EDA・前処理方針・ベースライン構築・中間資料作成（期限は WBS に準じるが多く未着手／未完了）。\n  - スケジュール照合：中間報告（MS4）は 2025-09-08（本チェックポイント）に設定。変更管理チェック（MS5）は 2025-09-09 に予定。\n\n### 3. <u>主要な分析結果</u>\n\n（interim における「可視試行」のみを引用。最終的なチャンピオンモデルや後段結論は報告しない。）\n\n- 実行済みの可視試行（Report facts JSON.analysis.visible_trials より）\n  - T01（trial_role: linear_baseline, baseline）\n    - primary_metric (f1_macro) = 0.30928788048979766\n    - secondary_metric (accuracy) = 0.3668690372940156\n    - selected_feature_count = 7, excluded_feature_count = 2\n  - T02（trial_role: linear_baseline_balanced, targeted_improvement）\n    - primary_metric (f1_macro) = 0.32018748128232216\n    - secondary_metric (accuracy) = 0.3525585429314831\n    - selected_feature_count = 7, excluded_feature_count = 2\n  - T03（trial_role: richer_linear_baseline, feature_search）— best_visible_trial\n    - primary_metric (f1_macro) = 0.44929547342163884\n    - secondary_metric (accuracy) = 0.47311361665221163\n    - selected_feature_count = 16, excluded_feature_count = 1\n  - T04（trial_role: threshold_tuned_linear, decision_tuning）\n    - primary_metric (f1_macro) = 0.4411577182086925\n\n[c:濃い灰色]データアセスメントドラフト[/c]\n\n（上記の色付き文字は文書中央に大きく重ねて表示）",
+ "figure_description": "",
+ "layout": "",
+ "confident": false,
+ "error": null,
+ "latency_sec": 92.02,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-09-08.pdf p3"
+}

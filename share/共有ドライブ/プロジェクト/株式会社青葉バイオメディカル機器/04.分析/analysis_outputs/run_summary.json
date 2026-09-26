@@ -1,0 +1,47 @@
+{
+  "target_column": "Attrition",
+  "date_column": null,
+  "task_type": "classification",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": false,
+  "use_ordered_category_features": false,
+  "group_rare_categories": true,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": true,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": false,
+  "class_target_encoding_min_unique": 2,
+  "class_target_encoding_max_unique": 100,
+  "class_target_encoding_smoothing": 20.0,
+  "drop_original_categorical_after_target_encoding": false,
+  "tune_class_decision_weights": false,
+  "scale_numeric_features": false,
+  "model_type": "extra_trees",
+  "model_params": {
+    "n_estimators": 500,
+    "max_depth": 10,
+    "min_samples_leaf": 8,
+    "class_weight": "balanced",
+    "max_features": "sqrt"
+  },
+  "split_strategy": "random_holdout",
+  "split_ordering_basis": "random_holdout",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": false,
+  "early_stopping_patience": 2,
+  "output_dir": "artifacts/analysis_outputs",
+  "selected_feature_count": 36,
+  "excluded_feature_columns": [
+    {
+      "column": "id",
+      "reason": "identifier_like_name"
+    }
+  ],
+  "categorical_unique_limit": 100,
+  "ordered_feature_columns": [],
+  "class_target_encoding": [],
+  "class_decision_tuning": {}
+}

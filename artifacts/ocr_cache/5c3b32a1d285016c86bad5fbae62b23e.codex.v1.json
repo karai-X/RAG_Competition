@@ -1,0 +1,13 @@
+{
+ "md5": "5c3b32a1d285016c86bad5fbae62b23e",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "[c:濃い灰色]カテゴリ列の分布[/c]\n\n[c:濃い灰色]カテゴリ列が見つかりません[/c]",
+ "figure_description": "グラフ領域。上部中央にタイトル「カテゴリ列の分布」、中央に「カテゴリ列が見つかりません」と表示されている。軸、軸ラベル、凡例、目盛り、数値、データ系列は表示されていない。背景は白色。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 11.31,
+ "source": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell12_img3.png"
+}

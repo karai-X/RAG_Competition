@@ -1,0 +1,25 @@
+{
+ "doc_id": "50640f919a8a",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/evaluate.py",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "c987fd27cf1ea5a55fe0d9fc71d4231e",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport math\nfrom typing import Any\n\nimport numpy as np\nimport pandas as pd\nfrom sklearn.metrics import (\n    accuracy_score,\n    brier_score_loss,\n    f1_score,\n    mean_absolute_error,\n    mean_squared_error,\n    r2_score,\n    roc_auc_score,\n)\n\n\ndef build_metrics_base(\n    *,\n    task_type: str,\n    encoding: str,\n    target_col: str,\n    date_col: str | None,\n    use_date_features: bool,\n    use_numeric_interactions: bool,\n    model_type: str,\n    model_params: dict[str, Any],\n    row_count: int,\n    feature_count: int,\n    train_rows: int,\n    test_rows: int,\n) -> dict[str, Any]:\n    return {\n        \"task_type\": task_type,\n        \"encoding\": encoding,\n        \"target_column\": target_col,\n        \"date_column\": date_col or \"\",\n        \"use_date_features\": bool(use_date_features),\n        \"use_numeric_interactions\": bool(use_numeric_interactions),\n        \"model_type\": model_type,\n        \"model_params\": model_params,\n        \"row_count\": int(row_count),\n        \"feature_count\": int(feature_count),\n        \"train_rows\": int(train_rows),\n        \"test_rows\": int(test_rows),\n    }\n\n\ndef evaluate_predictions(\n    task_type: str,\n    y_test: pd.Series,\n    pred: Any,\n    y_score: pd.Series | None = None,\n) -> dict[str, float]:\n    # REGION: METRIC_SELECTION START\n    if task_type == \"regression\":\n        y_test_num = pd.to_numeric(y_test, errors=\"coerce\")\n        pred_num = pd.to_numeric(pd.Series(pred), errors=\"coerce\")\n        mask = y_test_num.notna() & pred_num.notna()\n        yv = y_test_num[mask]\n        pv = pred_num[mask]\n        if len(yv) == 0:\n            raise ValueError(\"regression evaluation had no valid numeric rows\")\n        return {\n            \"rmse\": float(np.sqrt(mean_squared_error(yv, pv))),\n            \"mae\": float(mean_absolute_error(yv, pv)),\n            \"r2\": float(r2_score(yv, pv)),\n        }\n    metrics = {\n        \"accuracy\": float(accuracy_score(y_test, pred)),\n        \"f1_macro\": float(f1_score(y_test, pred, average=\"macro\")),\n    }\n    y_series = pd.Series(y_test).reset_index(drop=True)\n    if y_score is not None:\n        score_series = pd.Series(y_score).reset_index(drop=True)\n        valid = y_series.notna() & score_series.notna()\n        if valid.sum() >= 2:\n            y_valid = y_series.loc[valid]\n            s_valid = score_series.loc[valid]\n            uniq = sorted(pd.unique(y_valid))\n            if len(uniq) == 2:\n                pos_label = uniq[-1]\n                y_bin = (y_valid == pos_label).astype(int)\n                if y_bin.nunique() == 2:\n                    try:\n                        metrics[\"auc_roc\"] = float(roc_auc_score(y_bin, s_valid))\n                    except Exception:\n                        pass\n                    try:\n                        metrics[\"brier_score\"] = float(brier_score_loss(y_bin, s_valid))\n                    except Exception:\n                        pass\n                    k = max(1, int(math.ceil(len(s_valid) * 0.10)))\n                    top_idx = s_valid.sort_values(ascending=False).head(k).index\n                    if len(top_idx) > 0:\n                        metrics[\"precision_at_top10pct\"] = float(y_bin.loc[top_idx].mean())\n    return metrics\n    # REGION: METRIC_SELECTION END\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 3259,
+  "n_lines": 100
+ },
+ "error": null,
+ "warnings": []
+}

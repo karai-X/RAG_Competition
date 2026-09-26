@@ -1,0 +1,10 @@
+{
+ "md5": "0ece223e5cec82352851d6953822b518",
+ "question": "京橋信用ソリューションズのEDAの日付分析の可視化において、件数が最も高いのは何日ですか。",
+ "engine": "claude_cli",
+ "answer": "20日",
+ "evidence": "「day による件数推移」グラフの青線（件数、左軸）が20日の位置で約1600件と最も高いピークを示している。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 8.08
+}

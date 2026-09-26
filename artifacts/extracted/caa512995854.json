@@ -1,0 +1,25 @@
+{
+ "doc_id": "caa512995854",
+ "relpath": "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/scripts/bootstrap_env.py",
+ "mount": "",
+ "project": "株式会社青葉バイオメディカル機器",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport argparse\nimport shutil\nimport subprocess\nimport sys\nfrom pathlib import Path\n\n\ndef _venv_python(venv_dir: Path) -> Path:\n    if sys.platform.startswith(\"win\"):\n        return venv_dir / \"Scripts\" / \"python.exe\"\n    return venv_dir / \"bin\" / \"python\"\n\n\ndef _to_rel(path: Path, base: Path) -> str:\n    try:\n        return path.resolve().relative_to(base.resolve()).as_posix()\n    except Exception:\n        return path.as_posix()\n\n\ndef _run(command: list[str], label: str) -> None:\n    print(\"[run]\", label)\n    subprocess.run(command, check=True)\n\n\ndef main() -> None:\n    parser = argparse.ArgumentParser(description=\"Create virtual environment and install dependencies\")\n    parser.add_argument(\"--venv-dir\", type=Path, default=Path(\".venv\"), help=\"Virtual environment directory\")\n    parser.add_argument(\n        \"--recreate\",\n        action=argparse.BooleanOptionalAction,\n        default=False,\n        help=\"Delete and recreate venv if it exists\",\n    )\n    args = parser.parse_args()\n\n    manual_root = Path(__file__).resolve().parents[1]\n    venv_dir = (manual_root / args.venv_dir).resolve()\n    rel_venv = _to_rel(venv_dir, manual_root)\n\n    if args.recreate and venv_dir.exists():\n        shutil.rmtree(venv_dir)\n\n    if not venv_dir.exists():\n        _run([sys.executable, \"-m\", \"venv\", str(venv_dir)], f\"python -m venv {rel_venv}\")\n\n    py = _venv_python(venv_dir)\n    requirements = manual_root / \"requirements.txt\"\n    rel_requirements = _to_rel(requirements, manual_root)\n\n    _run([str(py), \"-m\", \"pip\", \"install\", \"--upgrade\", \"pip\", \"setuptools\", \"wheel\"], \"pip install --upgrade pip setuptools wheel\")\n    _run([str(py), \"-m\", \"pip\", \"install\", \"-r\", str(requirements)], f\"pip install -r {rel_requirements}\")\n\n    print(\"Environment setup completed.\")\n    print(f\"Virtual environment: {rel_venv}\")\n    print(\"Train command: python scripts/run_train.py\")\n\n\nif __name__ == \"__main__\":\n    main()\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 1955,
+  "n_lines": 63
+ },
+ "error": null,
+ "warnings": []
+}

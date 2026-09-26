@@ -1,0 +1,28 @@
+{
+ "doc_id": "5e1ee8d96189",
+ "relpath": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/target_distribution.png",
+ "mount": "",
+ "project": "株式会社東都人材プラットフォーム",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "f119d39e3309d44a3d6e27b42a2504d4",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/target_distribution.png (1175x726) md5:f119d39e — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n# ターゲット分布\n\n- 縦軸ラベル：件数\n- 横軸ラベル：ターゲット値\n- 横軸目盛：0、1、2、3、4、5\n- 縦軸目盛：0、500、1000、1500、2000、2500、3000\n[図の説明] 縦棒グラフ。タイトルは「ターゲット分布」。横軸は「ターゲット値」で、目盛りは0、1、2、3、4、5。縦軸は「件数」で、目盛りは0から3000まで500刻み。ターゲット値0～5の各棒は青色で塗られている。数値ラベルはない。凡例はない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/target_distribution.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1175,
+  "height": 726,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

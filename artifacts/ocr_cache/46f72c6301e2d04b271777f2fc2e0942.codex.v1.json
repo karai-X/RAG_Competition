@@ -1,0 +1,13 @@
+{
+ "md5": "46f72c6301e2d04b271777f2fc2e0942",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "その他",
+ "markdown": "TAX CLASS AT TIME OF SALE は純粋な日番号列のため日付展開を行いません",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 13.52,
+ "source": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell18_img6.png"
+}

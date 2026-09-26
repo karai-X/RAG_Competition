@@ -1,0 +1,146 @@
+{
+ "doc_id": "e36b58586b59",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/00.提案/提案書_final.pptx",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "00.提案",
+ "filetype": "pptx",
+ "md5": "6253743afe076011c8ca9bc1cc26f430",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## スライド 1\n\n[c:2D3748]**データ分析プロジェクト提案書**[/c]\n\n[c:4A5568]定期預金契約予測モデル構築と説明可能な分析基盤の整備[/c]\n\n[c:4A5568]提出先：京橋信用ソリューションズ株式会社[/c]\n[c:4A5568]リスク管理部 与信モデル統括課[/c]\n[c:7FB3D3]作成：株式会社データアステル データサイエンス部[/c]\n\n[c:718096]1[/c]",
+   "label": "slide1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## スライド 2\n\n[c:FFFFFF]**1. 背景**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]京橋信用ソリューションズ株式会社 リスク管理部 与信モデル統括課において、金融商品提案および顧客接触施策の高度化に向け、顧客ごとの契約見込みを定量的に把握し、説明可能な形で活用できる分析基盤の整備が求められている。本プロジェクトでは、27,128件・18カラムの顧客データを用い、定期預金等の契約有無を予測する初期版モデルを構築する。[/c]\n\n[c:FFFFFF]**現状の課題**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**経験則依存**[/c]\n[c:4A5568]経験則に依存した接触判断が行われている[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:2D3748]**データ活用不足**[/c]\n[c:4A5568]接触履歴データの十分な活用ができていない[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:2D3748]**評価誤認リスク**[/c]\n[c:4A5568]不均衡データ下での評価誤認リスクが存在する[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:2D3748]**特別値の扱い**[/c]\n[c:4A5568]業務上の特別値や不明値カテゴリの適切な処理が未整備[/c]\n\n[c:2D3748]**短期間の成果**[/c]\n[c:4A5568]短期間での実務接続可能な成果創出が求められている[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:2D3748]**▶ 本提案では精度のみならず、業務判断に耐える説明性と統制可能性を重視した分析を実施する**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:718096]2[/c]",
+   "label": "slide2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## スライド 3\n\n[c:FFFFFF]**2. 目的**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**顧客属性・接触履歴・過去キャンペーン結果を用いて、定期預金等の契約有無（y）を予測する分析モデルの初期版を構築し、実務で利用可能な説明可能な判断材料を整備する**[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:FFFFFF]**01**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**定量的な顧客抽出**[/c]\n[c:4A5568]契約見込みの高い顧客群を定量的に抽出可能とする[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:FFFFFF]**02**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]**分類性能の評価**[/c]\n[c:4A5568]AUC、Accuracy、Precision、Recall、F1等により分類性能を評価可能とする[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:FFFFFF]**03**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:2D3748]**接触優先順位付け**[/c]\n[c:4A5568]上位スコア群における契約率を可視化し、接触優先順位付けに利用可能とする[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:FFFFFF]**04**[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:2D3748]**説明可能性の確保**[/c]\n[c:4A5568]重要変数、方向性、個票レベルの説明例を提示し、説明可能性を確保する[/c]\n\n[c:FFFFFF]**05**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:2D3748]**監査証跡の整備**[/c]\n[c:4A5568]使用データ、前処理条件、学習条件、評価条件、成果物版管理を記録する[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**06**[/c]\n{shape-fill:#B8D4E8 薄水色}\n\n[c:2D3748]**用途混同の防止**[/c]\n[c:4A5568]duration含有の事後分析モデルとduration除外の事前判断モデルを明確に分離する[/c]\n{shape-fill:#E8F0F8 薄青}\n\n[c:718096]※ default rate、expected loss、approval quality、recovery ratio は本案件の目的変数と直接一致しないため、参考指標群として扱い、一次KPIには採用しない[/c]\n\n[c:718096]3[/c]",
+   "label": "slide3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## スライド 4\n\n[c:FFFFFF]**3. スコープ ― 対象範囲**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]train.csv を対象とした単一データセット分析[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]目的変数 y に対する二値分類モデルの初期版構築[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:2D3748]探索的データ分析（分布確認・目的変数関係・カテゴリ別契約率・外れ値確認）[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:2D3748]前処理方針の設計（変数型整理・unknown独立カテゴリ・pdays=-1特別値・エンコーディング）[/c]\n\n[c:FFFFFF]**5**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:2D3748]ベースラインモデルおよび説明可能なモデルの比較評価[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**6**[/c]\n{shape-fill:#B8D4E8 薄水色}\n\n[c:2D3748]duration含有モデルと非含有モデルの比較整理[/c]\n{shape-fill:#E8F0F8 薄青}\n\n[c:FFFFFF]**7**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]性能評価、重要変数分析、セグメント別示唆の整理[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:FFFFFF]**8**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]監査・再現性を意識したドキュメント整備[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:FFFFFF]**9**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:2D3748]中間報告および最終報告の実施[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:718096]4[/c]",
+   "label": "slide4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## スライド 5\n\n[c:FFFFFF]**3. スコープ ― 対象外**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]本番システム実装[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]API化、バッチ実装、業務システム連携[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]外部データの新規取得、名寄せ、統合[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]継続運用設計の詳細化[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]本番運用監視指標の実装[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]法務・監査部門向け正式審査資料の作成代行[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]契約締結後の追加分析テーマ対応[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]train.csv以外のデータソースを前提とした精度改善[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]厳密な因果推論[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**✕**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]y以外の新規目的変数設計[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:718096]5[/c]",
+   "label": "slide5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## スライド 6\n\n[c:FFFFFF]**4. 分析アプローチ ― 全体像**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**4.1**[/c]\n[c:FFFFFF]**データ理解\n品質確認**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**4.2**[/c]\n[c:FFFFFF]**探索的\nデータ分析**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:FFFFFF]**4.3**[/c]\n[c:FFFFFF]**前処理\n特徴量設計**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:FFFFFF]**4.4**[/c]\n[c:FFFFFF]**モデル構築\n評価**[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:FFFFFF]**4.5**[/c]\n[c:FFFFFF]**説明可能性\nガバナンス**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:4A5568]正本データ受領確認[/c]\n[c:4A5568]カラム定義参照[/c]\n[c:4A5568]業務上不明値の識別[/c]\n[c:4A5568]unknown/pdays=-1の扱い設計[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:4A5568]契約率11.7%の分布確認[/c]\n[c:4A5568]属性別・接触別契約率整理[/c]\n[c:4A5568]外れ値・裾分布の確認[/c]\n[c:4A5568]高見込み顧客の仮説形成[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:4A5568]id除外・カテゴリ値維持[/c]\n[c:4A5568]数値変換・ビニング適用[/c]\n[c:4A5568]学習/検証データ分割固定[/c]\n[c:4A5568]duration含有/非含有の分離[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:4A5568]ロジスティック回帰を第一候補[/c]\n[c:4A5568]木系モデルとの比較評価[/c]\n[c:4A5568]AUC/Precision/Recall/F1併用[/c]\n[c:4A5568]上位スコア群契約率算出[/c]\n\n[c:4A5568]重要変数ランキング提示[/c]\n[c:4A5568]公平性・バイアス初期確認[/c]\n[c:4A5568]監査証跡の整備[/c]\n[c:4A5568]モデル採用理由の明文化[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:718096]6[/c]",
+   "label": "slide6",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## スライド 7\n\n[c:FFFFFF]**4.1 データ理解・品質確認 / 4.2 探索的データ分析**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**4.1 データ理解・品質確認**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]train.csv を正本データとして受領確認[/c]\n[c:2D3748]カラム説明.md を正式なカラム定義として参照[/c]\n[c:2D3748]欠損件数0件を前提に、業務上の不明値カテゴリを識別[/c]\n[c:2D3748]education=unknown、contact=unknown、poutcome=unknown は欠損補完せず有効カテゴリとして保持[/c]\n[c:2D3748]pdays=-1 は前回未接触を示す特別値として扱い、数値とフラグの両面から有効性を検証[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:FFFFFF]**4.2 探索的データ分析**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]目的変数 y の分布と契約率11.7%を確認[/c]\n[c:2D3748]顧客属性別、接触履歴別、過去成果別の契約率を整理[/c]\n[c:2D3748]balance、duration、campaign、previous 等の外れ値・裾の長い分布を確認[/c]\n[c:2D3748]高見込み顧客の特徴仮説を形成し、中間レビューで妥当性を確認[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:2D3748]**対象データ概要**[/c]\n[c:4A5568]データセット: train.csv ｜ レコード数: 27,128件 ｜ カラム数: 18 ｜ 目的変数: y (契約有無) ｜ 契約率: 11.7% ｜ 欠損: 0件[/c]\n\n[c:718096]7[/c]",
+   "label": "slide7",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## スライド 8\n\n[c:FFFFFF]**4.3 前処理・特徴量設計**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**STEP**[/c]\n[c:FFFFFF]**1**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**変数整理**[/c]\n[c:4A5568]idは識別子として除外。カテゴリ変数はCSV原文値を維持し、表記揺れなく管理する[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:FFFFFF]**STEP**[/c]\n[c:FFFFFF]**2**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]**特別値設計**[/c]\n[c:4A5568]unknown は独立カテゴリ。pdays=-1 は業務上特別値として数値とフラグの両面で設計する[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:FFFFFF]**STEP**[/c]\n[c:FFFFFF]**3**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:2D3748]**数値変換**[/c]\n[c:4A5568]数値変数については必要に応じてロバストな変換やビニングを適用する[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:FFFFFF]**STEP**[/c]\n[c:FFFFFF]**4**[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:2D3748]**データ分割**[/c]\n[c:4A5568]学習・検証データの分割条件を固定し、再現可能な評価環境を整備する[/c]\n\n[c:FFFFFF]**duration による2系統分離**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:2D3748]**事後分析モデル**[/c]\n[c:4A5568]duration を含む\n（接触後の振り返り分析用途）[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:2D3748]**事前判断モデル**[/c]\n[c:4A5568]duration を除く\n（接触前の優先順位付け用途）[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:4A5568]⚠ durationは接触後確定情報の可能性があるため、情報リークを防ぐ目的で2系統に分離する[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:718096]8[/c]",
+   "label": "slide8",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## スライド 9\n\n[c:FFFFFF]**4.4 モデル構築・評価 / 4.5 説明可能性・ガバナンス**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**4.4 モデル構築・評価**[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:2D3748]説明しやすいロジスティック回帰等を第一候補として採用[/c]\n[c:2D3748]比較対象として必要に応じて木系モデル等を評価[/c]\n[c:2D3748]Accuracy単独で評価せず、AUC、Precision、Recall、F1を併用[/c]\n[c:2D3748]上位10%・20%・30%のスコア群における契約率を算出[/c]\n[c:2D3748]学習用・検証用の性能差を確認し、過学習リスクを点検[/c]\n\n[c:FFFFFF]**4.5 説明可能性・ガバナンス**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:2D3748]重要変数ランキング、方向性、個票レベル説明例を成果物に整理[/c]\n[c:2D3748]age 等の属性情報について、公平性・バイアス観点の初期確認を実施[/c]\n[c:2D3748]入力条件、前処理条件、評価条件、成果物版数を記録し、監査証跡を整備[/c]\n[c:2D3748]金融業務における説明責任を満たすため、モデル採用理由と留意点を明文化[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:2D3748]**評価指標体系**[/c]\n[c:4A5568]一次KPI: AUC / Accuracy / Precision / Recall / F1 / 上位スコア群契約率[/c]\n[c:718096]参考指標: default rate / expected loss / approval quality / recovery ratio （目的変数と直接一致しないため参考扱い）[/c]\n\n[c:718096]9[/c]",
+   "label": "slide9",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 10,
+   "text": "## スライド 10\n\n[c:FFFFFF]**5. 実施体制**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**発注者：京橋信用ソリューションズ株式会社**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:FFFFFF]**受託者：株式会社データアステル**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**高橋 恒一 課長**[/c]\n[c:4A5568]リスク管理部 与信モデル統括課[/c]\n[c:4A5568]成果物レビューおよび検収の窓口、業務観点の妥当性確認[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:7FB3D3]エグゼクティブスポンサー[/c]\n[c:2D3748]**山田 直樹**[/c]\n[c:4A5568]全体統括、重要課題時の意思決定支援[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:7FB3D3]プロジェクトマネージャー[/c]\n[c:2D3748]**佐藤 健一**[/c]\n[c:4A5568]進行管理、会議体運営、課題・変更管理、納品管理[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:D4A5C9]リードデータサイエンティスト[/c]\n[c:2D3748]**鈴木 美咲**[/c]\n[c:4A5568]分析設計、モデル方針策定、評価設計、説明可能性整理[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:F6C89F]データエンジニア[/c]\n[c:2D3748]**斎藤 悠斗**[/c]\n[c:4A5568]データ取込、前処理実装、再現可能な分析環境整備[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:A8D5BA]ビジネスアナリスト[/c]\n[c:2D3748]**井上 里奈**[/c]\n[c:4A5568]業務要件整理、KPI整備、示唆の業務接続[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:F9B9B7]QAレビューアー[/c]\n[c:2D3748]**池田 恒一**[/c]\n[c:4A5568]成果物品質レビュー、数値・整合性チェック[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:718096]※ PMを単一窓口として進行管理・論点整理・変更管理を統括。QAレビューアーは分析実施者と独立した品質確認を実施する[/c]\n\n[c:718096]10[/c]",
+   "label": "slide10",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 11,
+   "text": "## スライド 11\n\n[c:FFFFFF]**6. スケジュール案（6週間）**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:4A5568]契約開始日: 2025-10-01 ｜ 契約期間: 6週間 ｜ 完了予定: 2025-11-11[/c]\n\n[c:FFFFFF]**W1**[/c]\n[c:FFFFFF]10/01-10/07[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]キックオフ、目的・活用場面確認、データ受領確認、カラム定義確認[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**M1: キックオフ完了**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**W2**[/c]\n[c:FFFFFF]10/08-10/14[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]データ品質確認、EDA、契約率・カテゴリ別傾向確認、初期論点整理[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:FFFFFF]**M2: EDA完了**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:FFFFFF]**W3**[/c]\n[c:FFFFFF]10/15-10/21[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:2D3748]前処理設計、学習/検証分割、ベースラインモデル構築、duration分岐設計[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:FFFFFF]**M3: ベースライン評価完了**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:FFFFFF]**W4**[/c]\n[c:FFFFFF]10/22-10/28[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:2D3748]複数手法比較、性能評価、重要変数分析、セグメント分析、公平性確認[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:FFFFFF]**W5**[/c]\n[c:FFFFFF]10/29-11/04[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:2D3748]中間報告、レビュー反映、最終モデル方針確定、監査・再現性記録整理[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:FFFFFF]**M4: 中間報告完了**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:FFFFFF]**W6**[/c]\n[c:FFFFFF]11/05-11/11[/c]\n{shape-fill:#B8D4E8 薄水色}\n\n[c:2D3748]最終報告、最終成果物提出、QA反映、検収対応[/c]\n{shape-fill:#B8D4E8 薄水色}\n\n[c:FFFFFF]**M5: 最終報告 / M6: 検収**[/c]\n{shape-fill:#B8D4E8 薄水色}\n\n[c:718096]11[/c]",
+   "label": "slide11",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 12,
+   "text": "## スライド 12\n\n[c:FFFFFF]**7. 成果物定義**[/c]\n{shape-fill:#7FB3D3 水色}\n\n| [c:FFFFFF]**成果物**[/c] | [c:FFFFFF]**内容**[/c] |\n|---|---|\n| [c:2D3748]**提案書**[/c] | [c:4A5568]背景、課題、分析方針、体制、スケジュール、見積前提を記載[/c] |\n| [c:2D3748]**契約ドラフト**[/c] | [c:4A5568]スコープ、納品物、金額、支払条件、変更管理条件を記載[/c] |\n| [c:2D3748]**スケジュール**[/c] | [c:4A5568]6週間の作業計画、レビュー日、納品日を記載[/c] |\n| [c:2D3748]**議事録**[/c] | [c:4A5568]キックオフ、要件確認、中間報告、最終報告の記録[/c] |\n| [c:2D3748]**中間報告書**[/c] | [c:4A5568]データ理解、EDA結果、前処理方針、初期モデル結果、論点整理[/c] |\n| [c:2D3748]**最終報告書**[/c] | [c:4A5568]モデル評価結果、重要変数、セグメント示唆、リスク・制約、次段階提案[/c] |\n| [c:2D3748]**分析補足資料**[/c] | [c:4A5568]カラム一覧、変数採用/除外理由、duration含有/非含有モデル比較、指標定義一覧[/c] |\n| [c:2D3748]**再現性管理情報**[/c] | [c:4A5568]使用ファイル、前処理条件、実行条件、成果物版数、作成日[/c] |\n\n[c:718096]※ 成果物はいずれも、監査証跡、アクセス制御、説明可能性を重視した金融業務向け文書品質で整備する[/c]\n\n[c:718096]12[/c]",
+   "label": "slide12",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 13,
+   "text": "## スライド 13\n\n[c:FFFFFF]**8. 費用見積**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:4A5568]契約金額（税抜）[/c]\n[c:2D3748]**¥5,250,000**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:4A5568]消費税額[/c]\n[c:2D3748]**¥525,000**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:4A5568]契約金額（税込）[/c]\n[c:2D3748]**¥5,775,000**[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:2D3748]**契約形態: 固定価格契約 ― 契約時に金額を固定し、工数実績による事後精算は行わない**[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:FFFFFF]**支払条件**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**第1回（着手金）  50%**[/c]\n[c:4A5568]条件: 契約締結後5営業日以内[/c]\n[c:4A5568]税抜: ¥2,625,000 ｜ 消費税: ¥262,500[/c]\n[c:7FB3D3]**税込合計: ¥2,887,500**[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:2D3748]**第2回（検収金）  50%**[/c]\n[c:4A5568]条件: 最終成果物の検収完了後5営業日以内[/c]\n[c:4A5568]税抜: ¥2,625,000 ｜ 消費税: ¥262,500[/c]\n[c:A8D5BA]**税込合計: ¥2,887,500**[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:718096]※ 契約範囲外の追加対応は、変更管理手続に基づき別途協議のうえ対応する[/c]\n\n[c:718096]13[/c]",
+   "label": "slide13",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 14,
+   "text": "## スライド 14\n\n[c:FFFFFF]**9. リスクと対応策（1/2）**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**⚠ クラス不均衡による評価誤認**[/c]\n[c:4A5568]契約率11.7%のため、Accuracyが高くても業務価値が低い可能性がある[/c]\n[c:F9B9B7]▶[/c] [c:2D3748]**AUC、Precision、Recall、F1、上位スコア群契約率を併用し、Accuracy単独評価を避ける**[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:2D3748]**⚠ durationによる情報リーク**[/c]\n[c:4A5568]接触前判断用途では不適切な高精度が出る可能性がある[/c]\n[c:F6C89F]▶[/c] [c:2D3748]**duration含有モデルと非含有モデルを分離し、用途別に明確に報告する**[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:2D3748]**⚠ 年情報欠如による時系列制約**[/c]\n[c:4A5568]day・monthのみで厳密な時系列安定性評価が困難[/c]\n[c:D4A5C9]▶[/c] [c:2D3748]**時系列予測ではなく表形式分類問題として扱い、制約を報告書に明示する**[/c]\n\n[c:2D3748]**⚠ 外れ値の影響**[/c]\n[c:4A5568]balance、duration、campaign、previousの極端値がモデル挙動を歪める可能性がある[/c]\n[c:7FB3D3]▶[/c] [c:2D3748]**分布確認、ロバスト処理、変換、ビニング等の妥当性を検証する**[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:718096]14[/c]",
+   "label": "slide14",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 15,
+   "text": "## スライド 15\n\n[c:FFFFFF]**9. リスクと対応策（2/2）**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]**⚠ 公平性・属性利用の論点**[/c]\n[c:4A5568]age等の属性に起因する判断差が説明責任上の論点となる[/c]\n[c:A8D5BA]▶[/c] [c:2D3748]**重要変数の寄与を可視化し、公平性・バイアスの初期確認結果を成果物に含める**[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:2D3748]**⚠ 単一データソース依存**[/c]\n[c:4A5568]外部要因を加味できず、業務上の完全判断には限界がある[/c]\n[c:B8D4E8]▶[/c] [c:2D3748]**本分析結果を優先順位付け支援と位置づけ、判断補助としての利用前提を明記する**[/c]\n{shape-fill:#E8F0F8 薄青}\n\n[c:2D3748]**⚠ スケジュール圧縮**[/c]\n[c:4A5568]6週間の短期間でレビュー遅延が生じると品質・納期に影響する[/c]\n[c:F9B9B7]▶[/c] [c:2D3748]**週次で進捗・論点を共有し、中間報告で意思決定事項を早期確定する**[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:2D3748]**⚠ 文書整合性リスク**[/c]\n[c:4A5568]複数成果物間で定義や数値が不整合となる可能性がある[/c]\n[c:F6C89F]▶[/c] [c:2D3748]**本プロジェクト概要を単一正本として扱い、QAレビューで整合性確認を実施する**[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:718096]15[/c]",
+   "label": "slide15",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 16,
+   "text": "## スライド 16\n\n[c:FFFFFF]**10. 前提条件と除外事項**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**前提条件**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]train.csv を正本データとして利用[/c]\n[c:2D3748]カラム説明.md を正式カラム定義として利用[/c]\n[c:2D3748]目的変数 y は 1=契約、0=未契約を正しく表す前提[/c]\n[c:2D3748]id は重複のない識別子として扱い、予測説明変数から除外[/c]\n[c:2D3748]unknown は欠損ではなく有効カテゴリとして扱う[/c]\n[c:2D3748]pdays=-1 は前回未連絡を示す有効値として扱う[/c]\n[c:2D3748]duration は含有/非含有モデルを分けて評価[/c]\n[c:2D3748]分析・報告までを対象とし、本番実装は対象外[/c]\n[c:2D3748]監査証跡必須、アクセス制御必須、説明可能性必須[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:FFFFFF]**除外事項**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:2D3748]本番システム、業務システム、API、バッチ等への実装[/c]\n[c:2D3748]外部データの追加取得やデータ統合[/c]\n[c:2D3748]本番運用監視設計および保守運用[/c]\n[c:2D3748]追加テーマの分析、追加帳票、追加会議体運営[/c]\n[c:2D3748]法務・監査部門向け正式審査資料の作成代行[/c]\n[c:2D3748]train.csv 以外を用いた追加精度改善[/c]\n[c:2D3748]厳密な因果推論や新規目的変数設計[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**変更管理方針**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:2D3748]契約範囲外の追加対応は、別紙見積にて金額・納期を事前合意のうえ実施する。追加対応が発生しない前提で本契約を締結する。固定価格契約のため、工数実績による事後精算は行わない。[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:718096]16[/c]",
+   "label": "slide16",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 17,
+   "text": "## スライド 17\n\n[c:FFFFFF]**11. 次アクション**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]本提案書の内容確認および合意[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#A8D5BA 緑}\n\n[c:2D3748]契約ドラフトの確認[/c]\n{shape-fill:#E8F8F5 薄水色}\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#F6C89F オレンジ}\n\n[c:2D3748]キックオフ日程の確定[/c]\n{shape-fill:#FEF5E7 薄オレンジ}\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#D4A5C9 ピンク}\n\n[c:2D3748]train.csv およびカラム説明.md の正式受領確認[/c]\n\n[c:FFFFFF]**5**[/c]\n{shape-fill:#F9B9B7 薄赤}\n\n[c:2D3748]成果物レビュー体制および検収フローの確認[/c]\n{shape-fill:#FDEDEC 薄赤}\n\n[c:FFFFFF]**6**[/c]\n{shape-fill:#B8D4E8 薄水色}\n\n[c:2D3748]契約締結後5営業日以内に第1回支払（着手金）を実施[/c]\n{shape-fill:#E8F0F8 薄青}\n\n[c:FFFFFF]**7**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:2D3748]2025-10-01 を開始日としてプロジェクトを着手[/c]\n{shape-fill:#EBF5FB 薄水色}\n\n[c:2D3748]**▶ 6週間で説明可能性・監査対応性を備えた分析成果を確実に納品し、後続の業務活用に接続できる状態を実現する**[/c]\n{shape-fill:#7FB3D3 水色}\n\n[c:718096]17[/c]",
+   "label": "slide17",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 18,
+   "text": "## スライド 18\n\n[c:2D3748]**ご検討のほど、よろしくお願いいたします**[/c]\n\n[c:4A5568]データ: 27,128件・18カラム、契約率11.7%[/c]\n[c:4A5568]期間: 2025-10-01 ～ 2025-11-11（6週間）[/c]\n[c:4A5568]費用: ¥5,775,000（税込・固定価格）[/c]\n[c:4A5568]重点: 説明可能性・監査対応・ガバナンス[/c]\n\n[c:7FB3D3]株式会社データアステル データサイエンス部[/c]\n\n[c:718096]18[/c]",
+   "label": "slide18",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_slides": 18,
+  "n_pictures": 0,
+  "n_charts": 0,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

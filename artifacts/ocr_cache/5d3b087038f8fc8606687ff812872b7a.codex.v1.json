@@ -1,0 +1,13 @@
+{
+ "md5": "5d3b087038f8fc8606687ff812872b7a",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "日付特徴量の推移\n\n利用可能な日付列はありません",
+ "figure_description": "グラフ表示領域。タイトルは「日付特徴量の推移」。中央に「利用可能な日付列はありません」と表示されている。軸ラベル、凡例、目盛り、数値、データ系列はない。背景は白色。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 6.67,
+ "source": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+}

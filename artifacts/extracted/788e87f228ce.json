@@ -1,0 +1,25 @@
+{
+ "doc_id": "788e87f228ce",
+ "relpath": "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/__init__.py",
+ "mount": "",
+ "project": "株式会社青葉バイオメディカル機器",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "d41d8cd98f00b204e9800998ecf8427e",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 0,
+  "n_lines": 1
+ },
+ "error": null,
+ "warnings": []
+}

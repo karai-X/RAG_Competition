@@ -1,0 +1,28 @@
+{
+ "doc_id": "5ae6cbc3a8c3",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "ad019009b8f0edcfa2290960868ff15d",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png (1002x877) md5:ad019009 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n数値特徴量の相関ヒートマップ\n\n|  | loan_amnt | interest_rate | credit_score | loan_status |\n|---|---:|---:|---:|---:|\n| loan_amnt | 1.00（濃い赤） | 0.18（薄い橙） | 0.16（薄い橙） | 0.02（薄い灰色） |\n| interest_rate | 0.18（薄い橙） | 1.00（濃い赤） | -0.34（青） | 0.26（薄い橙） |\n| credit_score | 0.16（薄い橙） | -0.34（青） | 1.00（濃い赤） | -0.18（薄い青） |\n| loan_status | 0.02（薄い灰色） | 0.26（薄い橙） | -0.18（薄い青） | 1.00（濃い赤） |\n[図の説明] 相関係数を色で表した4×4のヒートマップ。タイトルは「数値特徴量の相関ヒートマップ」。横軸・縦軸ともに loan_amnt、interest_rate、credit_score、loan_status の4項目。各セルには相関係数が表示されている。対角成分はすべて1.00。loan_amntとの相関は、interest_rateが0.18、credit_scoreが0.16、loan_statusが0.02。interest_rateとcredit_scoreは-0.34、interest_rateとloan_statusは0.26、credit_scoreとloan_statusは-0.18。右側に縦型のカラーバーがあり、目盛りは上から1.0、0.8、0.6、0.4、0.2、0.0、-0.2。正の値が赤〜橙、0付近が灰色、負の値が青で示されている。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1002,
+  "height": 877,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

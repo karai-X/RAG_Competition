@@ -1,0 +1,13 @@
+{
+ "md5": "57600cd9719ca7843beb3e8285a6df2d",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "表",
+ "markdown": "# **分析結果① モデル群の比較と選定**\n\n> **中間フェーズの知見:**  \n> 線形モデルでの閾値調整を経て、クラス不均衡（陽性率 約23.9%）に強い  \n> ツリー系モデルへ移行することでF1_macroが大幅に改善した。\n\n※上記の知見欄は、薄い灰色で塗られた長方形の枠内に配置されている。\n\n## **モデル比較リーダーボード**\n\n| **Rank** | **Model** | **Primary Metric<br>(F1_macro)** | **Secondary Metric<br>(Accuracy)** |\n|---:|:---|---:|---:|\n| **1** | **hist_gradient_boosting** | **0.6977** | **0.8083** |\n| 2 | hist_gradient_boosting | 0.6864 | 0.8050 |\n| 3 | hist_gradient_boosting | 0.6843 | 0.7967 |\n| 4 | random_forest | 0.6740 | 0.7333 |\n| 5 | linear_baseline | 0.6560 | 0.7467 |\n\n※Rank「1」の行全体（1、hist_gradient_boosting、0.6977、0.8083）は、薄い灰色がかったピンク色で塗られている。  \n※Rank「3」の行とRank「4」の行の間は、太い黒色の横線で区切られている。",
+ "figure_description": "右上に、右上方向へ伸びる折れ線状の上昇矢印が配置されている。矢印は薄い灰色で塗られ、濃い灰色の輪郭線がある。軸、軸ラベル、凡例、目盛り、数値はない。画像全体の背景には薄い灰色の方眼状グリッド線がある。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 26.42,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/06.報告書/医療法人社団 蒼樹会 みなみ野女性医療センター_最終報告.pdf p5"
+}

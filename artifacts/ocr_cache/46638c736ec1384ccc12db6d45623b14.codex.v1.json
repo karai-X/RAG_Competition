@@ -1,0 +1,13 @@
+{
+ "md5": "46638c736ec1384ccc12db6d45623b14",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "その他",
+ "markdown": "日付分析対象列はありません",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 4.76,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell18_img7.png"
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "1a196e8a615034bbbc2d8bf2d9f446f0",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "以上（議事録はベンダ作成→翌営業日送付、クライアント確認のうえ確定）。\n\n---\n\n4",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 6.94,
+ "source": "プロジェクト/白峰信用リスク評価株式会社/05.会議/会議録/会議録_2025-05-13.pdf p4"
+}

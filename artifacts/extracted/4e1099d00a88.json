@@ -1,0 +1,46 @@
+{
+ "doc_id": "4e1099d00a88",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/data/train.csv",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "csv",
+ "md5": "090e56da98bd1973baeaa920af836a78",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| id | age | job | marital | education | default | balance | housing | loan | contact | day | month | duration | campaign | pdays | previous | poutcome | y |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| 1 | 39 | blue-collar | married | secondary | no | 1756 | yes | no | cellular | 3 | apr | 939 | 1 | -1 | 0 | unknown | 1 |\n| 2 | 51 | entrepreneur | married | primary | no | 1443 | no | no | cellular | 18 | feb | 172 | 10 | -1 | 0 | unknown | 1 |\n| 3 | 36 | management | single | tertiary | no | 436 | no | no | cellular | 13 | apr | 567 | 1 | 595 | 2 | failure | 1 |\n| 4 | 63 | retired | married | secondary | no | 474 | no | no | cellular | 25 | jan | 423 | 1 | -1 | 0 | unknown | 1 |\n| 5 | 31 | management | single | tertiary | no | 354 | no | no | cellular | 30 | apr | 502 | 1 | 9 | 2 | success | 1 |\n| 6 | 29 | blue-collar | single | secondary | no | 260 | yes | no | unknown | 2 | jun | 707 | 14 | -1 | 0 | unknown | 1 |\n| 7 | 37 | services | married | secondary | no | 52 | yes | no | cellular | 6 | sep | 908 | 1 | 185 | 9 | success | 1 |\n| 8 | 32 | technician | single | secondary | no | 230 | yes | no | cellular | 18 | may | 442 | 1 | 266 | 8 | failure | 1 |\n| 9 | 31 | admin. | single | secondary | no | 0 | yes | no | cellular | 7 | may | 895 | 2 | 295 | 2 | failure | 1 |\n| 10 | 32 | self-employed | single | tertiary | no | 1815 | no | no | telephone | 10 | aug | 235 | 1 | 102 | 2 | failure | 1 |\n| 11 | 35 | self-employed | single | tertiary | no | 353 | no | no | cellular | 12 | aug | 582 | 1 | -1 | 0 | unknown | 1 |\n| 12 | 34 | technician | divorced | secondary | no | 1451 | yes | no | unknown | 30 | may | 1097 | 15 | -1 | 0 | unknown | 1 |\n| 13 | 34 | admin. | single | tertiary | no | 625 | no | yes | unknown | 31 | aug | 34 | 1 | -1 | 0 | unknown | 1 |\n| 14 | 31 | management | divorced | tertiary | no | 883 | yes | no | cellular | 5 | mar | 112 | 2 | 106 | 1 | failure | 1 |\n| 15 | 38 | blue-collar | married | primary | no | 5839 | yes | no | unknown | 4 | jun | 984 | 2 | -1 | 0 | unknown | 1 |\n| 16 | 71 | technician | married | tertiary | no | 383 | no | no | cellular | 27 | apr | 388 | 3 | -1 | 0 | unknown | 1 |\n| 17 | 62 | management | married | tertiary | no | 557 | no | no | cellular | 14 | aug | 185 | 1 | -1 | 0 | unknown | 1 |\n| 18 | 66 | retired | married | secondary | no | 154 | no | no | cellular | 15 | jul | 268 | 5 | 181 | 2 | failure | 1 |\n| 19 | 46 | blue-collar | married | primary | no | 369 | yes | no | unknown | 13 | may | 916 | 2 | -1 | 0 | unknown | 1 |\n| 20 | 29 | admin. | single | tertiary | no | 89 | yes | no | cellular | 22 | jul | 120 | 1 | -1 | 0 | unknown | 0 |\n| 21 | 28 | self-employed | married | tertiary | no | 112 | yes | yes | cellular | 5 | may | 145 | 1 | -1 | 0 | unknown | 0 |\n| 22 | 67 | retired | married | primary | no | 708 | no | no | cellular | 11 | sep | 96 | 2 | -1 | 0 | unknown | 0 |\n| 23 | 42 | management | married | tertiary | no | 4 | yes | no | cellular | 17 | jul | 795 | 1 | -1 | 0 | unknown | 1 |\n| 24 | 33 | admin. | divorced | secondary | no | 420 | yes | no | telephone | 6 | feb | 112 | 2 | -1 | 0 | unknown | 0 |\n| 25 | 39 | services | single | secondary | no | 158 | yes | no | unknown | 6 | jun | 354 | 2 | -1 | 0 | unknown | 0 |\n\n(全27128行×18列のうち先頭25行のみ表示。全量の集計・条件抽出は run_python でこのファイルを直接読むこと)",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_rows": 27128,
+  "n_cols": 18,
+  "columns": [
+   "id",
+   "age",
+   "job",
+   "marital",
+   "education",
+   "default",
+   "balance",
+   "housing",
+   "loan",
+   "contact",
+   "day",
+   "month",
+   "duration",
+   "campaign",
+   "pdays",
+   "previous",
+   "poutcome",
+   "y"
+  ],
+  "truncated": true
+ },
+ "error": null,
+ "warnings": []
+}

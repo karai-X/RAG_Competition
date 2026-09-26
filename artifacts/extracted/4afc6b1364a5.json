@@ -1,0 +1,28 @@
+{
+ "doc_id": "4afc6b1364a5",
+ "relpath": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/target_distribution.png",
+ "mount": "",
+ "project": "医療法人社団 恒一会 かえで総合病院",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "895c64a6c224969980dd0c16dff215cb",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/target_distribution.png (875x576) md5:895c64a6 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n目的変数の分布\n\n縦軸：件数\n\n横軸：クラス\n\nクラス：0、1\n\n縦軸目盛り：0、250、500、750、1000、1250、1500、1750、2000\n[図の説明] 縦棒グラフ。タイトルは「目的変数の分布」。横軸ラベルは「クラス」で、カテゴリは「0」「1」。縦軸ラベルは「件数」で、目盛りは0、250、500、750、1000、1250、1500、1750、2000。クラス0の棒は緑系の色で塗られ、2000の目盛りを上回っている。クラス1の棒は橙系の色で塗られ、1250と1500の目盛りの間にある。各棒に数値ラベルはない。凡例はない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/target_distribution.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 875,
+  "height": 576,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

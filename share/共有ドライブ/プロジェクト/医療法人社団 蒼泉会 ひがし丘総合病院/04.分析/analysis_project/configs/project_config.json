@@ -1,0 +1,46 @@
+{
+  "data_csv": "data/train.csv",
+  "column_doc": "data/カラム説明.md",
+  "target_column": "charges",
+  "date_column": null,
+  "use_date_features": true,
+  "use_numeric_interactions": true,
+  "model_type": "random_forest",
+  "model_params": {
+    "n_estimators": 500,
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "class_weight": "balanced",
+    "max_features": "sqrt"
+  },
+  "output_dir": "artifacts/analysis_outputs",
+  "random_state": 42,
+  "test_size": 0.2,
+  "feature_plan": {
+    "exclude_identifier_like_columns": true,
+    "identifier_exact_names": [
+      "id",
+      "uuid",
+      "code"
+    ],
+    "identifier_prefixes": [
+      "id_",
+      "uuid_",
+      "code_"
+    ],
+    "identifier_suffixes": [
+      "_id",
+      "_uuid",
+      "_code"
+    ],
+    "categorical_encoding": "one_hot",
+    "categorical_unique_limit": 50,
+    "exclude_high_cardinality_at_or_above_limit": true,
+    "numeric_imputation": "median",
+    "categorical_imputation": "most_frequent",
+    "date_features_enabled": false,
+    "date_feature_source_column": ""
+  },
+  "analysis_spec_path": "artifacts/06a_analysis_spec.json",
+  "task_type": "classification"
+}

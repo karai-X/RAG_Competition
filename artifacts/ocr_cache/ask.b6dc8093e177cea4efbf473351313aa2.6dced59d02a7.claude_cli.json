@@ -1,0 +1,10 @@
+{
+ "md5": "b6dc8093e177cea4efbf473351313aa2",
+ "question": "青潮モビリティサービスの最終報告にて最良モデルとしているモデルのパラメータであるmax_depthはいくらに設定されていますか。",
+ "engine": "claude_cli",
+ "answer": "画像からは判断できません。最良モデルは HistGB とされていますが、max_depth などのハイパーパラメータの記載は画像内にありません。",
+ "evidence": "画像は「最良モデルの最終評価（metrics.json）」のスライドで、検証手法（Time-ordered split）、RMSE=46.9838、MAE=29.6041、R2=0.8452、および各モデル（HistGB、HistGB variant、Random Forest、Extra Trees）のR2比較グラフのみが表示されており、max_depth の設定値はどこにも記載されていません。",
+ "confident": false,
+ "error": null,
+ "latency_sec": 14.12
+}

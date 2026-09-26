@@ -1,0 +1,13 @@
+{
+ "md5": "0f029a823db25c9d13efaef2057540f9",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "タイトル：ターゲット分布\n\n横軸：ターゲット値\n\n縦軸：件数",
+ "figure_description": "縦棒グラフ。タイトルは「ターゲット分布」。横軸ラベルは「ターゲット値」で、目盛りは 0、1、2、3、4、5。縦軸ラベルは「件数」で、目盛りは 0、500、1000、1500、2000、2500、3000。凡例はない。ターゲット値 0、1、2、3、4、5 の各棒は青色で塗られている。棒自体には数値ラベルがない。横方向のグリッド線が縦軸の各目盛りに表示されている。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 11.41,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell14_img4.png"
+}

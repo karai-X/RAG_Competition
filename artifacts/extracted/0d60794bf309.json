@@ -1,0 +1,25 @@
+{
+ "doc_id": "0d60794bf309",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/modeling.py",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "ea0376e7b705c9f9c4e4ad0d291406cd",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport pandas as pd\nfrom sklearn.ensemble import (\n    ExtraTreesClassifier,\n    ExtraTreesRegressor,\n    GradientBoostingClassifier,\n    GradientBoostingRegressor,\n    RandomForestClassifier,\n    RandomForestRegressor,\n)\nfrom sklearn.linear_model import LogisticRegression, Ridge\nfrom sklearn.pipeline import Pipeline\n\nfrom src.common import to_float, to_int\nfrom src.features import build_preprocessor\n\n\ndef build_pipeline(\n    X: pd.DataFrame,\n    task_type: str,\n    random_state: int,\n    model_type: str,\n    model_params: dict,\n) -> Pipeline:\n    preprocessor = build_preprocessor(X)\n    # REGION: MODEL_SELECTION START\n    model_key = (model_type or \"random_forest\").strip().lower()\n    n_estimators = to_int(model_params.get(\"n_estimators\"), 300)\n    max_depth = model_params.get(\"max_depth\")\n    if max_depth in (\"\", \"None\", \"null\"):\n        max_depth = None\n    min_samples_leaf = to_int(model_params.get(\"min_samples_leaf\"), 1)\n    learning_rate = to_float(model_params.get(\"learning_rate\"), 0.1)\n    alpha = to_float(model_params.get(\"alpha\"), 1.0)\n    c_value = to_float(model_params.get(\"c\"), 1.0)\n    # REGION: MODEL_SELECTION END\n\n    if task_type == \"regression\":\n        if model_key == \"extra_trees\":\n            model = ExtraTreesRegressor(\n                n_estimators=n_estimators,\n                random_state=random_state,\n                n_jobs=-1,\n                max_depth=max_depth,\n                min_samples_leaf=min_samples_leaf,\n            )\n        elif model_key == \"gradient_boosting\":\n            model = GradientBoostingRegressor(\n                n_estimators=n_estimators,\n                learning_rate=learning_rate,\n                max_depth=to_int(model_params.get(\"max_depth\"), 3),\n                random_state=random_state,\n            )\n        elif model_key == \"linear_baseline\":\n            model = Ridge(alpha=alpha)\n        else:\n            model = RandomForestRegressor(\n                n_estimators=n_estimators,\n                random_state=random_state,\n                n_jobs=-1,\n                max_depth=max_depth,\n                min_samples_leaf=min_samples_leaf,\n            )\n    else:\n        if model_key == \"extra_trees\":\n            model = ExtraTreesClassifier(\n                n_estimators=n_estimators,\n                random_state=random_state,\n                n_jobs=-1,\n                max_depth=max_depth,\n                min_samples_leaf=min_samples_leaf,\n            )\n        elif model_key == \"gradient_boosting\":\n            model = GradientBoostingClassifier(\n                n_estimators=n_estimators,\n                learning_rate=learning_rate,\n                random_state=random_state,\n            )\n        elif model_key == \"linear_baseline\":\n            model = LogisticRegression(max_iter=to_int(model_params.get(\"max_iter\"), 1000), C=c_value)\n        else:\n            model = RandomForestClassifier(\n                n_estimators=n_estimators,\n                random_state=random_state,\n                n_jobs=-1,\n                max_depth=max_depth,\n                min_samples_leaf=min_samples_leaf,\n            )\n    return Pipeline(steps=[(\"preprocessor\", preprocessor), (\"model\", model)])\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 3221,
+  "n_lines": 91
+ },
+ "error": null,
+ "warnings": []
+}

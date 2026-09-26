@@ -1,0 +1,46 @@
+{
+ "doc_id": "5abbee6d3302",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/05.会議/報告資料/報告資料_2025-08-26.pdf",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "05.会議",
+ "filetype": "pdf",
+ "md5": "56aec74bbe7a9cf73d73f96204f26b76",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## ページ 1\n\n[c:0F4761]分析進捗報告書[/c]\r\n[c:0F4761]1. 報告サマリー[/c]\r\n• チェックポイント: M02（中間報告）\r\n• 日付: 2025-08-26\r\n• 報告対象期間: 2025-08-06 ～ 2025-08-26\r\n• チェックポイント段階（Report facts）: interim（中間分析段階）\r\n• 現状ステータス（短報）: 第 1 週キックオフ完了、データ受領・読込検証着手、品質点検と探索的分析を経てモデ\r\nル実験（第 1〜第 5 トライアル）を実行。中間報告（MS4）で「前処理ルール案」「分析データセット化方針」「初期\r\nモデリング継続条件」の承認を受けるべく報告を実施。\r\n[c:0F4761]2. 進捗状況[/c]\r\n• スケジュール整合\r\no キックオフ（M01）: 実施済（2025-08-06） — 議事録: artifacts/meeting_minutes/会議録\r\n_2025-08-06.md\r\no 中間報告（M02）: 実施日 2025-08-26（本チェックポイント）\r\no 次の主要予定: 変更管理チェックポイント（2025-08-27）、初期モデリング継続（第 4 週以降）\r\n• 会議・決定トレース\r\no 中間報告の目的は「データ品質確認結果と探索的分析結果の共有／前処理方針合意」（Report\r\nfacts.checkpoint.purpose に準拠）。\r\n• 開発・実験進捗（可視化された実験のみを引用）\r\no visible_trials（trial_index 1〜5）を実施済み（詳細は第 3 節）。\r\n• 開放アクション（トレース）\r\no prior_state.open_action_count: 8（未完了アクションが 8 件／詳細は第 6 節に列挙、Report\r\nfacts prior_state より）\r\n[c:0F4761]3. 主要な分析結果[/c]\r\n※ 本節は Report facts JSON.analysis.visible_trials / best_visible_trial に明示されている実験結果のみ\r\nを記載します。中間段階の結果であり最終結論ではありません。\r\n• 実験サマリ（visible_trials）\r\no ***T01（trial_id: T01, linear_baseline）***\r\n▪ *model_type: linear_baseline*\r\n▪ *primary_metric (rmse): 2825578.6761237755*\r\n▪ *secondary_metric (r2): -7.4503627353568636*\r\n▪ *selected_feature_count: 13, excluded_feature_count: 4*\r\no ***T02（T02, cyclical_linear）***\r\n▪ *model_type: linear_baseline（周期特徴を追加）*\r\n▪ *rmse: 2825578.6761237755*\r\n▪ *r2: -7.4503627353568636*\r\n▪ *selected_feature_count: 13, excluded_feature_count: 4*\r\no ***T03（T03, hist_gradient_boosting）***\r\n▪ *model_type: hist_gradient_boosting*",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## ページ 2\n\n▪ *rmse: 708753.9903292693*\r\n▪ *r2: 0.46831846615046635*\r\n▪ *selected_feature_count: 13, excluded_feature_count: 4*\r\no ***T04（T04, log_target_hist_gradient_boosting）***\r\n▪ *model_type: hist_gradient_boosting（ターゲットに log1p を適用）*\r\n▪ *rmse: 738055.754082396*\r\n▪ *r2: 0.4234474680039092*\r\n▪ *selected_feature_count: 13, excluded_feature_count: 4*\r\no ***T05（T05, configured_default）***\r\n▪ *model_type: random_forest*\r\n▪ *rmse: 706251.4871887658*\r\n▪ *r2: 0.47206641189165033*\r\n▪ *selected_feature_count: 13, excluded_feature_count: 4*\r\n• 現時点の「最良（可視）試行」について\r\no best_visible_trial: T05（random_forest）\r\n▪ rmse: 706251.4871887658、r2: 0.47206641189165033（Report\r\nfacts.best_visible_trial と analysis.metrics に整合）\r\n▪ analysis.metrics に記載の MAE: 428820.1407276015（これも中間結果の指標とし\r\nて参照可能）\r\no コメント（中間観察）:\r\n▪ 線形ベースライン（T01/T02）は本データ特性では性能が劣後しており（rmse が非常に大きく、\r\nr2 が負の値）、非線形手法（T03/T05）の方が大幅に改善している。T03/T05 の rmse は\r\n約 7.08e5〜7.06e5、r2 は約 0.47（T05）前後で安定している点が確認できる。\r\n▪ T04（ターゲットに log1p を適用した hist gradient boosting）はやや性能低下が見られ、\r\nターゲット変換の効果は条件依存であることが示唆される。\r\no 注意: これらは中間チェックポイントで可視化されたトライアル（trial_index 1〜5）の結果であり、最終\r\nモデルや最終スコアを示すものではありません（Report facts.analysis.checkpoint_stage = \r\n“interim” の方針に準拠）。\r\n[c:0F4761]4. データ品質と実装状況[/c]\r\n• 実行構成（参照）\r\no 分析仕様の date_column 設定: “TAX CLASS AT TIME OF SALE”（configs / analysis \r\nrun_summary に一致）\r\no split_strategy（実行設定）: time_ordered（project config に設定）\r\no use_date_features: true（設定）\r\n• データ品質（現時点で確定している論点）\r\no 面積系、築年、ZIP コード等に品質懸念がある旨はキックオフで指摘済（M01 会議録）。ただし、\r\nReport facts JSON に欠損の正確な集計値は含まれていないため、件数や割合は以下のとおり扱\r\nいます。\r\n▪ LAND SQUARE FEET / GROSS SQUARE FEET の欠損・ゼロ値に関する具体件数: 前段\r\n資料に数値があるが、本チェックポイントの Report facts JSON に明示されていないため\r\n「assumption（前提資料に基づく）」として扱います。正確な欠損集計は A05 の完了で確定\r\n予定（責任者: 岡田／渡辺、期限: 2025-08-15 のオリジナル要求）。\r\no date_column の扱い: 設定は “TAX CLASS AT TIME OF SALE” だが、そのカラムが時系列と\r\nして妥当かは検証中（M01 のアクション A03）。解析パイプラインは date_column を用いた\r\ntime_ordered split を試行しているが、パース可能性に依存するため中間判定での扱いに注意が必\r\n要。\r\n• 実装状況",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## ページ 3\n\no 特徴量選択後の選択特徴量数: 13（selected_feature_count = 13、Report facts に一致）\r\no 除外特徴量数: 4（excluded_feature_count = 4）\r\no モデルパイプライン: visible_trials に示されたモデル群を v1 として実行済。early_stopping 等の\r\nパラメータは設定に依存しているため、最終調整は第 4 週以降の作業で継続予定。\r\n[c:0F4761]5. リスクと対応策[/c]\r\n• 主要リスク（中間時点）\r\n1. 立地（BOROUGH/NEIGHBORHOOD）による説明力の偏重\r\n▪ 影響: 価格差の多くが立地で説明され、建物属性の寄与解釈が不安定化\r\n▪ 対策: BOROUGH 固定効果や階層別比較を優先的に行い、属性寄与を分離する（担当: 渡辺、\r\n次回中間以降の作業に反映）\r\n2. date_column の不整合（“TAX CLASS AT TIME OF SALE” が時系列として不適切）\r\n▪ 影響: time_ordered split や日付由来特徴の利用が妥当でなくなる可能性\r\n▪ 対策: A03 による実カラム確認（担当: 岡田／渡辺）を速やかに完了し、必要なら分割戦略を\r\ninput_order に戻す\r\n3. 面積・築年等の欠損・異常（欠損補完がバイアス導入）\r\n▪ 対策: 欠損件数と分布を確定後、補完か除外かを前処理ルール案で合意（MS2/MS4 のゴー\r\nル）\r\n4. 高カーディナリティ変数による過学習（NEIGHBORHOOD 等）\r\n▪ 対策: 頻度集約、カテゴリ集約、あるいは除外の基準を MS2 で確定\r\n• 現状のアクション（短期）\r\no 変更管理チェックポイント（2025-08-27）で、追加要求が発生した場合の工数影響を提示する（担当:\r\n佐藤）\r\no 中間報告で合意した前処理方針を早期に実装し、第 4 週のモデル化に反映する\r\n[c:0F4761]6. 次回までの実施事項（トレース付き）[/c]\r\n• 既存オープンアクション（Report facts.prior_state.open_actions を転記）\r\no A01: 正式データ（data.csv）およびカラム説明の最終受領確認／不足ファイルの有無を報告\r\n▪ Owner: 前田 美咲（クライアント）、Due: 2025-08-08、Status: Open\r\no A02: データ受領後の読込検証（読み込みエラー・エンコーディング・レコード数確認）および読込確認レ\r\nポート提出\r\n▪ Owner: 岡田 佑樹、Due: 2025-08-08、Status: Open\r\no A03: configs の date_column 実態確認（“TAX CLASS AT TIME OF SALE” が日付でない\r\n場合の修正案提示）\r\n▪ Owner: 岡田 佑樹／渡辺 遙、Due: 2025-08-08、Status: Open\r\no A04: 第 1 週〜第 2 週の詳細進め方（分析計画メモ草案）を取りまとめ、レビュー用ドラフトを共有\r\n▪ Owner: 藤田 彩（主担当）ほか、Due: 2025-08-12、Status: Open\r\no A05: 欠損・ゼロ値・異常値の初期集計（件数・影響率）提示と前処理方針案作成\r\n▪ Owner: 岡田 佑樹／渡辺 遙、Due: 2025-08-15、Status: Open\r\no A06: 中間報告資料（EDA 図表含む）ドラフト作成／内部レビュー実施\r\n▪ Owner: 渡辺 遥／藤田 彩、Due: 2025-08-25、Status: Open\r\no A07: 変更管理チェックポイント（2025-08-27）向けの変更管理準備（追加要求時の工数見積テンプ\r\nレ）作成\r\n▪ Owner: 佐藤 健一、Due: 2025-08-27、Status: Open\r\no A08: 第 1 週〜第 2 週計画及びデータ受領のクライアント承認取得\r\n▪ Owner: 前田 美咲（クライアント）、Due: 2025-08-08、Status: Open\r\n• 次ステップ（優先度順）",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## ページ 4\n\n1. A03 の完了: date_column 実態の確定（重要） → time_ordered split の妥当性最終判定（担当:\r\n岡田／渡辺）\r\n2. A05 の完了: 欠損件数の確定と前処理（補完 or 除外）基準の確定（担当: 岡田／渡辺）\r\n3. A06 の完了: 中間報告用 EDA 図表の最終化（担当: 渡辺／藤田）\r\n4. A07 に基づく変更管理テンプレ準備（担当: 佐藤）\r\n5. 前処理ルール合意後、モデリング用分析データセット v1 を作成し（T13 相当）、第 4 週でベースライン\r\nの再実行とパラ調整\r\n[c:0F4761]7. 経営/PM 向け補足[/c]\r\n• 中間フェーズでの重要ポイント\r\no チェックポイント段階は “interim”（Report facts.analysis.checkpoint_stage = “interim”）\r\nであるため、現時点のモデル実験は「初期検証」であり最終モデルや確定的なビジネス適用判断は未到\r\n達です。実験結果はあくまで方向性確認（非線形モデルが有望）に留めてください。\r\n• 商務・工数（トレース）\r\no 想定総工数（project facts / commercial_terms）: 170 時間（見込）\r\no 見込金額（税抜）: 4,250,000 円、消費税: 425,000 円、税込見込額: 4,675,000 円（支払条件は\r\n最終一括精算 ／ Report facts.commercial に準拠）\r\n• 次回管理上のリスク指標\r\no 未解決アクション数: 8（prior_state.open_action_count）\r\no クリティカルパス上のタスク遅延は最終報告（2025-09-16）と支払期日（2025-09-23）に影響す\r\nる可能性あり。変更管理チェックポイント（2025-08-27）で工数影響の見積を取得することを推奨し\r\nます。\r\n• 参照資産（トレース）\r\no 会議計画: artifacts/04a_meeting_plan.csv\r\no 会議録: artifacts/meeting_minutes/会議録_2025-08-06.md\r\no 分析ランサマリ: artifacts/analysis_outputs/run_summary.json\r\no 分析メトリクス: artifacts/analysis_outputs/metrics.json\r\no 実験リーダーボード: artifacts/analysis_outputs/experiments/leaderboard.json\r\n以上。中間報告にて示した前処理ルール案・EDA 図表に基づき、承認を得られ次第（MS4 承認）、モデリングの第 2 フ\r\nェーズ（特徴量調整・ハイパラ改善）へ移行します。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_pages": 4,
+  "scanned_pages": [],
+  "n_styled_pages": 4
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "a8f12a855702160664d1e93ec65961bc",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "数値特徴量の相関ヒートマップ\n\n|  | index | Pregnancies | Glucose | BloodPressure | SkinThickness | Insulin | BMI | DiabetesPedigreeFunction | Age | Outcome |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| index | 1.00 | 0.00 | 0.04 | 0.02 | -0.01 | 0.00 | -0.02 | 0.03 | 0.02 | 0.01 |\n| Pregnancies | 0.00 | 1.00 | 0.07 | -0.01 | 0.00 | -0.03 | 0.01 | -0.03 | 0.42 | 0.20 |\n| Glucose | 0.04 | 0.07 | 1.00 | 0.01 | 0.02 | 0.01 | 0.01 | 0.05 | 0.04 | 0.06 |\n| BloodPressure | 0.02 | -0.01 | 0.01 | 1.00 | 0.04 | 0.04 | 0.24 | 0.10 | 0.02 | 0.05 |\n| SkinThickness | -0.01 | 0.00 | 0.02 | 0.04 | 1.00 | 0.17 | 0.09 | 0.14 | 0.03 | 0.00 |\n| Insulin | 0.00 | -0.03 | 0.01 | 0.04 | 0.17 | 1.00 | 0.17 | 0.22 | 0.05 | 0.08 |\n| BMI | -0.02 | 0.01 | 0.01 | 0.24 | 0.09 | 0.17 | 1.00 | 0.07 | 0.08 | 0.24 |\n| DiabetesPedigreeFunction | 0.03 | -0.03 | 0.05 | 0.10 | 0.14 | 0.22 | 0.07 | 1.00 | 0.07 | 0.10 |\n| Age | 0.02 | 0.42 | 0.04 | 0.02 | 0.03 | 0.05 | 0.08 | 0.07 | 1.00 | 0.27 |\n| Outcome | 0.01 | 0.20 | 0.06 | 0.05 | 0.00 | 0.08 | 0.24 | 0.10 | 0.27 | 1.00 |",
+ "figure_description": "相関係数を示す10×10のヒートマップ。横軸と縦軸には同じ10項目（index、Pregnancies、Glucose、BloodPressure、SkinThickness、Insulin、BMI、DiabetesPedigreeFunction、Age、Outcome）が並び、各セルに小数第2位までの相関係数が表示されている。独立した軸タイトルはない。右側に縦型の連続カラーバーがあり、目盛りは0.0、0.2、0.4、0.6、0.8、1.0。セルは値に応じて連続的に塗られ、1.00は濃い赤、0.42はサーモン色、0.27・0.24・0.22・0.20・0.17などの正値は値が大きいほど濃くなる淡い橙～赤系、0.00付近は薄い灰色、-0.01・-0.02・-0.03は薄い青灰色である。対角線上はすべて1.00で濃い赤。対角線外で特に大きい値はPregnancies–Ageの0.42、Age–Outcomeの0.27、BloodPressure–BMIおよびBMI–Outcomeの0.24、Insulin–DiabetesPedigreeFunctionの0.22、Pregnancies–Outcomeの0.20。行列は対角線を挟んで対称である。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 42.37,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell16_img6.png"
+}

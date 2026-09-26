@@ -1,0 +1,25 @@
+{
+ "doc_id": "508aac1bd047",
+ "relpath": "プロジェクト/株式会社青潮モビリティサービス/03.データ/カラム説明.md",
+ "mount": "",
+ "project": "株式会社青潮モビリティサービス",
+ "category": "03.データ",
+ "filetype": "md",
+ "md5": "8cd7230690549cb04e1e7c5d7e139e76",
+ "pages": [
+  {
+   "no": 1,
+   "text": "### train.tsv\n\n| カラム | ヘッダ名称 | データ型 | 説明 |\n| --- | --- | --- | --- |\n| 0 | id | int | インデックスとして使用 |\n| 1 | dteday | date | 日付（2011-01-01～2012-12-31） |\n| 2 | season | int | 季節（1=春, 2=夏, 3=秋, 4=冬） |\n| 3 | yr | bit | 年（0=2011, 1=2012） |\n| 4 | mnth | int | 月 |\n| 5 | hr | int | 時間 |\n| 6 | holiday | bit | 祝日（1=祝日） |\n| 7 | weekday | int | 曜日（0=日, 1=月...6=土） |\n| 8 | workingday | bit | 平日（0=平日, 1=祝日） |\n| 9 | weathersit | int | 天気（1=晴,やや曇り, 2=薄い霧+曇り,霧+千切れ曇,霧+やや曇り,薄い霧, 3=小雪,小雨+雷雨+千切れ曇,小雨+千切れ曇, 4=大雨+凍雨+雷雨+霧,雪+濃い霧） |\n| 10 | temp | float | 規格化した温度（摂氏）（（t-t_min）/（t_max-t_min）, t_min=-8, t_max=+39） |\n| 11 | atemp | float | 規格化した体感温度（摂氏）（（t-t_min）/（t_max-t_min）, t_min=-16, t_max=+50） |\n| 12 | hum | float | 規格化した湿度（最大値の100で割った値） |\n| 13 | windspeed | float | 規格化した風速（最大値の67で割った値） |\n| 14 | **cnt** | int | 利用者数 |\n\n※黄色く色付けされた変数（上記表の **cnt**）が目的変数です（評価用データには含まれません）。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 853,
+  "n_lines": 21
+ },
+ "error": null,
+ "warnings": []
+}

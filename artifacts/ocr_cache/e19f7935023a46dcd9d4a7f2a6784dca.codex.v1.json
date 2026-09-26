@@ -1,0 +1,13 @@
+{
+ "md5": "e19f7935023a46dcd9d4a7f2a6784dca",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "## 数値特徴量の相関ヒートマップ\n\n| 順序 | 横軸（左から右） | 縦軸（上から下） |\n|---:|---|---|\n| 1 | BOROUGH | BOROUGH |\n| 2 | TAX CLASS AT PRESENT | TAX CLASS AT PRESENT |\n| 3 | BLOCK | BLOCK |\n| 4 | LOT | LOT |\n| 5 | ZIP CODE | ZIP CODE |\n| 6 | RESIDENTIAL UNITS | RESIDENTIAL UNITS |\n| 7 | COMMERCIAL UNITS | COMMERCIAL UNITS |\n| 8 | TOTAL UNITS | TOTAL UNITS |\n| 9 | YEAR BUILT | YEAR BUILT |\n| 10 | TAX CLASS AT TIME OF SALE | TAX CLASS AT TIME OF SALE |\n| 11 | SALE PRICE | SALE PRICE |\n\nカラーバーの目盛り：1.0、0.8、0.6、0.4、0.2、0.0、-0.2",
+ "figure_description": "11個の数値特徴量について、縦軸と横軸に同じ項目を配置した正方形の相関ヒートマップ。横軸ラベルは縦向き、縦軸ラベルは横向き。軸タイトルと各セル内の数値ラベルはない。右側に縦型カラーバーがあり、上から1.0、0.8、0.6、0.4、0.2、0.0、-0.2の目盛りが表示されている。色は高い正の値ほど濃い赤、0.0付近は薄い灰色、負の値は青で表され、目盛り位置では1.0が濃い赤、0.8が赤、0.6が赤橙、0.4が淡い赤橙、0.2が薄い桃色、0.0が薄い灰色、-0.2が薄い青に対応する。左上から右下への対角セルはすべて濃い赤。対角以外では、TAX CLASS AT PRESENTとTAX CLASS AT TIME OF SALEの交差セルが濃い赤、RESIDENTIAL UNITSとTOTAL UNITSの交差セル、およびCOMMERCIAL UNITSとTOTAL UNITSの交差セルが赤橙色。ヒートマップは対角線を挟んで同じ配色が対応している。各セルの具体的な数値は画像内に記載されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 63.27,
+ "source": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell16_img5.png"
+}

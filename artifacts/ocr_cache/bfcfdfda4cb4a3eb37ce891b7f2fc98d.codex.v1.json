@@ -1,0 +1,13 @@
+{
+ "md5": "bfcfdfda4cb4a3eb37ce891b7f2fc98d",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "その他",
+ "markdown": "日付特徴量の確認\n\n有効な日付列は見つかりませんでした",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 6.64,
+ "source": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+}

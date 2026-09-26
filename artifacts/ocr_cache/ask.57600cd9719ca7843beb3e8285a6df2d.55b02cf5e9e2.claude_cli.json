@@ -1,0 +1,10 @@
+{
+ "md5": "57600cd9719ca7843beb3e8285a6df2d",
+ "question": "各案件のPP・契約書・PLAN・FRにおいて、DA側の実施体制として役割付きで記載されている人物は全部で何人ですか。",
+ "engine": "claude_cli",
+ "answer": "この画像からは判断できません。画像は「分析結果① モデル群の比較と選定」というモデル比較リーダーボード(hist_gradient_boosting、random_forest、linear_baseline のF1_macro・Accuracy比較)のスライドであり、案件のPP・契約書・PLAN・FRやDA側の実施体制・人物名に関する記載は一切含まれていません。",
+ "evidence": "画像全体を確認しました。内容は中間フェーズの知見(クラス不均衡に強いツリー系モデルへの移行)とモデル比較表のみで、実施体制や人物の役割に関する情報は存在しません。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 17.28
+}

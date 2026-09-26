@@ -1,0 +1,73 @@
+{
+  "task_type": "classification",
+  "encoding": "utf-8-sig",
+  "target_column": "charges",
+  "date_column": "",
+  "use_date_features": true,
+  "use_numeric_interactions": true,
+  "model_type": "random_forest",
+  "model_params": {
+    "n_estimators": 500,
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "class_weight": "balanced",
+    "max_features": "sqrt"
+  },
+  "row_count": 1600,
+  "feature_count": 9,
+  "train_rows": 1280,
+  "test_rows": 320,
+  "accuracy": 0.865625,
+  "f1_macro": 0.7422917255604067,
+  "eda_summary": {
+    "row_count": 1600,
+    "column_count": 8,
+    "target_column": "charges",
+    "missing_ratio_top10": {
+      "id": 0.0,
+      "age": 0.0,
+      "sex": 0.0,
+      "bmi": 0.0,
+      "children": 0.0,
+      "smoker": 0.0,
+      "region": 0.0,
+      "charges": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 3
+  },
+  "feature_selection": {
+    "selected_columns": [
+      "age",
+      "sex",
+      "bmi",
+      "children",
+      "smoker",
+      "region",
+      "age__x__bmi",
+      "age__x__children",
+      "bmi__x__children"
+    ],
+    "excluded_columns": [
+      {
+        "column": "id",
+        "reason": "identifier_like_name"
+      },
+      {
+        "column": "id__x__age",
+        "reason": "identifier_like_name"
+      },
+      {
+        "column": "id__x__bmi",
+        "reason": "identifier_like_name"
+      },
+      {
+        "column": "id__x__children",
+        "reason": "identifier_like_name"
+      }
+    ],
+    "categorical_unique_limit": 50
+  },
+  "selected_feature_count": 9,
+  "excluded_feature_count": 4
+}

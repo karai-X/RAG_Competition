@@ -1,0 +1,4 @@
+# 資料と前処理済みの成果物は、改行コードも含めて1バイトも変えずに保存・展開する。
+# 変換されると md5 が変わり、前処理の台帳（artifacts/manifest.json など）と食い違う。
+share/** -text
+artifacts/** -text

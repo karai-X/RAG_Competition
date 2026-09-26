@@ -1,0 +1,29 @@
+{
+  "target_column": "cnt",
+  "date_column": "dteday",
+  "task_type": "regression",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": true,
+  "model_type": "hist_gradient_boosting",
+  "model_params": {
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "max_iter": 400
+  },
+  "split_strategy": "time_ordered",
+  "split_ordering_basis": "date_column:dteday",
+  "transform_target": "log1p",
+  "validation_size": 0.1,
+  "early_stopping": true,
+  "early_stopping_patience": 2,
+  "output_dir": "artifacts/analysis_outputs",
+  "selected_feature_count": 30,
+  "excluded_feature_columns": [
+    {
+      "column": "id",
+      "reason": "identifier_like_name"
+    }
+  ],
+  "categorical_unique_limit": 50
+}

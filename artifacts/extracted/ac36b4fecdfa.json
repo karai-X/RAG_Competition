@@ -1,0 +1,59 @@
+{
+ "doc_id": "ac36b4fecdfa",
+ "relpath": "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/notebooks/01_eda.ipynb",
+ "mount": "",
+ "project": "株式会社青葉バイオメディカル機器",
+ "category": "04.分析",
+ "filetype": "ipynb",
+ "md5": "42fd8b4602cd2c35e7ebfea6c60ae0aa",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## cell1 (markdown)\n\n# EDA Notebook\n\nThis notebook is an initial exploratory analysis template.",
+   "label": "cell1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## cell2 (code)\n\n```python\nfrom pathlib import Path\nimport pandas as pd\n\nENCODINGS = ('utf-8-sig', 'utf-8', 'cp932', 'shift_jis', 'euc_jp')\n\ndef load_csv_auto(path: Path) -> tuple[pd.DataFrame, str]:\n    sep = '\\t' if path.suffix.lower() == '.tsv' else ','\n    for enc in ENCODINGS:\n        try:\n            return pd.read_csv(path, encoding=enc, sep=sep), enc\n        except UnicodeDecodeError:\n            continue\n    raise RuntimeError('Unable to decode CSV with supported encodings')\n```",
+   "label": "cell2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## cell3 (code)\n\n```python\nmanual_root = Path.cwd()\ncandidates = [manual_root / 'data/train.csv', manual_root.parent / 'data/train.csv', Path('data/train.csv')]\ncsv_path = next((p for p in candidates if p.exists()), candidates[0])\ndf, used_encoding = load_csv_auto(csv_path)\nprint('encoding:', used_encoding)\nprint('shape:', df.shape)\ndf.head(10)\n```",
+   "label": "cell3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## cell4 (code)\n\n```python\nmissing = df.isna().mean().sort_values(ascending=False)\nmissing.head(20)\n```",
+   "label": "cell4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## cell5 (code)\n\n```python\ntarget_col = 'Attrition'\nif target_col in df.columns:\n    print('target dtype:', df[target_col].dtype)\n    df[target_col].describe(include='all')\nelse:\n    print('target column not found')\n```",
+   "label": "cell5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## cell6 (code)\n\n```python\nprint('date column is not configured for this dataset')\n```",
+   "label": "cell6",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_cells": 6,
+  "n_images": 0
+ },
+ "error": null,
+ "warnings": []
+}

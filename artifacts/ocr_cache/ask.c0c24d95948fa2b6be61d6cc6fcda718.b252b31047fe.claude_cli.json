@@ -1,0 +1,10 @@
+{
+ "md5": "c0c24d95948fa2b6be61d6cc6fcda718",
+ "question": "京橋信用ソリューションズのEDAの日付分析の可視化において、件数が最も高いのは何日ですか。",
+ "engine": "claude_cli",
+ "answer": "画像からは判断できません。この画像には日付分析の可視化が含まれていません。",
+ "evidence": "画像には「job の分布（上位15件）」「marital の分布（上位15件）」「education の分布（上位15件）」の3つの横棒グラフのみが表示されており、日付（day）に関する分析グラフは存在しません。",
+ "confident": false,
+ "error": null,
+ "latency_sec": 12.36
+}

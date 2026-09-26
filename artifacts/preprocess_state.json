@@ -1,0 +1,2826 @@
+{
+ "completed_at": "2026-08-30T00:29:37+09:00",
+ "files": {
+  "プロジェクト/京橋信用ソリューションズ株式会社/00.提案/提案書_final.pptx": {
+   "md5": "6253743afe076011c8ca9bc1cc26f430",
+   "size": 81321,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e36b58586b59",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/00.提案/提案書_v1.pptx": {
+   "md5": "1da95c3a1f0b11491cfc6aaaaebcb095",
+   "size": 81469,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e37331fe1b57",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/01.契約/契約書.docx": {
+   "md5": "f8ba72298527e3fb8994dc95f1bf9c09",
+   "size": 18644,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "57047cb47000",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/02.計画/スケジュール.xlsx": {
+   "md5": "ab7652e16c39574bec365b8bc5f52c08",
+   "size": 24592,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "7c3571bb7f6b",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/03.データ/train.csv": {
+   "md5": "090e56da98bd1973baeaa920af836a78",
+   "size": 2345067,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1e6589b3cb58",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/03.データ/カラム説明.md": {
+   "md5": "e219929aea9d7844d899ef4878736d30",
+   "size": 1570,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "20d523b128f3",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "27c2f85dcd78cd4eb3c60f268bea6030",
+   "size": 1020,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "00ebca6dbf72",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_outputs/metrics.json": {
+   "md5": "0b716c6623ddf4fc73383b9cb15dcc9b",
+   "size": 902,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ae8d5836e4ae",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/README.md": {
+   "md5": "d8eaf67298e669013732a820529e97f7",
+   "size": 1458,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "cbc1794a88ca",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "7af2412ee6342ba6a834ea7d5b0ba2d6",
+   "size": 375,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "79879edbc580",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/data/train.csv": {
+   "md5": "090e56da98bd1973baeaa920af836a78",
+   "size": 2345067,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "4e1099d00a88",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "e219929aea9d7844d899ef4878736d30",
+   "size": 1570,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8df11f4415f9",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "119862493f1d1a5fb548a5b821e70f23",
+   "size": 31047,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f74251b3e48a",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "db33f1fe918f",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "de8accc8aee2ac8a63d4d5eb4ee11ad5",
+   "size": 93717,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "49657d950c25",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "a89b29f2a2a7eca6614b185816759539",
+   "size": 44296,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "579639b0b49a",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/figure_06.png": {
+   "md5": "60a3bb9230df6c61e86941f7791d691b",
+   "size": 110359,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6fe58d2dfb6c",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "ed44d3a7e818ac606c3e4dcd5dce5d8f",
+   "size": 44881,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "b9c297c610ff",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "3111a2f5d31751d99025c9c29bbd94ce",
+   "size": 191547,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "d2147ed689a9",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "ac09136bbf6715cb3f7d4344cf38b219",
+   "size": 24663,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a20e53ed5111",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6b18c5c572e7",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e08a36448d61",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "012d9fa51eca91c8521a38d28926367d",
+   "size": 5180,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6a440e8b3c08",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "bfc7a7659106",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/common.py": {
+   "md5": "912f3be1841fd4731e3c7f738ea72e94",
+   "size": 3867,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c5a63224aed5",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fda17b8a4691",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "39b9ee316e043ed1e7d6cd6092a751e0",
+   "size": 3252,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "280b55944a8f",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/features.py": {
+   "md5": "1e2d27c095b0a18de94b71cd9b2e24a4",
+   "size": 2405,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6cd7a172d86b",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "cf14a1cb21c0",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/modeling.py": {
+   "md5": "5a33241f313dffb0df965b7736c1268c",
+   "size": 3285,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f09e94176f32",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "649f7c9d5aaf9a4f2eab80594dff071a",
+   "size": 1060,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "688df311bb2c",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/uv.lock": {
+   "md5": "2dfc7c0bab017a9a38e5c64088bace9a",
+   "size": 558828,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "684ca21fe0a5",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/05.会議/会議録/会議録_2025-10-01.pdf": {
+   "md5": "e0956492f931d30cfebbf4bc4e49a6d3",
+   "size": 719032,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "990456cbd9fa",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/05.会議/会議録/会議録_2025-10-29.pdf": {
+   "md5": "0136aaed01ef4cffdbe6bfc95fe54f4e",
+   "size": 768563,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "433231d38c88",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/05.会議/会議録/会議録_2025-11-11.pdf": {
+   "md5": "512df75683c067ae7bea588c75db58a6",
+   "size": 744471,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "042b939e8255",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/05.会議/報告資料/報告資料_2025-10-01.docx": {
+   "md5": "8bdb9408a08364dad4bb603915f49d03",
+   "size": 15782,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ed6a50a7a623",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/05.会議/報告資料/報告資料_2025-10-29.docx": {
+   "md5": "71619c257bd8d41019a4147b84f54df7",
+   "size": 16989,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f11f203bf4b5",
+   "mount": ""
+  },
+  "プロジェクト/京橋信用ソリューションズ株式会社/06.報告書/京橋信用ソリューションズ株式会社_最終報告.pptx": {
+   "md5": "315902404edb8e108e401e563f8d6e33",
+   "size": 75784,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "0921839740ec",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/00.提案/提案書.pptx": {
+   "md5": "49fc226e1d2ac486445940e11278c69c",
+   "size": 83190,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f90c4353225a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/01.契約/契約書_pw-kaede20250902.docx": {
+   "md5": "41f595aca109bd2614256bbdc871a146",
+   "size": 31744,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "10022307afc1",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/02.計画/スケジュール.xlsx": {
+   "md5": "b097a2a0ac5eade2a11aad3362dfc383",
+   "size": 27648,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "178346d7ae9e",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/03.データ/train.csv": {
+   "md5": "3d4e0462b2f73434ddde654e939e0e49",
+   "size": 388974,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f0b7ce29b366",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/03.データ/train.xlsx": {
+   "md5": "0321686d80a501593dd742c7f4027242",
+   "size": 1584142,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "4dee02739805",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/03.データ/カラム説明.md": {
+   "md5": "30a18cfed104a846d41dc66f5bdf83ba",
+   "size": 1150,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "db086260bd79",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "ee197697340cfcd76e5a43caa1787d3e",
+   "size": 4563,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "2e32d4ca4367",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_outputs/metrics.json": {
+   "md5": "3a18791df488a832f57c732a3305e050",
+   "size": 3465,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "b126b2974232",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_outputs/run_summary.json": {
+   "md5": "37316abfe2e08bde25f9149779537b3e",
+   "size": 1654,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a9891ed1fe01",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/README.md": {
+   "md5": "aa4d781e79634634364e43daa0152b0c",
+   "size": 1671,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "0aea83fdabd6",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "a06586368a6a9de2061e507819b15b7f",
+   "size": 2212,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3c93093dd88e",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/data/train.csv": {
+   "md5": "3d4e0462b2f73434ddde654e939e0e49",
+   "size": 388974,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f6d86c0ce916",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "30a18cfed104a846d41dc66f5bdf83ba",
+   "size": 1150,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "2fa294e47f0d",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "9ca12db6467786225aa662716075b39c",
+   "size": 360775,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "de03c1e2611d",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "58f29b17240f",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "b1bff6ada4424f115fe6aa5505c7d8d1",
+   "size": 24092,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f13811785cf6",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "eb9c23e5ed31bdd8e4e3f114ae5df3ca",
+   "size": 18878,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8b335740465b",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "ce332812171b29a04b4a1201038513b8",
+   "size": 145187,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1cd20f148bfb",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "8d4569a8c4155826aa2e29552fe671a1",
+   "size": 19668,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "cbfdf00235a4",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "04d92c6d79c4c29bd4d4091199324a75",
+   "size": 153616,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c948f27c9f3f",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "895c64a6c224969980dd0c16dff215cb",
+   "size": 22932,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "4afc6b1364a5",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c428d62ff8b1",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "def36be2f67c",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "473708f8dd4b803d035e7ea4a0d63d93",
+   "size": 29966,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "cecf9c7ef790",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c72624dc4d62",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/common.py": {
+   "md5": "a9571be926acce884dc09f7d15f8779c",
+   "size": 3933,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "4034b639f848",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "deb9993c32cc",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "69dcd98882c78baa111056be4192c8b6",
+   "size": 5116,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "dddfd875bf5e",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/features.py": {
+   "md5": "1e2f3158805abc1ab7e519481e5ee576",
+   "size": 13135,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a7831b1e65e4",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ba6eafa6f831",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/modeling.py": {
+   "md5": "24cd481b859b60f2a67d63a40855ee1f",
+   "size": 5027,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "067bd64bbc7e",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "ccb895a265a20984ec19dd3c23a7f730",
+   "size": 4002,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "96cf6cbaffbf",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/uv.lock": {
+   "md5": "978f5b34976038014b50ac7e1898b833",
+   "size": 558821,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8146af3b168d",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/05.会議/会議録/会議録_2025-09-02.docx": {
+   "md5": "7bfe882f54251a692f75c69f395afd7c",
+   "size": 15621,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "bf1cd90acac3",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/05.会議/会議録/会議録_2025-09-16.docx": {
+   "md5": "cf02f0ff3e30daf156c20128c81b1567",
+   "size": 16880,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ca6168468a19",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/05.会議/会議録/会議録_2025-09-30.docx": {
+   "md5": "ae887ad03988d2924d8fbb242c580bca",
+   "size": 17059,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e65d3b1d6fb9",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/05.会議/報告資料/報告資料_2025-09-02.docx": {
+   "md5": "874a82aa36dc7e7f41faae13ce36e35f",
+   "size": 16796,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "b874317eefdc",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/05.会議/報告資料/報告資料_2025-09-16.docx": {
+   "md5": "c65a6a49f14a51ad1bfa4d631d5e2dff",
+   "size": 16810,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3d671737a664",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/06.報告書/医療法人社団 恒一会 かえで総合病院_最終報告.pptx": {
+   "md5": "580ea8e00bfc2aa3905e8e5df29ccdec",
+   "size": 100621,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "7dd966d22e51",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 恒一会 かえで総合病院/06.報告書/医療法人社団 恒一会 かえで総合病院_最終報告_old.pptx": {
+   "md5": "35aeb2d3f66c5131af59249c398af415",
+   "size": 96206,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f2e85e80bc31",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/00.提案/提案書.pptx": {
+   "md5": "f30105384a6e708cc04621f08af16d1c",
+   "size": 71819,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "9815e04da60a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/00.提案/糖尿病統計情報.docx": {
+   "md5": "ae79b3403c9974799e8ab2efe2412925",
+   "size": 30690,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "80dfdaf9e66a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/01.契約/契約書.docx": {
+   "md5": "234d950ed336efcd8023e02e551cd4bc",
+   "size": 17118,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "323689d7e461",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/02.計画/スケジュール.xlsx": {
+   "md5": "161010efe615798ae50d3157d15c2023",
+   "size": 15407,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "594754de42cc",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/03.データ/train.csv": {
+   "md5": "96b4d8a6e69b28b4e6b81b9221f0af51",
+   "size": 147606,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8647781b7515",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/03.データ/train.xlsx": {
+   "md5": "3239b741dda4a4c04b12ba9205222daf",
+   "size": 203417,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "05283ca2757f",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/03.データ/カラム説明.md": {
+   "md5": "84b1636d598c9c8eb72b23308b436bf6",
+   "size": 901,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "dfaf5f589f64",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "22d9b76e409a6b18a15aedd4c2a764e0",
+   "size": 4563,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "24502e3ef005",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_outputs/metrics.json": {
+   "md5": "cd11cc9143108aeefa1eb1a47c8474b1",
+   "size": 3194,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fad68ef3678d",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_outputs/run_summary.json": {
+   "md5": "59aee29abadb80a517de9f5d80fad912",
+   "size": 1365,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3b0fe3778942",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/README.md": {
+   "md5": "b14ba673df02ec3df5e7e29271d011a8",
+   "size": 1671,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "18a6035a6a51",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "77c3caa1475f98db2c3eb5ad824a0a4e",
+   "size": 2212,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f14b6058ffa5",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/data/train.csv": {
+   "md5": "96b4d8a6e69b28b4e6b81b9221f0af51",
+   "size": 147606,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ce7688021d53",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "84b1636d598c9c8eb72b23308b436bf6",
+   "size": 901,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "88b5dfe61d8f",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "65f905b03c4ea99ccf80df6244b4e12d",
+   "size": 407839,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "10145cb68086",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c57d1c2401f8",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "0d8203a87b9b21d657bd1b1646e143e6",
+   "size": 9523,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a3880d8638e8",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "f7b61a224502466c9f06ef779965e948",
+   "size": 13498,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1d822591c2d4",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "2641119139c959a4a41c0e3d0addb3af",
+   "size": 153659,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "85d2d0232487",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "2a16bead6d44e426ddbbbd36afca57d1",
+   "size": 36820,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "753117d1ccd3",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "4287972e0cf8715441da89608d876f9e",
+   "size": 174456,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "63a77d7f343c",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/overview_schema.png": {
+   "md5": "b36dd673ed9fcef4265bcd81fa08df07",
+   "size": 35178,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "04651d33fac7",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "16904f6914963ed843916d91cb717a2e",
+   "size": 20403,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "4f6796e01808",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "73fcc1fc8437",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8b481df003e4",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "473708f8dd4b803d035e7ea4a0d63d93",
+   "size": 29966,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ef874fff56ca",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5d2a1ad6a955",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/common.py": {
+   "md5": "a9571be926acce884dc09f7d15f8779c",
+   "size": 3933,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f1b6bbe3127c",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e487a2e9d231",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "69dcd98882c78baa111056be4192c8b6",
+   "size": 5116,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1408e79e6e96",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/features.py": {
+   "md5": "a5b098a4568d1d35cfb66a657cb1359e",
+   "size": 13135,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3f4953fa88bf",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3e72ec8642ce",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/modeling.py": {
+   "md5": "24cd481b859b60f2a67d63a40855ee1f",
+   "size": 5027,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "33f341fcbd10",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "ccb895a265a20984ec19dd3c23a7f730",
+   "size": 4002,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1e3b92117a4a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/uv.lock": {
+   "md5": "cb4af7393280f1adf75ce76e84ce3f88",
+   "size": 558813,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a38005bf543b",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/会議録/会議録_2025-04-03.pdf": {
+   "md5": "adafeb50dd53c7045f1172cbc82246d9",
+   "size": 947558,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "29c0236eac41",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/会議録/会議録_2025-04-24.pdf": {
+   "md5": "837f5668f34bf67367085ed66f105785",
+   "size": 944319,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "454466f1ad55",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/会議録/会議録_2025-05-15.pdf": {
+   "md5": "fa140e88adc41c48c0c382f58fdeec30",
+   "size": 1179748,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3c51fb63c9b6",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/報告資料/報告資料_2025-04-03.pdf": {
+   "md5": "472974d02ee1d201984f1082d9e6e11b",
+   "size": 1047544,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "df1c96000f62",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/報告資料/報告資料_2025-04-24.pdf": {
+   "md5": "ac09b174987938bac66987667317d2e3",
+   "size": 34904854,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f51b7e609b8a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/06.報告書/医療法人社団 蒼樹会 みなみ野女性医療センター_最終報告.pdf": {
+   "md5": "e073bdf3b23f5aca4c04e884916087fa",
+   "size": 2157943,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "65b6a5a7efae",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/00.提案/提案書.pptx": {
+   "md5": "d80dedb8abc2ba961baf9da9caf22510",
+   "size": 75713,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "9234416cdbc9",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/01.契約/契約書.docx": {
+   "md5": "4a753fe9ec134612ef991a1658dcf1c7",
+   "size": 19050,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "527db8b1faf9",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/02.計画/スケジュール.xlsx": {
+   "md5": "559e1834eaa597f0c31739735516a7b1",
+   "size": 20344,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3e998be1dff7",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/03.データ/train.csv": {
+   "md5": "606665a92957cc919046e8a0fc2d574f",
+   "size": 68414,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5d5dc7e793a9",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/03.データ/train.xlsx": {
+   "md5": "38677e26cecc0dd047a1985e042eecce",
+   "size": 172360,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "784c013376c5",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/03.データ/カラム説明.md": {
+   "md5": "a0e2dcccffb07acf3ab2368d3f4a68f4",
+   "size": 584,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5d50d9983f81",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "05267124c0d59e7c27b65707a4227ef3",
+   "size": 2122,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e0d0e60fe1ea",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_outputs/metrics.json": {
+   "md5": "c8fafbeabdd6e10462fe6ad7bd26291e",
+   "size": 1642,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "53b96cf705e6",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/README.md": {
+   "md5": "c8bbd6229c15bdfc29fed1adf2cc514d",
+   "size": 1465,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "bc948309ee5f",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "164b3fb40dae7af37668b9f89861575d",
+   "size": 1204,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "7197c125e4c9",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/data/train.csv": {
+   "md5": "606665a92957cc919046e8a0fc2d574f",
+   "size": 68414,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "714025bfcd08",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "a0e2dcccffb07acf3ab2368d3f4a68f4",
+   "size": 584,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "472d26a8bbfc",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "e9775bc424361f86a1a200438895f3ed",
+   "size": 250696,
+   "mtime_ns": 1783332690000000000,
+   "doc_id": "f7950acecd6c",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a000fe1a3ceb",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "5f6371a1f0614b2aabd9674e54c3f9ee",
+   "size": 15372,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f6d6521ecae9",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "2f4da9ce1488452895c5077da49d3983",
+   "size": 52503,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fac2899e3687",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "e882812e4e3b41ecddb7ccc73ee98fc2",
+   "size": 27281,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f2e9acd6cd09",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "03b9ea1e6567aa4eead121ae27f957c8",
+   "size": 141328,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "acd233c8053a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "838ec0b8dde2b511dfaa084c6bd8b512",
+   "size": 22398,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e3d5d77c3835",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fb9a4dbab888",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f5b2b882118c",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "b1419faa7b19fd5eeafff571d74a5cef",
+   "size": 6324,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a02be78e1b43",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "b17db521c40e",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/common.py": {
+   "md5": "a9571be926acce884dc09f7d15f8779c",
+   "size": 3933,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a92b3ee09d7c",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "d7ed0f9605e4",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "c987fd27cf1ea5a55fe0d9fc71d4231e",
+   "size": 3358,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "50640f919a8a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/features.py": {
+   "md5": "b8a360f7e5b82c9f0c70a32e39ee8498",
+   "size": 5448,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c79f81515adf",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e46d76b77e4f",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/modeling.py": {
+   "md5": "5cc3f7b93ccf00d5c8ba64b3f1b286e0",
+   "size": 3850,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1e2db3541c1a",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "649f7c9d5aaf9a4f2eab80594dff071a",
+   "size": 1060,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e5b03481bf52",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/uv.lock": {
+   "md5": "b52aed0d311ac4e2c4ed7ed46f3ab867",
+   "size": 558825,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "00753b59cad9",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/05.会議/会議録/会議録_2025-07-08.docx": {
+   "md5": "2b4754c9f67e23351b9cbd9ade81aff1",
+   "size": 16737,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "7bdb84e01256",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/05.会議/会議録/会議録_2025-07-22.docx": {
+   "md5": "8057933dd2a117fdd3022ce32a561bbb",
+   "size": 17263,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fda8f23a0f47",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/05.会議/会議録/会議録_2025-08-05.docx": {
+   "md5": "13a8e3e31b7ce496d27f9ee853834b0d",
+   "size": 18196,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5949d3e457c5",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/05.会議/報告資料/報告資料_2025-07-08.docx": {
+   "md5": "cbe6a036e315a103f343e02543426cd6",
+   "size": 18747,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e59919d431af",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/05.会議/報告資料/報告資料_2025-07-22.docx": {
+   "md5": "96326058dd0abe9446d277c1706d5f22",
+   "size": 20029,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "2e564b107126",
+   "mount": ""
+  },
+  "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/06.報告書/医療法人社団 蒼泉会 ひがし丘総合病院_最終報告.pdf": {
+   "md5": "93b45a53db3175df13c4d614956aaf8c",
+   "size": 660166,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fe93c00aaeca",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/00.提案/データサイエンス市場の未来予測.pdf": {
+   "md5": "d4118c7e7530f055367668dd93e2b076",
+   "size": 2284761,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "eb5c923bc028",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/00.提案/データサイエンティスト調査.docx": {
+   "md5": "152c9b2d756308b6d99a6c6456e73b23",
+   "size": 1701890,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6d71dbcda26d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/00.提案/提案書.pptx": {
+   "md5": "77bd2c78e2af46d4ba2fef9a8f59de4f",
+   "size": 82751,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1a6701279d80",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/01.契約/契約書.docx": {
+   "md5": "046cabe59a2c493fe76b4bdd664ac2f5",
+   "size": 17902,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fb67482abe6b",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/02.計画/スケジュール.xlsx": {
+   "md5": "9d9fe047cfecca1b55778a4e3d903be8",
+   "size": 16651,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "b42c3a03868c",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/03.データ/train.csv": {
+   "md5": "85cfb584549ce1a5a00c3504974234cc",
+   "size": 1628834,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "68708c847d33",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/03.データ/train.xlsx": {
+   "md5": "0ab780b16707d5d5bf72784cbefd6f45",
+   "size": 693027,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "62bf4c63fcaa",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/03.データ/カラム説明.md": {
+   "md5": "55e8429284253fcdf8ddd43fdbac9ac9",
+   "size": 319,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "d9be5c567539",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "1f01a7adbf5d015889ca4ec9893dd4ac",
+   "size": 4563,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "0e1137ba748e",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_outputs/metrics.json": {
+   "md5": "67f49a12770cbf5c8cce7769f113e99c",
+   "size": 6232,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "36f301e2b52f",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_outputs/run_summary.json": {
+   "md5": "33352dbe420ef236ab21c828ae11001b",
+   "size": 4042,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "737214815983",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/README.md": {
+   "md5": "96f29dcea295930cd3b0921b563c8139",
+   "size": 1670,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "606b52d6141f",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "9fb3ee50473491673bdfbf80324018f5",
+   "size": 2211,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "a5cf54d54f82",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/data/train.csv": {
+   "md5": "85cfb584549ce1a5a00c3504974234cc",
+   "size": 1628834,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "7902420a6041",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "55e8429284253fcdf8ddd43fdbac9ac9",
+   "size": 319,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f26f43fb83a8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "04e323be0b522e9fc0be7613f9db53ab",
+   "size": 227836,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fedf164e75a3",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "814bff94fb33",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "4c5a6bdd6a279f469e53b5607a80bfea",
+   "size": 108124,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "4b3a29e477c7",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "f7b61a224502466c9f06ef779965e948",
+   "size": 13498,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5a5a77d1677f",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "2a19689d46ec56864970271910377ab3",
+   "size": 23217,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "99b752a1cf93",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "7754b2f4aa39c33577f366f919b33d62",
+   "size": 23372,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c8eb60978a90",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "7ad62e3fcb7bd1341e8a67c677688a16",
+   "size": 25342,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1c70d50f5bcf",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "f119d39e3309d44a3d6e27b42a2504d4",
+   "size": 24291,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5e1ee8d96189",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "153ba3c6d35f",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "526f2b9516c9",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "473708f8dd4b803d035e7ea4a0d63d93",
+   "size": 29966,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f90e331bf139",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "73a73b50bb51",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/common.py": {
+   "md5": "a9571be926acce884dc09f7d15f8779c",
+   "size": 3933,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "61d9a6f9c6c8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "44caa7c083f9",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "69dcd98882c78baa111056be4192c8b6",
+   "size": 5116,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3be8232a8673",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/features.py": {
+   "md5": "a5b098a4568d1d35cfb66a657cb1359e",
+   "size": 13135,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ab1cf8f76179",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5ff338e75a70",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/modeling.py": {
+   "md5": "24cd481b859b60f2a67d63a40855ee1f",
+   "size": 5027,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1ea2a54683be",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "ccb895a265a20984ec19dd3c23a7f730",
+   "size": 4002,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "9d2929f817ea",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/uv.lock": {
+   "md5": "60ef2aea8c47687cd7cf66b1b0673bd6",
+   "size": 558827,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8d7a7d9a167e",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/05.会議/会議録/会議録_2025-08-18.docx": {
+   "md5": "b7b61857cb5305b7dc92325d974742fa",
+   "size": 25668,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "791d30330f15",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/05.会議/会議録/会議録_2025-09-08.docx": {
+   "md5": "75e4af7126a2d121953efd21c04734ea",
+   "size": 17318,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "188a742b46b8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/05.会議/会議録/会議録_2025-09-26.docx": {
+   "md5": "f6ce31c3a287d6d15de09b21ca65b62a",
+   "size": 18110,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "de98e65a8370",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-08-18.pdf": {
+   "md5": "5e0929eaa20e6b72f16abd8e4c16f106",
+   "size": 40721627,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "63e95927f293",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-09-08.pdf": {
+   "md5": "358f29c5590e8b51668020e9cab9a626",
+   "size": 52355497,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "34576afd0ef6",
+   "mount": ""
+  },
+  "プロジェクト/株式会社東都人材プラットフォーム/06.報告書/株式会社東都人材プラットフォーム_最終報告.pptx": {
+   "md5": "8e930081ca75b3dd9e513b7e302238f2",
+   "size": 79270,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "500ae8732c92",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/00.提案/old/提案書.pptx": {
+   "md5": "83b29f87c570ca34eb5d21d67b3013cc",
+   "size": 71042,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6e0023db2acd",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/00.提案/ニューヨーク不動産市場の最新動向調査.pdf": {
+   "md5": "983714310f00d92257001d2399311a75",
+   "size": 370330,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "b3d5c17b08b5",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/00.提案/提案書.pptx": {
+   "md5": "ed2afb5c97b59d82ba55652b3a641813",
+   "size": 70765,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "411e91d0ddf8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/01.契約/契約書.docx": {
+   "md5": "762619344fc8f1da16e694d05b3a4ea8",
+   "size": 18761,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "041e36455405",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/02.計画/スケジュール_r1.xlsx": {
+   "md5": "cdb637cf81d6e5c68a5a6558015d788f",
+   "size": 15806,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "d57fd93782ef",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/02.計画/スケジュール_r2.xlsx": {
+   "md5": "da0ccfb391c5b46c5832d5d8cffca8a6",
+   "size": 16084,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "acdb87e1dd8d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/03.データ/train.csv": {
+   "md5": "5e1c554ca7436e061116929cda2ed1b9",
+   "size": 3970168,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5552792aa0ca",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/03.データ/train.xlsx": {
+   "md5": "c1de62d8fa75f9be093ab3b5ddb124c9",
+   "size": 8632006,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "91e9d27a6616",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/03.データ/カラム説明.md": {
+   "md5": "cd3e90bc074c8ccbf708dede73793b26",
+   "size": 455,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f3d7063a5753",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "22e3f3dd2ed6c6dd0c367b42b2c6a58e",
+   "size": 3555,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "2bb16ab61c92",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_outputs/metrics.json": {
+   "md5": "b5290d823d8eb520e2d0a1be087621f7",
+   "size": 3614,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3a3798293b04",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_outputs/run_summary.json": {
+   "md5": "01d1fd896a9d4ed4b65b8563db4ddf8f",
+   "size": 1827,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ec4468381877",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/README.md": {
+   "md5": "878c75b0f3113080e7fe95363c259110",
+   "size": 1695,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "c139a5630f3a",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "27008c49cb297b832f64f927efd949c9",
+   "size": 2116,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "809f5e5fa5c8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/data/train.csv": {
+   "md5": "5e1c554ca7436e061116929cda2ed1b9",
+   "size": 3970168,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "82125ed4d019",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "cd3e90bc074c8ccbf708dede73793b26",
+   "size": 455,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "aceec67eb856",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "7154bfae11eb7f6f5a1ba72f85a17bdb",
+   "size": 449328,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f7bbe31b3fc3",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8c6c36e1ae75",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "dcb83eb0775597910c8b4d8423ea48de",
+   "size": 13087,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "3c5ad33668c3",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "c7ca9d9d9d6fb7ac0071399f67a79634",
+   "size": 21018,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6cd0d46f315d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "677a2f0f2c967fd602547e8b3b274ef8",
+   "size": 86338,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e32d61027cde",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "dc13302a14b6f4bc6d7cb1d75a5a92d9",
+   "size": 30270,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "f1323bd19388",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "abbf28a0b4115c6514c0f1353a128032",
+   "size": 259387,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "9540b519b2e1",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "e012c817bb478eef00a8fbb9eff67c91",
+   "size": 84504,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "dc176094dabe",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "b8d148c50f32",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "2b4c1246ed78",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "473708f8dd4b803d035e7ea4a0d63d93",
+   "size": 29966,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "fc494cad6b99",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "d7843cfda433",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/common.py": {
+   "md5": "a9571be926acce884dc09f7d15f8779c",
+   "size": 3933,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8eeb604150f5",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "cc15b493d825",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "69dcd98882c78baa111056be4192c8b6",
+   "size": 5116,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "88188138ccc2",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/features.py": {
+   "md5": "665eb51c3fe32100166360d7717d5e64",
+   "size": 13135,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "0f57c5fbd2e6",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "1e1dd7f63af8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/modeling.py": {
+   "md5": "24cd481b859b60f2a67d63a40855ee1f",
+   "size": 5027,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "d767f6662cee",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "ccb895a265a20984ec19dd3c23a7f730",
+   "size": 4002,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8bb4390c93da",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/uv.lock": {
+   "md5": "056c95b84e1fc5effee79060c9ab2151",
+   "size": 558826,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "618d97c152e6",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/05.会議/会議録/会議録_2025-08-06.docx": {
+   "md5": "0c1609b6a55f4e984c5cbbea1c6f0788",
+   "size": 21269,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "e7d33811d603",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/05.会議/会議録/会議録_2025-08-26.docx": {
+   "md5": "055b15af3a2309ab0460a966bd1c9930",
+   "size": 23613,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5ab884daf8a8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/05.会議/会議録/会議録_2025-09-16.docx": {
+   "md5": "52082129308ec25f2c1237f503b99ac7",
+   "size": 18283,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ba854a884955",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/05.会議/報告資料/報告資料_2025-08-06.pdf": {
+   "md5": "592c93fa03beea9fe04aa0acc9b1b0c3",
+   "size": 534387,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "72e56324bbc7",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/05.会議/報告資料/報告資料_2025-08-26.pdf": {
+   "md5": "56aec74bbe7a9cf73d73f96204f26b76",
+   "size": 476953,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5abbee6d3302",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青嶺不動産アセットマネジメント/06.報告書/株式会社青嶺不動産アセットマネジメント_最終報告.pptx": {
+   "md5": "18553339635123df3940a735350f39b1",
+   "size": 75393,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5ce3f102de4a",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/00.提案/提案書.pptx": {
+   "md5": "2b2d1cd73de76fa7a088c7bb1bfa013b",
+   "size": 77299,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ff540b5de85f",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/01.契約/契約書.docx": {
+   "md5": "e4699a628fa068d6b74058c810a7bc2c",
+   "size": 18678,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "303ddff4263c",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/02.計画/スケジュール.xlsx": {
+   "md5": "ac4d98f3cc9e91685254604a20c955f5",
+   "size": 19733,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "23316aa4fc0d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/03.データ/train.tsv": {
+   "md5": "6adad2edde131a1834079c387b702cf8",
+   "size": 508204,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8a8bdbcde1d2",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/03.データ/train.xlsx": {
+   "md5": "d612a5967b0570073bb6aa0de9b3bf53",
+   "size": 925766,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "8e4f4443faa5",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/03.データ/カラム説明.md": {
+   "md5": "8cd7230690549cb04e1e7c5d7e139e76",
+   "size": 1347,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "508aac1bd047",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "5225d77252c215b10b1843162dff2e63",
+   "size": 3474,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6e2805f333f8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_outputs/metrics.json": {
+   "md5": "b79c08807a7e1de19c5b0a02e37e3406",
+   "size": 2886,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "5a7ff113706b",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_outputs/run_summary.json": {
+   "md5": "78b05b219b5cbc68cde3dad88dd6be8b",
+   "size": 773,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "171086411ab5",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/README.md": {
+   "md5": "d652dad00de04f8b03b9808e41ba1dc8",
+   "size": 1669,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "026ca2388000",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "5d9aebb9cbe1d40a4e323334cb85f9b8",
+   "size": 1379,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "d67cc7860e47",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/data/train.tsv": {
+   "md5": "0e16951e6de3647001068e3ee8adffdf",
+   "size": 536706,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ae3762734702",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "8cd7230690549cb04e1e7c5d7e139e76",
+   "size": 1347,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "4e921fadbcbe",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "d427c107a28fae77ea7457b95155858d",
+   "size": 485457,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "bc9c5d0845eb",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6994633fbd1d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "b662a3739223902990d7fc12ed80731b",
+   "size": 80774,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "92369378e220",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "b48c734579393f42e1e971163c5dc443",
+   "size": 165946,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "1c5fa5c28c2d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "a4fcfe93fe388912977e28ee684037ce",
+   "size": 65723,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "bff786d14356",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "b7c1c45d2f53f0a8fb2a4bd0e7de5565",
+   "size": 38631,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "b7b25808bf15",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "33983ada4b3823c3973d0868b5712235",
+   "size": 147806,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "e65ff4ceffbc",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "aa2487f72b6046a8197778f3bc3da2d3",
+   "size": 47282,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4957b40d015e",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "6ba580e4169f",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "869528c01136",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "67bd05cf64a963fbea832ff7331e7985",
+   "size": 15534,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "81b5cef8ad5b",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "3b32bd2f7b27",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/common.py": {
+   "md5": "a9571be926acce884dc09f7d15f8779c",
+   "size": 3933,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "0ae9e1534cae",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "31e66b258c51",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "dbc7faa96518c657c3c7128c5e8c13f2",
+   "size": 4006,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "029e628a13ac",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/features.py": {
+   "md5": "9a65763d4a80e630cf1f3760ca24f5ea",
+   "size": 6439,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "b967690960f2",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "74ae470c6a26",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/modeling.py": {
+   "md5": "bb7a13fd0562fe584fe2c18b1449b4d0",
+   "size": 4673,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "dc5b0dfe2ee2",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "ccb895a265a20984ec19dd3c23a7f730",
+   "size": 4002,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f062d221f6ec",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/uv.lock": {
+   "md5": "60ef2aea8c47687cd7cf66b1b0673bd6",
+   "size": 558827,
+   "mtime_ns": 1783083952000000000,
+   "doc_id": "ea3de7d8cedc",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/05.会議/会議録/会議録_2025-07-23.docx": {
+   "md5": "f1689743df1c9b7d1ad1081c8bf8cfe3",
+   "size": 15284,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "d1faddb0d27d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/05.会議/会議録/会議録_2025-08-06.docx": {
+   "md5": "fd58c0129d743d391d87b316752618c4",
+   "size": 15718,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c390a3f71ab8",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/05.会議/会議録/会議録_2025-08-26.docx": {
+   "md5": "8f3168428613c1fac91c12ca2ff415ee",
+   "size": 17386,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "a188dbf76dee",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/05.会議/報告資料/基礎分析.docx": {
+   "md5": "e6b9d590d26d6b79f72d04b5e15c9483",
+   "size": 22329,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "691f13b4d923",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/05.会議/報告資料/基礎分析.pptx": {
+   "md5": "0b6b3df1d2527b769c8ac0de037f9f7a",
+   "size": 42697,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c342644615a0",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/05.会議/報告資料/報告資料_2025-07-23.docx": {
+   "md5": "5ef1cb22636f93d1398713e1bfe43c94",
+   "size": 16285,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4ffdd1c2ce6a",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/05.会議/報告資料/報告資料_2025-08-06.docx": {
+   "md5": "5a96b972392dc6f6af2f1258c37a68e8",
+   "size": 23028,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "05b7bb77af09",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青潮モビリティサービス/06.報告書/株式会社青潮モビリティサービス_最終報告.pdf": {
+   "md5": "d6c1b898c3d767b0efc4a7975a6e42d6",
+   "size": 1760213,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "9af7a2be74e2",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/00.提案/提案書.pdf": {
+   "md5": "5e6162e7f923f9903c7053df524e3867",
+   "size": 2378051,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4b65e103e5cc",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/01.契約/契約書.docx": {
+   "md5": "baef4064452f72c13053858cbb6422fd",
+   "size": 18000,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c7ab7dbfaad4",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/01.契約/契約書_draft.docx": {
+   "md5": "baef4064452f72c13053858cbb6422fd",
+   "size": 18000,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f91fd14cec37",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/02.計画/スケジュール.xlsx": {
+   "md5": "1ba2380c0cb5e08606422cf6c1ddf976",
+   "size": 20565,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c85fa44d4e34",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/03.データ/train.csv": {
+   "md5": "7e4599317aa9df52ca6e59b2ecce7248",
+   "size": 113079,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "8289b30011eb",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/03.データ/train.xlsx": {
+   "md5": "a373c40135929b9e38a904ca36aabfc4",
+   "size": 170375,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f41d35c05b74",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/03.データ/カラム説明.md": {
+   "md5": "138fa8c95f72c2005ececb6ea7488ece",
+   "size": 2436,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "a2215bebd7ed",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "a49523ef4f16efacd0d7dde3cd740994",
+   "size": 4500,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "5361492f9369",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_outputs/metrics.json": {
+   "md5": "d4be8183195d4edb9146287382803591",
+   "size": 4385,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "aacf7f80580f",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_outputs/run_summary.json": {
+   "md5": "c778b8c197643e3f721ddb533ed4b35f",
+   "size": 1484,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "7faf1ac5a714",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/README.md": {
+   "md5": "104561062f6ae7f7cf329c99631a46bf",
+   "size": 1673,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "164aa9454f48",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "0a28e6d6305a724df7e6f5ec90037f2c",
+   "size": 2247,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "9f239bc61733",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/data/train.csv": {
+   "md5": "7e4599317aa9df52ca6e59b2ecce7248",
+   "size": 113079,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "558f0524ad87",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "138fa8c95f72c2005ececb6ea7488ece",
+   "size": 2436,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "ae7153ef7182",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "42fd8b4602cd2c35e7ebfea6c60ae0aa",
+   "size": 2742,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "ac36b4fecdfa",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "208d9624510d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "b482939e2ea0",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "caa512995854",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "d184d0b5082581dedff6dc8dd37d1eba",
+   "size": 30448,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "281f4f8dee33",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "788e87f228ce",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/common.py": {
+   "md5": "d8a32b5f9ac51153211b14b887391e7a",
+   "size": 5168,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "16621eff4a64",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "bcfb1e9c4693",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "7224d6914a508d0ef184187306aea6f9",
+   "size": 5216,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "a0fd6f5f05b5",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/features.py": {
+   "md5": "f30f75c1bed2af351afe438a5d3a25d7",
+   "size": 13359,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "24f68be614ae",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "348302a1db1c",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/modeling.py": {
+   "md5": "2fa2bb0de871cc802a15ed59ad21347e",
+   "size": 6041,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "6d0a991eb76e",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "ccb895a265a20984ec19dd3c23a7f730",
+   "size": 4002,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "de32b7556023",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/05.会議/会議録/会議録_2025-06-23.docx": {
+   "md5": "f84077b2c4b844cbc99c9f2e705897b1",
+   "size": 15826,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "37fbd04ab80d",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/05.会議/会議録/会議録_2025-07-11.docx": {
+   "md5": "7e7811f7a4a8fd5a24725040fba48dcc",
+   "size": 16331,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4015dfd3dd4e",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/05.会議/会議録/会議録_2025-07-25.docx": {
+   "md5": "e044430757bca5ecec636e676c002e02",
+   "size": 17876,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "3d1ff46b2240",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/05.会議/報告資料/報告資料_2025-06-23.docx": {
+   "md5": "1825a8cb2dcfee065879b48d1113f009",
+   "size": 17764,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "5bad6e283808",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/05.会議/報告資料/報告資料_2025-07-11.docx": {
+   "md5": "ff421d86dc29656863ad1538807789c6",
+   "size": 19898,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "9845fa9ae297",
+   "mount": ""
+  },
+  "プロジェクト/株式会社青葉バイオメディカル機器/06.報告書/株式会社青葉バイオメディカル機器_最終報告.pptx": {
+   "md5": "dd041605db4e227e60ff471dda6a47e9",
+   "size": 114667,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4f7b14aa3ef8",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/00.提案/提案書.pptx": {
+   "md5": "e368f89497fe3cb5dab52b2e32a65280",
+   "size": 83836,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "1bbf5cfcce32",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/00.提案/提案書old.pptx": {
+   "md5": "022a6f67c563e446fb6b52d7aa5d6cfb",
+   "size": 149008,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "8d7ff23f2706",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/01.契約/契約書.docx": {
+   "md5": "43e291b67d5d7f8c033cd25694d28138",
+   "size": 18690,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "332520f52f75",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/02.計画/スケジュール.xlsx": {
+   "md5": "633a0fbf95303bd0f3a730eb68aa0a03",
+   "size": 22651,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "5c969b8a464a",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/03.データ/train.csv": {
+   "md5": "e84541d6aa397bfa22b069521fca9cb9",
+   "size": 3718995,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "e2f7ed7ede4c",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/03.データ/train.xlsx": {
+   "md5": "c9bf7f6645e284665eb70fc3705b7636",
+   "size": 6895012,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "77bf6380ca64",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/03.データ/カラム説明.md": {
+   "md5": "2c3ec1c74582d8a78aaada5148cd43d0",
+   "size": 3733,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "a011439c73bf",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "5d91042ff0ef1b1bdafa916512327e19",
+   "size": 1020,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "d462e58e8efa",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_outputs/metrics.json": {
+   "md5": "63b4f886ac1b1cf6ef66728ffa79f988",
+   "size": 1071,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "523e64695b39",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/README.md": {
+   "md5": "d586659c1cf36dd5ed4a774b6a7f8497",
+   "size": 1463,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "202faff9463e",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "a4ee43214ec149514e78815e382bc0cb",
+   "size": 378,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "16a8bad605ce",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/data/train.csv": {
+   "md5": "e84541d6aa397bfa22b069521fca9cb9",
+   "size": 3718995,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c24302a2e2b1",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "2c3ec1c74582d8a78aaada5148cd43d0",
+   "size": 3733,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "df42bbeed2ec",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "94b5f8039a295454cfdfb18f0b785039",
+   "size": 5543913,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "e52d8af8e3e0",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/notebooks/01_eda_old.ipynb": {
+   "md5": "15a15f9d8c617f8295cef50f5a333081",
+   "size": 6134637,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c76ce2191c7a",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "aa9866b89fa0",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "4009084a48809541e5b9616d8307d392",
+   "size": 54058,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c9c8f9218679",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "73ead83fe5b9bb846c46e61245f43199",
+   "size": 29475,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "735cfa653b47",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "3ef966b321df5f9e7e1ebfb1df3a89b8",
+   "size": 61620,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "661e83be80cf",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "efc3c787e7daff157f3b4af46f08e951",
+   "size": 69793,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "e4fba9bbe7f0",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "2ded7fa5c41d068c02e50ddcb4a79634",
+   "size": 206658,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "5a52466975f4",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "826e463bbc2a6032b3949cd2ab1507f5",
+   "size": 27328,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "24dd50ab03fd",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "dddcc4f277aa",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4c0d5e3abbef",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "012d9fa51eca91c8521a38d28926367d",
+   "size": 5180,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "3a4ec1c7b2c7",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "14da3f947ddf",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/common.py": {
+   "md5": "912f3be1841fd4731e3c7f738ea72e94",
+   "size": 3867,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "d1a0822d781a",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "af6eae0021fc",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "39b9ee316e043ed1e7d6cd6092a751e0",
+   "size": 3252,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "8571f11d2326",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/features.py": {
+   "md5": "1e2d27c095b0a18de94b71cd9b2e24a4",
+   "size": 2405,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "9ed171c55586",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "b7f29b44da7b",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/modeling.py": {
+   "md5": "ea0376e7b705c9f9c4e4ad0d291406cd",
+   "size": 3311,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "b4455d3ad41c",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "649f7c9d5aaf9a4f2eab80594dff071a",
+   "size": 1060,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "6518e7f1d4db",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/uv.lock": {
+   "md5": "2dfc7c0bab017a9a38e5c64088bace9a",
+   "size": 558828,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "76f3ed4edd12",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/05.会議/会議録/会議録_2025-05-13.pdf": {
+   "md5": "597902e936519e5c9fcfee86824982d8",
+   "size": 901325,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4f54776a195c",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/05.会議/会議録/会議録_2025-05-27.pdf": {
+   "md5": "d215b1e35617641c8ea0343ba48b038c",
+   "size": 1388469,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "31e8a7d8255b",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/05.会議/会議録/会議録_2025-06-17.pdf": {
+   "md5": "b1b4bd74e2e64170182de39734459bde",
+   "size": 1079999,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "fbed1af2be16",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/05.会議/会議録/会議録_2025-07-15.pdf": {
+   "md5": "dfdf18a6a298a9dcedf1bbeb450ce3f2",
+   "size": 1230131,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "85cc166fa904",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/05.会議/報告資料/報告資料_2025-05-13.pdf": {
+   "md5": "982341bd58c43f85a0c6e197a68aaee5",
+   "size": 1023153,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "40dde54bf4f8",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/05.会議/報告資料/報告資料_2025-05-27.pdf": {
+   "md5": "9c9a8673c816cc78c00057a02bc16565",
+   "size": 1078960,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "47894a117bb0",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/05.会議/報告資料/報告資料_2025-06-17.pdf": {
+   "md5": "2fcc139475627278deca965f9d682ac9",
+   "size": 1181282,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "5ad45116a02b",
+   "mount": ""
+  },
+  "プロジェクト/白峰信用リスク評価株式会社/06.報告書/白峰信用リスク評価株式会社_最終報告.pptx": {
+   "md5": "c782ea252c47cb044cccc4ec7b0b051b",
+   "size": 78629,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "821e451594ee",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/00.提案/提案書_v1.pptx": {
+   "md5": "bac7212c4ae50a870f711cebe765b7c8",
+   "size": 88970,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "fc0ba59dce02",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/00.提案/提案書_v2.pptx": {
+   "md5": "de2f5e5dd311382370ed688b608c3f21",
+   "size": 83485,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "e8615812cd57",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/00.提案/提案書_v3.pptx": {
+   "md5": "c6dd5c97b2775c71fa8f9b10311ebfa1",
+   "size": 82765,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "6ac440a9891c",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/01.契約/契約書.docx": {
+   "md5": "d07c47e408274d0de01eee42bae254e2",
+   "size": 22060,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "06d1f7ddf965",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/02.計画/スケジュール.xlsx": {
+   "md5": "07e8920653ee348d5b3e1e314ee9fb15",
+   "size": 21093,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "0ccc84492f7f",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/03.データ/train.csv": {
+   "md5": "48ba57be1b263b927a4accfa4b6bf322",
+   "size": 1574827,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "54f7a5879025",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/03.データ/train.xlsx": {
+   "md5": "bd227ba6767b7084be8d4a3b9202298e",
+   "size": 3384776,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "249cf01a3afc",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/03.データ/カラム説明.md": {
+   "md5": "83fb39e4d4259d38d0a2fe54baf2d1bb",
+   "size": 2207,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "ba7de57750f1",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_outputs/experiments/leaderboard.csv": {
+   "md5": "eeed9edc3cf373faa768db99fcf83110",
+   "size": 1062,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f9e73324bba4",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_outputs/metrics.json": {
+   "md5": "bc88c7c6c66a0e8526ad5c03a07c0b92",
+   "size": 1021,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f7adbf1668cd",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/README.md": {
+   "md5": "6d0fdfdf0e23ccc94987a4fb599743ce",
+   "size": 1469,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "5fc981f20ea6",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/artifacts/analysis_outputs/metrics.json": {
+   "md5": "6b1d855fc30c6fbbbb86c55e367bc73a",
+   "size": 1031,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "9e71130d6797",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/artifacts/analysis_outputs/run_summary.json": {
+   "md5": "2aa74a58e3ad08b7897d294ec71d167b",
+   "size": 311,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "091105365dba",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/artifacts/analysis_outputs/train_preview.csv": {
+   "md5": "5ed2dde23ac1ae69942ee2843e42e36b",
+   "size": 17660,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "22cccbd0e364",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/configs/project_config.json": {
+   "md5": "50adaf67bd7b2d0a247dc3983880e96f",
+   "size": 458,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "c3c078fc810a",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/data/train.csv": {
+   "md5": "48ba57be1b263b927a4accfa4b6bf322",
+   "size": 1574827,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "1cd270041a99",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/data/カラム説明.md": {
+   "md5": "83fb39e4d4259d38d0a2fe54baf2d1bb",
+   "size": 2207,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "ff4d3c296061",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb": {
+   "md5": "a795724eff4e56404db59a75e73196d8",
+   "size": 339513,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f8aa3d477d93",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/pyproject.toml": {
+   "md5": "dacf2873e8dad95a05ca087cf228fd31",
+   "size": 357,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "1fbd69407898",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png": {
+   "md5": "3ee4fac4047707b57b7d3590f51e9bec",
+   "size": 66425,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "2bcf27d011c7",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/date_feature_trend.png": {
+   "md5": "f4892a1e08527d2159c78b5228f9de6b",
+   "size": 17706,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "31baaa8f3e68",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png": {
+   "md5": "ad019009b8f0edcfa2290960868ff15d",
+   "size": 55037,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "5ae6cbc3a8c3",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png": {
+   "md5": "feb4401d54c45f1dac14394c783ed7fc",
+   "size": 37864,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f672dc02f5c5",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png": {
+   "md5": "c0ed75c688b56c35a15995b167dec9ab",
+   "size": 155173,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "fd2cd4b16627",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/target_distribution.png": {
+   "md5": "5ad924e05ae8b3b9274631f7ef93cea5",
+   "size": 28220,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "7ebdeaeaf851",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/requirements.txt": {
+   "md5": "319531fc030916efb2e602f80e26559b",
+   "size": 125,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "18f865903a8d",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/scripts/bootstrap_env.py": {
+   "md5": "47bd7bdf934fb09858f5301db2f4f8b3",
+   "size": 2017,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "723496b26e60",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/scripts/run_train.py": {
+   "md5": "012d9fa51eca91c8521a38d28926367d",
+   "size": 5180,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f72c5e1ddb7d",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/__init__.py": {
+   "md5": "d41d8cd98f00b204e9800998ecf8427e",
+   "size": 0,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "91cb626e7a49",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/common.py": {
+   "md5": "912f3be1841fd4731e3c7f738ea72e94",
+   "size": 3867,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "bc74cf24425e",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/eda.py": {
+   "md5": "e0d92020b9c84686338c4329c0df88be",
+   "size": 695,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "3c799bca4f64",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/evaluate.py": {
+   "md5": "39b9ee316e043ed1e7d6cd6092a751e0",
+   "size": 3252,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "a1d5be6d84cf",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/features.py": {
+   "md5": "1e2d27c095b0a18de94b71cd9b2e24a4",
+   "size": 2405,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "51ea46fe3528",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/infer.py": {
+   "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+   "size": 191,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "61f6e584f03a",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/modeling.py": {
+   "md5": "ea0376e7b705c9f9c4e4ad0d291406cd",
+   "size": 3311,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "0d60794bf309",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/src/preprocess.py": {
+   "md5": "649f7c9d5aaf9a4f2eab80594dff071a",
+   "size": 1060,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "4794424aba6e",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/uv.lock": {
+   "md5": "2dfc7c0bab017a9a38e5c64088bace9a",
+   "size": 558828,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "ce4ca25d65f7",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/05.会議/会議録/会議録_2025-04-09.pdf": {
+   "md5": "c6c83a32ecc5796e3cb7fda511f96e04",
+   "size": 702197,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "7629d8864ab4",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/05.会議/会議録/会議録_2025-04-29.pdf": {
+   "md5": "b640bfe342edd4a5732ca85aa3331d0a",
+   "size": 774708,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f6d67a6ecfbe",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/05.会議/会議録/会議録_2025-05-27.pdf": {
+   "md5": "2591d0b6df089ddd344dfe905486a678",
+   "size": 750025,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "7cbacc9c0157",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/05.会議/報告資料/報告資料_2025-04-09.docx": {
+   "md5": "cce4cebb42aadd565153dd17484e34d8",
+   "size": 20766,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "142841662122",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/05.会議/報告資料/報告資料_2025-04-29.docx": {
+   "md5": "17ff09d31a00d5b6ba6c3acbcb4d861c",
+   "size": 24597,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "e72e799addef",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/06.報告書/old/青葉与信マネジメント株式会社_最終報告.pptx": {
+   "md5": "9d0b2f802925446383eef4c7cba15a3e",
+   "size": 85269,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "20045ff4513d",
+   "mount": ""
+  },
+  "プロジェクト/青葉与信マネジメント株式会社/06.報告書/青葉与信マネジメント株式会社_最終報告.pptx": {
+   "md5": "bc03e338521619ee5221a552b7f29468",
+   "size": 84474,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "f0dd0a10addb",
+   "mount": ""
+  },
+  "社内管理/データアステル社内管理_決裁基準.md": {
+   "md5": "fcd776aaa0819f6f0cf76440c6e46d3f",
+   "size": 2090,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "61d1ffc32ebe",
+   "mount": ""
+  },
+  "社内管理/データアステル社内規定_パスワード導出規則.docx": {
+   "md5": "d93ae608aae2e08a53dcf9bc69848c0a",
+   "size": 15492,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "336ef580b9df",
+   "mount": ""
+  },
+  "社内管理/座席表.pptx": {
+   "md5": "bfd25d66048967e38293a6342b98154c",
+   "size": 1729216,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "27b0614e5d0d",
+   "mount": ""
+  },
+  "社内管理/社内用語集.docx": {
+   "md5": "4af08cf459865a0f3d490119da80fa59",
+   "size": 36649,
+   "mtime_ns": 1783083954000000000,
+   "doc_id": "54e93d29420d",
+   "mount": ""
+  }
+ }
+}

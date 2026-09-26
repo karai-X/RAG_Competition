@@ -1,0 +1,25 @@
+{
+ "doc_id": "5a7ff113706b",
+ "relpath": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_outputs/metrics.json",
+ "mount": "",
+ "project": "株式会社青潮モビリティサービス",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "b79c08807a7e1de19c5b0a02e37e3406",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"task_type\": \"regression\",\n  \"encoding\": \"utf-8-sig\",\n  \"target_column\": \"cnt\",\n  \"date_column\": \"dteday\",\n  \"use_date_features\": true,\n  \"use_numeric_interactions\": false,\n  \"use_cyclical_time_features\": true,\n  \"model_type\": \"hist_gradient_boosting\",\n  \"model_params\": {\n    \"learning_rate\": 0.05,\n    \"max_depth\": 6,\n    \"max_iter\": 400\n  },\n  \"split_strategy\": \"time_ordered\",\n  \"transform_target\": \"log1p\",\n  \"validation_size\": 0.1,\n  \"early_stopping\": {\n    \"enabled\": true,\n    \"mode\": \"time_ordered_validation\",\n    \"iteration_key\": \"max_iter\",\n    \"best_iteration\": 400,\n    \"patience\": 2,\n    \"min_delta\": 0.0,\n    \"validation_history\": [\n      {\n        \"iteration\": 66,\n        \"metric\": 78.15221570682678\n      },\n      {\n        \"iteration\": 132,\n        \"metric\": 61.77590985050635\n      },\n      {\n        \"iteration\": 198,\n        \"metric\": 56.52425551776796\n      },\n      {\n        \"iteration\": 400,\n        \"metric\": 54.586370819768554\n      }\n    ]\n  },\n  \"early_stopping_patience\": 2,\n  \"row_count\": 8645,\n  \"feature_count\": 30,\n  \"train_rows\": 6052,\n  \"validation_rows\": 864,\n  \"test_rows\": 1729,\n  \"split_ordering_basis\": \"date_column:dteday\",\n  \"rmse\": 46.9838340445052,\n  \"mae\": 29.604146561708138,\n  \"r2\": 0.8451664555487036,\n  \"train_metrics\": {\n    \"rmse\": 24.261303528435832,\n    \"mae\": 14.232235866579206,\n    \"r2\": 0.9675190985989859\n  },\n  \"validation_metrics\": {\n    \"rmse\": 25.506265959731532,\n    \"mae\": 16.87341391432056,\n    \"r2\": 0.9706314333786754\n  },\n  \"eda_summary\": {\n    \"row_count\": 8645,\n    \"column_count\": 15,\n    \"target_column\": \"cnt\",\n    \"missing_ratio_top10\": {\n      \"id\": 0.0,\n      \"dteday\": 0.0,\n      \"season\": 0.0,\n      \"yr\": 0.0,\n      \"mnth\": 0.0,\n      \"hr\": 0.0,\n      \"holiday\": 0.0,\n      \"weekday\": 0.0,\n      \"workingday\": 0.0,\n      \"weathersit\": 0.0\n    },\n    \"target_dtype\": \"int64\",\n    \"target_unique\": 585\n  },\n  \"feature_selection\": {\n    \"selected_columns\": [\n      \"season\",\n      \"yr\",\n      \"mnth\",\n      \"hr\",\n      \"holiday\",\n      \"weekday\",\n      \"workingday\",\n      \"weathersit\",\n      \"temp\",\n      \"atemp\",\n      \"hum\",\n      \"windspeed\",\n      \"dteday_year\",\n      \"dteday_month\",\n      \"dteday_day\",\n      \"dteday_weekday\",\n      \"dteday_is_month_start\",\n      \"dteday_is_month_end\",\n      \"season_sin\",\n      \"season_cos\",\n      \"mnth_sin\",\n      \"mnth_cos\",\n      \"hr_sin\",\n      \"hr_cos\",\n      \"weekday_sin\",\n      \"weekday_cos\",\n      \"dteday_month_sin\",\n      \"dteday_month_cos\",\n      \"dteday_weekday_sin\",\n      \"dteday_weekday_cos\"\n    ],\n    \"excluded_columns\": [\n      {\n        \"column\": \"id\",\n        \"reason\": \"identifier_like_name\"\n      }\n    ],\n    \"categorical_unique_limit\": 50\n  },\n  \"selected_feature_count\": 30,\n  \"excluded_feature_count\": 1\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 2760,
+  "n_lines": 127
+ },
+ "error": null,
+ "warnings": []
+}

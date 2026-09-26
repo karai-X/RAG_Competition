@@ -1,0 +1,25 @@
+{
+ "doc_id": "8bb4390c93da",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/preprocess.py",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "ccb895a265a20984ec19dd3c23a7f730",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n\ndef split_feature_target(df: pd.DataFrame, target_col: str) -> tuple[pd.DataFrame, pd.Series]:\n    if target_col not in df.columns:\n        raise KeyError(f\"target column not found: {target_col}\")\n    y = df[target_col]\n    X = df.drop(columns=[target_col]).copy()\n    if X.empty:\n        raise ValueError(\"no feature columns available after target split\")\n    return X, y\n\n\ndef train_test_holdout_split(\n    X: pd.DataFrame,\n    y: pd.Series,\n    task_type: str,\n    test_size: float,\n    random_state: int,\n    split_strategy: str = \"random_holdout\",\n) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:\n    if str(split_strategy).strip().lower() == \"time_ordered\":\n        test_rows = max(1, int(round(len(X) * float(test_size))))\n        if test_rows >= len(X):\n            test_rows = max(1, len(X) - 1)\n        split_at = len(X) - test_rows\n        return (\n            X.iloc[:split_at].copy(),\n            X.iloc[split_at:].copy(),\n            y.iloc[:split_at].copy(),\n            y.iloc[split_at:].copy(),\n        )\n    split_kwargs: dict[str, object] = {\"test_size\": test_size, \"random_state\": random_state}\n    if task_type == \"classification\":\n        try:\n            return train_test_split(X, y, stratify=y, **split_kwargs)\n        except Exception:\n            return train_test_split(X, y, **split_kwargs)\n    return train_test_split(X, y, **split_kwargs)\n\n\ndef train_valid_test_split(\n    X: pd.DataFrame,\n    y: pd.Series,\n    task_type: str,\n    test_size: float,\n    validation_size: float,\n    random_state: int,\n    split_strategy: str = \"random_holdout\",\n) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, pd.Series]:\n    strategy = str(split_strategy).strip().lower()\n    validation_size = float(validation_size)\n    if validation_size <= 0:\n        X_train, X_test, y_train, y_test = train_test_holdout_split(\n            X,\n            y,\n            task_type=task_type,\n            test_size=test_size,\n            random_state=random_state,\n            split_strategy=split_strategy,\n        )\n        empty_X = X_train.iloc[0:0].copy()\n        empty_y = y_train.iloc[0:0].copy()\n        return X_train, empty_X, X_test, y_train, empty_y, y_test\n\n    if strategy == \"time_ordered\":\n        total_rows = len(X)\n        test_rows = max(1, int(round(total_rows * float(test_size))))\n        valid_rows = max(1, int(round(total_rows * validation_size)))\n        if test_rows + valid_rows >= total_rows:\n            overflow = test_rows + valid_rows - total_rows + 1\n            valid_rows = max(1, valid_rows - overflow)\n        train_end = total_rows - test_rows - valid_rows\n        if train_end <= 0:\n            raise ValueError(\"time_ordered split requires more rows for train/valid/test\")\n        valid_end = train_end + valid_rows\n        return (\n            X.iloc[:train_end].copy(),\n            X.iloc[train_end:valid_end].copy(),\n            X.iloc[valid_end:].copy(),\n            y.iloc[:train_end].copy(),\n            y.iloc[train_end:valid_end].copy(),\n            y.iloc[valid_end:].copy(),\n        )\n\n    X_train_full, X_test, y_train_full, y_test = train_test_holdout_split(\n        X,\n        y,\n        task_type=task_type,\n        test_size=test_size,\n        random_state=random_state,\n        split_strategy=\"random_holdout\",\n    )\n    adjusted_validation = validation_size / max(1e-12, 1.0 - float(test_size))\n    adjusted_validation = min(max(adjusted_validation, 0.05), 0.4)\n    X_train, X_valid, y_train, y_valid = train_test_holdout_split(\n        X_train_full,\n        y_train_full,\n        task_type=task_type,\n        test_size=adjusted_validation,\n        random_state=random_state,\n        split_strategy=\"random_holdout\",\n    )\n    return X_train, X_valid, X_test, y_train, y_valid, y_test\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 3895,
+  "n_lines": 108
+ },
+ "error": null,
+ "warnings": []
+}

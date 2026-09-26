@@ -1,0 +1,13 @@
+{
+ "md5": "0799619a0183543c6e02cfb33a3a0693",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "日付特徴量の確認\n\n有効な日付列は見つかりませんでした",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 5.94,
+ "source": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell18_img6.png"
+}

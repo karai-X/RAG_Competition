@@ -1,0 +1,58 @@
+{
+  "target_column": "SALE PRICE",
+  "date_column": "TAX CLASS AT TIME OF SALE",
+  "task_type": "regression",
+  "use_date_features": true,
+  "use_numeric_interactions": true,
+  "use_cyclical_time_features": true,
+  "use_ordered_category_features": false,
+  "group_rare_categories": false,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": false,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": false,
+  "class_target_encoding_min_unique": 2,
+  "class_target_encoding_max_unique": 100,
+  "class_target_encoding_smoothing": 20.0,
+  "drop_original_categorical_after_target_encoding": false,
+  "tune_class_decision_weights": false,
+  "model_type": "random_forest",
+  "model_params": {},
+  "split_strategy": "time_ordered",
+  "split_ordering_basis": "date_column:TAX CLASS AT TIME OF SALE",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": true,
+  "early_stopping_patience": 2,
+  "output_dir": "artifacts/analysis_outputs",
+  "selected_feature_count": 19,
+  "excluded_feature_columns": [
+    {
+      "column": "id",
+      "reason": "identifier_like_name"
+    },
+    {
+      "column": "NEIGHBORHOOD",
+      "reason": "high_cardinality_categorical",
+      "unique_count": 251,
+      "threshold": 100
+    },
+    {
+      "column": "BUILDING CLASS AT PRESENT",
+      "reason": "high_cardinality_categorical",
+      "unique_count": 123,
+      "threshold": 100
+    },
+    {
+      "column": "BUILDING CLASS AT TIME OF SALE",
+      "reason": "high_cardinality_categorical",
+      "unique_count": 121,
+      "threshold": 100
+    }
+  ],
+  "categorical_unique_limit": 100,
+  "ordered_feature_columns": [],
+  "class_target_encoding": [],
+  "class_decision_tuning": {}
+}

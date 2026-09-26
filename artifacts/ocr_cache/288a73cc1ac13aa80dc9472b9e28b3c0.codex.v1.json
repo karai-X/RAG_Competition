@@ -1,0 +1,13 @@
+{
+ "md5": "288a73cc1ac13aa80dc9472b9e28b3c0",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "その他",
+ "markdown": "日付分析対象列はありません",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 5.84,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+}

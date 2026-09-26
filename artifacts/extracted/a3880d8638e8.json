@@ -1,0 +1,28 @@
+{
+ "doc_id": "a3880d8638e8",
+ "relpath": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png",
+ "mount": "",
+ "project": "医療法人社団 蒼樹会 みなみ野女性医療センター",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "0d8203a87b9b21d657bd1b1646e143e6",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png (1176x426) md5:0d8203a8 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: その他]\nカテゴリ列は見つかりませんでした",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1176,
+  "height": 426,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

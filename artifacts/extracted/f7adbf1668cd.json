@@ -1,0 +1,25 @@
+{
+ "doc_id": "f7adbf1668cd",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_outputs/metrics.json",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "bc88c7c6c66a0e8526ad5c03a07c0b92",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"task_type\": \"classification\",\n  \"encoding\": \"utf-8-sig\",\n  \"target_column\": \"loan_status\",\n  \"date_column\": \"\",\n  \"use_date_features\": true,\n  \"model_type\": \"extra_trees\",\n  \"model_params\": {\n    \"n_estimators\": 500,\n    \"max_depth\": null,\n    \"min_samples_leaf\": 1\n  },\n  \"row_count\": 17500,\n  \"feature_count\": 9,\n  \"train_rows\": 14000,\n  \"test_rows\": 3500,\n  \"accuracy\": 0.778,\n  \"f1_macro\": 0.6026664231577025,\n  \"auc_roc\": 0.7126713528601072,\n  \"brier_score\": 0.15813333485714287,\n  \"precision_at_top10pct\": 0.48857142857142855,\n  \"eda_summary\": {\n    \"row_count\": 17500,\n    \"column_count\": 10,\n    \"target_column\": \"loan_status\",\n    \"missing_ratio_top10\": {\n      \"id\": 0.0,\n      \"loan_amnt\": 0.0,\n      \"term\": 0.0,\n      \"interest_rate\": 0.0,\n      \"grade\": 0.0,\n      \"employment_length\": 0.0,\n      \"purpose\": 0.0,\n      \"credit_score\": 0.0,\n      \"application_type\": 0.0,\n      \"loan_status\": 0.0\n    },\n    \"target_dtype\": \"int64\",\n    \"target_unique\": 2\n  }\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 980,
+  "n_lines": 42
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,28 @@
+{
+ "doc_id": "f672dc02f5c5",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "feb4401d54c45f1dac14394c783ed7fc",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1474x876) md5:feb4401d — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n### 欠損率 上位20列\n\n- 横軸：欠損率(%)\n- 縦軸：列名\n- 列名：\n  - id\n  - loan_amnt\n  - term\n  - interest_rate\n  - grade\n  - employment_length\n  - purpose\n  - credit_score\n  - application_type\n  - loan_status\n[図の説明] 欠損率を列ごとに示す横棒グラフの枠組み。タイトルは「欠損率 上位20列」。横軸ラベルは「欠損率(%)」で、目盛りは -0.04、-0.02、0.00、0.02、0.04。縦軸ラベルは「列名」で、上から id、loan_amnt、term、interest_rate、grade、employment_length、purpose、credit_score、application_type、loan_status。凡例はない。グラフ内に棒や数値ラベルは表示されておらず、各列の欠損率の値は読み取れない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1474,
+  "height": 876,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

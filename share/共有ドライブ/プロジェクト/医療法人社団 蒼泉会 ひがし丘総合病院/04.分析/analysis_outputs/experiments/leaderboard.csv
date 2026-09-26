@@ -1,0 +1,11 @@
+trial_index,trial_role,improves_on,trial_goal,status,model_type,use_date_features,random_state,test_size,task_type,primary_metric,primary_value,secondary_metric,secondary_value
+9,tuned_variant:random_forest,interaction_forest,Increase ensemble capacity and regularize leaf size for a stronger tree model.,ok,random_forest,True,42,0.2,classification,f1_macro,0.74229173,accuracy,0.86562500
+1,linear_baseline,,Reference baseline with the simplest explainable model.,ok,linear_baseline,True,42,0.2,classification,f1_macro,0.73199042,accuracy,0.86875000
+3,configured_default,linear_baseline,Add nonlinear splits with the default tree ensemble.,ok,random_forest,True,42,0.2,classification,f1_macro,0.71703191,accuracy,0.85625000
+4,configured_default_balanced,configured_default,Improve minority-class recall with balanced tree weights.,ok,random_forest,True,42,0.2,classification,f1_macro,0.71406493,accuracy,0.85625000
+8,interaction_forest,configured_default_balanced,Combine numeric interactions with tree ensembles to capture mixed effects.,ok,random_forest,True,42,0.2,classification,f1_macro,0.69938178,accuracy,0.85312500
+6,model_variant:gradient_boosting,configured_default,Capture smoother nonlinear boundaries with boosting.,ok,gradient_boosting,True,42,0.2,classification,f1_macro,0.68848341,accuracy,0.85000000
+2,linear_baseline_balanced,linear_baseline,Improve macro-F1 by compensating for class imbalance in the linear model.,ok,linear_baseline,True,42,0.2,classification,f1_macro,0.68546116,accuracy,0.82187500
+5,model_variant:extra_trees,configured_default,Reduce variance and explore a more randomized tree ensemble.,ok,extra_trees,True,42,0.2,classification,f1_macro,0.67488414,accuracy,0.84062500
+7,interaction_linear,linear_baseline_balanced,Add lightweight numeric interaction features to the linear model.,ok,linear_baseline,True,42,0.2,classification,f1_macro,0.67433068,accuracy,0.81250000
+10,tuned_variant:extra_trees,model_variant:extra_trees,Try a lower-bias randomized ensemble with broader tree diversity.,ok,extra_trees,True,42,0.2,classification,f1_macro,0.64759581,accuracy,0.82500000

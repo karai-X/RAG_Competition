@@ -1,0 +1,28 @@
+{
+ "doc_id": "3c5ad33668c3",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "dcb83eb0775597910c8b4d8423ea48de",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png (1176x575) md5:dcb83eb0 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\nカテゴリ列の分布\n\nカテゴリ列が見つかりません\n[図の説明] 「カテゴリ列の分布」というタイトルのグラフ領域。中央に「カテゴリ列が見つかりません」と表示されている。軸ラベル、凡例、目盛り、数値、データ系列はない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1176,
+  "height": 575,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

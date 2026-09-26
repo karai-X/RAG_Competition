@@ -1,0 +1,13 @@
+{
+ "md5": "4141677add1d8868c97ef1fa5b2d56d7",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "特徴量の相関ヒートマップ\n\n|  | id | age | bmi | children | charges |\n|---|---:|---:|---:|---:|---:|\n| id | 1.00 | 0.01 | 0.04 | 0.01 | 0.01 |\n| age | 0.01 | 1.00 | 0.02 | 0.01 | 0.10 |\n| bmi | 0.04 | 0.02 | 1.00 | 0.08 | 0.17 |\n| children | 0.01 | 0.01 | 0.08 | 1.00 | 0.03 |\n| charges | 0.01 | 0.10 | 0.17 | 0.03 | 1.00 |",
+ "figure_description": "相関行列のヒートマップ。タイトルは「特徴量の相関ヒートマップ」。横軸・縦軸ともに、id、age、bmi、children、charges の順に並ぶ。各セルに相関値が表示されている。行列は対称で、対角成分はすべて1.00。右側に縦型のカラーバーがあり、目盛りは0.2、0.4、0.6、0.8、1.0。値が低いセルほど淡い灰色、値が高いセルほど赤色が濃く、1.00のセルは濃い赤色で塗られている。0.01、0.02、0.03、0.04のセルは淡い灰色、0.08のセルは淡いベージュ色、0.10のセルは薄い赤みのあるベージュ色、0.17のセルは薄いサーモン色で塗られている。読み取れる組み合わせは、id-age 0.01、id-bmi 0.04、id-children 0.01、id-charges 0.01、age-bmi 0.02、age-children 0.01、age-charges 0.10、bmi-children 0.08、bmi-charges 0.17、children-charges 0.03であり、対称位置にも同じ値が表示されている。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 22.47,
+ "source": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell17_img4.png"
+}

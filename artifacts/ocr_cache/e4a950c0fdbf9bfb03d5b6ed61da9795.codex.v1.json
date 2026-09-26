@@ -1,0 +1,13 @@
+{
+ "md5": "e4a950c0fdbf9bfb03d5b6ed61da9795",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### 数値特徴量の相関ヒートマップ\n\n|  | id | age | balance | day | duration | campaign | pdays | previous | y |\n|---|---|---|---|---|---|---|---|---|---|\n| id |  |  |  |  |  |  |  |  |  |\n| age |  |  |  |  |  |  |  |  |  |\n| balance |  |  |  |  |  |  |  |  |  |\n| day |  |  |  |  |  |  |  |  |  |\n| duration |  |  |  |  |  |  |  |  |  |\n| campaign |  |  |  |  |  |  |  |  |  |\n| pdays |  |  |  |  |  |  |  |  |  |\n| previous |  |  |  |  |  |  |  |  |  |\n| y |  |  |  |  |  |  |  |  |  |\n\nカラーバー目盛り（上から）：1.0、0.8、0.6、0.4、0.2、0.0",
+ "figure_description": "9×9の正方行列型相関ヒートマップ。横軸・縦軸ともに、id、age、balance、day、duration、campaign、pdays、previous、yの順。軸タイトルおよび各セル内の数値ラベルはない。セルは連続的な淡青色―薄灰色―橙色―濃赤色で塗り分けられている。対角セル（id×id、age×age、balance×balance、day×day、duration×duration、campaign×campaign、pdays×pdays、previous×previous、y×y）は濃赤色。duration×y、y×duration、pdays×previous、previous×pdaysは橙色。day×campaign、campaign×dayは淡橙色。age×balance、balance×ageは淡いベージュ色。pdays×y、y×pdays、previous×y、y×previousは淡いベージュから薄橙色。age×pdays、pdays×age、balance×campaign、campaign×balance、day×duration、duration×day、day×pdays、pdays×day、day×previous、previous×day、day×y、y×day、duration×campaign、campaign×duration、campaign×pdays、pdays×campaign、campaign×previous、previous×campaign、campaign×y、y×campaignは淡青色から青みがかった薄灰色。その他のセルは薄灰色またはわずかに暖色を帯びた薄灰色。右側に縦型カラーバーがあり、上端側は濃赤色、中央から下側に向かって薄橙色・薄灰色となり、0.0目盛りより下は淡青色。表示されている目盛りは上から1.0、0.8、0.6、0.4、0.2、0.0で、淡青色部分の下端数値は表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 113.33,
+ "source": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/feature_correlation_heatmap.png"
+}

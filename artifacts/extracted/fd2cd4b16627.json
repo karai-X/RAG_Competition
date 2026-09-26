@@ -1,0 +1,28 @@
+{
+ "doc_id": "fd2cd4b16627",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "c0ed75c688b56c35a15995b167dec9ab",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png (2675x1476) md5:c0ed75c6 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n### 左グラフ\n- タイトル: `loan_amnt の分布`\n- x軸ラベル: `loan_amnt`\n- y軸ラベル: `件数`\n\n### 中央グラフ\n- タイトル: `interest_rate の分布`\n- x軸ラベル: `interest_rate`\n- y軸ラベル: `件数`\n\n### 右グラフ\n- タイトル: `credit_score の分布`\n- x軸ラベル: `credit_score`\n- y軸ラベル: `件数`\n[図の説明] 横に3つ並んだ、ヒストグラムとカーネル密度推定曲線を重ねた分布グラフ。凡例はない。各グラフの棒は[c:淡い青色]淡い青色[/c]で塗られ、暗色の枠線が付いている。分布曲線は[c:青色]青色[/c]。背景には灰色の縦横グリッド線がある。\n\n左グラフ「loan_amnt の分布」:\n- x軸: `loan_amnt`\n- x軸の目盛り: 500、1000、1500、2000、2500、3000、3500\n- y軸: `件数`\n- y軸の目盛り: 0、500、1000、1500、2000、2500、3000\n- 複数の山がある分布として描かれている。\n\n中央グラフ「interest_rate の分布」:\n- x軸: `interest_rate`\n- x軸の目盛り: 5、10、15、20、25\n- y軸: `件数`\n- y軸の目盛り: 0、200、400、600、800、1000、1200、1400\n- 複数の山がある分布として描かれている。\n\n右グラフ「credit_score の分布」:\n- x軸: `credit_score`\n- x軸の目盛り: 660、680、700、720、740、760、780、800\n- y軸: `件数`\n- y軸の目盛り: 0、500、1000、1500、2000、2500、3000、3500\n- 複数の山があり、右側へ長く続く分布として描かれている。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/numeric_distribution_top6.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 2675,
+  "height": 1476,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

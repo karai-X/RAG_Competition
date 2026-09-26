@@ -1,0 +1,146 @@
+{
+ "doc_id": "f2e85e80bc31",
+ "relpath": "プロジェクト/医療法人社団 恒一会 かえで総合病院/06.報告書/医療法人社団 恒一会 かえで総合病院_最終報告_old.pptx",
+ "mount": "",
+ "project": "医療法人社団 恒一会 かえで総合病院",
+ "category": "06.報告書",
+ "filetype": "pptx",
+ "md5": "35aeb2d3f66c5131af59249c398af415",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## スライド 1\n\n[c:FFFFFF]**最終分析報告書**[/c]\n\n[c:2D2D2D]**肝疾患有無予測分析プロジェクト**[/c]\n\n[c:4A4A4A]医療法人社団 恒一会 かえで総合病院 御中[/c]\n\n[c:4A4A4A]株式会社データアステル[/c]\n\n[c:5C5C5C]契約期間：2025年9月2日 開始（5週間）\n実績工数：140時間\n最終請求金額（税込）：3,850,000円[/c]",
+   "label": "slide1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## スライド 2\n\n[c:A0332E]**ビジネス成果**[/c]\n[c:4A4A4A]肝疾患リスク把握を支援する分析基盤と運用判断材料を納品。業務での閾値運用案と導入前検証要件を提示。[/c]\n[c:A0332E]**分析成果**[/c]\n[c:4A4A4A]最終モデル：hist_gradient_boosting（特徴量10）[/c]\n[c:4A4A4A]AUC-ROC = 0.905 / Accuracy = 0.833 / F1-macro = 0.829[/c]\n[c:4A4A4A]中間段階の線形系試行（T04等）から性能改善を確認。[/c]\n[c:A0332E]**契約・商流**[/c]\n[c:4A4A4A]料金体系：Time & Materials[/c]\n[c:4A4A4A]実績工数：140時間[/c]\n[c:4A4A4A]最終請求金額（税込）：3,850,000円[/c]\n[c:4A4A4A]（税率10%、検収完了に基づく精算）[/c]\n[c:8C8C8C]本報告は、提案書・契約書・スケジュール・議事録（M01/M02）・中間報告・分析出力との整合を保ち、事実と仮定を明確に区分して記載している。[/c]\n[c:A0332E]**主要指標（内部検証値）**[/c]\n[c:A0332E]**AUC-ROC: 0.905**[/c]　[c:4A4A4A]｜[/c]　[c:A0332E]**Accuracy: 0.833**[/c]　[c:4A4A4A]｜[/c]　[c:A0332E]**F1-macro: 0.829**[/c]　[c:4A4A4A]｜[/c]　[c:A0332E]**Precision@10%: 0.971**[/c]\n\n[c:2D2D2D]**1. エグゼクティブサマリ**[/c]",
+   "label": "slide2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## スライド 3\n\n[c:2D2D2D]**2. プロジェクト目的とスコープ**[/c]\n\n[c:FFFFFF]**目的**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]● train.csv の患者属性および検査値から disease（0/1）を予測する分析基盤と初期予測モデルの整備\n\n● 結果は診断の代替ではなく、業務上の判定支援・導入判断材料として提供[/c]\n\n[c:FFFFFF]**スコープ（対象）**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● EDA、前処理方針、特徴量選定\n● モデル構築（候補比較）、評価\n● 成果物：概要書、計画書、データ理解レポート、中間/最終報告書、議事録、スケジュール表[/c]\n\n[c:FFFFFF]**スコープ外（対象外）**[/c]\n{shape-fill:#383838 黒}\n\n[c:5C5C5C]実運用\nシステム実装[/c]\n\n[c:5C5C5C]電子カルテ\n連携[/c]\n\n[c:5C5C5C]外部データ\n取得[/c]\n\n[c:5C5C5C]継続運用基盤\n（MLOps）[/c]\n\n[c:5C5C5C]臨床診断の\n最終決定[/c]\n\n[c:8C8C8C]（注）上記は提案書・契約書の記載と整合している。[/c]",
+   "label": "slide3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## スライド 4\n\n[c:2D2D2D]**3. 実施方法**[/c]\n[c:A0332E]**実施方針**[/c]\n[c:4A4A4A]単一データソース前提で再現可能な手順を採用[/c]\n[c:4A4A4A]説明可能性を重視し線形系と非線形モデルを比較[/c]\n[c:4A4A4A]医療文脈での慎重な解釈を徹底[/c]\n[c:A0332E]**主な作業フロー**[/c]\n[c:2D2D2D]**1. キックオフ (M01)**[/c] [c:8C8C8C]— スコープ・前提確定[/c]\n[c:2D2D2D]**2. データ受領 読込検証**[/c] [c:8C8C8C]— train.csv[/c]\n[c:2D2D2D]**3. EDA**[/c] [c:8C8C8C]— 分布・外れ値確認[/c]\n[c:2D2D2D]**4. 前処理設計**[/c] [c:8C8C8C]— id除外 Gender処理[/c]\n[c:2D2D2D]**5. モデル試作**[/c] [c:8C8C8C]— 線形系比較試行[/c]\n[c:2D2D2D]**6. 改善・最終確定**[/c] [c:8C8C8C]— hist_gradient_boosting[/c]\n[c:2D2D2D]**7. 最終報告書作成**[/c] [c:8C8C8C]— 検収対応[/c]\n[c:A0332E]**再現性トレース**[/c]\n[c:4A4A4A]● 実験アーティファクト：run_summary.json、metrics.json、experiments/leaderboard.json[/c]\n[c:4A4A4A]● 中間レビュー議事録：会議録_2025-09-16.md（M02）[/c]",
+   "label": "slide4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## スライド 5\n\n[c:2D2D2D]**4. データ概要と特徴量選定**[/c]\n\n[c:A0332E]**データ基本情報（EDA出力）**[/c]\n\n[c:2D2D2D]**3,500行**[/c]\n\n[c:8C8C8C]行数[/c]\n\n[c:2D2D2D]**12列**[/c]\n\n[c:8C8C8C]カラム数[/c]\n\n[c:2D2D2D]**なし**[/c]\n\n[c:8C8C8C]欠損値[/c]\n\n[c:2D2D2D]**disease (0/1)**[/c]\n\n[c:8C8C8C]目的変数[/c]\n\n[c:A0332E]**特徴量選定**[/c]\n\n[c:2D2D2D]**全カラム（12列）**[/c]\n\n[c:5C5C5C]id / Age / Gender\nT_Bil / D_Bil / ALP\nALT_GPT / AST_GOT\nTP / Alb / AG_ratio\ndisease[/c]\n\n[c:FFFFFF]**特徴量\n選定**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:2D2D2D]**選択特徴量（10列）**[/c]\n\n[c:4A4A4A]Age / Gender\nT_Bil / D_Bil / ALP\nALT_GPT / AST_GOT\nTP / Alb / AG_ratio[/c]\n\n[c:A0332E]**除外（1列）**[/c]\n\n[c:5C5C5C]id\n（identifier_like_name）[/c]",
+   "label": "slide5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## スライド 6\n\n[c:2D2D2D]**5. モデル比較結果**[/c]\n\n[c:8C8C8C]Leaderboard上位6モデルの比較（F1-macroおよびAccuracy）[/c]\n\n| [c:FFFFFF]**Rank**[/c] | [c:FFFFFF]**モデル種別**[/c] | [c:FFFFFF]**F1-macro**[/c] | [c:FFFFFF]**Accuracy**[/c] |\n|---|---|---|---|\n| [c:A0332E]**1**[/c] | [c:A0332E]**hist_gradient_boosting**[/c] | [c:A0332E]**0.8292**[/c] | [c:A0332E]**0.8329**[/c] |\n| [c:4A4A4A]2[/c] | [c:4A4A4A]hist_gradient_boosting[/c] | [c:4A4A4A]0.8278[/c] | [c:4A4A4A]0.8314[/c] |\n| [c:4A4A4A]3[/c] | [c:4A4A4A]hist_gradient_boosting[/c] | [c:4A4A4A]0.8219[/c] | [c:4A4A4A]0.8257[/c] |\n| [c:4A4A4A]4[/c] | [c:4A4A4A]random_forest[/c] | [c:4A4A4A]0.8167[/c] | [c:4A4A4A]0.8186[/c] |\n| [c:4A4A4A]5[/c] | [c:4A4A4A]linear_baseline[/c] | [c:4A4A4A]0.7330[/c] | [c:4A4A4A]0.7357[/c] |\n| [c:4A4A4A]6[/c] | [c:4A4A4A]linear_baseline[/c] | [c:4A4A4A]0.7149[/c] | [c:4A4A4A]0.7300[/c] |\n\n[c:FFFFFF]**主要な知見**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● hist_gradient_boosting が上位3位を独占し、最高F1-macro=0.829を達成\n\n● random_forestは4位（F1=0.817）で非線形系の優位性を確認\n\n● 線形系（linear_baseline）はF1=0.73前後に留まり、非線形系との差は約0.1ポイント[/c]\n\n[c:A0332E]**データ分割**[/c]\n\n[c:FFFFFF]**Train：2,450件（70%）**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:FFFFFF]**Validation：350件（10%）**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:FFFFFF]**Test：700件（20%）**[/c]\n{shape-fill:#383838 黒}",
+   "label": "slide6",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## スライド 7\n\n[c:2D2D2D]**6. 最終モデル性能指標と中間段階との比較**[/c]\n\n[c:A0332E]非線形モデル採用により全指標で大幅向上[/c]\n\n| [c:FFFFFF]**指標**[/c] | [c:FFFFFF]**中間 (T04 linear)**[/c] | [c:FFFFFF]**最終 (hist_gradient_boosting)**[/c] | [c:FFFFFF]**改善幅**[/c] |\n|---|---|---|---|\n| [c:2D2D2D]**AUC-ROC**[/c] | [c:4A4A4A]0.825[/c] | [c:4A4A4A]0.905[/c] | [c:A0332E]**+0.080**[/c] |\n| [c:2D2D2D]**F1-macro**[/c] | [c:4A4A4A]0.733[/c] | [c:4A4A4A]0.829[/c] | [c:A0332E]**+0.096**[/c] |\n| [c:2D2D2D]**Accuracy**[/c] | [c:4A4A4A]0.736[/c] | [c:4A4A4A]0.833[/c] | [c:A0332E]**+0.097**[/c] |\n\n[c:2D2D2D]**中間段階 vs 最終モデル性能比較**[/c]",
+   "label": "slide7",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## スライド 8\n\n[c:2D2D2D]**7. 分析結果の解釈と仮定**[/c]\n\n[c:FFFFFF]**（B）解釈（Interpretation）**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]● AUC ≈ 0.905 は、学習データに基づく予測スコアの識別能力が高いことを示唆。ただし外部検証未実施のため、実運用での再現性は未確認\n\n● precision_at_top10pct が高い（0.97）ため、スコア上位ケースを優先的に介入対象とする業務ルール設計に利用可能\n\n● 医療運用では見逃し抑制（Recall）の優先が求められるため、閾値運用で Recall と Precision のトレードオフ調整が必要[/c]\n\n[c:FFFFFF]**（C）仮定（Assumptions）**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● disease の定義はカラム記載どおり（0/1）であり、その判定基準の病理学的詳細は本データに依存（契約前提）\n\n● 学習/検証法はランダムホールドアウト（validation_size=0.1）を採用。時系列バイアスは存在しない前提\n\n● 外部環境（施設間の採取条件差等）により分布が変動する可能性あり。単一施設データのみ使用のため一般化には追加検証が必要[/c]\n\n[c:A0332E]重要：本モデルの内部検証結果は良好であるが、実運用化には外部検証（別施設・別時期データ）による再確認が必須である。また、閾値の設定によりRecallとPrecisionのバランスを業務要件に合わせて調整する必要がある。[/c]\n\n| [c:FFFFFF]**指標**[/c] | [c:FFFFFF]**値**[/c] |\n|---|---|\n| [c:4A4A4A]Accuracy[/c] | [c:4A4A4A]0.8329[/c] |\n| [c:4A4A4A]F1-macro[/c] | [c:4A4A4A]0.8292[/c] |\n| [c:4A4A4A]AUC-ROC[/c] | [c:4A4A4A]0.9053[/c] |\n| [c:4A4A4A]Brier Score[/c] | [c:4A4A4A]0.1228[/c] |\n| [c:4A4A4A]Precision@10%[/c] | [c:4A4A4A]0.9714[/c] |\n\n[c:4A4A4A]最終モデル設定\n● モデル種別: hist_gradient_boosting\n● learning_rate=0.03, max_depth=4, max_iter=400\n● 分割: train=2450 / val=350 / test=700[/c]",
+   "label": "slide8",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## スライド 9\n\n[c:2D2D2D]**8. 業務提言（概要）**[/c]\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:2D2D2D]**閾値運用の導入案**[/c]\n\n[c:FFFFFF]短期[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]スコア上位10%を「重点フォロー」対象とし、臨床確認フローを設計[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:2D2D2D]**運用前パイロット**[/c]\n\n[c:FFFFFF]必須[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]外部検証/パイロット（数ヶ月）での精度・業務負荷・臨床受容性を評価[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:2D2D2D]**前処理・品質管理**[/c]\n\n[c:FFFFFF]短期[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]入力データの妥当性チェックと外れ値照会プロセスの構築[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:2D2D2D]**ガバナンスと説明責任**[/c]\n\n[c:FFFFFF]短期[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]「判定支援材料」の明文化と内部承認ルートの確立[/c]\n\n[c:FFFFFF]**5**[/c]\n{shape-fill:#383838 黒}\n\n[c:2D2D2D]**継続的評価設計**[/c]\n\n[c:FFFFFF]中期[/c]\n{shape-fill:#383838 黒}\n\n[c:4A4A4A]3ヶ月毎のモデル精度モニタリングとドリフト検知の設計[/c]",
+   "label": "slide9",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 10,
+   "text": "## スライド 10\n\n[c:2D2D2D]**9. 業務提言 詳細（1/2）**[/c]\n\n[c:FFFFFF]**1. 閾値運用の導入案（短期運用）**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]● スコア上位（上位10%）を「重点フォロー」対象とし、臨床的確認フローを設計（precision_at_top10pct=0.97 を活用）\n\n● 業務要件として、閾値設定により Recall を 0.85 以上に維持する目標ラインを検討\n\n● 設定値により False Positive が増加するため、フロー内での二次確認（看護/検査医のレビュー）を必須化[/c]\n\n[c:FFFFFF]**2. 運用前パイロット（必須）**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● 外部検証ないし運用前パイロット（数ヶ月、実際受診データでのスコア運用）を実施し、精度・業務負荷・臨床受容性を評価\n\n● パイロットでは閾値別の運用影響を定量化\n  - 追加検査件数\n  - 誤検知による業務負荷\n  - 臨床受容性の評価[/c]\n\n[c:A0332E]**閾値運用フロー（想定）**[/c]\n\n[c:FFFFFF]**検査データ\n入力**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:FFFFFF]**スコア\n算出**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:FFFFFF]**閾値\n判定**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:FFFFFF]**上位10%\n抽出**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:FFFFFF]**二次確認\n（臨床）**[/c]\n{shape-fill:#383838 黒}\n\n[c:FFFFFF]**重点\nフォロー**[/c]\n{shape-fill:#383838 黒}\n\n[c:A0332E]目標：Recall ≥ 0.85 を維持しつつ、False Positive 増加に伴う追加検査コストを許容範囲内に抑制する[/c]",
+   "label": "slide10",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 11,
+   "text": "## スライド 11\n\n[c:2D2D2D]**10. 業務提言 詳細（2/2）**[/c]\n\n[c:FFFFFF]**3. 前処理・品質管理体制**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● 入力データの妥当性チェックステップを運用に組み込む\n  - 外れ値検知\n  - レンジチェック\n  - 臨床確認ワークフロー\n\n● 外れ値は自動除外せず、臨床窓口（柴田 室長）との照会プロセスを設ける[/c]\n\n[c:FFFFFF]**4. ガバナンスと説明責任**[/c]\n{shape-fill:#383838 黒}\n\n[c:4A4A4A]● 本分析は「判定支援材料」である旨を明文化し、内部承認ルート（医療情報分析室での承認）を確立\n\n● モデルの決定ロジック（重要特徴量、スコア算出の説明文）を運用担当者向けにドキュメント化[/c]\n\n[c:FFFFFF]**5. 継続的評価設計（中期）**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:FFFFFF]**モデル運用\n開始**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:FFFFFF]**3ヶ月毎\n精度監視**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:FFFFFF]**ドリフト\n検知**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:FFFFFF]**再学習\nトリガー**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:FFFFFF]**モデル\n更新**[/c]\n{shape-fill:#383838 黒}\n\n[c:8C8C8C]※ MLOps 基盤の導入は別途提案として実施（本プロジェクトのスコープ外）[/c]",
+   "label": "slide11",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 12,
+   "text": "## スライド 12\n\n[c:2D2D2D]**11. 実装・運用計画**[/c]\n\n[c:FFFFFF]**短期（0–3ヶ月）\n導入準備**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]● 閾値運用方針の最終合意\n  （Recall目標と業務受容範囲）\n● 運用・臨床確認フロー設計\n● データパイプライン簡易化\n  （CSV→検証スクリプト→スコア出力）\n● パイロット期間の定義[/c]\n\n[c:FFFFFF]**中期（3–6ヶ月）\nパイロット運用**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● パイロット実行\n● 運用ログ収集、精度評価\n  （外部データでの検証）\n● 業務負荷評価\n  （追加検査数、誤検知件数）\n● 閾値の最終チューニング[/c]\n\n[c:FFFFFF]**長期（6ヶ月～）\n本番化検討**[/c]\n{shape-fill:#383838 黒}\n\n[c:4A4A4A]● 本番システム連携\n  （要件定義→実装は別PJ）\n● モデルの再学習・監視設計\n  （MLOps、データ統合）\n● 継続的改善の KPI 設定\n● 報告体制の構築[/c]\n\n[c:A0332E]**担当体制**[/c]\n\n[c:4A4A4A]顧客側：医療情報分析室（柴田 室長）\n閾値合意、臨床フロー、パイロット評価[/c]\n\n[c:4A4A4A]受託者支援：データアステル\n設定支援・評価支援・技術コンサルティング[/c]\n\n[c:A0332E]留意：閾値や示唆はあくまで判定支援材料としての提案。臨床判断は常に医師に帰属。個人情報保護・アクセス制御は運用設計段階で必須。[/c]",
+   "label": "slide12",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 13,
+   "text": "## スライド 13\n\n[c:2D2D2D]**12. 制約事項と残余リスク**[/c]\n\n[c:FFFFFF]**制約（契約上の確定事項）**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● データは単一ファイル（train.csv）のみ\n● 欠損なしの前提で分析を実施\n● 期間：5週間\n● 想定工数：140時間[/c]\n\n[c:FFFFFF]**残余リスク（主要）**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]● 一施設データの一般化限界\n● 外れ値が入力誤りか臨床的正当かの判定困難\n● 閾値による業務負荷増大（誤検知増加）\n● スコープ拡張時は別途見積り必要[/c]\n\n[c:FFFFFF]**対策**[/c]\n{shape-fill:#383838 黒}\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]パイロット運用の実施で実運用影響を定量化[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]外れ値確認の臨床窓口（柴田 室長）との連携を必須化[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]変更管理チェックポイント（2025-09-19）同様のガバナンスを運用化[/c]",
+   "label": "slide13",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 14,
+   "text": "## スライド 14\n\n[c:2D2D2D]**13. 今後の拡張ロードマップ**[/c]\n\n[c:A0332E]**短期（0–3ヶ月）**[/c]\n\n[c:FFFFFF]優先度：高[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]● 運用パイロット実施（閾値テスト、業務負荷評価）\n\n● 入力データ妥当性チェック自動化（レンジチェック、外れ値アラート）\n\n● 閾値運用の SOP（業務手順書）作成[/c]\n\n[c:5C5C5C]**中期（3–9ヶ月）**[/c]\n\n[c:FFFFFF]優先度：中[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]● 外部データによる再評価（他院データまたは別時期のデータ）\n\n● モデルの定期的再学習体制（バッチ再学習の運用設計）\n\n● 簡易ダッシュボードでのモニタリング（スコア分布、ポストデプロイ検証）[/c]\n\n[c:383838]**長期（9–18ヶ月）**[/c]\n\n[c:FFFFFF]優先度：低[/c]\n{shape-fill:#383838 黒}\n\n[c:4A4A4A]● 本番連携（EHR連携、API化）およびMLOps基盤導入（別途契約）\n\n● 患者経過データ（時系列）を取り入れた予測精度向上（要追加データ）\n\n● 運用KPI（優先検査の陽性率、追加検査コスト）による効果測定とROI評価[/c]\n\n[c:A0332E]**拡張の優先付け基準**[/c]\n\n[c:5C5C5C]**患者安全性\nへの影響度**[/c]\n\n[c:5C5C5C]**業務負荷の\n増加幅**[/c]\n\n[c:5C5C5C]**追加コスト\n見積り**[/c]\n\n[c:5C5C5C]**臨床\n受容性**[/c]",
+   "label": "slide14",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 15,
+   "text": "## スライド 15\n\n[c:2D2D2D]**14. 成果物サマリ**[/c]\n\n| [c:FFFFFF]**成果物**[/c] | [c:FFFFFF]**ステータス**[/c] | [c:FFFFFF]**参照パス**[/c] |\n|---|---|---|\n| [c:4A4A4A]プロジェクト概要書[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]本書[/c] |\n| [c:4A4A4A]分析計画書[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]提出済[/c] |\n| [c:4A4A4A]データ理解レポート[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]提出済[/c] |\n| [c:4A4A4A]中間報告書（M02）[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]artifacts/reports/報告資料_2025-09-16.md[/c] |\n| [c:4A4A4A]最終報告書[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]本書[/c] |\n| [c:4A4A4A]会議議事録（M01）[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]artifacts/meeting_minutes/会議録_2025-09-02.md[/c] |\n| [c:4A4A4A]会議議事録（M02）[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]artifacts/meeting_minutes/会議録_2025-09-16.md[/c] |\n| [c:4A4A4A]分析実行アーティファクト[/c] | [c:2D7D2D]**納品済**[/c] | [c:4A4A4A]artifacts/analysis_outputs/（run_summary.json、metrics.json、leaderboard.json）[/c] |\n\n[c:8C8C8C]納品物は、契約に定める内容（第4条 成果物）に準拠している。すべての成果物は「disease の定義」「id の除外」「train.csv を単一ソース」といった基準に従って一貫記載している。[/c]",
+   "label": "slide15",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 16,
+   "text": "## スライド 16\n\n[c:2D2D2D]**15. 提案・契約との差分管理（1/2）**[/c]\n\n| [c:FFFFFF]**項目**[/c] | [c:FFFFFF]**差分**[/c] | [c:FFFFFF]**変更理由**[/c] | [c:FFFFFF]**承認トレース**[/c] |\n|---|---|---|---|\n| [c:4A4A4A]成果物[/c] | [c:4A4A4A]なし[/c] | [c:4A4A4A]契約定義の成果物を全て納品済[/c] | [c:4A4A4A]Contract 第4条[/c] |\n| [c:4A4A4A]スコープ[/c] | [c:A0332E]**モデル種別 進化あり**[/c] | [c:4A4A4A]線形系（T01-T05）→非線形系（hist_gradient_boosting）へ。スコープ内の分析アプローチ最適化に該当[/c] | [c:4A4A4A]M02議事録 (2025-09-16)[/c] |\n| [c:4A4A4A]KPI/受入基準[/c] | [c:4A4A4A]なし[/c] | [c:4A4A4A]提案段階のKPI指標（ROC-AUC、Accuracy等）を維持[/c] | [c:4A4A4A]Proposal KPI定義 Contract 第4.1[/c] |\n| [c:4A4A4A]契約形態 支払条件[/c] | [c:4A4A4A]なし[/c] | [c:4A4A4A]T&M、最終一括精算、実績工数に基づく[/c] | [c:4A4A4A]Contract 第6条[/c] |\n\n[c:A0332E]**商業情報（確定値）**[/c]\n\n| [c:FFFFFF]**項目**[/c] | [c:FFFFFF]**値**[/c] |\n|---|---|\n| [c:4A4A4A]実績工数[/c] | [c:4A4A4A]140時間[/c] |\n| [c:4A4A4A]契約時時間単価[/c] | [c:4A4A4A]25,000 JPY/時間[/c] |\n| [c:4A4A4A]最終請求金額（税抜）[/c] | [c:4A4A4A]3,500,000 JPY[/c] |\n| [c:4A4A4A]消費税額（10%）[/c] | [c:4A4A4A]350,000 JPY[/c] |\n| [c:A0332E]**最終請求金額（税込）**[/c] | [c:A0332E]**3,850,000 JPY**[/c] |\n\n[c:4A4A4A]請求トリガー：最終成果物の検収完了後\n支払期日基準：2025-10-07\n計算根拠：Contract 第6条、税率10%\n工数記録：乙作成の工数表を根拠として甲へ提出[/c]",
+   "label": "slide16",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 17,
+   "text": "## スライド 17\n\n[c:2D2D2D]**16. 提案・契約との差分管理（2/2）**[/c]\n\n[c:A0332E]**変更管理の履歴**[/c]\n\n[c:A0332E]**2025-09-02**[/c]\n\n[c:2D2D2D]**M01 キックオフ**[/c]\n\n[c:4A4A4A]スコープと前提の確定[/c]\n\n[c:8C8C8C]artifacts/meeting_minutes/\n会議録_2025-09-02.md[/c]\n\n[c:5C5C5C]**2025-09-16**[/c]\n\n[c:2D2D2D]**M02 中間レビュー**[/c]\n\n[c:4A4A4A]線形系の閾値調整効果を確認。性能向上により非線形系の試行を継続する方針決定[/c]\n\n[c:8C8C8C]artifacts/meeting_minutes/\n会議録_2025-09-16.md\nartifacts/reports/\n報告資料_2025-09-16.md[/c]\n\n[c:383838]**2025-09-19**[/c]\n\n[c:2D2D2D]**変更管理CP**[/c]\n\n[c:4A4A4A]追加要求等の有無を判定するチェックポイント[/c]\n\n[c:8C8C8C]Project schedule\nドキュメント[/c]\n\n[c:A0332E]モデル種別の変遷：線形系モデル群（T01-T05、f1_macro ≈ 0.733、AUC ≈ 0.825）→ hist_gradient_boosting（f1_macro = 0.829、AUC = 0.905）へ。\nこれは「スコープ内の分析アプローチ最適化」に該当し、追加スコープ請求を伴わない通常の手戻り改善として実施。中間レビュー（M02）で方針共有後、最終報告段階で運用案と合わせて提示。[/c]",
+   "label": "slide17",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 18,
+   "text": "## スライド 18\n\n[c:2D2D2D]**17. 総括**[/c]\n\n[c:2D2D2D]本プロジェクトは、提案・契約どおりの期間内に分析基盤および初期モデルを整備し、判定支援として実用性のある示唆（閾値運用案、運用前パイロット設計、データ品質管理方針）を提示した。[/c]\n\n[c:A0332E]**主要な成果と今後の方向性**[/c]\n\n[c:FFFFFF]**内部検証結果**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:4A4A4A]良好。スコア上位の患者を優先的にフォローする運用に即した施策が実行可能である。[/c]\n\n[c:FFFFFF]**実運用化の条件**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:4A4A4A]外部検証やパイロットによる再確認、運用フローの整備が必須である。[/c]\n\n[c:FFFFFF]**推奨アクション**[/c]\n{shape-fill:#383838 黒}\n\n[c:4A4A4A]運用パイロット→評価→本番化の順で進めることを推奨する。[/c]\n\n[c:A0332E]**推奨する次のステップ**[/c]\n\n[c:FFFFFF]**運用パイロット\n実施**[/c]\n{shape-fill:#A0332E 赤}\n\n[c:FFFFFF]**精度・業務負荷\n評価**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:FFFFFF]**閾値最終\nチューニング**[/c]\n{shape-fill:#5C5C5C グレー}\n\n[c:FFFFFF]**本番化検討**[/c]\n{shape-fill:#383838 黒}\n\n[c:8C8C8C]ご不明点や追加の検証依頼があれば、会議にてご指示ください。[/c]",
+   "label": "slide18",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_slides": 18,
+  "n_pictures": 0,
+  "n_charts": 0,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

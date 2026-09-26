@@ -1,0 +1,31 @@
+{
+ "doc_id": "336ef580b9df",
+ "relpath": "社内管理/データアステル社内規定_パスワード導出規則.docx",
+ "mount": "",
+ "project": null,
+ "category": "社内管理",
+ "filetype": "docx",
+ "md5": "d93ae608aae2e08a53dcf9bc69848c0a",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[ページ情報] 全1ページ（Word で組版して確定）\n  p1: データアステル社内規定_パスワード導出規則\n\n**データアステル社内規定_パスワード導出規則**\n\n**1. 目的**\n\n案件フォルダ内の一部保護ファイルについて、社内規定に基づく共通ルールでパスワードを導出できるようにする。\n\n**2. パスワード導出の基本形式**\n\nパスワードは次の形式で構成する。\n\nDA-[案件略号]-[開始年月日8桁]-[拡張子コード]\n\n例:\n\nDA-AOMINE-20250806-xlsx\n\n**3. 案件略号一覧**\n\n社内用語集にて規定されている主略称を使用する\n\n**4. 補足**\n\n開始月日8桁 は、原則として契約開始日の YYYYMMDD を使う。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_tables": 0,
+  "n_comments": 0,
+  "n_charts": 0,
+  "page_state": "全1ページ（Word で組版して確定）",
+  "page_source": "word",
+  "page_note": "Word で組版",
+  "n_pages_detected": 1,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

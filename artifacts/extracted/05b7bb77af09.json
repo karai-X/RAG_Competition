@@ -1,0 +1,31 @@
+{
+ "doc_id": "05b7bb77af09",
+ "relpath": "プロジェクト/株式会社青潮モビリティサービス/05.会議/報告資料/報告資料_2025-08-06.docx",
+ "mount": "",
+ "project": "株式会社青潮モビリティサービス",
+ "category": "05.会議",
+ "filetype": "docx",
+ "md5": "5a96b972392dc6f6af2f1258c37a68e8",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[ページ情報] 全8ページ（Word が記録した改ページ位置から確定）\n  p1: 分析進捗報告書 / 1. 報告サマリー / 2. 進捗状況\n  p2: 3. 主要な分析結果\n  p3: trial_index 3 (T03: hist_gradient_boosting)\n  p4: 4. データ品質と実装状況 / 5. リスクと対応策\n  p5: 6. 次回までの実施事項\n  p6: 7. 経営/PM向け補足\n  p7: 消費税額: 425,000 JPY\n  p8: 以上。\n\n## 分析進捗報告書\n\n### 1. 報告サマリー\n\nチェックポイント: M02（中間報告）\n\n\n会議日: 2025-08-06\n\n\n報告対象期間: 2025-07-23 〜 2025-08-06\n\n\nフェーズ（Report facts JSON.analysis.checkpoint_stage準拠）: interim（中間分析フェーズ）\n\n\n本報告の要旨: Week3ゲート（初期EDA、定義差異確認、ベースライン評価の共有）。可視化された最初の実験群（trial_index 1〜5）についての評価結果を踏まえ、前処理定義の最終化、改善方針の承認、次フェーズに向けた追加確認事項の整理を行う。\n\n### 2. 進捗状況\n\n進捗ステータス（フェーズ分類に対する到達度）\n\n立上げ・定義確認（Week1）: 実施済み（キックオフ完了、readme/会議録格納）。ただし yr / workingday の定義差異確認（A02）は進行中。\n\n\n前処理設計・ベースライン構築（Week2）: ベースラインおよび初期改善試行は実施済み（可視試行 T01〜T05 が作成・評価済み）。\n\n\n中間報告ゲート（Week3 / 本チェックポイント）: M02 実施（本会議）。\n\n\nオープンアクション（Report facts JSON.prior_state）\n\n==未完了のアクション数: 7 件=={紫}（open_action_count: 7）。主要な未完了/進行中のアクション：\n\nA02: yr / workingday の定義差異確認メモ作成（担当: 鈴木 美咲） — ステータス: 進行中（期限 2025-07-28、未完了）\n\n\nA03: データ品質確認（欠損・型・値域・分布）報告（担当: 木村 拓海） — 未着手（期限 2025-07-28）\n\n\nA04: 初期EDA（時間帯・曜日・天候別の基本図表）作成（担当: 鈴木 美咲） — 未着手（期限 2025-07-29）\n\n\nA05, A06, A07, A08：課題管理表作成、クライアント定義確認、M02 招集等 — 未着手／未完了\n\n追跡: 上記は課題管理表で継続追跡中（課題管理責任者: 伊藤 翔太）。\n\n### 3. 主要な分析結果\n\n※以下は Report facts JSON.analysis.visible_trials および best_visible_trial に明示された試行のみを引用しています（interimルール準拠）。\n\n可視化された試行（trial_index 1〜5）の主要評価指標（primary_metric = rmse, secondary_metric = r2）\n\ntrial_index 1 (T01: linear_baseline)\n\nrmse: 110.22688678662972\n\n\nr2: 0.1477966616453773\n\n\nselected_feature_count: 18\n\ntrial_index 2 (T02: cyclical_linear)\n\nrmse: 98.66228145583482\n\n\nr2: 0.31723624887425317\n\n\nselected_feature_count: 30\n\ntrial_index 3 (T03: hist_gradient_boosting)\n\nrmse: 55.23483509433762\n\n\nr2: 0.786009609330959\n\n\nselected_feature_count: 30\n\ntrial_index 4 (T04: log_target_hist_gradient_boosting) — best_visible_trial（現時点の可視範囲で最良）\n\nrmse: 46.9838340445052\n\n\nr2: 0.8451664555487036\n\n\ntransform_target: log1p\n\n\nselected_feature_count: 30\n\ntrial_index 5 (T05: configured_default = random_forest)\n\nrmse: 58.25206175356564\n\n\nr2: 0.7619924408084585\n\n\nselected_feature_count: 18\n\n実務上のポイント（分析チーム観点）\n\n単純線形モデル（T01）から「周期エンコーディングを追加した線形」（T02）で改善が確認でき、その後の非線形手法（T03/T05）で大幅な改善が見られています。可視範囲内では「対数変換（log1p）＋HistogramGB」（T04）が最良の検証結果を示しています（rmse=46.98, r2=0.845）。\n\n\n選択された説明変数数は最大で 30（excluded_feature_count = 1）で、日付由来・周期特徴量を多く含む構成が採用されています。\n\n\n現時点の試行は中間段階の評価結果であり、過学習・時系列外挿性の検証（外部期間での堅牢性確認）は今後の作業で必要です。\n\n参照成果物\n\n実験・評価の詳細は artifacts/analysis_outputs/ に保存（run_summary.json、metrics.json、leaderboard 等）。Trace 情報: Report facts JSON.trace.source_files を参照。\n\n### 4. データ品質と実装状況\n\nデータ読み込み・前処理状況\n\n入力ファイル（data/train.tsv）の読み込みと前処理パイプラインは実行済みで、実験群（T01〜T05）は上述の設定（date features, cyclical features, transform_target 等）で構築・評価済みです（analysis.run_summary に設定情報あり）。\n\n\nデータ品質の未解決点（要対応）\n\nyr / workingday の定義不整合: A02（進行中）を完了し、前処理仕様へ反映する必要あり。これが未確定のまま前処理を固定すると、曜日/平日フラグ起因の特徴解釈に誤差が残るリスクがあります。\n\n\n詳細な欠損・分布レポート（A03）および初期EDA図表（A04）は未提出・未着手のため、EDAベースの解釈は限定的です。metrics.json 内の eda_summary は生成されていますが、ビジネス合意用の解釈図表はまだ整備中です。\n\n\n注意（数値補足）\n\n学習データの行数（8,645行）はプロジェクト概要に記載がありますが、当該数値は本報告の主出典（Report facts JSON）内に明示されていないため「assumption（仮置き）」として扱います。正式なデータ件数は A03 の品質報告で再確認してください。\n\n### 5. リスクと対応策\n\n主要リスク（現フェーズでの優先度高）\n\nデータ定義不整合リスク（高）\n\n根拠: yr / workingday の辞書と実データの差異が確認されている（M01議事録・A02）。\n\n\n影響: 前処理/特徴量設計の誤り、モデル解釈の齟齬。\n\n\n対策: A02 を優先完了 → 前処理仕様へ反映（担当: 鈴木 / 木村）。クライアント側での定義確認（A06: 高山）を催促。MS2（2025-07-29）相当のゲート完了を確認。\n\n外生要因依存／汎化性リスク（中）\n\n根拠: 気象・祝日等の影響が大きい想定。現行データ範囲での偏りがある場合、外挿性が低下する。\n\n\n対策: 時系列交差検証・外部期間での妥当性確認を追加で実施。結果の解釈条件を成果物に明記。\n\n\nスコープ／スケジュールリスク（中）\n\n根拠: Week3 中間での追加要求や定義修正が後工程に波及する可能性。\n\n\n対策: 変更管理ポリシー（T19）に従い、スコープ外作業は別途見積。リスクバッファを活用。\n\n### 6. 次回までの実施事項\n\n優先タスク（M02 → 次フェーズに向けて必須）\n\nA02 の完了（yr / workingday 定義差異確認メモ提出） — 担当: 鈴木 美咲 — 状況: 進行中（未完了）\n\n\nA03 の実施・提出（データ品質確認レポート） — 担当: 木村 拓海 — 状況: 未着手\n\n\nA04 の実施・提出（初期EDA 図表: 時間帯/曜日/天候別） — 担当: 鈴木 美咲 — 状況: 未着手\n\n\nA06（クライアント側）: workingday / holiday の業務定義確認 — 担当: 高山 拓海（クライアント） — 状況: 未着手（要催促）\n\n\nA08 の反映（定義差異を前処理仕様へ反映） — 担当: 木村 / 鈴木 — 状況: 未着手\n\nモデル・分析面の次アクション\n\n可視試行の結果を踏まえ、T04 の手法（log1p + HistGB）を更に安定化させるため、以下を実施予定（スケジュール T13/T14 相当）:\n\n時系列外挿（ホールドアウト期間）での性能確認、パラメータ微調整、特徴量重要度の業務解釈（可視化）\n\n\n最終報告に向けて、業務示唆（運用インパクト、追加データ要件）を 3 点以上取りまとめる（T16）。\n\n次回主要マイルストーン（参照）\n\nMS5（改善モデル・業務示唆整理完了）: 2025-08-19（予定）\n\nMS8（最終報告・検収会 / M03）: 2025-08-26\n\n### 7. 経営/PM向け補足\n\n商務（Report facts JSON.commercial / Project facts）の要点\n\n契約形態: time_and_materials\n\n\n想定総工数: 170 時間（project_facts）\n\n\n時間単価: 25,000 JPY / 時間（project_facts）\n\n\n==見込金額（税抜）: 4,250,000 JPY=={緑}\n\n\n消費税額: 425,000 JPY\n\n\n==見込金額（税込）: 4,675,000 JPY=={黄}\n\n\n支払スケジュール: 最終一括精算（検収完了後5営業日以内） — 金額は上記（Report facts JSON に合致）\n\n要決裁/承認依頼（現時点での経営/PM判断を要する事項）\n\nクライアント側での workingday / holiday の公式定義の承認（A06） — 早期確認要請。\n\n\n中間で提示した改善方針（T04 を踏まえた追加実験）についての継続実施の承認（追加データ取得やスコープ変更が発生する場合は別途見積）。\n\n\n次フェーズ（最終報告まで）の品質ゲートとして、A02/A03/A04 の完了を MS5 進行条件とする提案（推奨）。\n\n現時点での評価サマリ（短文）\n\n中間段階の可視試行では、対数変換＋HistogramGB（T04）が可視範囲で最も良好な性能を示しています（rmse=46.9838, r2=0.8452）。ただし、yr/workingday の定義不整合対応および追加のEDA確認が完了していないため、業務導入に向けた最終的な安定性評価・運用基準は未確定です。\n\n参照・証跡\n\n会議計画: artifacts/04a_meeting_plan.csv\n\n\nM01 会議録: artifacts/meeting_minutes/会議録_2025-07-23.md\n\n\n分析出力（試行・メトリクス）: artifacts/analysis_outputs/run_summary.json, artifacts/analysis_outputs/metrics.json, artifacts/analysis_outputs/experiments/leaderboard.json\n\n以上。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_tables": 0,
+  "n_comments": 0,
+  "n_charts": 0,
+  "page_state": "全8ページ（Word が記録した改ページ位置から確定）",
+  "page_source": "word_record",
+  "page_note": "",
+  "n_pages_detected": 8,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

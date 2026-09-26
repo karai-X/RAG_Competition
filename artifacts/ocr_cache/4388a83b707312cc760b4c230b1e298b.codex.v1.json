@@ -1,0 +1,13 @@
+{
+ "md5": "4388a83b707312cc760b4c230b1e298b",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "タイトル：欠損率 上位20列\n\n横軸ラベル：欠損率(%)\n\n横軸目盛り：-0.04、-0.02、0.00、0.02、0.04\n\n縦軸ラベル：列名\n\n縦軸項目（上から順）：\n\n1. index\n2. Pregnancies\n3. Glucose\n4. BloodPressure\n5. SkinThickness\n6. Insulin\n7. BMI\n8. DiabetesPedigreeFunction\n9. Age\n10. Outcome",
+ "figure_description": "横棒グラフ形式。タイトルは「欠損率 上位20列」。横軸は「欠損率(%)」で、表示されている目盛りは左から -0.04、-0.02、0.00、0.02、0.04。縦軸は「列名」で、項目は上から index、Pregnancies、Glucose、BloodPressure、SkinThickness、Insulin、BMI、DiabetesPedigreeFunction、Age、Outcome。凡例はない。縦横に灰色のグリッド線がある。データを示す棒、点、数値ラベルは表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 25.11,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell8_img2.png"
+}

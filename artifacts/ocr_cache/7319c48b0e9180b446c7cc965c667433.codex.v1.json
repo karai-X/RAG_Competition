@@ -1,0 +1,13 @@
+{
+ "md5": "7319c48b0e9180b446c7cc965c667433",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "# **データ分析プロジェクト提案書**\n\n---\n\n従業員離職（Attrition）の要因特定とデータ主導型人事施策の基盤構築\n\n**株式会社青葉バイオメディカル機器 人事本部 人材戦略部 御中**  \n**株式会社データアステル データサイエンス部**",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 14.53,
+ "source": "プロジェクト/株式会社青葉バイオメディカル機器/00.提案/提案書.pdf p1"
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "b6dc8093e177cea4efbf473351313aa2",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "図表",
+ "markdown": "BIZ UDPゴシック\n\n# **最良モデルの最終評価（metrics.json）**\n\n> **検証手法：Time-ordered split**  \n> **（train: 6052 / val: 864 / test: 1729）**\n\n[c:暗赤色]**RMSE = 46.9838**[/c]\n\n[c:暗赤色]**MAE = 29.6041**[/c]\n\n[c:暗赤色]**R2 = 0.8452**[/c]\n\n**示唆：平均利用者数（約144人）に対し、RMSE約47は全体傾向を捉える初期モデルとして十分な業務的価値を持つ。**\n\n図形の塗り：左側の評価情報全体を囲む長方形は薄い灰色。検証手法欄、評価指標欄、示唆欄は灰色の枠線で囲まれている。",
+ "figure_description": "右側に横棒グラフがある。モデル別の評価値を比較しており、縦方向の項目は上から「HistGB」「HistGB variant」「Random Forest」「Extra Trees」。横軸・縦軸の軸ラベルはない。横軸には目盛線と縦グリッド線があるが、数値の目盛りラベルはない。凡例はない。読み取れる値は、HistGBが0.845、HistGB variantが0.786、Random Forestが0.764、Extra Treesが0.729。各値は棒の内部と右端の外側に同じ数値が1回ずつ表示されている。HistGBの棒は暗赤色で、棒内部の「0.845」は白色、棒の右側の「0.845」は暗赤色。HistGBの項目名も暗赤色。HistGB variant、Random Forest、Extra Treesの棒は灰色で、棒内部および棒の右側の数値は黒色。項目名と数値は太字。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 28.76,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/06.報告書/株式会社青潮モビリティサービス_最終報告.pdf p5"
+}

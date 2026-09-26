@@ -1,0 +1,126 @@
+{
+  "task_type": "regression",
+  "encoding": "utf-8-sig",
+  "target_column": "cnt",
+  "date_column": "dteday",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": true,
+  "model_type": "hist_gradient_boosting",
+  "model_params": {
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "max_iter": 400
+  },
+  "split_strategy": "time_ordered",
+  "transform_target": "log1p",
+  "validation_size": 0.1,
+  "early_stopping": {
+    "enabled": true,
+    "mode": "time_ordered_validation",
+    "iteration_key": "max_iter",
+    "best_iteration": 400,
+    "patience": 2,
+    "min_delta": 0.0,
+    "validation_history": [
+      {
+        "iteration": 66,
+        "metric": 78.15221570682678
+      },
+      {
+        "iteration": 132,
+        "metric": 61.77590985050635
+      },
+      {
+        "iteration": 198,
+        "metric": 56.52425551776796
+      },
+      {
+        "iteration": 400,
+        "metric": 54.586370819768554
+      }
+    ]
+  },
+  "early_stopping_patience": 2,
+  "row_count": 8645,
+  "feature_count": 30,
+  "train_rows": 6052,
+  "validation_rows": 864,
+  "test_rows": 1729,
+  "split_ordering_basis": "date_column:dteday",
+  "rmse": 46.9838340445052,
+  "mae": 29.604146561708138,
+  "r2": 0.8451664555487036,
+  "train_metrics": {
+    "rmse": 24.261303528435832,
+    "mae": 14.232235866579206,
+    "r2": 0.9675190985989859
+  },
+  "validation_metrics": {
+    "rmse": 25.506265959731532,
+    "mae": 16.87341391432056,
+    "r2": 0.9706314333786754
+  },
+  "eda_summary": {
+    "row_count": 8645,
+    "column_count": 15,
+    "target_column": "cnt",
+    "missing_ratio_top10": {
+      "id": 0.0,
+      "dteday": 0.0,
+      "season": 0.0,
+      "yr": 0.0,
+      "mnth": 0.0,
+      "hr": 0.0,
+      "holiday": 0.0,
+      "weekday": 0.0,
+      "workingday": 0.0,
+      "weathersit": 0.0
+    },
+    "target_dtype": "int64",
+    "target_unique": 585
+  },
+  "feature_selection": {
+    "selected_columns": [
+      "season",
+      "yr",
+      "mnth",
+      "hr",
+      "holiday",
+      "weekday",
+      "workingday",
+      "weathersit",
+      "temp",
+      "atemp",
+      "hum",
+      "windspeed",
+      "dteday_year",
+      "dteday_month",
+      "dteday_day",
+      "dteday_weekday",
+      "dteday_is_month_start",
+      "dteday_is_month_end",
+      "season_sin",
+      "season_cos",
+      "mnth_sin",
+      "mnth_cos",
+      "hr_sin",
+      "hr_cos",
+      "weekday_sin",
+      "weekday_cos",
+      "dteday_month_sin",
+      "dteday_month_cos",
+      "dteday_weekday_sin",
+      "dteday_weekday_cos"
+    ],
+    "excluded_columns": [
+      {
+        "column": "id",
+        "reason": "identifier_like_name"
+      }
+    ],
+    "categorical_unique_limit": 50
+  },
+  "selected_feature_count": 30,
+  "excluded_feature_count": 1
+}

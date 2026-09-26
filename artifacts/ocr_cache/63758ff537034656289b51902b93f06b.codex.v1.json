@@ -1,0 +1,13 @@
+{
+ "md5": "63758ff537034656289b51902b93f06b",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "タイトル：目的変数の分布\n\n縦軸：件数\n\n横軸：charges",
+ "figure_description": "縦棒グラフ。横軸ラベルは「charges」で、目盛りは「0」「1」「2」。縦軸ラベルは「件数」で、目盛りは「0」「200」「400」「600」「800」「1000」「1200」。凡例はない。濃い緑色の棒が3本あり、charges「0」の棒は1200を超え、charges「1」の棒は200、charges「2」の棒は200未満まで伸びている。各棒に数値ラベルは表示されていない。背景には灰色の横グリッド線がある。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 17.34,
+ "source": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell14_img3.png"
+}

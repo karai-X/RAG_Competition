@@ -1,0 +1,25 @@
+{
+ "doc_id": "f3d7063a5753",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/03.データ/カラム説明.md",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "03.データ",
+ "filetype": "md",
+ "md5": "cd3e90bc074c8ccbf708dede73793b26",
+ "pages": [
+  {
+   "no": 1,
+   "text": "カラム名,説明\nBOROUGH,\"A digit code for the borough the property is located in; in order these are Manhattan (1), Bronx (2), Brooklyn (3), Queens (4), and Staten Island (5).\"\nBLOCK; LOT,\"The combination of borough, block, and lot forms a unique key for property in New York City. Commonly called a BBL.\"\nBUILDING CLASS AT PRESENT and BUILDING CLASS AT TIME OF SALE,The type of building at various points in time. See the glossary linked to below.",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 440,
+  "n_lines": 4
+ },
+ "error": null,
+ "warnings": []
+}

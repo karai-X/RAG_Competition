@@ -1,0 +1,13 @@
+{
+ "md5": "3605ee990dd5ceaede536c184833d6f1",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "[c:灰色]\n- 説明変数は主にカテゴリ変数である点、Age/Education/Experience に順序性が想定される点は前提として共有済み（プロジェクト概要）。\n\n- 定量結果の有無と取り扱い\n\n  - 現状、実験結果・評価スコアは未提供のため、本報告では数値的なモデル評価は提示しない。今後の中間報告（M02）以降に、ベースライン結果や評価指標（主指標：Macro F1、補助指標：Accuracy 等）を提示予定。\n\n- 参照可能な実績（Traceability）\n\n  - 本レポートの現状判断は Report facts JSON の以下に基づく：analysis.checkpoint_stage = kickoff、analysis.results_visibility = no_model_results、prior_state.open_action_count = 0。スケジュール・WBS・会議計画は提供済みのスケジュール文書および meeting_plan に整合。\n\n[/c]\n\n[c:濃い灰色]データアステル-ドラフト[/c]（本文に重なって表示）\n\n[c:灰色]\n（注）初期データ件数や欠損件数等の具体値については原資料に記載があるものの、本チェックポイントの主要参照 JSON に当該数値が明示されていない場合は以下の手順で EDA により再確認し、数値は中間報告で検証のうえ提示する。具体的な欠損件数等を提示する場合は「assumption」表記で明示する（例：Major 欠損 112 件、Experience 欠損 55 件はプロジェクト概要に記載のため “assumption” として扱う）。\n\n## 4. データ品質と実装状況\n\n- データ品質（現時点の認識）\n\n  - カテゴリ中心の構造、順序カテゴリ（Age/Education/Experience）がある点は確認済み（設計前提）。\n\n  - センシティブ属性（Gender, Age, Country）は分析対象に含めるが、運用時の表現と利用制約を明確化する必要あり。\n\n  - 欠損対応方針（初期案）\n[/c]",
+ "figure_description": "",
+ "layout": "",
+ "confident": false,
+ "error": null,
+ "latency_sec": 74.35,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-08-18.pdf p3"
+}

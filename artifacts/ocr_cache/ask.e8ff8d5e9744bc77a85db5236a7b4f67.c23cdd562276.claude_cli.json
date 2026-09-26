@@ -1,0 +1,10 @@
+{
+ "md5": "e8ff8d5e9744bc77a85db5236a7b4f67",
+ "question": "画像に含まれている表の列名は何から何までありますか？",
+ "engine": "claude_cli",
+ "answer": "Attr1 から Attr64 まであります（Attr1〜Attr10、Attr11〜Attr20、…、Attr61〜Attr64 の各ブロックに分かれて配置されています）。各列には平均、標準誤差、中央値（メジアン）、最頻値（モード）、標準偏差、分散、尖度、歪度、範囲、最小、最大、合計、データの個数、最大値(1)、最小値(1)、信頼度(95.0%) の基本統計量が並んでいます。",
+ "evidence": "画像内の各ブロックの見出し行に Attr1〜Attr10、Attr11〜Attr20、Attr21〜Attr30、Attr31〜Attr40、Attr41〜Attr50、Attr51〜Attr60 が10列ずつ並び、最下段のブロックには Attr61〜Attr64 の4列のみが表示されていることから判断しました。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 16.74
+}

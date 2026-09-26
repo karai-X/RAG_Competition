@@ -1,0 +1,28 @@
+{
+ "doc_id": "c9c8f9218679",
+ "relpath": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png",
+ "mount": "",
+ "project": "白峰信用リスク評価株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "4009084a48809541e5b9616d8307d392",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png (2675x738) md5:4009084a — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\nカテゴリ特徴量の分布（上位3列）\n\nid の分布\n\nカテゴリ\n\ntrain_00000\ntrain_00001\ntrain_00002\ntrain_00003\ntrain_00004\ntrain_00005\ntrain_00006\ntrain_00007\ntrain_00008\ntrain_00009\n\n件数\n[図の説明] 横棒グラフ。図全体のタイトルは「カテゴリ特徴量の分布（上位3列）」、グラフのタイトルは「id の分布」。横軸ラベルは「件数」で、目盛りは 0.0、0.2、0.4、0.6、0.8、1.0。縦軸ラベルは「カテゴリ」で、上から train_00000、train_00001、train_00002、train_00003、train_00004、train_00005、train_00006、train_00007、train_00008、train_00009。全10本の横棒は青緑色で塗られ、いずれも件数 1.0 まで伸びている。凡例および棒上の数値ラベルはない。グラフの右側には大きな余白がある。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 2675,
+  "height": 738,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

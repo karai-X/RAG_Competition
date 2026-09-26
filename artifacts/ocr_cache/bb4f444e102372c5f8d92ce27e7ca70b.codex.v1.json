@@ -1,0 +1,13 @@
+{
+ "md5": "bb4f444e102372c5f8d92ce27e7ca70b",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "図表",
+ "markdown": "| 左側の枠 | 右側の枠 |\n|---|---|\n| **株式会社青潮モビリティサービス**<br>**（Data/Business Owner）**<br><br>担当窓口：高山 拓海 様<br><br>---<br><br>・データ供給・品質管理<br><br>・業務定義の公式管理（yr / workingday 等）<br><br>・日次予測データの検収および業務適用 | **株式会社データアステル**<br>**（Analytics/Model Owner）**<br><br>PM：伊藤 翔太 / リードDS：鈴木 美咲<br><br>---<br><br>・モデル保守・監視（SLAに基づく）<br>　※別途保守契約を推奨<br><br>・ドリフト検知時のリトレーニング<br><br>・精度異常時のトラブルシューティング |\n\n塗り：左右両方の枠内が薄い灰色。",
+ "figure_description": "左右に並ぶ2つの役割・責任分担図。左側は建物とデータベースのアイコンを伴う「株式会社青潮モビリティサービス（Data/Business Owner）」、右側はネットワークと歯車のアイコンを伴う「株式会社データアステル（Analytics/Model Owner）」。各枠は黒い輪郭線で囲まれ、見出し・担当者情報の下に横罫線があり、その下に箇条書きで担当内容が記載されている。軸、凡例、目盛り、数値ラベルはない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 20.21,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/06.報告書/株式会社青潮モビリティサービス_最終報告.pdf p12"
+}

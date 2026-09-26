@@ -1,0 +1,13 @@
+{
+ "md5": "0695c9bef485992dcd39b24a2f5fcd56",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "表",
+ "markdown": "列名とデータ型の一覧\n\n| 列名 | データ型 |\n|---|---|\n| index | int64 |\n| Pregnancies | int64 |\n| Glucose | int64 |\n| BloodPressure | int64 |\n| SkinThickness | int64 |\n| Insulin | int64 |\n| BMI | float64 |\n| DiabetesPedigreeFunction | float64 |\n| Age | int64 |\n| Outcome | int64 |",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 7.89,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/reports/figures/overview_schema.png"
+}

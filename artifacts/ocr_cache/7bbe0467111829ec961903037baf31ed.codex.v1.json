@@ -1,0 +1,13 @@
+{
+ "md5": "7bbe0467111829ec961903037baf31ed",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "### 左側グラフ\n\nSALE PRICE の分布\n\n件数\n\nSALE PRICE\n\n1e6\n\n### 右側グラフ\n\nSALE PRICE の対数分布\n\n件数\n\nlog1p(SALE PRICE)",
+ "figure_description": "横に並んだ2つのヒストグラムで、いずれも平滑化された分布曲線が重ねられている。凡例はない。\n\n【左側】\n種類：SALE PRICEのヒストグラムと分布曲線。\nタイトル：「SALE PRICE の分布」。\n横軸：「SALE PRICE」。目盛りは0、1、2、3、4、5で、軸右下に「1e6」と表示されている。\n縦軸：「件数」。目盛りは0、1000、2000、3000、4000、5000。\n棒は紫色で塗られ、黒色の枠線がある。分布曲線は濃い紫色。棒の最大値は約5000件で、SALE PRICEが0～1×10^6の範囲に多く集中している。右側に長い裾があり、5×10^6付近まで棒が続いている。\n\n【右側】\n種類：log1p(SALE PRICE)のヒストグラムと分布曲線。\nタイトル：「SALE PRICE の対数分布」。\n横軸：「log1p(SALE PRICE)」。目盛りは11.5、12.0、12.5、13.0、13.5、14.0、14.5、15.0、15.5。\n縦軸：「件数」。目盛りは0、500、1000、1500、2000。\n棒は薄いオレンジ色で塗られ、黒色の枠線がある。分布曲線はオレンジ色。13.4付近を中心に山があり、最大の棒は約2200件。表示範囲はおよそ11.5～15.5で、14.0付近に小さな盛り上がりが見られる。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 21.72,
+ "source": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/target_distribution.png"
+}

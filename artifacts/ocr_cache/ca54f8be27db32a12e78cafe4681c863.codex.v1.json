@@ -1,0 +1,13 @@
+{
+ "md5": "ca54f8be27db32a12e78cafe4681c863",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "欠損率 上位20項目\n\n欠損は確認されませんでした",
+ "figure_description": "欠損率の上位20項目を示すグラフ領域。中央に「欠損は確認されませんでした」と表示されており、軸ラベル・凡例・目盛り・数値はありません。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 7.7,
+ "source": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell8_img1.png"
+}

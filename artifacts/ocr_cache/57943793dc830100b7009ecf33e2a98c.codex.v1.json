@@ -1,0 +1,13 @@
+{
+ "md5": "57943793dc830100b7009ecf33e2a98c",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "- タイトル：欠損率 上位20列\n- 横軸ラベル：欠損率(%)\n- 縦軸ラベル：列名\n- 項目：\n  - Major\n  - Experience\n- 横軸目盛り：0.0、0.2、0.4、0.6、0.8、1.0",
+ "figure_description": "横向き棒グラフ。凡例はない。横軸は「欠損率(%)」で、目盛りは0.0、0.2、0.4、0.6、0.8、1.0。縦軸は「列名」で、「Major」と「Experience」が並ぶ。Majorの棒は濃い赤色で塗られ、1.0の目盛りの少し手前まで伸びている。Experienceの棒は薄いサーモン色で塗られ、0.4と0.6の目盛りの間まで伸びている。各棒の数値ラベルは表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 19.84,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+}

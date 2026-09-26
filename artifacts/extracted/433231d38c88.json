@@ -1,0 +1,81 @@
+{
+ "doc_id": "433231d38c88",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/05.会議/会議録/会議録_2025-10-29.pdf",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "05.会議",
+ "filetype": "pdf",
+ "md5": "0136aaed01ef4cffdbe6bfc95fe54f4e",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## ページ 1\n\n[c:0F4761]会議録[/c]\r\n[c:0F4761]1. 会議情報[/c]\r\n• 会議 ID: M02\r\n• 会議種別: 中間報告\r\n• 日時: 2025-10-29\r\n• 目的: EDA 前処理方針ベースライン評価結果を共有し、duration 含有/非含\r\n有の用途分離および説明性・監査観点の論点を整理する\r\n• 出席者:\r\no 京橋信用ソリューションズ株式会社：高橋 恒一（課長）\r\no 株式会社データアステル：佐藤 健一（PM）、鈴木 美咲（リード\r\nDS）、井上 里奈（BA）、斎藤 悠斗（データエンジニア）、池田 恒\r\n一（QA）\r\n[c:0F4761]2. 議題[/c]\r\n1. EDA・モデル比較結果（leaderboard.csv）結果の共有\r\n2. 前処理方針（pdays=-1 / unknown / duration 等）の最終化\r\n3. 比較対象モデルと最終評価軸の確定\r\n4. 追加確認事項の整理と最終報告への反映方針\r\n5. オープンアクション／リスク確認",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## ページ 2\n\n[c:0F4761]3. 主要議論[/c]\r\n• EDA／ベースライン結果（要旨）\r\no データ: 27,128 件、カラム 18\r\no 学習行数 train_rows=21,702、test_rows=5,426\r\no trial_index 1〜5 の比較結果では、random_forest が\r\nF1(macro)=0.71486、Accuracy=0.90527 で最良だったことを確認。\r\no artifacts/analysis_outputs/experiments/leaderboard.csv を参照し、\r\ntrial 比較結果を共有。\r\n• 前処理方針（特別値取扱い）\r\no pdays=-1 は「未連絡」の業務上有効値としてフラグ化／保持（欠損\r\n扱いしない）\r\no unknown は欠損ではなく独立カテゴリとして保持（補完しない）\r\no 決定根拠: 業務定義・EDA での有意差検証を踏まえた運用観点\r\n• duration の扱い（情報リーク懸念）\r\no 用途別にモデルを分離する方針で合意\r\n▪ 事前判断モデル（運用での接触先決定等）: duration を除外\r\n▪ 事後分析モデル（効果検証・深掘り）: duration を含有\r\no 監査・運用設計上、両系統を成果物で明確に区分・説明する運用が\r\n必要\r\n• 比較対象モデルと評価軸\r\no 比較対象モデル（合意）: ロジスティック回帰（説明性重視）、\r\nGradient Boosting（性能重視）、必要時ランダムフォレスト（補助）",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## ページ 3\n\no 最終評価軸（合意）: AUC、Precision@Top10%（業務 KPI）、\r\nCalibration（Brier score）、上位群契約率（業務指標）、過学習指標\r\n（学習/検証差）\r\n• 追加確認事項・最終報告反映方針\r\no EDA で抽出した論点（外れ値処理、変換方針、カテゴリ水準管理）\r\nを中間報告のフィードバックとして最終報告に反映する\r\no 再現手順・監査証跡（run 再現手順、成果物版管理）は必ず最終報告\r\nに同梱\r\n• ドキュメント／支払等の運用課題確認\r\no 単一正本登録、監査証跡台帳、着手金支払の状況を再確認（アクシ\r\nョン参照）\r\n[c:0F4761]4. 進捗サマリ[/c]\r\n• マイルストーン状況\r\no MS1（キックオフ）: 完了\r\no MS2（EDA 完了）: 完了（EDA 資料・metrics.json 出力）\r\no MS3（ベースライン評価）: 完了（ベースライン指標出力）\r\no MS4（中間報告）: 本会議にて実施・議論完了\r\n• 成果物（現物）\r\no artifacts/analysis_outputs/metrics.json、run_summary.json、\r\ntrain_preview.csv 等を出力済\r\n• 本会議での決着ポイント（要約）\r\no 前処理方針（pdays=-1 / unknown の扱い）を承認",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## ページ 4\n\no duration を用途別に分離（事前判断：非含有、事後分析：含有）で\r\n合意\r\no 比較モデル群と評価軸を確定し、最終評価の実行を指示\r\n[c:0F4761]5. 決定事項[/c]\r\n1. 前処理方針と特別値取扱いを承認する（pdays=-1 は未連絡フラグ／unknown\r\nは独立カテゴリとして保持）\r\no 承認者: 高橋 恒一（京橋信用ソリューションズ）\r\n2. duration の用途分離（事前判断モデル = 除外、事後分析モデル = 含有）を\r\n承認する。成果物では用途ごとにモデル・指標を分けて提示する。\r\no 承認者: 高橋 恒一\r\n3. 比較対象モデルと最終評価軸を確定する。比較モデル: ロジスティック回帰、\r\nGradient Boosting（必要時 RF）。評価軸: AUC、Precision@Top10%、Brier\r\n（Calibration）、上位群契約率、学習/検証差。\r\no 承認者: 高橋 恒一\r\n4. 追加確認事項（外れ値処理、変換方針、再現手順、監査証跡）の反映方針\r\nを確定し、最終報告に組み込む。\r\no 承認者: 高橋 恒一\r\n（変更: なし — prior の決定事項に対する変更は本会議で発生していない）\r\n[c:0F4761]6. アクションアイテム[/c]\r\n<u>ID Action Owner Due Date Status</u>\r\nA01 M01 議事\r\n録作成・配\r\n布（単一正\r\n本への登録\r\n佐藤 健一 2025-10-03 Open",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## ページ 5\n\n<u>ID Action Owner Due Date Status</u>\r\n含む）\r\nA02 単一正本\r\n（プロジェ\r\nクト概要\r\n書）を版管\r\n理リポジト\r\nリに登録\r\nし、アクセ\r\nス権・監査\r\n証跡台帳を\r\n初期化\r\n佐藤 健一 2025-10-03 Open\r\nA03 対象データ\r\n（data.csv\r\n）受領の最\r\n終記録およ\r\nび data.md \r\nの正式受領\r\n（署名/受\r\n領トレー\r\nス）\r\n斎藤 悠斗 / 井上\r\n里奈\r\n2025-10-02 Open\r\nA04 EDA 実行完\r\n了と EDA \r\nレビュー資\r\n料作成\r\n（EDA 結果\r\n・論点一覧\r\nを含む）\r\n— 完了登\r\n鈴木 美咲 / 井上\r\n里奈\r\n2025-10-14 Closed（完\r\n了）",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## ページ 6\n\n<u>ID Action Owner Due Date Status</u>\r\n録\r\nA05 pdays=-1、\r\nunknown カ\r\nテゴリ、\r\nduration\r\nの扱い方針\r\nを最終決定\r\nし中間報告\r\nで提示\r\n鈴木 美咲 2025-10-29 Closed（会議\r\n承認）\r\nA06 着手金請求\r\n・支払フォ\r\nロー（契約\r\n条件に基づ\r\nく請求書送\r\n付・経理確\r\n認）\r\n佐藤 健一 / 高橋\r\n恒一\r\n2025-10-08 Open\r\nA07 週次進捗・\r\nMS2・M02\r\nの会議招集\r\n（招待送付\r\n・アジェン\r\nダ確定）\r\n佐藤 健一 2025-10-03 Open\r\nA08 artifacts/ru\r\nn_summar\r\ny.json・\r\nmetrics.jso\r\nn の再現手\r\n順確認と出\r\n力保全（再\r\n斎藤 悠斗 2025-10-03 Open",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## ページ 7\n\n<u>ID Action Owner Due Date Status</u>\r\n現性トレー\r\nスの初期登\r\n録）\r\nA09 比較対象モ\r\nデルの最終\r\n実装・評価\r\n実行\r\n（LR/GBM/\r\n(必要\r\n時)RF）と\r\n確定評価軸\r\nでの出力を\r\n行う\r\n鈴木 美咲 2025-11-05 Open\r\nA10 中間報告の\r\n指摘事項を\r\n整理し、最\r\n終報告書へ\r\n反映する方\r\n針（反映優\r\n先度一覧と\r\n担当割当）\r\nを作成する\r\n井上 里奈 / 佐藤\r\n健一\r\n2025-10-31 Open\r\n• A04：完了理由 — EDA 実行とレビュー資料\r\n（metrics.json/run_summary.json 含む）を出力・提出したため完了扱い。\r\n• A05：完了理由 — 本会議で前処理方針（pdays=-1/unknown/duration 用途分\r\n離）を承認したため完了扱い。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## ページ 8\n\n[c:0F4761]7. リスクと懸念事項[/c]\r\n• R01: 着手金支払の遅延（A06 未解決）\r\no 影響: プロジェクト資金・スケジュールに影響の可能性\r\no 対応: 佐藤 / 高橋で経理フォローを継続（A06）\r\no 状況: Open\r\n• R02: 単一正本登録・監査証跡台帳未整備（A01/A02）\r\no 影響: 監査対応・文書整合性リスク\r\no 対応: 佐藤が優先で登録実施（A01/A02）\r\no 状況: Open\r\n• R03: 再現手順・出力保全未確定（A08）\r\no 影響: 監査証跡／再現性の担保に不足\r\no 対応: 斎藤が再現手順を登録（A08）\r\no 状況: Open\r\n• R04: 単一データソース依存によるモデルの説明力限界\r\no 影響: 業務判断の補完が必要（外部データがないため）\r\no 対応: 成果物で「補助的利用」である旨明記、追加データは変更管理\r\nで対応\r\no 状況: Mitigated（ドキュメントに注記）\r\n• R05: duration による情報リーク（残存リスク）\r\no 影響: 事前判断用途での過度な性能期待・運用混乱",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## ページ 9\n\no 対応: 用途別モデル分離を実施し、運用ガイドにて明確に制約記載\r\n（本会議で承認）\r\no 状況: Mitigated（方針承認で軽減）\r\n• R06: クラス不均衡による評価誤認（Accuracy 偏重）\r\no 影響: 業務価値の過大評価\r\no 対応: AUC・Precision@Top10%・Calibration 等の複合評価を最終軸\r\nに採用（決定）\r\no 状況: Mitigated（評価軸確定で対応）\r\n[c:0F4761]8. 次回会議計画[/c]\r\n• 次回主要会議: M03（最終報告・検収） — 予定日: 2025-11-11（確定）\r\n• 目的（次回）: 最終モデル評価の提示、最終報告書提出・検収、検収に伴う\r\n修正確認\r\n• 当面の中間チェックポイント:\r\no 2025-10-31: A10（最終報告反映方針）完了確認\r\no 2025-11-05: A09（比較モデル評価）完了・結果共有\r\no 2025-11-08〜11: QA 反映・最終資料整備（WBS のリスクバッファ期\r\n間）\r\n• 次回アジェンダ案: 最終モデル（用途別）結果、業務 KPI に基づく期待値提\r\n示、監査証跡/再現性パッケージ確認、検収手続き確認\r\n• 招集オーナー: 佐藤 健一（A07 での招集継続、未完）\r\n以上（配布用）",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_pages": 9,
+  "scanned_pages": [],
+  "n_styled_pages": 9
+ },
+ "error": null,
+ "warnings": []
+}

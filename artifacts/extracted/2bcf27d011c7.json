@@ -1,0 +1,28 @@
+{
+ "doc_id": "2bcf27d011c7",
+ "relpath": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png",
+ "mount": "",
+ "project": "青葉与信マネジメント株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "3ee4fac4047707b57b7d3590f51e9bec",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png (2674x726) md5:3ee4fac4 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n### 左グラフ\n\n- タイトル：term の分布 上位10カテゴリ\n- 縦軸：term\n- 横軸：件数\n- カテゴリ：\n  - 5 years\n  - 3 years\n- 横軸目盛り：0、2000、4000、6000、8000、10000、12000\n\n### 中央グラフ\n\n- タイトル：grade の分布 上位10カテゴリ\n- 縦軸：grade\n- 横軸：件数\n- カテゴリ：\n  - C5\n  - A5\n  - D4\n  - B2\n  - B1\n  - B4\n  - B3\n  - D3\n  - C2\n  - C4\n- 横軸目盛り：0、250、500、750、1000、1250、1500、1750\n\n### 右グラフ\n\n- タイトル：purpose の分布 上位10カテゴリ\n- 縦軸：purpose\n- 横軸：件数\n- カテゴリ：\n  - small_business\n  - major_purchase\n  - car\n  - medical\n  - house\n  - home_improvement\n  - other\n  - credit_card\n  - debt_consolidation\n- 横軸目盛り：0、2000、4000、6000、8000、10000\n[図の説明] 横棒グラフが3つ横並びで配置されている。凡例はない。全グラフの棒は緑色で塗られ、縦方向のグリッド線は薄い灰色。\n\n左は「term の分布 上位10カテゴリ」という横棒グラフ。横軸は「件数」で、表示目盛りは0、2000、4000、6000、8000、10000、12000。縦軸は「term」で、上から「5 years」「3 years」。各棒に数値ラベルはない。\n\n中央は「grade の分布 上位10カテゴリ」という横棒グラフ。横軸は「件数」で、表示目盛りは0、250、500、750、1000、1250、1500、1750。縦軸は「grade」で、上から「C5」「A5」「D4」「B2」「B1」「B4」「B3」「D3」「C2」「C4」。各棒に数値ラベルはない。\n\n右は「purpose の分布 上位10カテゴリ」という横棒グラフ。横軸は「件数」で、表示目盛りは0、2000、4000、6000、8000、10000。縦軸は「purpose」で、上から「small_business」「major_purchase」「car」「medical」「house」「home_improvement」「other」「credit_card」「debt_consolidation」。各棒に数値ラベルはない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 2674,
+  "height": 726,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

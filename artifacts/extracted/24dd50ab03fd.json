@@ -1,0 +1,28 @@
+{
+ "doc_id": "24dd50ab03fd",
+ "relpath": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/target_distribution.png",
+ "mount": "",
+ "project": "白峰信用リスク評価株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "826e463bbc2a6032b3949cd2ab1507f5",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/target_distribution.png (1025x726) md5:826e463b — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n目的変数の分布\n\n縦軸：件数\n\n横軸：クラス\n\nクラス 0：6988\n\nクラス 1：364\n[図の説明] 紫色で塗られた縦棒グラフ。タイトルは「目的変数の分布」。横軸ラベルは「クラス」で、目盛りは「0」「1」。縦軸ラベルは「件数」で、目盛りは「0、1000、2000、3000、4000、5000、6000、7000」。クラス0の紫色の棒は6988で、棒の上に「6988」と表示されている。クラス1の紫色の棒は364で、棒の上に「364」と表示されている。凡例はない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/target_distribution.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1025,
+  "height": 726,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,167 @@
+{
+ "doc_id": "4f7b14aa3ef8",
+ "relpath": "プロジェクト/株式会社青葉バイオメディカル機器/06.報告書/株式会社青葉バイオメディカル機器_最終報告.pptx",
+ "mount": "",
+ "project": "株式会社青葉バイオメディカル機器",
+ "category": "06.報告書",
+ "filetype": "pptx",
+ "md5": "dd041605db4e227e60ff471dda6a47e9",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## スライド 1\n\n[c:FFFFFF]**最終分析報告書**[/c]\n\n[c:F2F0ED]従業員離職要因分析および離職リスク検知 初期分析[/c]\n\n株式会社青葉バイオメディカル機器\n人事本部 人材戦略部\n\n[c:4A4A4A]プロジェクト期間：2025年6月23日 ～ 2025年7月28日（5週間）\n契約形態：Time and Materials\n目的変数：Attrition（従業員離職）[/c]\n\n735行 × 33列\n対象データ\n\n[c:6B6B6B]2025年7月28日 最終成果物提出[/c]",
+   "label": "slide1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## スライド 2\n\n[c:6B6B6B]対象データ[/c]\n\n[c:8B3A2F]**735行 × 33列**[/c]\n\n[c:4A4A4A]欠損値：全列0件[/c]\n\n[c:6B6B6B]目的変数[/c]\n\n[c:8B3A2F]**Attrition**[/c]\n\n[c:4A4A4A]Yes / No の二値分類[/c]\n\n[c:6B6B6B]モデル手法[/c]\n\n[c:8B3A2F]**Extra Trees**[/c]\n\n[c:4A4A4A]n_estimators=500, max_depth=10[/c]\n\n**モデル評価指標**\n\n[c:6B6B6B]Accuracy[/c]\n\n**0.8231**\n\n[c:6B6B6B]F1-macro[/c]\n\n**0.6525**\n\n[c:6B6B6B]ROC-AUC[/c]\n\n**0.7121**\n\n[c:6B6B6B]Brier Score[/c]\n\n**0.1508**\n\n[c:6B6B6B]Precision@Top10%[/c]\n\n**0.4667**\n\n[c:6B6B6B]特徴量数[/c]\n\n**36**\n\n[c:6B6B6B]※ 除外特徴量：id（1列のみ）  |  定数列：Over18, StandardHours  |  検証サイズ：0.1（random_holdout）[/c]\n\n**1. エグゼクティブサマリ — 確認済み事項**",
+   "label": "slide2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## スライド 3\n\n[c:FFFFFF]**業務成果**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]離職傾向の全体像を、属人的判断ではなくデータに基づいて説明可能な状態にした[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]報酬水準、働き方、所属・職務、勤続・昇進、満足度・関係性を優先論点として整理した[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]集計ベース・セグメントベースの示唆整理方針を確立した[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]属性利用に関する公平性配慮、対象外利用、因果誤認防止の運用前提を整備した[/c]\n\n[c:FFFFFF]**分析成果**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]全33列の定義・役割・利用可否整理が概ね完了[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]主要因子候補の抽出と分類性能指標の提示を達成[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]中間報告の線形ベースライン試行を上回る最終分析指標を取得[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]初期リスク検知ロジックとして一定の判別力を確認[/c]\n\n**1. エグゼクティブサマリ — 業務成果・分析成果**",
+   "label": "slide3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## スライド 4\n\n[c:FFFFFF]**本成果は、人事施策の優先順位付け支援には有効である**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:FFFFFF]**○  有効な利用範囲**[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]• 人事施策の優先順位付け支援\n• 集計単位でのモニタリング運用\n• 追加データを用いた分析の精緻化\n• 施策効果検証設計の基盤[/c]\n\n[c:FFFFFF]**×  禁止される利用**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]• 個人単位の処遇決定\n• 自動査定・自動選別\n• 人事判断の自動化\n• 因果関係の断定[/c]\n\n**今後の推奨ステップ**\n\n[c:FFFFFF]**集計単位での\nモニタリング運用**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:FFFFFF]**追加データを用いた\n分析の精緻化**[/c]\n{shape-fill:#A26159 赤}\n\n[c:FFFFFF]**施策効果検証\n設計**[/c]\n{shape-fill:#8B3A2F 赤}\n\n**1. エグゼクティブサマリ — 運用上の結論**",
+   "label": "slide4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## スライド 5\n\n[c:3D3D3D]Attritionを目的変数として、従業員離職の主要因を定量把握し、\n人事本部 人材戦略部が次の人事施策を実行可能な状態を整備する[/c]\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]離職傾向の全体像\nを可視化する[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]離職に関連する主要\n説明変数を抽出する[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]初期的な離職リスク\n判定ロジックの作成[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]部門・職種・勤続層等\nの示唆を提示する[/c]\n\n[c:FFFFFF]**5**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]公平性・運用注意点\nを明文化する[/c]\n\n**事実と前提の分離**\n\n[c:FFFFFF]**確認済み事項**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]• 初期分析案件である\n• 契約期間は5週間\n• 単一時点の従業員スナップショット\n• 契約形態は time_and_materials[/c]\n\n[c:FFFFFF]**前提・解釈**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]• 分析結果は人事施策検討の参考情報であり、\n  単独での人事判断には用いない\n• 従業員データは重複なく記録されている\n• 提示示唆は「関連」「傾向」に基づくもの[/c]\n\n**2. プロジェクト目的**",
+   "label": "slide5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## スライド 6\n\n[c:FFFFFF]**スコープ内**[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]train.csvを用いた離職要因分析[/c]\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]Attritionを目的変数とした二値分類の初期モデル作成[/c]\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]変数分布、クロス集計、関連性確認を含むEDA[/c]\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]離職高リスク層の特徴整理[/c]\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]人事施策に接続する仮説整理[/c]\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]公平性・属性利用上の留意点整理[/c]\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]中間報告書および最終報告書の作成[/c]\n\n[c:FFFFFF]✓[/c]\n{shape-fill:#4A7A48 緑}\n\n[c:3D3D3D]議事録、スケジュール管理、レビュー運営[/c]\n\n[c:FFFFFF]**スコープ外**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]本番システム実装、API化、バッチ運用化[/c]\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]人事システムとのデータ連携開発[/c]\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]個人単位の処遇決定、自動査定への利用[/c]\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]法務判断、労務判断の代替[/c]\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]時系列予測、退職時期予測[/c]\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]train.csv以外の追加データ分析[/c]\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]因果関係の断定[/c]\n\n[c:FFFFFF]×[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]採用・配置・昇進・報酬ポリシーの最終決定[/c]\n\n**2. スコープ**",
+   "label": "slide6",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## スライド 7\n\n| [c:FFFFFF]**日付**[/c] | [c:FFFFFF]**マイルストーン**[/c] | [c:FFFFFF]**内容**[/c] |\n|---|---|---|\n| [c:8B3A2F]**06-23**[/c] | [c:8B3A2F]**M01 / MS1**[/c] | [c:8B3A2F]**契約開始・キックオフ**[/c] |\n| [c:3D3D3D]06-24〜26[/c] | [c:3D3D3D]T04[/c] | [c:3D3D3D]定義差分整理・分析前提確定[/c] |\n| [c:3D3D3D]06-25〜30[/c] | [c:3D3D3D]T06[/c] | [c:3D3D3D]初期品質確認・再現環境整備[/c] |\n| [c:3D3D3D]06-30〜07-07[/c] | [c:3D3D3D]T07[/c] | [c:3D3D3D]EDA実施[/c] |\n| [c:3D3D3D]07-07〜10[/c] | [c:3D3D3D]T10[/c] | [c:3D3D3D]初期モデル作成・評価[/c] |\n| [c:8B3A2F]**07-11**[/c] | [c:8B3A2F]**M02 / MS3**[/c] | [c:8B3A2F]**EDAレビュー・中間報告**[/c] |\n| [c:3D3D3D]07-14[/c] | [c:3D3D3D]T13/T14 / MS4[/c] | [c:3D3D3D]変更要求整理・変更管理チェックポイント[/c] |\n| [c:3D3D3D]07-14〜18[/c] | [c:3D3D3D]T15/T16[/c] | [c:3D3D3D]セグメント分析・公平性レビュー[/c] |\n| [c:3D3D3D]07-17〜22[/c] | [c:3D3D3D]T17[/c] | [c:3D3D3D]最終報告ドラフト作成[/c] |\n| [c:8B3A2F]**07-25**[/c] | [c:8B3A2F]**M03 / MS6**[/c] | [c:8B3A2F]**最終報告・検収会**[/c] |\n| [c:8B3A2F]**07-28**[/c] | [c:8B3A2F]**MS7**[/c] | [c:8B3A2F]**最終成果物提出**[/c] |\n\n**3. 進行経緯**",
+   "label": "slide7",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## スライド 8\n\n[c:6B6B6B]データ行数[/c]\n\n[c:8B3A2F]**735行**[/c]\n\n[c:6B6B6B]データ列数[/c]\n\n[c:8B3A2F]**33列**[/c]\n\n[c:6B6B6B]欠損値[/c]\n\n[c:4A7A48]**全列 0件**[/c]\n\n[c:6B6B6B]定数列[/c]\n\n[c:A0522D]**Over18,\nStandardHours**[/c]\n\n[c:6B6B6B]識別子列[/c]\n\n[c:4A4A4A]**id（除外）**[/c]\n\n[c:6B6B6B]日付列・時系列列[/c]\n\n[c:6B6B6B]**存在しない**[/c]\n\n[c:6B6B6B]※ 実データ表現は説明書と一部差異があり、実データ値を正として扱った[/c]\n\n**分析アプローチ（再現可能性と説明可能性重視）**\n\n[c:3D3D3D]データ理解\n品質確認[/c]\n{shape-fill:#C9A7A1 赤}\n\n[c:FFFFFF]EDA\n分布・集計[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:FFFFFF]前処理方針\n整理[/c]\n{shape-fill:#7A3328 赤}\n\n[c:FFFFFF]初期モデル\n作成・評価[/c]\n{shape-fill:#A4665D 赤}\n\n[c:FFFFFF]解釈・示唆\n整理[/c]\n{shape-fill:#975046 赤}\n\n[c:FFFFFF]公平性\nレビュー[/c]\n{shape-fill:#8B3A2F 赤}\n\n**3. データ理解・品質確認**",
+   "label": "slide8",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## スライド 9\n\n[c:8B3A2F]**Extra Trees モデル構成**[/c]\n\n| [c:FFFFFF]**パラメータ**[/c] | [c:FFFFFF]**設定値**[/c] |\n|---|---|\n| [c:3D3D3D]n_estimators[/c] | [c:3D3D3D]500[/c] |\n| [c:3D3D3D]max_depth[/c] | [c:3D3D3D]10[/c] |\n| [c:3D3D3D]min_samples_leaf[/c] | [c:3D3D3D]8[/c] |\n| [c:3D3D3D]class_weight[/c] | [c:3D3D3D]balanced[/c] |\n| [c:3D3D3D]max_features[/c] | [c:3D3D3D]sqrt[/c] |\n\n[c:8B3A2F]**特徴量方針**[/c]\n\n[c:3D3D3D]• 選択特徴量数：36\n• 除外列：id（1列のみ）\n• 分割方法：random_holdout\n• 検証サイズ：0.1\n• use_date_features=true の設定が存在するが、\n  日付列がないため実質未使用と解釈[/c]\n\n**モデル手法の変遷**\n\n[c:FFFFFF]**提案時点**[/c]\n{shape-fill:#6B6B6B グレー}\n\n[c:3D3D3D]初期的な離職リスク\n判定ロジックまたは\n予測モデル（手法未固定）[/c]\n\n[c:FFFFFF]**中間報告**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]線形ベースライン\n（Trial 1）を\n可視試行の代表とした[/c]\n\n[c:FFFFFF]**最終分析**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]Extra Trees による\n性能評価結果が\n採用候補として確認[/c]\n\n**3. モデル・特徴量方針**",
+   "label": "slide9",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 10,
+   "text": "## スライド 10\n\n| [c:FFFFFF]**KPI分類**[/c] | [c:FFFFFF]**判定基準**[/c] | [c:FFFFFF]**結果**[/c] | [c:FFFFFF]**評価**[/c] |\n|---|---|---|---|\n| [c:3D3D3D]データ理解[/c] | [c:3D3D3D]全33列の役割・型・注意点整理[/c] | [c:3D3D3D]概ね完了[/c] | [c:4A7A48]**達成**[/c] |\n| [c:3D3D3D]要因把握[/c] | [c:3D3D3D]上位5〜10変数の方向性提示[/c] | [c:3D3D3D]主要論点群を整理[/c] | [c:4A7A48]**達成**[/c] |\n| [c:3D3D3D]モデル評価[/c] | [c:3D3D3D]学習・検証手順と性能指標提示[/c] | [c:3D3D3D]Accuracy/F1/ROC-AUC等を提示[/c] | [c:4A7A48]**達成**[/c] |\n| [c:3D3D3D]説明可能性[/c] | [c:3D3D3D]集計ベースで人事向け説明資料化[/c] | [c:3D3D3D]方針・資料化実施[/c] | [c:4A7A48]**達成**[/c] |\n| [c:3D3D3D]実務接続[/c] | [c:3D3D3D]優先度付き施策仮説3件以上[/c] | [c:3D3D3D]提言として整理[/c] | [c:4A7A48]**達成**[/c] |\n| [c:3D3D3D]ガバナンス[/c] | [c:3D3D3D]利用制約・公平性留意点明記[/c] | [c:3D3D3D]明文化[/c] | [c:4A7A48]**達成**[/c] |\n\n[c:4A4A4A]全6項目のKPIにおいて「達成」と評価。変数別の最終重要度順位の確定提示は受入必須要件ではなく、\n主要観点整理として提示している。[/c]\n\n[c:FFFFFF]**全6項目 達成**[/c]\n{shape-fill:#4A7A48 緑}\n\n**4. KPI達成状況**",
+   "label": "slide10",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 11,
+   "text": "## スライド 11\n\n| [c:FFFFFF]**指標**[/c] | [c:FFFFFF]**学習データ**[/c] | [c:FFFFFF]**検証データ**[/c] |\n|---|---|---|\n| [c:3D3D3D]Accuracy[/c] | [c:3D3D3D]0.9183[/c] | [c:3D3D3D]0.7838[/c] |\n| [c:3D3D3D]F1-macro[/c] | [c:3D3D3D]0.8761[/c] | [c:3D3D3D]0.6476[/c] |\n| [c:3D3D3D]ROC-AUC[/c] | [c:3D3D3D]—[/c] | [c:3D3D3D]0.7121[/c] |\n| [c:3D3D3D]Brier Score[/c] | [c:3D3D3D]—[/c] | [c:3D3D3D]0.1508[/c] |\n\n[c:6B6B6B]Precision@Top10%[/c]\n\n[c:8B3A2F]**0.4667**[/c]\n\n[c:4A4A4A]高リスク群に一定の濃縮あり[/c]\n\n[c:6B6B6B]学習-検証の性能差[/c]\n\n[c:A0522D]**Accuracy差：0.135\nF1差：0.229**[/c]\n\n[c:4A4A4A]過信せずモニタリング\n前提で扱う必要がある[/c]\n\n**解釈**\n\n[c:4A7A48]**施策優先順位付けに有効**[/c]\n\n[c:3D3D3D]離職傾向を完全に予測する水準ではないが、施策対象の優先順位付けや重点観点抽出に使える判別力を確認[/c]\n\n[c:A0522D]**モニタリング前提の運用**[/c]\n\n[c:3D3D3D]学習と検証の性能差が一定程度あるため、運用時には過信せずモニタリング前提で扱う必要がある[/c]\n\n[c:8B3A2F]**個人判定には不適切**[/c]\n\n[c:3D3D3D]Top10%の精度が0.4667であり、高リスク群に一定の濃縮は見られるが、個人判定用途には不適切である[/c]\n\n**4. モデル評価結果**",
+   "label": "slide11",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 12,
+   "text": "## スライド 12\n\n[c:FFFFFF]**報酬水準**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]MonthlyIncome\nStockOptionLevel[/c]\n\n[c:FFFFFF]**働き方**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]OverTime\nBusinessTravel\nWorkLifeBalance[/c]\n\n[c:FFFFFF]**所属・職務**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]Department\nJobRole\nJobLevel[/c]\n\n[c:FFFFFF]**勤続・昇進**[/c]\n{shape-fill:#6B6B6B グレー}\n\n[c:3D3D3D]TotalWorkingYears\nYearsAtCompany\nYearsInCurrentRole\nYearsSinceLastPromotion\nYearsWithCurrManager[/c]\n\n[c:FFFFFF]**満足度・関係性**[/c]\n{shape-fill:#2C2C2C 黒}\n\n[c:3D3D3D]JobSatisfaction\nEnvironmentSatisfaction\nRelationshipSatisfaction[/c]\n\n[c:6B6B6B]**属性変数（分析対象だが施策利用に注意）**[/c]\n\n[c:6B6B6B]Age  |  Gender  |  MaritalStatus[/c]\n\n**業務解釈**\n\n[c:3D3D3D]• 離職は単一要因ではなく、処遇・働き方・キャリア・所属環境の複合要因として捉えるべきである\n• 若手層・勤続初期層・役割定着前層・昇進停滞感のある層・残業負荷が高い層でリスクが高まりやすい可能性がある\n• ただし、上記は施策仮説であり、追加集計と業務確認で補強すべき内容である[/c]\n\n**4. 離職に関連する主要観点**",
+   "label": "slide12",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 13,
+   "text": "## スライド 13\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:8B3A2F]**高リスク候補層のモニタリングを集計単位で定着化する**[/c]\n\n[c:3D3D3D]月次/四半期で部門・職種・勤続層・役職層ごとに離職関連指標を可視化[/c]\n\n[c:3D3D3D]初期モデルスコアは組織単位・セグメント単位の注意喚起指標として限定利用[/c]\n\n[c:3D3D3D]HRBP・人事企画・部門長が共通で見られる粒度に揃える[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:A0522D]**残業・働き方と定着施策を連動させる**[/c]\n\n[c:3D3D3D]OverTimeを含む働き方関連が一貫して論点に上がるため重点確認対象とする[/c]\n\n[c:3D3D3D]業務量配分・上司マネジメント・業務設計の観点を人事施策と連携[/c]\n\n[c:3D3D3D]「離職リスクが高まりやすい職場条件」を是正する方向で施策を設計[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:4A4A4A]**報酬とキャリア進展の説明責任を強化する**[/c]\n\n[c:3D3D3D]MonthlyIncome, JobLevel, YearsSinceLastPromotion等の処遇・昇進関連を重点論点に[/c]\n\n[c:3D3D3D]若手層・中堅層に対する昇進・役割期待・処遇ロジックの説明不足を確認[/c]\n\n[c:3D3D3D]施策は報酬単独ではなく、役割機会・異動・育成と組み合わせる[/c]\n\n**5. 業務提言（1〜3）**",
+   "label": "slide13",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 14,
+   "text": "## スライド 14\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#6B6B6B グレー}\n\n[c:6B6B6B]**部門・職種別に打ち手を分ける**[/c]\n\n[c:3D3D3D]全社一律施策だけでは不十分。部門別・職種別に離職リスクの背景を「負荷」「処遇」「キャリア」「マネジメント」で切り分ける。[/c]\n\n[c:FFFFFF]**若手・立上がり\n支援層**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:FFFFFF]**中堅・昇進停滞感\n確認層**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:FFFFFF]**高負荷・働き方\n改善対象層**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**5**[/c]\n{shape-fill:#2C2C2C 黒}\n\n[c:2C2C2C]**People Analytics ガバナンスを運用に組み込む**[/c]\n\n[c:2C2C2C]**属性利用の制限**[/c]\n\n[c:3D3D3D]Gender, Age, MaritalStatus等は\n分析確認対象には含めるが、\n差別的運用には使わない[/c]\n\n[c:2C2C2C]**個票・断定の禁止**[/c]\n\n[c:3D3D3D]個票表示や断定評価を禁止。\nモデル結果を昇進・査定・\n退職勧奨に接続しない[/c]\n\n[c:2C2C2C]**ルール明文化**[/c]\n\n[c:3D3D3D]活用ルールを明文化し、\n利用ログ・閲覧権限・\nレビュー責任者を定義する[/c]\n\n**5. 業務提言（4〜5）**",
+   "label": "slide14",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 15,
+   "text": "## スライド 15\n\n[c:6B6B6B]本案件は本番実装対象外。直近は分析成果物を用いた準運用を推奨する。[/c]\n\n[c:FFFFFF]**フェーズA：運用準備**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:8B3A2F]**1〜2か月**[/c]\n\n[c:3D3D3D]• 指標定義確定\n• 閲覧権限整理\n• モニタリング会議体設定\n• 利用禁止事項の明文化[/c]\n\n[c:FFFFFF]**フェーズB：限定運用**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:A0522D]**3か月**[/c]\n\n[c:3D3D3D]• 部門・職種・勤続層単位で定期レビュー\n• 離職率、残業傾向、処遇関連、\n  満足度関連を並列監視\n• モデルスコアは参考値として記録[/c]\n\n[c:FFFFFF]**フェーズC：効果検証設計**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:4A4A4A]**次期**[/c]\n\n[c:3D3D3D]• 実施施策との接続\n• 定着率変化の追跡\n• 追加データ取得要件整理[/c]\n\n**推奨運用KPI**\n\n[c:3D3D3D]部門別離職率[/c]\n\n[c:3D3D3D]勤続層別離職率[/c]\n\n[c:3D3D3D]残業関連分布[/c]\n\n[c:3D3D3D]昇進停滞層比率[/c]\n\n[c:3D3D3D]施策対象セグメント別\nフォロー実施率[/c]\n\n[c:3D3D3D]四半期ごとの高リスク\nセグメント変動[/c]\n\n**6. 実装・運用計画**",
+   "label": "slide15",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 16,
+   "text": "## スライド 16\n\n| [c:FFFFFF]**役割**[/c] | [c:FFFFFF]**主体**[/c] | [c:FFFFFF]**推奨責任**[/c] |\n|---|---|---|\n| [c:3D3D3D]指標オーナー[/c] | [c:3D3D3D]人材戦略部[/c] | [c:3D3D3D]指標定義・レビュー運営[/c] |\n| [c:3D3D3D]業務解釈責任[/c] | [c:3D3D3D]人材戦略部 + HRBP[/c] | [c:3D3D3D]示唆の業務判断[/c] |\n| [c:3D3D3D]データ更新管理[/c] | [c:3D3D3D]情報管理担当/分析担当[/c] | [c:3D3D3D]データ整備・品質確認[/c] |\n| [c:3D3D3D]ガバナンス責任[/c] | [c:3D3D3D]人事責任者[/c] | [c:3D3D3D]利用制約遵守[/c] |\n| [c:3D3D3D]分析高度化支援[/c] | [c:3D3D3D]ベンダー[/c] | [c:3D3D3D]追加分析・改善提案[/c] |\n\n**確認済み事項と仮説の整理**\n\n[c:FFFFFF]**確認済み事項**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]• 欠損全列0件、定数列2件、id除外\n• 離職関連論点として複数の人事変数群を抽出\n• 初期モデルで一定の分類性能を確認[/c]\n\n[c:FFFFFF]**仮説（要追加検証）**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]• 残業・報酬・勤続停滞・職務ミスマッチの組合せ\n  が高リスク層形成に寄与する可能性\n• 部門・職種ごとに有効施策が異なる可能性\n• 満足度改善だけでなく複合施策が必要な可能性[/c]\n\n**6. 役割分担**",
+   "label": "slide16",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 17,
+   "text": "## スライド 17\n\n[c:FFFFFF]**短期（1〜3か月）**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]• 現行成果物を用いた定例レビュー開始\n• 部門・職種・勤続層別ダッシュボード化\n• 利用ルール・閲覧権限整備[/c]\n\n[c:FFFFFF]**中期（3〜6か月）**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]• 追加データの接続検討\n  （異動/評価/上司変更/組織改編/勤怠詳細）\n• セグメント別施策のAB比較設計\n• モデル再学習基盤の要件定義[/c]\n\n[c:FFFFFF]**長期（6〜12か月）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]• 人事ダッシュボードへの統合\n• 定着率改善施策の効果測定サイクル確立\n• 公平性・説明可能性監査の定例化\n• 離職時期予測・早期警戒モデル検討[/c]\n\n**優先順位付き推奨順**\n\n[c:FFFFFF]**1. 集計運用の定着**[/c]\n{shape-fill:#92483D 赤}\n\n[c:FFFFFF]**2. 追加データ整備**[/c]\n{shape-fill:#9D5D52 赤}\n\n[c:FFFFFF]**3. 施策効果検証**[/c]\n{shape-fill:#8B3A2F 赤}\n\n**4. 継続学習型分析**\n{shape-fill:#B2867B 赤}\n\n**5. システム実装**\n{shape-fill:#BD9B90 赤}\n\n**7. 拡張ロードマップ**",
+   "label": "slide17",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 18,
+   "text": "## スライド 18\n\n[c:FFFFFF]**制約事項**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]時系列情報がなく、退職時期予測や施策前後比較は不可[/c]\n\n[c:3D3D3D]追加データなし。採用/評価/異動/上司情報等は未考慮[/c]\n\n[c:3D3D3D]735件と中規模。過度なセグメント分割は安定性を損なう[/c]\n\n[c:3D3D3D]契約上、本番実装・システム連携は対象外[/c]\n\n[c:FFFFFF]**残余リスク**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]分析結果の因果誤認[/c]\n\n[c:3D3D3D]属性情報の不適切利用[/c]\n\n[c:3D3D3D]モデルスコアの個人評価転用[/c]\n\n[c:3D3D3D]データ更新後の再現性低下[/c]\n\n[c:3D3D3D]スコープ外要求による運用膨張[/c]\n\n**リスク低減策**\n\n[c:3D3D3D]報告表現は「関連」「傾向」\n「示唆」に限定[/c]\n\n[c:3D3D3D]集計中心・個票禁止[/c]\n\n[c:3D3D3D]変更管理を正式運用[/c]\n\n[c:3D3D3D]継続利用時は定期的な\n再評価を実施[/c]\n\n[c:3D3D3D]追加開発は別途合意\n・別途精算[/c]\n\n[c:6B6B6B]※ M01起点のアクションアイテム6件のOpen記録は、実務未実施ではなく記録更新の証跡不足として解釈。議事録管理の改善を推奨。[/c]\n\n**8. 制約事項と残余リスク**",
+   "label": "slide18",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 19,
+   "text": "## スライド 19\n\n| [c:FFFFFF]**項目**[/c] | [c:FFFFFF]**提案・契約時点**[/c] | [c:FFFFFF]**最終時点**[/c] | [c:FFFFFF]**差分**[/c] | [c:FFFFFF]**評価**[/c] |\n|---|---|---|---|---|\n| [c:3D3D3D]成果物[/c] | [c:3D3D3D]9点納品[/c] | [c:3D3D3D]同一[/c] | [c:3D3D3D]なし[/c] | [c:3D3D3D]整合[/c] |\n| [c:3D3D3D]スコープ[/c] | [c:3D3D3D]初期分析,EDA,初期モデル[/c] | [c:3D3D3D]同一[/c] | [c:3D3D3D]なし[/c] | [c:3D3D3D]整合[/c] |\n| [c:3D3D3D]KPI/受入基準[/c] | [c:3D3D3D]分析成果物の到達重視[/c] | [c:3D3D3D]同趣旨で達成[/c] | [c:3D3D3D]実質なし[/c] | [c:3D3D3D]整合[/c] |\n| [c:3D3D3D]契約形態[/c] | [c:3D3D3D]T&M、最終一括精算[/c] | [c:3D3D3D]同一[/c] | [c:3D3D3D]なし[/c] | [c:3D3D3D]整合[/c] |\n| [c:8B3A2F]**モデル手法**[/c] | [c:8B3A2F]**初期的なロジック/予測**[/c] | [c:8B3A2F]**線形→Extra Trees**[/c] | [c:8B3A2F]**あり**[/c] | [c:8B3A2F]**範囲内**[/c] |\n| [c:3D3D3D]会議・変更管理[/c] | [c:3D3D3D]M01/M02/M03[/c] | [c:3D3D3D]同一時系列で実施[/c] | [c:3D3D3D]なし[/c] | [c:3D3D3D]整合[/c] |\n\n[c:8B3A2F]**変更があった項目：モデル手法の具体化**[/c]\n\n[c:3D3D3D]• 変更内容：提案時は手法未固定 → 中間報告で線形ベースライン → 最終分析でExtra Trees採用\n• 変更理由：説明可能性を担保しつつ、最終時点での判別性能確認のため\n• 承認トレース：M02後〜2025-07-14（MS4 / T13-T14）の変更管理チェックポイントにて合意[/c]\n\n**9. 成果物サマリ・請求情報**",
+   "label": "slide19",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 20,
+   "text": "## スライド 20\n\n| [c:FFFFFF]**成果カテゴリ**[/c] | [c:FFFFFF]**内容**[/c] |\n|---|---|\n| [c:3D3D3D]業務成果[/c] | [c:3D3D3D]離職関連論点の構造整理、施策仮説整理、運用制約明文化[/c] |\n| [c:3D3D3D]分析成果[/c] | [c:3D3D3D]EDA、初期モデル評価、特徴量方針、分類性能確認[/c] |\n| [c:3D3D3D]運用成果[/c] | [c:3D3D3D]集計中心活用方針、公平性配慮、将来運用ロードマップ[/c] |\n| [c:3D3D3D]管理成果[/c] | [c:3D3D3D]提案・契約・スケジュール・中間報告との整合管理[/c] |\n\n[c:FFFFFF]**請求情報**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]実績工数：156.5 時間\n時間単価：20,000 円/時間\n\n税抜金額：3,130,000 円\n消費税額：   313,000 円\n税込金額：3,443,000 円[/c]\n\n**契約上の成果物（9点）**\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]プロジェクト概要書[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]分析用データ理解メモ[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]EDA結果資料[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]離職要因分析資料[/c]\n\n[c:FFFFFF]**5**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]初期予測モデル評価資料[/c]\n\n[c:FFFFFF]**6**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]中間報告書[/c]\n\n[c:FFFFFF]**7**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]最終報告書[/c]\n\n[c:FFFFFF]**8**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]会議議事録[/c]\n\n[c:FFFFFF]**9**[/c]\n{shape-fill:#8B3A2F 赤}\n\n[c:3D3D3D]プロジェクトスケジュール[/c]\n\n[c:6B6B6B]※ time_and_materials契約。正式請求時は工数明細書の確定値を優先する。[/c]\n\n**10. 提案・契約との差分管理**",
+   "label": "slide20",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 21,
+   "text": "## スライド 21\n\n[c:FFFFFF]**11. 総括**[/c]\n\n[c:F2F0ED]従業員離職要因分析 初期分析案件の最終報告[/c]\n\n[c:F2F0ED]短期間の初期分析案件として、提案・契約で定めた目的に対し、\n業務理解・分析結果・運用提言の3点を実務利用可能な水準まで整理した。[/c]\n\n[c:8B3A2F]**説明可能性の重視**[/c]\n\n[c:3D3D3D]離職という機微なテーマに対し、精度偏重ではなく説明可能性を優先した進め方で、People Analytics案件として妥当な成果を得た[/c]\n\n[c:A0522D]**初期分析の位置づけ**[/c]\n\n[c:3D3D3D]ここで得られた結果は「人事施策を始めるための根拠整理」であり、「自動判断の根拠」ではない。この明確な区別が重要である[/c]\n\n[c:4A4A4A]**今後の価値向上**[/c]\n\n[c:3D3D3D]追加データの整備、定期モニタリング、施策効果検証を通じて、分析の実務価値を段階的に高めることが望ましい[/c]\n\n[c:6B6B6B]株式会社青葉バイオメディカル機器 人事本部 人材戦略部[/c]\n\n[c:6B6B6B]2025年7月28日[/c]",
+   "label": "slide21",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_slides": 21,
+  "n_pictures": 0,
+  "n_charts": 0,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

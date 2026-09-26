@@ -1,0 +1,79 @@
+{
+ "md5": "255f5053440d6c6e745cb15aa3a615e4",
+ "question": "右側の「ベンダー体制」の表の3行目「Lead Data Scientist:」に書かれている人物の名前の漢字は何ですか？「渡辺 遥」ですか「渡辺 遼」ですか？",
+ "engine": "claude_cli",
+ "prompt_version": "v4",
+ "scope": "スライド右側の「ベンダー体制（株式会社データアステル）」の表。質問は右側の表と明示しているため、左側の「クライアント体制」枠は範囲外とした。",
+ "reference": "「ベンダー体制」表の上から3行目のブロック「Lead Data Scientist:」とその直下の人名行",
+ "facing": "",
+ "candidates": [
+  {
+   "label": "Exec Sponsor: 中村 誠",
+   "binding": "表の1番目のブロック。見出し「Exec Sponsor:」の直下に人名が記載されており、引出線はなく同一ブロック内の上下隣接で対応付け。",
+   "sector": "unknown",
+   "relations": [
+    "ベンダー体制表の1行目（最上段）",
+    "Lead Data Scientist行の2つ上"
+   ],
+   "matches_question": false,
+   "evidence": "3行目ではないため質問対象外。"
+  },
+  {
+   "label": "Project Manager: 加藤 大輔",
+   "binding": "表の2番目のブロック。見出し直下の人名を同一ブロック内隣接で対応付け。",
+   "sector": "unknown",
+   "relations": [
+    "ベンダー体制表の2行目",
+    "Lead Data Scientist行の1つ上"
+   ],
+   "matches_question": false,
+   "evidence": "3行目ではないため質問対象外。"
+  },
+  {
+   "label": "Lead Data Scientist: 渡辺 遥（分析設計・モデル方針・品質担保）",
+   "binding": "表の3番目のブロック。見出し「Lead Data Scientist:」の直下に人名「渡辺 遥」が記載されており、同一ブロック内の上下隣接で対応付け。引出線はない。",
+   "sector": "same",
+   "relations": [
+    "ベンダー体制表の3行目（質問の指定行）",
+    "上はProject Manager行、下はData Engineer行に隣接"
+   ],
+   "matches_question": true,
+   "evidence": "名前の2文字目の右側構成要素は、上部が「爫」（3つの短い点画）、下部が「缶」形の縦長の箱型で、「遥」の字形。一方「遼」であれば右側は「尞」（横に広い「大」の冠、中央の「日」、下部の「小」の3点脚）となり視覚的に画数が密になるが、そのような構成は見られない。2回の読み込みで同一の字形を確認。よって「渡辺 遥」。"
+  },
+  {
+   "label": "Data Engineer: 斎藤 悠斗",
+   "binding": "表の4番目のブロック。見出し直下の人名を同一ブロック内隣接で対応付け。",
+   "sector": "unknown",
+   "relations": [
+    "ベンダー体制表の4行目",
+    "Lead Data Scientist行の1つ下"
+   ],
+   "matches_question": false,
+   "evidence": "3行目ではないため質問対象外。"
+  },
+  {
+   "label": "Business Analyst: 井上 里奈",
+   "binding": "表の5番目のブロック。見出し直下の人名を同一ブロック内隣接で対応付け。",
+   "sector": "unknown",
+   "relations": [
+    "ベンダー体制表の5行目"
+   ],
+   "matches_question": false,
+   "evidence": "3行目ではないため質問対象外。"
+  },
+  {
+   "label": "QA Reviewer: 清水 麻衣",
+   "binding": "表の6番目のブロック（最下段）。見出し直下の人名を同一ブロック内隣接で対応付け。",
+   "sector": "unknown",
+   "relations": [
+    "ベンダー体制表の6行目（最下段）"
+   ],
+   "matches_question": false,
+   "evidence": "3行目ではないため質問対象外。"
+  }
+ ],
+ "exhaustive": true,
+ "confident": true,
+ "error": null,
+ "latency_sec": 147.27
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "1fd3e00dea60f0e59443a117ba927d6c",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "タイトル：欠損率_上位20列\n\n縦軸ラベル：列名\n\n縦軸項目（上から順）：\n\n1. id\n2. dteday\n3. season\n4. yr\n5. mnth\n6. hr\n7. holiday\n8. weekday\n9. workingday\n10. weathersit\n11. temp\n12. atemp\n13. hum\n14. windspeed\n15. cnt\n\n横軸ラベル：欠損率（%）",
+ "figure_description": "欠損率を示すグラフ。タイトルは「欠損率_上位20列」。縦軸は「列名」で、上から id、dteday、season、yr、mnth、hr、holiday、weekday、workingday、weathersit、temp、atemp、hum、windspeed、cnt。横軸は「欠損率（%）」で、表示されている目盛りは -0.04、-0.02、0.00、0.02、0.04。各目盛り位置に縦方向のグリッド線がある。凡例はない。グラフ領域内に棒、点、線などのデータ表示は見当たらず、各列の数値ラベルもない。背景およびグラフ領域は白色で、枠線とグリッド線は薄い灰色。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 22.04,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+}

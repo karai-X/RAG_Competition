@@ -1,0 +1,13 @@
+{
+ "md5": "3ca34f3105717472387dac3193f3efb3",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "目的変数の分布\n\n- 縦軸：件数\n- 横軸：Outcome\n- カテゴリ「0」：2283\n- カテゴリ「1」：717",
+ "figure_description": "縦棒グラフ。タイトルは「目的変数の分布」。横軸ラベルは「Outcome」で、カテゴリは「0」「1」。縦軸ラベルは「件数」で、表示されている目盛りは0、500、1000、1500、2000。カテゴリ「0」の棒は青緑色で塗られ、棒の上に「2283」と表示されている。カテゴリ「1」の棒はサーモン色で塗られ、棒の上に「717」と表示されている。凡例はない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 16.57,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell14_img5.png"
+}

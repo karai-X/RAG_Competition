@@ -1,0 +1,13 @@
+{
+ "md5": "8b359394cffd515a15f302e9f0ab46ca",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "## 数値特徴量の相関ヒートマップ\n\n|  | loan_amnt | interest_rate | credit_score | loan_status |\n|---|---:|---:|---:|---:|\n| loan_amnt | 1.00 | 0.18 | 0.16 | 0.02 |\n| interest_rate | 0.18 | 1.00 | -0.34 | 0.26 |\n| credit_score | 0.16 | -0.34 | 1.00 | -0.18 |\n| loan_status | 0.02 | 0.26 | -0.18 | 1.00 |",
+ "figure_description": "相関行列を色で表したヒートマップ。タイトルは「数値特徴量の相関ヒートマップ」。横軸・縦軸ともに loan_amnt、interest_rate、credit_score、loan_status の4項目。各セルに相関係数が表示されている。対角成分の 1.00 は濃い赤色。0.26 は薄い赤橙色、0.18 と 0.16 は薄い橙色、0.02 はほぼ灰色。-0.18 は薄い青色、-0.34 はそれより濃い青色で塗られている。右側に縦型カラーバーがあり、上から 1.0、0.8、0.6、0.4、0.2、0.0、-0.2 の目盛りが表示され、正の値ほど赤色、0付近は灰色、負の値ほど青色になる。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 18.42,
+ "source": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell16_img5.png"
+}

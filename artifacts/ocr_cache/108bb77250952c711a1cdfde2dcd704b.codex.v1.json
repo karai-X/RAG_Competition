@@ -1,0 +1,13 @@
+{
+ "md5": "108bb77250952c711a1cdfde2dcd704b",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "日付特徴の推移\n\n値\n\n年月\n\n利用可能な日付列は見つかりませんでした",
+ "figure_description": "データ系列が描画されていない空のグラフ。タイトルは「日付特徴の推移」。横軸ラベルは「年月」で、目盛りは 0.0、0.2、0.4、0.6、0.8、1.0。縦軸ラベルは「値」で、目盛りは 0.0、0.2、0.4、0.6、0.8、1.0。縦横にグリッド線がある。グラフ中央に「利用可能な日付列は見つかりませんでした」と表示されている。凡例はない。読み取れるデータ値はない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 13.45,
+ "source": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell20_img7.png"
+}

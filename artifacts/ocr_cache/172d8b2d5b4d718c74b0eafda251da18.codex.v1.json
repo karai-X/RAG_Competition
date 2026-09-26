@@ -1,0 +1,13 @@
+{
+ "md5": "172d8b2d5b4d718c74b0eafda251da18",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "[c:灰色]4. データ品質と実装状況[/c]\n\n- [c:灰色]データ件数[/c]\n  - [c:灰色]元資料には「レコード数：11,529 件」との記載あり（プロジェクト概要）。ただし本レポートの数値整合性は Report facts JSON に基づく必要があるため、11,529 件は report facts JSON に明示されていない旨を注記します（→表記：「assumption: 11,529 件」）。[/c]\n    - [c:灰色]データ件数については現在のアクション（T04：データ読込確認）で確定予定。[/c]\n\n- [c:灰色]欠損状況（プロジェクト前提）[/c]\n  - [c:灰色]Major 欠損 112 件、Experience 欠損 55 件はプロジェクト前提として整理済（ただし、これらの具体処理結果は中間時点での前処理方針確定待ち）。[/c]\n\n- [c:灰色]前処理実装状況[/c]\n  - [c:灰色]feature selection / ordered category の導入が行われ、selected_feature_count / excluded_feature_count は analysis.metrics に反映（selected_feature_count=16, excluded_feature_count=1）。[/c]\n\n[c:濃い灰色]データステルスドラフト[/c]\n\n  - [c:灰色]class target encoding の適用・ドロップ等は実行設定に依存（configs/project_config.json に use_class_target_encoding=true、drop_original_categorical_after_target_encoding=true が設定されているため、実行では該当処理が試行されている可能性がある）。詳細は run_summary / metrics の出力ファイルを参照。[/c]\n\n- [c:灰色]再現性・アーティファクト[/c]\n  - [c:灰色]実行結果、メトリクスは artifacts/analysis_outputs 以下に保存（run_summary.json / metrics.json / experiments/leaderboard.json 参照）。trace.source_files にパスが記録されているため、再現性の確認が可能。[/c]",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 94.17,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/05.会議/報告資料/報告資料_2025-09-08.pdf p5"
+}

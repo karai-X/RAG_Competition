@@ -1,0 +1,13 @@
+{
+ "md5": "ff55f85dbb3694bb3803cd490f95785a",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "- タイトル：cnt の分布\n- 横軸ラベル：cnt\n- 縦軸ラベル：度数",
+ "figure_description": "ヒストグラムに滑らかな分布曲線を重ねたグラフ。横軸は「cnt」で、目盛りは 0、100、200、300、400、500、600。縦軸は「度数」で、目盛りは 0、200、400、600、800、1000、1200、1400、1600。棒は淡いピンク色で塗られ、黒色の枠線が付いている。分布曲線は赤みのあるオレンジ色。棒は横軸の小さい領域で高く、右側へ進むにつれて全体として低くなる。凡例はない。灰色の縦横グリッド線がある。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 15.54,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/target_distribution.png"
+}

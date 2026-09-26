@@ -1,0 +1,28 @@
+{
+ "doc_id": "b7b25808bf15",
+ "relpath": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "株式会社青潮モビリティサービス",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "b7c1c45d2f53f0a8fb2a4bd0e7de5565",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1475x876) md5:b7c1c45d — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\nタイトル：欠損率_上位20列\n\n縦軸ラベル：列名\n\n縦軸項目（上から順）：\n\n1. id\n2. dteday\n3. season\n4. yr\n5. mnth\n6. hr\n7. holiday\n8. weekday\n9. workingday\n10. weathersit\n11. temp\n12. atemp\n13. hum\n14. windspeed\n15. cnt\n\n横軸ラベル：欠損率（%）\n[図の説明] 欠損率を示すグラフ。タイトルは「欠損率_上位20列」。縦軸は「列名」で、上から id、dteday、season、yr、mnth、hr、holiday、weekday、workingday、weathersit、temp、atemp、hum、windspeed、cnt。横軸は「欠損率（%）」で、表示されている目盛りは -0.04、-0.02、0.00、0.02、0.04。各目盛り位置に縦方向のグリッド線がある。凡例はない。グラフ領域内に棒、点、線などのデータ表示は見当たらず、各列の数値ラベルもない。背景およびグラフ領域は白色で、枠線とグリッド線は薄い灰色。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1475,
+  "height": 876,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

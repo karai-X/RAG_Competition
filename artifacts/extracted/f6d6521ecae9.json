@@ -1,0 +1,28 @@
+{
+ "doc_id": "f6d6521ecae9",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/date_feature_trend.png",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "5f6371a1f0614b2aabd9674e54c3f9ee",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/date_feature_trend.png (1176x425) md5:5f6371a1 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n日付特徴量の推移\n\n利用可能な日付列はありません\n[図の説明] グラフ表示領域。タイトルは「日付特徴量の推移」。中央に「利用可能な日付列はありません」と表示されている。軸ラベル、凡例、目盛り、数値、データ系列はない。背景は白色。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1176,
+  "height": 425,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

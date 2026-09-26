@@ -1,0 +1,11 @@
+trial_index,status,model_type,use_date_features,random_state,test_size,task_type,primary_metric,primary_value,secondary_metric,secondary_value
+7,ok,gradient_boosting,True,42,0.2,classification,f1_macro,0.60785098,accuracy,0.95649218
+1,ok,random_forest,True,42,0.2,classification,f1_macro,0.49989801,accuracy,0.94901428
+5,ok,random_forest,True,42,0.25,classification,f1_macro,0.49754112,accuracy,0.94940152
+10,ok,extra_trees,True,42,0.2,classification,f1_macro,0.48727780,accuracy,0.95037390
+9,ok,random_forest,True,42,0.2,classification,f1_macro,0.48727780,accuracy,0.95037390
+6,ok,extra_trees,True,42,0.2,classification,f1_macro,0.48727780,accuracy,0.95037390
+8,ok,linear_baseline,True,42,0.2,classification,f1_macro,0.48709902,accuracy,0.94969409
+2,ok,random_forest,True,77,0.2,classification,f1_macro,0.48709902,accuracy,0.94969409
+3,ok,random_forest,True,123,0.2,classification,f1_macro,0.48656195,accuracy,0.94765466
+4,ok,random_forest,True,42,0.15,classification,f1_macro,0.48649907,accuracy,0.94741614

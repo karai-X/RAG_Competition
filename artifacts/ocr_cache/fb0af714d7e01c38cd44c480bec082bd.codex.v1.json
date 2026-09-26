@@ -1,0 +1,13 @@
+{
+ "md5": "fb0af714d7e01c38cd44c480bec082bd",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "表",
+ "markdown": "**品質保証チェックリスト: 提案・契約事項と完了実績 (Quality Assurance Checklist: Proposed/Contracted and Delivered Performance)**\n\n| **提案・契約事項 (Proposed/Contracted)** | **完了実績 (Delivered)** |\n|---|---|\n| **スコープ:** モデル構築、重要因子分析、示唆の提示 | [c:赤]✓[/c] **[達成]** (本番実装は対象外として遵守) |\n| **KPI① モデル:** 1系統以上の構築 | [c:赤]✓[/c] **[達成]** (HistGB他、複数モデル比較を実施) |\n| **KPI② 変数特定:** 重要説明変数上位5項目の特定 | [c:赤]✓[/c] **[達成]** (時間帯、曜日、天候等30変数を評価) |\n| **KPI③ 業務示唆:** 3点以上の運用示唆提示 | [c:赤]✓[/c] **[達成]**（定義不整合解消、バッチ運用、<br>MLOps拡張を提示） |\n| **提出成果物:** スケジュール、議事録、中間報告、<br>最終報告書、分析出力 | [c:赤]✓[/c] **[提出済]** |\n\nセルの塗り：\n\n- 「スコープ」の行：薄い灰色\n- 「KPI② 変数特定」の行：薄い灰色\n- 「提出成果物」の行：薄い灰色\n- 見出し行、「KPI① モデル」の行、「KPI③ 業務示唆」の行：白色",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 22.89,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/06.報告書/株式会社青潮モビリティサービス_最終報告.pdf p11"
+}

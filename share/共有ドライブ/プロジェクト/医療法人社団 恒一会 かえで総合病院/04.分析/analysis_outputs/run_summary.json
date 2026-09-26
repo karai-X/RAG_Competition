@@ -1,0 +1,57 @@
+{
+  "target_column": "disease",
+  "date_column": null,
+  "task_type": "classification",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": false,
+  "use_ordered_category_features": true,
+  "group_rare_categories": true,
+  "rare_category_min_count": 20,
+  "use_categorical_frequency_features": false,
+  "categorical_frequency_min_unique": 3,
+  "categorical_frequency_max_unique": 200,
+  "use_class_target_encoding": true,
+  "class_target_encoding_min_unique": 2,
+  "class_target_encoding_max_unique": 100,
+  "class_target_encoding_smoothing": 20.0,
+  "drop_original_categorical_after_target_encoding": true,
+  "tune_class_decision_weights": false,
+  "model_type": "hist_gradient_boosting",
+  "model_params": {
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "max_iter": 400,
+    "min_samples_leaf": 30,
+    "l2_regularization": 1.0
+  },
+  "split_strategy": "random_holdout",
+  "split_ordering_basis": "random_holdout",
+  "transform_target": "none",
+  "validation_size": 0.1,
+  "early_stopping": true,
+  "early_stopping_patience": 2,
+  "output_dir": "artifacts/analysis_outputs",
+  "selected_feature_count": 10,
+  "excluded_feature_columns": [
+    {
+      "column": "id",
+      "reason": "identifier_like_name"
+    }
+  ],
+  "categorical_unique_limit": 100,
+  "ordered_feature_columns": [],
+  "class_target_encoding": [
+    {
+      "source_column": "Gender",
+      "unique_count": 2,
+      "added_features": [
+        "Gender__p0",
+        "Gender__p1"
+      ],
+      "smoothing": 20.0,
+      "n_splits": 5
+    }
+  ],
+  "class_decision_tuning": {}
+}

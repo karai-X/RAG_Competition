@@ -1,0 +1,13 @@
+{
+ "md5": "347ad5ff1f71eafe84da633cd6780bb2",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "- タイトル: 欠損率 上位20列\n- 横軸ラベル: 欠損率(%)\n- 縦軸ラベル: 列名\n- 列名:\n  - id\n  - loan_amnt\n  - term\n  - interest_rate\n  - grade\n  - employment_length\n  - purpose\n  - credit_score\n  - application_type\n  - loan_status",
+ "figure_description": "欠損率を示すグラフ。横軸は「欠損率(%)」で、目盛りは -0.04、-0.02、0.00、0.02、0.04。縦軸は「列名」で、上から id、loan_amnt、term、interest_rate、grade、employment_length、purpose、credit_score、application_type、loan_status。タイトルは「欠損率 上位20列」。凡例、データを示す棒・点・線、数値ラベルは表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 14.34,
+ "source": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell8_img1.png"
+}

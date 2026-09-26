@@ -1,0 +1,38 @@
+{
+ "doc_id": "27b0614e5d0d",
+ "relpath": "社内管理/座席表.pptx",
+ "mount": "",
+ "project": null,
+ "category": "社内管理",
+ "filetype": "pptx",
+ "md5": "bfd25d66048967e38293a6342b98154c",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## スライド 1",
+   "label": "slide1",
+   "needs_vision": true,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## 埋め込み画像・オブジェクト\n[画像: 27b0614e5d0d/image1.png md5:ac203df0 — read_image で確認可能]\n\n[画像読み取り] image1.png\n[画像種別: 座席表]\n**データサイエンス部**\n**フロアマップ＆座席表**\n\n| 区画 | 表示位置 | 記載内容 | ラベル図形の塗り |\n|---|---|---|---|\n| **POD 1**<br>**Island** | 上部 | ☎7001<br>高橋(Exec) | 薄紫色 |\n| **POD 1**<br>**Island** | 左上 | ☎7002<br>佐藤(PM) | 薄青色 |\n| **POD 1**<br>**Island** | 左 | ☎7003<br>鈴木(DS) | 薄緑色 |\n| **POD 1**<br>**Island** | 下部 | ☎7005<br>藤田(BA) | 薄黄色 |\n| **POD 1**<br>**Island** | 右下 | ☎7006<br>池田(QA) | 薄灰色 |\n| **POD 2**<br>**Island** | 上部 | ☎7101<br>山田(Exec) | 薄紫色 |\n| **POD 2**<br>**Island** | 左上 | ☎7102<br>伊藤(PM) | 薄青色 |\n| **POD 2**<br>**Island** | 左 | ☎7103<br>渡辺(DS) | 薄緑色 |\n| **POD 2**<br>**Island** | 下部 | ☎7104<br>斎藤(DE) | 薄橙色 |\n| **POD 2**<br>**Island** | 右下 | ☎7105<br>井上(BA) | 薄黄色 |\n| **POD 3**<br>**Island** | 上部右 | ☎7201<br>中村(Exec) | 薄紫色 |\n| **POD 3**<br>**Island** | 上部左 | ☎7202<br>加藤(PM) | 薄青色 |\n| **POD 3**<br>**Island** | 左 | ☎7203<br>山本(DS) | 薄緑色 |\n| **POD 3**<br>**Island** | 下部 | ☎7204<br>岡田(DE) | 薄橙色 |\n| **POD 3**<br>**Island** | 右上 | ☎7206<br>清水(QA) | 薄灰色 |\n| **POD 3**<br>**Island** | 右下 | ☎7206<br>清水(QA) | 薄灰色 |\n\nNotebookLM\n[図の説明] データサイエンス部の座席配置を示すアイソメトリック形式のフロアマップ。左から「POD 1 Island」「POD 2 Island」「POD 3 Island」の3区画が並び、各区画に机、椅子、モニター、キーボード、小物、植物が描かれている。各座席のラベルは引き出し線で対応位置に接続されている。ラベル図形および机の天板には、Execが紫色、PMが青色、DSが緑色、DEが橙色、BAが黄色、QAが灰色の塗りで表現されている。軸、軸ラベル、目盛り、凡例はない。POD 3では「☎7206 清水(QA)」が右上と右下の2か所に記載されている。",
+   "label": "media",
+   "needs_vision": true,
+   "assets": [
+    "27b0614e5d0d/image1.png"
+   ]
+  }
+ ],
+ "meta": {
+  "n_slides": 1,
+  "n_pictures": 1,
+  "n_charts": 0,
+  "n_media": 1,
+  "n_emf_parsed": 0,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

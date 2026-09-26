@@ -1,0 +1,28 @@
+{
+ "doc_id": "f13811785cf6",
+ "relpath": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png",
+ "mount": "",
+ "project": "医療法人社団 恒一会 かえで総合病院",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "b1bff6ada4424f115fe6aa5505c7d8d1",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png (2674x726) md5:b1bff6ad — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\nタイトル：Gender の分布\n\n- 縦軸ラベル：Gender\n- カテゴリ：Male、Female\n- 横軸ラベル：件数\n- 横軸目盛り：0、500、1000、1500、2000、2500、3000\n[図の説明] 横向き棒グラフ。縦軸は「Gender」で、カテゴリは上から「Male」「Female」。横軸は「件数」で、目盛りは0、500、1000、1500、2000、2500、3000。Maleの棒は濃い青色、Femaleの棒は緑色で塗られている。凡例および棒の数値ラベルはないため、各カテゴリの正確な件数は記載されていない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 2674,
+  "height": 726,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,139 @@
+{
+ "doc_id": "500ae8732c92",
+ "relpath": "プロジェクト/株式会社東都人材プラットフォーム/06.報告書/株式会社東都人材プラットフォーム_最終報告.pptx",
+ "mount": "",
+ "project": "株式会社東都人材プラットフォーム",
+ "category": "06.報告書",
+ "filetype": "pptx",
+ "md5": "8e930081ca75b3dd9e513b7e302238f2",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## スライド 1\n\n**最終分析報告書**\n\n[c:4A4A4A]株式会社東都人材プラットフォーム\n収入クラス予測モデル 企画・分析設計・初期検証\n\n受託者：株式会社データアステル\n契約期間：2025年8月18日 ～ 2025年9月29日[/c]\n\n[c:A0A0A0]CONFIDENTIAL[/c]",
+   "label": "slide1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## スライド 2\n\n[c:FFFFFF]**1. エグゼクティブサマリ**[/c]\n\n[c:8B2500]**プロジェクト概要**[/c]\n[c:3D3D3D]株式会社東都人材プラットフォーム（発注者）と株式会社データアステル（受託者）により、[/c]\n[c:3D3D3D]人材属性データを用いた「収入クラス（target）予測モデル」の企画・分析設計・初期検証を行った6週間の案件である。[/c]\n[c:3D3D3D]主目的は収入クラスの予測可能性と主要因の抽出、People Analyticsにおける報酬分析基盤の初期版提供である。[/c]\n\n[c:FFFFFF]Accuracy[/c]\n[c:FFFFFF]**0.510**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]Macro F1[/c]\n[c:FFFFFF]**0.474**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:8B2500]**最終実行設定**[/c]\n[c:3D3D3D]モデル: hist_gradient_boosting[/c]\n[c:3D3D3D]行数: 11,529 / 特徴量: 14[/c]\n[c:3D3D3D]検証分割: random_holdout (val=0.1)[/c]\n\n[c:8B2500]**本フェーズの成果物**[/c]\n[c:3D3D3D]再現可能な前処理仕様 ／ 評価結果表 ／ 可視化図表 ／ 再現可能な分析スクリプト・ノートブック ／ 中間報告 ／ 最終報告[/c]\n[c:3D3D3D]→ 業務判断に必要な初期示唆と運用化に向けた明確な次工程を提示している。[/c]\n\n[c:FFFFFF]**提案書**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**契約書**[/c]\n{shape-fill:#707070 グレー}\n\n[c:FFFFFF]**M01/M02**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**中間報告**[/c]\n{shape-fill:#707070 グレー}\n\n[c:FFFFFF]**最終報告**[/c]\n{shape-fill:#8B2500 茶}\n\n**会議・成果トレース**\n\n[c:A0A0A0]1 / 15[/c]",
+   "label": "slide2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## スライド 3\n\n[c:FFFFFF]**2. プロジェクト目的とスコープ**[/c]\n\n[c:FFFFFF]**目的**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]提供データ（data\\train.csv）を用い、収入クラス（target: 0〜5の6クラス）を多クラス分類として予測可能かを評価し、主要因と業務示唆を整理する[/c]\n[c:8B2500]**主要アウトプット**[/c]\n[c:3D3D3D]前処理仕様[/c]\n[c:3D3D3D]モデル評価結果[/c]\n[c:3D3D3D]属性別傾向と公平性観点の留意点[/c]\n[c:3D3D3D]次フェーズ提案[/c]\n\n[c:FFFFFF]**スコープ（実施範囲）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]対象: data\\train.csv、カラム説明.mdに限定[/c]\n[c:3D3D3D]データ理解（EDA）→ 前処理方針策定[/c]\n[c:3D3D3D]ベースライン＋初期モデル構築・評価[/c]\n[c:3D3D3D]公平性初期チェック[/c]\n[c:3D3D3D]中間報告・最終報告の提出[/c]\n\n[c:8B2500]**対象外**[/c]\n[c:3D3D3D]本番システム実装[/c]\n[c:3D3D3D]外部データ収集[/c]\n[c:3D3D3D]採用・昇給等制度決定 ／ 離職予測[/c]\n\n[c:8B2500]**契約パラメータ**[/c]\n[c:3D3D3D]契約形態: 準委任型時間課金（T&M）[/c]\n[c:3D3D3D]想定総工数: 170時間[/c]\n[c:3D3D3D]時間単価: 25,000 JPY/時間[/c]\n[c:3D3D3D]消費税率: 10%[/c]\n\n[c:A0A0A0]2 / 15[/c]",
+   "label": "slide3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## スライド 4\n\n[c:FFFFFF]**3. 実施方法**[/c]\n\n[c:FFFFFF]**立上げ\n(M01 KO)**[/c]\n[c:E0E0E0]8/18[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**データ棚卸し\nEDA**[/c]\n[c:E0E0E0]8月下旬[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**前処理\nベースライン**[/c]\n[c:E0E0E0]9月上旬[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**中間報告\n(M02)**[/c]\n[c:E0E0E0]9/8[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**変更管理\nモデル改善**[/c]\n[c:E0E0E0]9月中旬[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**最終報告\n(M03)**[/c]\n[c:E0E0E0]9/26[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**検収準備\n納品**[/c]\n[c:E0E0E0]9/29[/c]\n{shape-fill:#707070 グレー}\n\n[c:8B2500]**分析実行設定（確定事実）**[/c]\n\n**モデル設定**\n[c:3D3D3D]タイプ: hist_gradient_boosting[/c]\n[c:3D3D3D]learning_rate = 0.03[/c]\n[c:3D3D3D]max_depth = 4, max_iter = 232[/c]\n[c:3D3D3D]min_samples_leaf = 15[/c]\n[c:3D3D3D]l2_regularization = 3.0[/c]\n\n**前処理方針**\n[c:3D3D3D]全説明変数は主にカテゴリ型[/c]\n[c:3D3D3D]順序カテゴリ特徴（Age_ord等）を利用[/c]\n[c:3D3D3D]class target encodingを複数カラムに実施[/c]\n[c:3D3D3D]長尾カテゴリ集約 (min_count=20)[/c]\n[c:3D3D3D]id列は除外（identifier_like_name）[/c]\n\n**データ分割・再現性**\n[c:3D3D3D]分割手法: random_holdout[/c]\n[c:3D3D3D]validation_size = 0.1[/c]\n[c:3D3D3D]test_size ≒ 0.2[/c]\n[c:707070]出力: artifacts/analysis_outputs/[/c]\n[c:707070]run_summary.json等を保存（再現可能）[/c]\n\n[c:A0A0A0]3 / 15[/c]",
+   "label": "slide4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## スライド 5\n\n[c:FFFFFF]**4. 主要な分析結果 — データ品質・特徴選択**[/c]\n\n[c:E0E0E0]総レコード数[/c]\n[c:FFFFFF]**11,529**[/c]  [c:C8C8C8]eda_summary.row_count[/c]\n{shape-fill:#8B2500 茶}\n\n[c:E0E0E0]Targetクラス数[/c]\n[c:FFFFFF]**6**[/c]  [c:C8C8C8]クラス 0〜5[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:E0E0E0]選択特徴量数[/c]\n[c:FFFFFF]**14**[/c]  [c:C8C8C8]feature_selection[/c]\n{shape-fill:#707070 グレー}\n\n[c:8B2500]**欠損データ**[/c]\n\n[c:3D3D3D]Major: 112件（欠損率 ≒ 0.971%）[/c]\n[c:3D3D3D]Experience: 55件（欠損率 ≒ 0.477%）[/c]\n[c:707070]→ カテゴリ化等で対応済[/c]\n\n[c:8B2500]**選択特徴量（14変数）**[/c]\n\n[c:FFFFFF]**Gender**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Age**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Country**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Education**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Major**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Profession**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Industry**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Experience**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**Age_ord**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**Exp_ord**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**Edu_ord**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**Age×Exp**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**Age-Exp**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**Edu×Exp**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:4A4A4A]■ 原特徴量[/c]    [c:8B2500]■ エンジニアリング特徴量[/c]\n\n[c:707070]除外列: id（identifier_like_name）[/c]\n\n[c:A0A0A0]4 / 15[/c]",
+   "label": "slide5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## スライド 6\n\n[c:FFFFFF]**4. 主要な分析結果 — モデル性能比較**[/c]\n\n| [c:FFFFFF]**順位**[/c] | [c:FFFFFF]**モデルタイプ**[/c] | [c:FFFFFF]**Macro F1**[/c] | [c:FFFFFF]**Accuracy**[/c] |\n|---|---|---|---|\n| **1** | **hist_gradient_boosting** | **0.4736** | **0.5104** |\n| 2 | hist_gradient_boosting | 0.4731 | 0.5082 |\n| 3 | random_forest | 0.4648 | 0.4879 |\n| 4 | hist_gradient_boosting | 0.4607 | 0.4996 |\n| 5 | linear_baseline | 0.4493 | 0.4731 |\n| 6 | linear_baseline | 0.4488 | 0.4722 |\n\n[c:8B2500]**中間試行の推移:**[/c] [c:3D3D3D]線形ベースライン(T01: F1=0.309) → 順序情報導入(T03: F1=0.449) → 非線形モデル(最終: F1=0.474)[/c]\n[c:8B2500]**過学習の状況:**[/c] [c:3D3D3D]Train F1≈0.645 vs Val F1≈0.620 — テストでの低下は限定的だが過学習リスクに注意[/c]\n\n[グラフ (BAR_CLUSTERED (57)): モデル別性能比較]\n| 系列 | HGB #1 | HGB #2 | RF | HGB #3 | Linear #1 | Linear #2 |\n|---|---|---|---|---|---|---|\n| (無名) | 0.4736 | 0.4731 | 0.4648 | 0.4607 | 0.4493 | 0.4488 |\n| (無名) | 0.5104 | 0.5082 | 0.4879 | 0.4996 | 0.4731 | 0.4722 |\n\n[c:A0A0A0]5 / 15[/c]",
+   "label": "slide6",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## スライド 7\n\n[c:FFFFFF]**4. 主要な分析結果 — 解釈・公平性・制約**[/c]\n\n[c:FFFFFF]**分析的所見**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]年齢・経験・学歴（順序性特徴）はtargetの予測に有用である傾向があり、ordered featuresの利用が性能向上に寄与している[/c]\n[c:3D3D3D]Country、Profession、Industry等のカテゴリは長尾分布があり、長尾カテゴリの集約ルール（min_count=20）が実運用上の安定化に寄与[/c]\n[c:3D3D3D]Gender等センシティブ属性を含めた場合、説明可能性と公平性リスクを同時に管理する必要がある（差別的利用を防ぐためのガバナンス必須）[/c]\n\n[c:FFFFFF]**公平性観点**[/c]\n{shape-fill:#4A4A4A グレー}\n\n**実施済**\n[c:3D3D3D]属性別性能差の「初期確認」は実施済（中間報告に記録）[/c]\n[c:8B2500]**未実施（後続フェーズで推奨）**[/c]\n[c:3D3D3D]グループ別 Macro F1 比較[/c]\n[c:3D3D3D]差分の統計的検定[/c]\n[c:3D3D3D]差別リスク指標の算出[/c]\n\n[c:FFFFFF]**制約に伴う注意**[/c]\n{shape-fill:#707070 グレー}\n\n[c:8B2500]**⚠ Targetクラス定義の重複**[/c]\n[c:3D3D3D]クラス4: 80k〜125k[/c]\n[c:3D3D3D]クラス5: >100k[/c]\n[c:3D3D3D]→ 100k〜125kの区間で重複が発生[/c]\n[c:707070]原定義のまま分析実施。解釈時には境界クラスの近接誤差を必ず考慮すること。[/c]\n\n[c:A0A0A0]6 / 15[/c]",
+   "label": "slide7",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## スライド 8\n\n[c:FFFFFF]**5. 業務提言 — 優先度：高**[/c]\n\n[c:FFFFFF]提言 1[/c]  [c:FFFFFF]**運用導入前のガバナンス整備**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]モデル結果を「制度改定の単独根拠」とせず、意思決定の参考情報として運用するルールを明文化[/c]\n[c:3D3D3D]センシティブ属性（Gender/Age/Country）の結果開示・利用基準を設定（閲覧権限、出力形式の制約）[/c]\n[c:3D3D3D]成果物に「解釈上の注意書き」と「想定適用範囲」を必ず添付[/c]\n[c:707070]責任者: 石川 直樹[/c]\n\n[c:FFFFFF]提言 2[/c]  [c:FFFFFF]**本番化技術要件**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]データパイプライン: 原データ受領→前処理→推論までのETLを再現可能にするスクリプト/バッチ化[/c]\n[c:3D3D3D]入出力仕様・API: 業務システム連携を想定し、次フェーズでAPI仕様と認証設計を作成[/c]\n[c:707070]責任者: 斎藤 悠斗（DE）[/c]\n\n[c:FFFFFF]提言 3[/c]  [c:FFFFFF]**モデル監視・再学習**[/c]\n{shape-fill:#707070 グレー}\n\n[c:3D3D3D]監視指標: Macro F1、Accuracy、混同行列、属性別Macro F1[/c]\n[c:3D3D3D]データドリフト検出: Country/Profession等の特徴分布変化を監視[/c]\n[c:3D3D3D]再学習: 初期は四半期毎、重大ドリフト検知時に随時実施[/c]\n[c:8B2500]**アラート: F1がbaseline(0.47)から±5%超でレビュー**[/c]\n[c:707070]責任者: 渡辺 遥（LDS）[/c]\n\n[c:A0A0A0]7 / 15[/c]",
+   "label": "slide8",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## スライド 9\n\n[c:FFFFFF]**5. 業務提言 — 優先度：中〜低**[/c]\n\n[c:FFFFFF]提言 4 [中][/c]  [c:FFFFFF]**公平性・説明可能性対応**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]グループ別公平性指標: Group F1差、FN/FPの偏りを検査[/c]\n[c:3D3D3D]説明可能性: SHAP等によるカテゴリ別貢献度の可視化で人事判断材料として提示[/c]\n[c:3D3D3D]人事制度へ適用する前に法務レビューを必須化[/c]\n\n[c:FFFFFF]提言 5 [中][/c]  [c:FFFFFF]**運用上のプロセス整備**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]変更管理: モデル・前処理・出力仕様の変更はチケット管理を経て承認[/c]\n[c:3D3D3D]リリース手順: ステージング→UAT（業務担当確認）→本番の段階的リリース[/c]\n\n[c:FFFFFF]提言 6 [中〜低][/c]  [c:FFFFFF]**データ拡充・精度向上**[/c]\n{shape-fill:#707070 グレー}\n\n[c:3D3D3D]追加データ: 実績報酬の数値データ、市場給与データ、職務記述の詳細等を統合し予測精度と外部妥当性を向上[/c]\n[c:3D3D3D]モデル検討: 非線形モデルの詳細ハイパーチューニング、対照として線形解釈モデルを並行運用[/c]\n\n[c:8B2500]**優先度マトリクス:**[/c] [c:3D3D3D]提言1〜3（高）→ 提言4〜5（中）→ 提言6（中〜低）の順で段階的に着手を推奨[/c]\n\n[c:FFFFFF]**提言 1**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**提言 2**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**提言 3**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**提言 4**[/c]\n{shape-fill:#B8442C 赤}\n\n[c:FFFFFF]**提言 5**[/c]\n{shape-fill:#B8442C 赤}\n\n[c:FFFFFF]**提言 6**[/c]\n{shape-fill:#A0A0A0 グレー}\n\n[c:A0A0A0]8 / 15[/c]",
+   "label": "slide9",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 10,
+   "text": "## スライド 10\n\n[c:FFFFFF]**6. 実装・運用計画**[/c]\n\n[c:FFFFFF]**短期（0〜3ヶ月）**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**中期（3〜9ヶ月）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**長期（9〜18ヶ月）**[/c]\n{shape-fill:#707070 グレー}\n\n[c:3D3D3D]再現可能な前処理パイプと学習ジョブ整備[/c]\n[c:707070]担当: 斎藤(DE)、渡辺(LDS) / 30営業日以内[/c]\n[c:3D3D3D]モデルのステージング導入（非公開ダッシュボードで業務評価）[/c]\n[c:707070]担当: 佐藤(PM) + 藤田(BA)[/c]\n[c:3D3D3D]モニタリングPoC: データドリフトと性能ドリフトのダッシュボード作成[/c]\n\n[c:3D3D3D]公平性監査の実装: グループ別メトリクス、差分検定、定期レポートの自動化[/c]\n[c:3D3D3D]データ連携: 市場給与データ等の外部データ検討と取り込み計画[/c]\n[c:3D3D3D]運用手順書、SOP（標準作業手順）の整備、利用者向けガイドライン作成[/c]\n\n[c:3D3D3D]カスタム可視化ダッシュボード（人事向け）作成とユーザートレーニング[/c]\n[c:3D3D3D]モデルの統合運用（CI/CDによる自動再学習、検証、リリース）[/c]\n[c:3D3D3D]制度改定支援への横展開（法務・労務レビューは別プロセス）[/c]\n\n[c:A0A0A0]9 / 15[/c]",
+   "label": "slide10",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 11,
+   "text": "## スライド 11\n\n[c:FFFFFF]**7. 制約事項と残余リスク**[/c]\n\n[c:FFFFFF]**確認済み事実・前提**[/c]\n{shape-fill:#4A4A4A グレー}\n\n**確認済み事実**\n[c:3D3D3D]データ: train.csv（11,529行）＋カラム説明.md[/c]\n[c:3D3D3D]欠損: Major 112件、Experience 55件[/c]\n[c:3D3D3D]契約: T&M、25,000JPY/h、170時間、税率10%[/c]\n[c:3D3D3D]Targetクラス定義の重複は原定義を維持[/c]\n**前提・仮定**\n[c:3D3D3D]提供データの代表性が前提（全社横展開の保証なし）[/c]\n[c:3D3D3D]追加データにより性能が変動する可能性あり[/c]\n\n[c:FFFFFF]**残余リスクと対策**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]高[/c]\n[c:FFFFFF]公平性・バイアスリスク[/c]\n{shape-fill:#8B2500 茶}\n\n[c:707070]対策:[/c] [c:3D3D3D]グループ別評価・説明資料の付与・運用ガイドラインの徹底[/c]\n\n[c:FFFFFF]中[/c]\n[c:FFFFFF]データ偏在[/c]\n{shape-fill:#B8442C 赤}\n\n[c:707070]対策:[/c] [c:3D3D3D]長尾カテゴリ集約ルールの適用と感度分析[/c]\n\n[c:FFFFFF]中[/c]\n[c:FFFFFF]スコープ超過[/c]\n{shape-fill:#B8442C 赤}\n\n[c:707070]対策:[/c] [c:3D3D3D]変更管理ゲート（MS5）で追加要求を時間単価ベースで精査[/c]\n\n[c:FFFFFF]中[/c]\n[c:FFFFFF]運用段階でのドリフト[/c]\n{shape-fill:#B8442C 赤}\n\n[c:707070]対策:[/c] [c:3D3D3D]監視・再学習体制の早期構築[/c]\n\n[c:A0A0A0]10 / 15[/c]",
+   "label": "slide11",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 12,
+   "text": "## スライド 12\n\n[c:FFFFFF]**8. 今後の拡張ロードマップ**[/c]\n\n[c:FFFFFF]**フェーズA: 運用準備（0〜3ヶ月）**[/c]\n{shape-fill:#8B2500 茶}\n\n [c:3D3D3D]前処理パイプライン自動化（斎藤）[/c]\n [c:3D3D3D]ステージング環境でのUAT（藤田/石川）[/c]\n [c:3D3D3D]基本モニタリング（性能/データ分布）とアラート設定（渡辺）[/c]\n[c:8B2500]**概算: 30〜60時間**[/c]\n\n[c:FFFFFF]**フェーズB: 性能・公平性強化（3〜9ヶ月）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n [c:3D3D3D]グループ別公平性監査の定着（定期レポート化）[/c]\n [c:3D3D3D]外部給与データ取り込み検討とABテストによる外部妥当性評価[/c]\n [c:3D3D3D]非線形モデル最適化と説明可能性の両立（モデルバンク化）[/c]\n[c:4A4A4A]**概算: 80〜160時間**[/c]\n\n[c:FFFFFF]**フェーズC: 業務統合・拡張（9〜18ヶ月）**[/c]\n{shape-fill:#707070 グレー}\n\n [c:3D3D3D]ダッシュボードの業務配布、ユーザートレーニング、CI/CDの実装[/c]\n [c:3D3D3D]人事制度改定支援レポーティングテンプレートの策定（法務確認必須）[/c]\n [c:3D3D3D]ガバナンス手順（説明責任者、監査ログ保管）整備[/c]\n[c:707070]**※ 別途見積・合意の上で着手**[/c]\n\n[c:707070]0ヶ月[/c]\n\n[c:707070]3ヶ月[/c]\n\n[c:707070]9ヶ月[/c]\n\n[c:707070]18ヶ月[/c]\n\n[c:A0A0A0]11 / 15[/c]",
+   "label": "slide12",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 13,
+   "text": "## スライド 13\n\n[c:FFFFFF]**9. 成果物サマリ**[/c]\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B2500 茶}\n\n**プロジェクト概要書**\n[c:707070]本ドキュメントの正本[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#8B2500 茶}\n\n**分析計画書**\n[c:707070]初版・最終版[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#8B2500 茶}\n\n**スケジュール表**\n[c:707070]WBS含む[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#8B2500 茶}\n\n**議事録一式**\n[c:707070]M01(8/18) + M02(9/8)[/c]\n\n[c:FFFFFF]**5**[/c]\n{shape-fill:#8B2500 茶}\n\n**中間報告書**\n[c:707070]報告資料_2025-09-08.md[/c]\n\n[c:FFFFFF]**6**[/c]\n{shape-fill:#8B2500 茶}\n\n**最終報告書**\n[c:707070]本書[/c]\n\n[c:FFFFFF]**7**[/c]\n{shape-fill:#8B2500 茶}\n\n**分析成果物一式**\n[c:707070]前処理仕様、評価結果表、可視化図表、スクリプト等[/c]\n\n[c:8B2500]**引き渡し方法**[/c]\n[c:3D3D3D]電子納品（アーカイブ）および会議での説明。検収後、最終成果物の全著作権移転（契約に準拠）。[/c]\n\n[c:A0A0A0]12 / 15[/c]",
+   "label": "slide13",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 14,
+   "text": "## スライド 14\n\n[c:FFFFFF]**10. 提案・契約との差分管理**[/c]\n\n[c:FFFFFF]**成果物**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**差分なし**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:3D3D3D]提案書／契約書記載の成果物一覧は本フェーズで全て納品済[/c]\n\n[c:FFFFFF]**スコープ**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**差分なし**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:3D3D3D]対象外事項（本番実装・外部データ収集・制度決定等）を遵守。追加要求はMS5で変更管理[/c]\n\n[c:FFFFFF]**KPI/受入基準**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**主指標変更なし**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:3D3D3D]Macro F1を主指標として報告。受入基準は「成果物の存在および合意した前提での実施整合」[/c]\n\n[c:FFFFFF]**契約形態・支払条件**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**変更なし**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:3D3D3D]T&M、25,000JPY/h、170時間、税率10%。Schedule上の運用目安（10/3）は契約の検収条項に基づく補足[/c]\n\n[c:FFFFFF]**結論: 契約上の主要項目に「変更」は発生していない。追加作業はT&Mベースで両当事者合意済。**[/c]\n\n[c:A0A0A0]13 / 15[/c]",
+   "label": "slide14",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 15,
+   "text": "## スライド 15\n\n[c:FFFFFF]**付録: 請求明細**[/c]\n\n| [c:FFFFFF]**項目**[/c] | [c:FFFFFF]**金額 / 数値**[/c] |\n|---|---|\n| 実績工数 | 170 時間 |\n| 契約時時間単価 | 25,000 JPY/時間 |\n| 最終請求金額（税抜） | 4,250,000 JPY |\n| 消費税額（10%） | 425,000 JPY |\n| **最終請求金額（税込）** | **4,675,000 JPY** |\n\n[c:8B2500]**計算式:**[/c] [c:3D3D3D]170時間 × 25,000 JPY = 4,250,000 JPY（税抜）[/c]\n[c:707070]（注）上記は実績工数170時間での例示。実際の請求書は工数記録に基づいて発行される。[/c]\n\n[c:A0A0A0]14 / 15[/c]",
+   "label": "slide15",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 16,
+   "text": "## スライド 16\n\n[c:FFFFFF]**11. 総括**[/c]\n\n[c:3D3D3D]本プロジェクトは6週間の短期フェーズとして想定された範囲内で「収入クラス予測の初期分析と業務示唆」を実現した。[/c]\n[c:3D3D3D]最終モデルにより得られた[/c] [c:8B2500]**Macro F1 ≈ 0.474、Accuracy ≈ 0.510**[/c] [c:3D3D3D]はカテゴリ中心のデータ構成を考慮した初期成果として実務的価値があると判断される。[/c]\n\n[c:8B2500]**⚠ 重要:**[/c] [c:3D3D3D]本成果は「参考情報」であり、制度判断や個別処遇の直接決定には法務・労務レビューや更なる検証が必要である。[/c]\n\n**次フェーズでの推奨事項**\n\n[c:FFFFFF]**運用基盤の整備**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**公平性監査の深化**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**外部データ統合による\n外部妥当性検証**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:A0A0A0]15 / 15[/c]",
+   "label": "slide16",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 17,
+   "text": "## 埋め込み画像・オブジェクト\n### 埋め込みグラフ (barChart): モデル別性能比較 [ppt/charts/chart1.xml]\n| 系列 | HGB #1 | HGB #2 | RF | HGB #3 | Linear #1 | Linear #2 |\n|---|---|---|---|---|---|---|\n| Macro F1 | 0.47360000000000002 | 0.47310000000000002 | 0.46479999999999999 | 0.4607 | 0.44929999999999998 | 0.44879999999999998 |\n| Accuracy | 0.51039999999999996 | 0.50819999999999999 | 0.4879 | 0.49959999999999999 | 0.47310000000000002 | 0.47220000000000001 |",
+   "label": "media",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_slides": 16,
+  "n_pictures": 0,
+  "n_charts": 1,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

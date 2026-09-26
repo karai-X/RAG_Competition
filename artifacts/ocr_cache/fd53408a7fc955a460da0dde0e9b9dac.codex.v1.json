@@ -1,0 +1,13 @@
+{
+ "md5": "fd53408a7fc955a460da0dde0e9b9dac",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "dteday による時系列推移\n\n縦軸：平均値\n\n横軸：日付",
+ "figure_description": "折れ線グラフ。青色の1系列の線で時系列推移が示されている。凡例はない。\n\n- 横軸ラベル：日付\n- 横軸目盛り：2011-01、2011-03、2011-05、2011-07、2011-09、2011-11、2012-01\n- 縦軸ラベル：平均値\n- 縦軸目盛り：50、100、150、200、250\n- 線の色：青色\n- 背景：白色\n- グリッド線：灰色\n\n各時点の数値ラベルは表示されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 14.56,
+ "source": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell18_img6.png"
+}

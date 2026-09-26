@@ -1,0 +1,10 @@
+{
+ "md5": "bb4f444e102372c5f8d92ce27e7ca70b",
+ "question": "各案件のPP・契約書・PLAN・FRにおいて、DA側の実施体制として役割付きで記載されている人物は全部で何人ですか。",
+ "engine": "claude_cli",
+ "answer": "2人(PM:伊藤 翔太、リードDS:鈴木 美咲)",
+ "evidence": "画像右側の「株式会社データアステル(Analytics/Model Owner)」のボックスに、役割付きの人物として「PM:伊藤 翔太 / リードDS:鈴木 美咲」の2名が記載されている。左側の青潮モビリティサービス側の高山 拓海様は担当窓口でありDA側ではない。",
+ "confident": true,
+ "error": null,
+ "latency_sec": 15.3
+}

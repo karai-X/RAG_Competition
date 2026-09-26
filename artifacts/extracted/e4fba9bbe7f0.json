@@ -1,0 +1,28 @@
+{
+ "doc_id": "e4fba9bbe7f0",
+ "relpath": "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png",
+ "mount": "",
+ "project": "白峰信用リスク評価株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "efc3c787e7daff157f3b4af46f08e951",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png (1474x1176) md5:efc3c787 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n## 欠損率 上位20列\n\n| 列名 | 欠損率(%) |\n|---|---:|\n| Attr37 | 45.3% |\n| Attr21 | 7.2% |\n| Attr27 | 7.1% |\n| Attr60 | 5.6% |\n| Attr45 | 5.6% |\n| Attr28 | 2.2% |\n| Attr53 | 2.2% |\n| Attr54 | 2.2% |\n| Attr64 | 2.2% |\n| Attr24 | 2.1% |\n| Attr41 | 2.0% |\n| Attr32 | 0.9% |\n| Attr52 | 0.8% |\n| Attr47 | 0.8% |\n| Attr19 | 0.4% |\n| Attr31 | 0.4% |\n| Attr23 | 0.4% |\n| Attr13 | 0.4% |\n| Attr44 | 0.4% |\n| Attr39 | 0.4% |\n[図の説明] 横棒グラフ。タイトルは「欠損率 上位20列」。横軸ラベルは「欠損率(%)」で、表示されている目盛りは0、10、20、30、40。縦軸ラベルは「列名」。凡例はない。棒はすべて赤橙色で塗られている。上から順に、Attr37＝45.3%、Attr21＝7.2%、Attr27＝7.1%、Attr60＝5.6%、Attr45＝5.6%、Attr28＝2.2%、Attr53＝2.2%、Attr54＝2.2%、Attr64＝2.2%、Attr24＝2.1%、Attr41＝2.0%、Attr32＝0.9%、Attr52＝0.8%、Attr47＝0.8%、Attr19＝0.4%、Attr31＝0.4%、Attr23＝0.4%、Attr13＝0.4%、Attr44＝0.4%、Attr39＝0.4%。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/白峰信用リスク評価株式会社/04.分析/analysis_project/reports/figures/missing_rate_top20.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1474,
+  "height": 1176,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,25 @@
+{
+ "doc_id": "fad68ef3678d",
+ "relpath": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/04.分析/analysis_outputs/metrics.json",
+ "mount": "",
+ "project": "医療法人社団 蒼樹会 みなみ野女性医療センター",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "cd11cc9143108aeefa1eb1a47c8474b1",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"task_type\": \"classification\",\n  \"encoding\": \"utf-8-sig\",\n  \"target_column\": \"Outcome\",\n  \"date_column\": \"\",\n  \"use_date_features\": true,\n  \"use_numeric_interactions\": false,\n  \"use_cyclical_time_features\": false,\n  \"use_ordered_category_features\": true,\n  \"group_rare_categories\": true,\n  \"rare_category_min_count\": 20,\n  \"use_categorical_frequency_features\": false,\n  \"categorical_frequency_min_unique\": 3,\n  \"categorical_frequency_max_unique\": 200,\n  \"use_class_target_encoding\": true,\n  \"drop_original_categorical_after_target_encoding\": true,\n  \"tune_class_decision_weights\": false,\n  \"model_type\": \"hist_gradient_boosting\",\n  \"model_params\": {\n    \"learning_rate\": 0.03,\n    \"max_depth\": 4,\n    \"max_iter\": 400,\n    \"min_samples_leaf\": 30,\n    \"l2_regularization\": 1.0\n  },\n  \"split_strategy\": \"random_holdout\",\n  \"transform_target\": \"none\",\n  \"validation_size\": 0.1,\n  \"early_stopping\": {\n    \"enabled\": true,\n    \"mode\": \"holdout_validation\",\n    \"iteration_key\": \"max_iter\",\n    \"best_iteration\": 400,\n    \"patience\": 2,\n    \"min_delta\": 0.0,\n    \"validation_history\": [\n      {\n        \"iteration\": 66,\n        \"metric\": 0.648802555606262\n      },\n      {\n        \"iteration\": 132,\n        \"metric\": 0.6725383920505872\n      },\n      {\n        \"iteration\": 198,\n        \"metric\": 0.6706674473067915\n      },\n      {\n        \"iteration\": 400,\n        \"metric\": 0.6770833333333334\n      }\n    ]\n  },\n  \"early_stopping_patience\": 2,\n  \"row_count\": 3000,\n  \"feature_count\": 9,\n  \"train_rows\": 2100,\n  \"validation_rows\": 300,\n  \"test_rows\": 600,\n  \"split_ordering_basis\": \"random_holdout\",\n  \"accuracy\": 0.8083333333333333,\n  \"f1_macro\": 0.6976747242924932,\n  \"auc_roc\": 0.8100717663080903,\n  \"brier_score\": 0.13541262685080327,\n  \"precision_at_top10pct\": 0.75,\n  \"train_metrics\": {\n    \"accuracy\": 0.8852380952380953,\n    \"f1_macro\": 0.8208444206718848\n  },\n  \"validation_metrics\": {\n    \"accuracy\": 0.8766666666666667,\n    \"f1_macro\": 0.8084853085802033\n  },\n  \"eda_summary\": {\n    \"row_count\": 3000,\n    \"column_count\": 10,\n    \"target_column\": \"Outcome\",\n    \"missing_ratio_top10\": {\n      \"index\": 0.0,\n      \"Pregnancies\": 0.0,\n      \"Glucose\": 0.0,\n      \"BloodPressure\": 0.0,\n      \"SkinThickness\": 0.0,\n      \"Insulin\": 0.0,\n      \"BMI\": 0.0,\n      \"DiabetesPedigreeFunction\": 0.0,\n      \"Age\": 0.0,\n      \"Outcome\": 0.0\n    },\n    \"target_dtype\": \"int64\",\n    \"target_unique\": 2\n  },\n  \"feature_selection\": {\n    \"selected_columns\": [\n      \"index\",\n      \"Pregnancies\",\n      \"Glucose\",\n      \"BloodPressure\",\n      \"SkinThickness\",\n      \"Insulin\",\n      \"BMI\",\n      \"DiabetesPedigreeFunction\",\n      \"Age\"\n    ],\n    \"excluded_columns\": [],\n    \"grouped_rare_columns\": [],\n    \"added_frequency_columns\": [],\n    \"categorical_unique_limit\": 100,\n    \"group_rare_categories\": true,\n    \"rare_category_min_count\": 20,\n    \"use_categorical_frequency_features\": false,\n    \"categorical_frequency_min_unique\": 3,\n    \"categorical_frequency_max_unique\": 200\n  },\n  \"ordered_feature_columns\": [],\n  \"selected_feature_count\": 9,\n  \"excluded_feature_count\": 0\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 3075,
+  "n_lines": 120
+ },
+ "error": null,
+ "warnings": []
+}

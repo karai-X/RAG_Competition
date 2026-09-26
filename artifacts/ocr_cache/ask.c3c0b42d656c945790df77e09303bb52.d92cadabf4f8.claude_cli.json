@@ -1,0 +1,10 @@
+{
+ "md5": "c3c0b42d656c945790df77e09303bb52",
+ "question": "分析データの中で、1つでも欠損値がある行数が最も多い案件を、主略称で答えてください。",
+ "engine": "claude_cli",
+ "answer": "GROSS SQUARE FEET",
+ "evidence": "画像は「欠損率 上位20列」という横棒グラフで、GROSS SQUARE FEET が 35.9%、LAND SQUARE FEET が 35.1% の欠損率と表示されています。最も欠損率が高いのは GROSS SQUARE FEET です。ただし、このグラフは列ごとの欠損率を示すものであり、「案件」や「主略称」に関する情報は画像内に存在しないため、質問に正確に対応する情報は読み取れませんでした。",
+ "confident": false,
+ "error": null,
+ "latency_sec": 17.94
+}

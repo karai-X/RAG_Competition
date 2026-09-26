@@ -1,0 +1,28 @@
+{
+ "doc_id": "a20e53ed5111",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/target_distribution.png",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "ac09136bbf6715cb3f7d4344cf38b219",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/target_distribution.png (875x576) md5:ac09136b — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n- タイトル：目的変数の分布\n- 縦軸ラベル：件数\n- 横軸ラベル：目的変数\n- 横軸目盛り：0、1\n- 縦軸目盛り：0、5000、10000、15000、20000、25000\n- 数値ラベル：\n  - 目的変数 0：23954\n  - 目的変数 1：3174\n[図の説明] 縦棒グラフ。タイトルは「目的変数の分布」。横軸ラベルは「目的変数」で、目盛りは「0」「1」。縦軸ラベルは「件数」で、目盛りは0から25000まで5000刻み。凡例はない。目的変数「0」の棒は青緑色で塗られ、棒上の数値ラベルは23954。目的変数「1」の棒はサーモン色で塗られ、棒上の数値ラベルは3174。横方向のグリッド線が表示されている。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/target_distribution.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 875,
+  "height": 576,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

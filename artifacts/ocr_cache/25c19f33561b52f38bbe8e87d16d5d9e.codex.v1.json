@@ -1,0 +1,13 @@
+{
+ "md5": "25c19f33561b52f38bbe8e87d16d5d9e",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "スキャン文書",
+ "markdown": "# [c:青緑]分析進捗報告書[/c]\n\n対象チェックポイント：会議 ID M01（キックオフ）  \n会議日：2025-04-03  \n報告対象期間：2025-04-03 to 2025-04-03  \n報告作成時点のフェーズ：kickoff（計画フェーズ・事前実装段階）\n\n---\n\n## [c:青緑]1. 報告サマリー[/c]\n\n- 現状ステータス（要約）\n  - キックオフ会議（M01：2025-04-03）を実施済（議題：目的・スコープ確認、データ受領状況確認、役割分担・進行ルール合意予定）。現時点で議事録は未発行のため、正式な決定事項は議事録で追認予定。Report facts の checkpoint.stage は “kickoff”、analysis.implementation_status は “planning_only”（実装未着手）です。\n  - 分析結果の可視化・モデル結果は未存在（analysis.results_visibility = “no_model_results”）。よってモデル評価値や採用候補の提示は行っていません。\n- 主要数値（Report facts JSON に基づく事実）\n  - 契約金額（税抜）：3,600,000 円（Report facts commercial.contract_amount_excl_tax_jpy）\n  - 契約金額（税込）：3,960,000 円（Report facts commercial.contract_amount_incl_tax_jpy）\n  - 契約開始日：2025-04-03、契約期間：6 週間（project_timeline）\n  - オープンアクション数：0（prior_state.open_action_count = 0）\n- トレーサビリティ（主要参照）\n  - 本チェックポイント：会議 M01（meeting_plan M01）\n  - 直近マイルストーン：MS2（データ理解完了：2025-04-15）、中間レビュー（MS4：2025-04-24）\n  - 解析成果物の出力はまだ存在しないため、参照可能なモデル結果やトライアルはありません（visible_trials = []）。\n\n注記：データ件数や目的変数の陽性率等、詳細なデータ統計はプロジェクト概要に記載がありますが、本報告で定量値を記載する場合は Report facts JSON に数値が含まれていないため「assumption（仮定）」として明示します（該当箇所で明記）。\n\n---\n\n## [c:青緑]2. 進捗状況[/c]\n\n- 実施済（このチェックポイント時点）",
+ "figure_description": "",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 46.7,
+ "source": "プロジェクト/医療法人社団 蒼樹会 みなみ野女性医療センター/05.会議/報告資料/報告資料_2025-04-03.pdf p1"
+}

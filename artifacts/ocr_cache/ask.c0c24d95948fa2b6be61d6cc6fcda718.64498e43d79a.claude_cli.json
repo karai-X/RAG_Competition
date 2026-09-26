@@ -1,0 +1,10 @@
+{
+ "md5": "c0c24d95948fa2b6be61d6cc6fcda718",
+ "question": "TM案件において、RATEが変更されたのは何年何月1日からと想定されますか。",
+ "engine": "claude_cli",
+ "answer": "画像からは判断できません。画像はjob・marital・educationの分布を示す棒グラフであり、TM案件やRATEの変更時期に関する情報は含まれていません。",
+ "evidence": "画像は「job の分布(上位15件)」「marital の分布(上位15件)」「education の分布(上位15件)」という3つの棒グラフで構成されており、職業・婚姻状況・学歴ごとの件数を示すのみで、RATEや日付・料率変更に関する記載は一切見当たりませんでした。",
+ "confident": false,
+ "error": null,
+ "latency_sec": 12.33
+}

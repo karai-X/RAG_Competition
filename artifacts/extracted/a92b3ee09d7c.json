@@ -1,0 +1,25 @@
+{
+ "doc_id": "a92b3ee09d7c",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/src/common.py",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "a9571be926acce884dc09f7d15f8779c",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport json\nfrom pathlib import Path\nfrom typing import Any\n\nimport pandas as pd\n\nENCODINGS = (\"utf-8-sig\", \"utf-8\", \"cp932\", \"shift_jis\", \"euc_jp\")\nTARGET_HINTS = (\"target\", \"label\", \"y\", \"sales\", \"demand\", \"count\", \"revenue\", \"profit\", \"売上\", \"販売\", \"需要\", \"個数\")\nDATE_HINTS = (\"date\", \"time\", \"day\", \"timestamp\", \"日付\", \"日時\", \"日\")\n\n\ndef load_json(path: Path) -> dict[str, Any]:\n    return json.loads(path.read_text(encoding=\"utf-8\"))\n\n\ndef save_json(path: Path, payload: dict[str, Any]) -> None:\n    path.parent.mkdir(parents=True, exist_ok=True)\n    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + \"\\n\", encoding=\"utf-8\")\n\n\ndef to_rel(path: Path, base: Path) -> str:\n    try:\n        return path.resolve().relative_to(base.resolve()).as_posix()\n    except Exception:\n        return path.as_posix()\n\n\ndef to_int(value: object, default: int) -> int:\n    try:\n        return int(value)\n    except Exception:\n        return default\n\n\ndef to_float(value: object, default: float) -> float:\n    try:\n        return float(value)\n    except Exception:\n        return default\n\n\ndef as_bool(value: object, default: bool = True) -> bool:\n    if isinstance(value, bool):\n        return value\n    if isinstance(value, str):\n        low = value.strip().lower()\n        if low in {\"1\", \"true\", \"yes\", \"on\"}:\n            return True\n        if low in {\"0\", \"false\", \"no\", \"off\"}:\n            return False\n    return default\n\n\ndef load_csv_auto(path: Path) -> tuple[pd.DataFrame, str]:\n    last_error: Exception | None = None\n    sep = \"\t\" if path.suffix.lower() == \".tsv\" else \",\"\n    for enc in ENCODINGS:\n        try:\n            return pd.read_csv(path, encoding=enc, sep=sep), enc\n        except UnicodeDecodeError as exc:\n            last_error = exc\n    if last_error is not None:\n        raise last_error\n    raise RuntimeError(\"Unable to decode CSV with supported encodings\")\n\n\ndef infer_target_column(df: pd.DataFrame, configured: str | None) -> str:\n    if configured and configured in df.columns:\n        return configured\n    lower_map = {c: c.lower() for c in df.columns}\n    for col, low in lower_map.items():\n        if low == \"y\":\n            return col\n    for hint in TARGET_HINTS:\n        for col, low in lower_map.items():\n            if low == hint:\n                return col\n    for hint in TARGET_HINTS:\n        for col, low in lower_map.items():\n            if hint != \"y\" and hint in low:\n                return col\n    return df.columns[-1]\n\n\ndef infer_date_column(df: pd.DataFrame, target_col: str, configured: str | None) -> str | None:\n    if configured and configured in df.columns and configured != target_col:\n        return configured\n    lower_map = {c: c.lower() for c in df.columns if c != target_col}\n    for hint in DATE_HINTS:\n        for col, low in lower_map.items():\n            if hint in low:\n                return col\n    return None\n\n\ndef infer_task_type(y: pd.Series) -> str:\n    if pd.api.types.is_numeric_dtype(y):\n        uniq = y.dropna().nunique()\n        if uniq > 20:\n            return \"regression\"\n    return \"classification\"\n\n\ndef resolve_input_path(path_value: str, manual_root: Path, project_root: Path) -> Path:\n    p = Path(path_value)\n    if p.is_absolute():\n        return p\n    candidate_manual = manual_root / p\n    if candidate_manual.exists():\n        return candidate_manual\n    candidate_project = project_root / p\n    if candidate_project.exists():\n        return candidate_project\n    return candidate_manual\n\n\ndef resolve_output_dir(path_value: str, manual_root: Path, project_root: Path) -> Path:\n    p = Path(path_value)\n    if p.is_absolute():\n        return p\n    if manual_root.parent.name == \"artifacts\":\n        return project_root / p\n    return manual_root / p\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 3782,
+  "n_lines": 126
+ },
+ "error": null,
+ "warnings": []
+}

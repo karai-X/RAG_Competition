@@ -1,0 +1,13 @@
+{
+ "md5": "cccbc0b9f1f45a5ece50ce6f5af6b035",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "タイトル：Gender の分布\n\n- 縦軸ラベル：Gender\n- カテゴリ：Male、Female\n- 横軸ラベル：件数\n- 横軸目盛り：0、500、1000、1500、2000、2500、3000",
+ "figure_description": "横向き棒グラフ。縦軸は「Gender」で、カテゴリは上から「Male」「Female」。横軸は「件数」で、目盛りは0、500、1000、1500、2000、2500、3000。Maleの棒は濃い青色、Femaleの棒は緑色で塗られている。凡例および棒の数値ラベルはないため、各カテゴリの正確な件数は記載されていない。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 17.16,
+ "source": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/reports/figures/categorical_distribution_top3.png"
+}

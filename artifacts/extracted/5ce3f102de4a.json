@@ -1,0 +1,139 @@
+{
+ "doc_id": "5ce3f102de4a",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/06.報告書/株式会社青嶺不動産アセットマネジメント_最終報告.pptx",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "06.報告書",
+ "filetype": "pptx",
+ "md5": "18553339635123df3940a735350f39b1",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## スライド 1\n\n[c:FFFFFF]**最終分析報告書**[/c]\n\n[c:CCCCCC]NYC不動産売買トランザクション価格形成要因分析[/c]\n\n[c:3D3D3D]クライアント：株式会社青嶺不動産アセットマネジメント[/c]\n[c:3D3D3D]実施者：株式会社データアステル[/c]\n[c:3D3D3D]契約期間：2025年8月6日〜2025年9月17日[/c]\n[c:3D3D3D]課金方式：タイム・アンド・マテリアル[/c]\n\n[c:707070]CONFIDENTIAL[/c]\n[c:707070]最終報告会：2025年9月16日[/c]",
+   "label": "slide1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## スライド 2\n\n[c:FFFFFF]**目次**[/c]\n\n[c:FFFFFF]**01**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]エグゼクティブサマリ[/c]\n\n[c:FFFFFF]**02**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]プロジェクト目的とスコープ[/c]\n\n[c:FFFFFF]**03**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]実施方法[/c]\n\n[c:FFFFFF]**04**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]主要な分析結果と解釈[/c]\n\n[c:FFFFFF]**05**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]業務提言[/c]\n\n[c:FFFFFF]**06**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]実装・運用計画[/c]\n\n[c:FFFFFF]**07**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]制約事項と残余リスク[/c]\n\n[c:FFFFFF]**08**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]今後の拡張ロードマップ[/c]\n\n[c:FFFFFF]**09**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]成果物サマリ[/c]\n\n[c:FFFFFF]**10**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]総括[/c]\n\n[c:FFFFFF]**11**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]提案・契約との差分管理[/c]",
+   "label": "slide2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## スライド 3\n\n[c:FFFFFF]**01  エグゼクティブサマリ**[/c]\n\n[c:8B2E1E]**プロジェクト概要**[/c]\n[c:3D3D3D]NYC不動産売買トランザクション（37,751件）を用いたSALE PRICE価格形成要因の定量化と初期的な予測可能性の検証。6週間案件。[/c]\n\n[c:4A4A4A]**ビジネス成果**[/c]\n[c:3D3D3D]立地（BOROUGH）や規模（戸数・面積）等の属性が価格説明に寄与することを定量的に示し、案件スクリーニング／比較評価に活用可能な示唆を提示。[/c]\n\n[c:4A4A4A]**分析成果**[/c]\n[c:3D3D3D]最終回帰パイプライン（Random Forest）：RMSE = 699,838 / MAE = 424,774 / R² = 0.482。非線形モデルが線形ベースラインより良好。[/c]\n\n[c:8B2E1E]**運用的示唆**[/c]\n[c:3D3D3D]面積・築年・ZIPのデータ品質改善、日付・市場データの追加連携、定期的な再学習とデータ品質監視が即時的な優先対応事項である。[/c]",
+   "label": "slide3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## スライド 4\n\n[c:FFFFFF]**02  プロジェクト目的とスコープ**[/c]\n\n[c:FFFFFF]**目的**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]SALE PRICEを中心に立地・建物属性・規模・築年等の価格寄与を定量化[/c]\n[c:3D3D3D]業務判断に資する初期的な分析基盤と示唆を納品[/c]\n[c:3D3D3D]提案書／契約書に合致した目的設定[/c]\n\n[c:FFFFFF]**実施範囲（対象）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]data\\\\train.csv の読込・品質確認[/c]\n[c:3D3D3D]探索的データ分析（EDA）[/c]\n[c:3D3D3D]前処理方針策定・特徴量設計[/c]\n[c:3D3D3D]初期モデル検証（1版）[/c]\n[c:3D3D3D]中間報告／最終報告の提出[/c]\n[c:3D3D3D]会議議事メモ等（契約3.1と一致）[/c]\n\n[c:FFFFFF]**対象外（契約通り）**[/c]\n{shape-fill:#707070 グレー}\n\n[c:3D3D3D]本番システム実装[/c]\n[c:3D3D3D]外部データの恒常連携[/c]\n[c:3D3D3D]賃料/NOIの算出[/c]\n[c:3D3D3D]鑑定評価書作成[/c]\n[c:3D3D3D]個別案件代行[/c]",
+   "label": "slide4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## スライド 5\n\n[c:FFFFFF]**03  実施体制**[/c]\n\n[c:FFFFFF]**株式会社データアステル（実施者）**[/c]\n\n[c:8B2E1E]エグゼクティブスポンサー[/c]\n**中村 誠**\n\n[c:8B2E1E]プロジェクトマネージャー[/c]\n**佐藤 健一**\n\n[c:4A4A4A]リードDS[/c]\n**渡辺 遥**\n\n[c:4A4A4A]データエンジニア[/c]\n**岡田 佑樹**\n\n[c:4A4A4A]BA[/c]\n**藤田 彩**\n\n[c:4A4A4A]QA[/c]\n**小林 直樹**\n\n[c:FFFFFF]**クライアント**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:8B2E1E]青嶺不動産AM[/c]\n**前田 美咲 部長**\n\n[c:8B2E1E]**手法要点**[/c]\n[c:3D3D3D]再現性優先の標準化パイプラインを採用[/c]\n[c:3D3D3D]高カーディナリティ項目（NEIGHBORHOOD, BUILDING CLASS系）を除外し、交互作用（BBL組合せ等）を特徴量に追加[/c]\n[c:3D3D3D]分割戦略はtime_ordered（date_columnに基づく）を試行。date_columnの実態確認は中間段階で議論[/c]",
+   "label": "slide5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## スライド 6\n\n[c:FFFFFF]**03  主要工程（タイムライン）**[/c]\n\n[c:FFFFFF]**立上げ・データ受領**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:8B2E1E]**8/6**[/c]\n\n[c:3D3D3D]M01 キックオフ[/c]\n\n[c:FFFFFF]**データ品質評価**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:4A4A4A]**8月上旬**[/c]\n\n[c:3D3D3D]欠損・ゼロ値・異常値\nBBL重複確認[/c]\n\n[c:FFFFFF]**探索的分析**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:4A4A4A]**8月中旬**[/c]\n\n[c:3D3D3D]立地別・建物クラス別\n面積/戸数/築年の関係[/c]\n\n[c:FFFFFF]**前処理方針確定**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:8B2E1E]**8/26**[/c]\n\n[c:3D3D3D]M02 中間報告[/c]\n\n[c:FFFFFF]**初期モデリング**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:4A4A4A]**9月上旬**[/c]\n\n[c:3D3D3D]ベースライン〜非線形\n特徴量調整・評価[/c]\n\n[c:FFFFFF]**最終報告・検収**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:8B2E1E]**9/16-17**[/c]\n\n[c:3D3D3D]最終報告会\n検収基準日[/c]\n\n[c:8B2E1E]**契約期間：2025年8月6日〜2025年9月17日（6週間）**[/c]\n[c:3D3D3D]主要マイルストーン：M01 キックオフ（8/6）→ M02 中間報告（8/26）→ M03 最終報告会（9/16）→ 検収基準日（9/17）[/c]",
+   "label": "slide6",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## スライド 7\n\n[c:FFFFFF]**04  データ品質（確定事実）**[/c]\n\n[c:707070]レコード数[/c]\n[c:4A4A4A]**37,751件**[/c]\n[c:A0A0A0]data\\train.csv[/c]\n\n[c:707070]特徴量数[/c]\n[c:4A4A4A]**19**[/c]\n[c:A0A0A0]selected_feature_count[/c]\n\n[c:707070]GROSS SF欠損率[/c]\n[c:8B2E1E]**35.9%**[/c]\n[c:A0A0A0]重大な品質課題[/c]\n\n[c:707070]LAND SF欠損率[/c]\n[c:8B2E1E]**35.1%**[/c]\n[c:A0A0A0]重大な品質課題[/c]\n\n[c:FFFFFF]**高カーディナリティのため除外した列**[/c]\n{shape-fill:#4A4A4A グレー}\n\n**NEIGHBORHOOD**\n[c:707070]unique: 251[/c]\n\n**BUILDING CLASS AT PRESENT**\n[c:707070]unique: 123[/c]\n\n**BUILDING CLASS AT TIME OF SALE**\n[c:707070]unique: 121[/c]\n\n[c:8B2E1E]**データ品質に関する主要な所見**[/c]\n[c:3D3D3D]GROSS SQUARE FEET（35.9%）およびLAND SQUARE FEET（35.1%）の欠損率が突出して高い[/c]\n[c:3D3D3D]YEAR BUILTに入力異常（0等）を含む — 実際の効果は補正後に再評価が必要[/c]\n[c:3D3D3D]ZIP CODEの0値が存在 — 外部ZIP参照による修正が可能[/c]\n[c:3D3D3D]対象カラムと型方針は分析計画に従い整理済み（selected_feature_count = 19）[/c]\n[c:3D3D3D]時系列粒度を直接示す信頼できる日付カラムが存在しない（市況サイクルの調整未実施）[/c]",
+   "label": "slide7",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## スライド 8\n\n[c:FFFFFF]**04  モデル評価結果**[/c]\n\n[c:8B2E1E]**最終パイプライン：Random Forest**[/c]\n\n[c:707070]RMSE[/c]\n[c:8B2E1E]**699,839**[/c]\n\n[c:707070]MAE[/c]\n[c:4A4A4A]**424,774**[/c]\n\n[c:FFFFFF]R²[/c]\n[c:FFFFFF]**0.482**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:8B2E1E]**⚠ 過学習示唆：**[/c][c:3D3D3D]Train R² = 0.932 vs Validation R² = 0.482 — 学習/検証ギャップが存在。非線形モデルは線形より優位だが、汎化性能の改善余地あり。[/c]\n\n[c:FFFFFF]**モデル比較リーダーボード**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:8B2E1E]**#1 random_forest**[/c]\n\n[c:FFFFFF]**R²=0.482**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:707070]#2 random_forest[/c]\n\n[c:FFFFFF]**R²=0.472**[/c]\n{shape-fill:#A0A0A0 グレー}\n\n[c:707070]#3 random_forest[/c]\n\n[c:FFFFFF]**R²=0.472**[/c]\n{shape-fill:#A0A0A0 グレー}\n\n[c:707070]#4 hist_gradient_boosting[/c]\n\n[c:FFFFFF]**R²=0.468**[/c]\n{shape-fill:#A0A0A0 グレー}\n\n[c:707070]#5 random_forest[/c]\n\n[c:FFFFFF]**R²=0.440**[/c]\n{shape-fill:#A0A0A0 グレー}\n\n[c:707070]#6 extra_trees[/c]\n\n[c:FFFFFF]**R²=0.431**[/c]\n{shape-fill:#A0A0A0 グレー}",
+   "label": "slide8",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## スライド 9\n\n[c:FFFFFF]**04  主要な説明因子と制約付き解釈**[/c]\n\n[c:8B2E1E]**主要な説明因子（解釈）**[/c]\n\n[c:8B2E1E]**最重要**[/c]\n**立地（BOROUGH）**\n[c:3D3D3D]最も強い説明軸。Manhattan等と他BOROUGHで顕著な価格差が存在する。[/c]\n\n[c:4A4A4A]**重要**[/c]\n**規模（面積・戸数）**\n[c:3D3D3D]TOTAL UNITS、LAND/GROSS SFおよびRESIDENTIAL/COMMERCIAL UNITSは価格に正の寄与。ただし面積項目の欠損/ゼロ値がバイアス要因。[/c]\n\n[c:707070]**要再評価**[/c]\n**築年（YEAR BUILT）**\n[c:3D3D3D]入力異常（0等）を含むため、実際の効果は補正後に再評価が必要である。[/c]\n\n[c:8B2E1E]**制約付きの解釈（必須注記）**[/c]\n\n[c:8B2E1E]**日付情報の欠如**[/c]\n[c:3D3D3D]市況サイクル（market cycle）を直接考慮できる信頼できる日付カラムが存在しないため、市況変動の調整は未実施。価格推定に一部バイアスが残る可能性がある。[/c]\n\n[c:8B2E1E]**高カーディナリティ項目の除外**[/c]\n[c:3D3D3D]NEIGHBORHOOD等の地域識別を除外した結果、局所的な説明力は低下する一方で過学習リスクは低減した。トレードオフとして許容。[/c]",
+   "label": "slide9",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 10,
+   "text": "## スライド 10\n\n[c:FFFFFF]**05  業務提言① データ品質改善**[/c]\n\n[c:FFFFFF]**即時優先 / ROI 高**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B2E1E 赤}\n\n**LAND / GROSS SQUARE FEET**\n\n[c:3D3D3D]欠損補完・源泉確認を実施[/c]\n[c:3D3D3D]欠損の多くは記録欠落か非開示が想定される[/c]\n[c:3D3D3D]外部ソースや現地調査での補填を推奨[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#8B2E1E 赤}\n\n**YEAR BUILT**\n\n[c:3D3D3D]0や明らかな異常値を「不明」「入力異常」等にラベリング[/c]\n[c:3D3D3D]補完ルールを定義（中央値補完ではなくカテゴリ化による扱いを推奨）[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#8B2E1E 赤}\n\n**ZIP CODE**\n\n[c:3D3D3D]0値確認と補正を実施[/c]\n[c:3D3D3D]外部ZIP参照により修正可能なデータは修正する[/c]\n\n[c:FFFFFF]**業務利用観点の対応**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]案件スクリーニング用途では、モデル出力を「参考スコア（相対評価）」として利用し、必ず立地階層（BOROUGH）別の補正テーブルを併用すること[/c]\n[c:3D3D3D]価格差の解釈時は「データ事実」「推定」「提案」を明確に分離する運用ルールを文書化する（評価レポートテンプレートに措置）[/c]",
+   "label": "slide10",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 11,
+   "text": "## スライド 11\n\n[c:FFFFFF]**05  業務提言② モデル運用・ガバナンス・追加データ**[/c]\n\n[c:FFFFFF]**モデル運用・監視**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:8B2E1E]**監視KPI設定**[/c]\n[c:3D3D3D]予測誤差（MAE, RMSE）月次推移[/c]\n[c:8B2E1E]**データ品質監視**[/c]\n[c:3D3D3D]主要項目の欠損率閾値超過件数[/c]\n[c:8B2E1E]**ドリフト検知**[/c]\n[c:3D3D3D]主要説明変数の分布変化モニタリング[/c]\n[c:8B2E1E]**再学習頻度**[/c]\n[c:3D3D3D]四半期ごと（最低限）。重大市場変動時は即時実施[/c]\n\n[c:FFFFFF]**ガバナンス・運用体制**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:4A4A4A]**データ管理責任者**[/c]\n[c:3D3D3D]クライアント内に明確化（補正要件の承認窓口）[/c]\n[c:4A4A4A]**変更管理プロセス**[/c]\n[c:3D3D3D]提案→影響評価→承認→実施[/c]\n[c:4A4A4A]**追加分析・外部データ**[/c]\n[c:3D3D3D]PMを経由して合意を取得（契約の変更管理に準拠）[/c]\n\n[c:FFFFFF]**追加データ・高度化**[/c]\n{shape-fill:#707070 グレー}\n\n[c:707070]**最優先**[/c]\n[c:3D3D3D]市場時系列（取引日・市況インデックス）、住宅供給指標、近隣取引の価格履歴[/c]\n[c:707070]**次点**[/c]\n[c:3D3D3D]評価書データや賃料情報（NOI推定のため）[/c]\n[c:707070]**期待効果**[/c]\n[c:3D3D3D]整備されればモデル精度と業務価値が大幅向上[/c]",
+   "label": "slide11",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 12,
+   "text": "## スライド 12\n\n[c:FFFFFF]**06  実装・運用計画**[/c]\n\n[c:FFFFFF]**短期（0-3ヶ月）**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]データ品質修正作業（欠損集計→補完ポリシー確定→データクリーニング）[/c]\n[c:3D3D3D]モデル再学習（前処理反映後のRandom Forest調整、ハイパーパラメータ最適化）[/c]\n[c:3D3D3D]モデル評価基準と評価レポートテンプレートの確立[/c]\n\n[c:FFFFFF]**中期（3-6ヶ月）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]モデル運用パイプライン整備（バッチスコアリング、モニタリング基盤、工数最小化）[/c]\n[c:3D3D3D]外部市場データの試験的取り込みと影響評価[/c]\n[c:3D3D3D]業務フローへのスコア出力実装（案件スクリーニングレポートに搭載）[/c]\n\n[c:FFFFFF]**長期（6-12ヶ月）**[/c]\n{shape-fill:#707070 グレー}\n\n[c:3D3D3D]リアルタイム/半リアルタイム評価基盤の検討（必要に応じて）[/c]\n[c:3D3D3D]継続的改善サイクル（A/B検証、業務フィードバック反映）[/c]\n[c:3D3D3D]標準化ドキュメントの更新と社内展開（運用担当へのハンズオン）[/c]\n\n[c:FFFFFF]**費用・請求（確定事項／契約準拠）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:707070]実績工数[/c]\n**184.5時間**\n[c:A0A0A0]30分単位丸め[/c]\n\n[c:707070]時間単価[/c]\n**¥25,000**\n[c:A0A0A0]契約通り[/c]\n\n[c:707070]税抜金額[/c]\n**¥4,612,500**\n\n[c:FFFFFF]税込金額[/c]\n[c:FFFFFF]**¥5,073,750**[/c]\n[c:DDDDDD]消費税10%[/c]\n{shape-fill:#8B2E1E 赤}",
+   "label": "slide12",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 13,
+   "text": "## スライド 13\n\n[c:FFFFFF]**07  制約事項と残余リスク**[/c]\n\n[c:FFFFFF]**主要制約（確定事実）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]利用データはdata\\train.csvに限定（契約条項）[/c]\n[c:3D3D3D]時系列粒度を直接示す信頼できる日付カラムがないため、市況変動の調整不可（継続制約）[/c]\n\n[c:FFFFFF]**追跡可能な残タスク**[/c]\n{shape-fill:#707070 グレー}\n\n[c:3D3D3D]A03: date_column（TAX CLASS AT TIME OF SALE）の実データ型確認と分割戦略の最終確定[/c]\n[c:3D3D3D]A05: 欠損・ゼロ値の最終補完ポリシーの実装とドキュメント化[/c]\n\n[c:FFFFFF]**残余リスク（優先度順）**[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:8B2E1E]**優先度: 高**[/c]\n**#1 立地バイアス**\n[c:707070]BOROUGHに説明力が集中[/c]\n[c:4A4A4A]**対策:**[/c] [c:3D3D3D]階層別分析と固定効果モデル導入検討[/c]\n\n[c:8B2E1E]**優先度: 高**[/c]\n**#2 データ品質**\n[c:707070]面積・築年・ZIPの欠損・異常[/c]\n[c:4A4A4A]**対策:**[/c] [c:3D3D3D]補完方針と源泉確認、入力ガイドライン適用[/c]\n\n[c:707070]**優先度: 中**[/c]\n**#3 高カーディナリティ**\n[c:707070]NEIGHBORHOOD等を除外し局所性喪失[/c]\n[c:4A4A4A]**対策:**[/c] [c:3D3D3D]頻度集約やターゲット集約等の代替手法検討[/c]\n\n[c:707070]**優先度: 中**[/c]\n**#4 運用上の誤用**\n[c:707070]スコアの過信[/c]\n[c:4A4A4A]**対策:**[/c] [c:3D3D3D]運用ルールと説明責任の明文化[/c]",
+   "label": "slide13",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 14,
+   "text": "## スライド 14\n\n[c:FFFFFF]**08  今後の拡張ロードマップ**[/c]\n\n[c:FFFFFF]**フェーズ A（0-3ヶ月）**[/c]\n[c:DDDDDD]概算: 40-80時間[/c]\n{shape-fill:#8B2E1E 赤}\n\n[c:3D3D3D]データ品質改善（面積、YEAR BUILT、ZIP）と補完ルール実装[/c]\n[c:3D3D3D]再学習（cleaned dataset）によるモデル精緻化と交差検証[/c]\n[c:3D3D3D]スコアリング出力のフォーマット化（案件レポートテンプレート）[/c]\n\n[c:FFFFFF]**フェーズ B（3-6ヶ月）**[/c]\n[c:DDDDDD]概算: 80-160時間[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]市況データ（価格指数、金利）との連携検討・試験取込[/c]\n[c:3D3D3D]地域別（NEIGHBORHOODレベル）集約群の作成と検証（高カーディナリティ対策）[/c]\n[c:3D3D3D]モデル監視ダッシュボード（誤差推移、データ欠損率、ドリフト指標）[/c]\n\n[c:FFFFFF]**フェーズ C（6-12ヶ月）**[/c]\n[c:DDDDDD]概算: 120-240時間[/c]\n{shape-fill:#707070 グレー}\n\n[c:3D3D3D]運用化（定期バッチ、SLA設定）、利用部門へのトレーニング[/c]\n[c:3D3D3D]追加指標導入（賃料・NOI推定可能時、投資判断モデルの拡張）[/c]\n[c:3D3D3D]標準化テンプレートの社内展開とナレッジ蓄積[/c]\n\n[c:A0A0A0]※ フェーズBの市況データ連携PoCは外部データ費用別途。各工数は参考概算値。[/c]",
+   "label": "slide14",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 15,
+   "text": "## スライド 15\n\n[c:FFFFFF]**09  成果物サマリ**[/c]\n\n[c:FFFFFF]**納品済の主要成果物（契約4.1に準拠）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:8B2E1E]**1.**[/c]  **プロジェクト概要書**\n[c:707070]本書を正本[/c]\n\n[c:FFFFFF]**納品済**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:8B2E1E]**2.**[/c]  **分析計画メモ / 実施方針書**\n[c:707070]artifacts/*[/c]\n\n[c:FFFFFF]**納品済**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:8B2E1E]**3.**[/c]  **中間報告書**\n[c:707070]MS4: 2025-08-26[/c]\n\n[c:FFFFFF]**納品済**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:8B2E1E]**4.**[/c]  **最終報告書**\n[c:707070]本書[/c]\n\n[c:FFFFFF]**納品済**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:8B2E1E]**5.**[/c]  **会議議事メモ**\n[c:707070]M01, M02[/c]\n\n[c:FFFFFF]**納品済**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:8B2E1E]**6.**[/c]  **スケジュール管理表**\n[c:707070]artifacts/schedule/*[/c]\n\n[c:FFFFFF]**納品済**[/c]\n{shape-fill:#2E7D32 緑}\n\n[c:8B2E1E]**7.**[/c]  **分析出力**\n[c:707070]run_summary, metrics, leaderboard[/c]\n\n[c:FFFFFF]**納品済**[/c]\n{shape-fill:#2E7D32 緑}",
+   "label": "slide15",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 16,
+   "text": "## スライド 16\n\n[c:FFFFFF]**10  総括**[/c]\n\n[c:8B2E1E]**完了した成果**[/c]\n[c:3D3D3D]契約・提案で定めた範囲内で「再現可能な分析手順」と「初期的なモデル検証」を完了。業務で直ちに使える示唆（立地の強い影響、面積・戸数の寄与、非線形モデルの有効性）を提供した。[/c]\n\n[c:4A4A4A]**現状の位置づけ**[/c]\n[c:3D3D3D]現状は「初期評価フェーズ」であり、製品利用レベルの運用にはデータ品質改善と継続的なモデル運用体制の整備が不可欠である。[/c]\n\n[c:8B2E1E]**次段階への推奨**[/c]\n[c:3D3D3D]優先度の高いデータ品質改善（面積・築年・日付情報の正確化）と市場データ連携を進めることを推奨する。[/c]\n\n[c:FFFFFF]本プロジェクトは初期分析基盤の構築を完了した。[/c]\n[c:FFFFFF]次フェーズでは[/c][c:F5A623]**データ品質改善**[/c][c:FFFFFF]と[/c][c:F5A623]**市場データ連携**[/c][c:FFFFFF]を優先的に推進する。[/c]",
+   "label": "slide16",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 17,
+   "text": "## スライド 17\n\n[c:FFFFFF]**11  提案・契約との差分管理**[/c]\n\n[c:FFFFFF]**成果物**[/c]\n[c:2E7D32]**差分なし**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]契約・提案で合意した全成果物を作成・提出済み。中間報告（M02）および最終報告会（M03）にて確認済み。[/c]\n\n[c:FFFFFF]**スコープ**[/c]\n[c:2E7D32]**実質差分なし**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]契約（3.2）の対象/対象外は原則維持。date_columnの扱い検証に関する実装上の仮決定が中間段階で発生したが、スコープ自体は変更せず実装判断の調整に留まる。M01のA03およびM02で合意済み。[/c]\n\n[c:FFFFFF]**KPI／受入基準**[/c]\n[c:2E7D32]**差分なし**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]「予測性能の目標値」は当初から固定されておらず、評価は相対（モデル間比較）で実施。最終的なモデルR² ≈ 0.48を報告。M02で継続条件を承認。[/c]\n\n[c:FFFFFF]**契約形態・支払**[/c]\n[c:8B2E1E]**工数増あり**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]課金方式:T&M（第6条）、請求ロジック・税率・単価は契約通り変更なし。実績工数は契約想定170時間を上回る184.5時間。検収基準日（9/17）に基づき請求手続き実行済み。[/c]\n\n[c:A0A0A0]※ 変更管理チェックポイント（2025-08-27）を設置。変更要求はPM（佐藤）を通じ影響見積を提示、クライアント承認後に実施するフローを運用。[/c]",
+   "label": "slide17",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_slides": 17,
+  "n_pictures": 0,
+  "n_charts": 0,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,25 @@
+{
+ "doc_id": "6cd7a172d86b",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/features.py",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "1e2d27c095b0a18de94b71cd9b2e24a4",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport numpy as np\nimport pandas as pd\nfrom sklearn.compose import ColumnTransformer\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import OneHotEncoder\n\n\ndef is_pure_day_number_column(series: pd.Series) -> bool:\n    numeric = pd.to_numeric(series, errors=\"coerce\").dropna()\n    if numeric.empty:\n        return False\n    if not np.all(np.isclose(numeric, np.round(numeric))):\n        return False\n    return bool(((numeric >= 1) & (numeric <= 31)).all())\n\n\ndef augment_date_features(df: pd.DataFrame, date_col: str | None) -> pd.DataFrame:\n    out = df.copy()\n    if not date_col or date_col not in out.columns:\n        return out\n    # REGION: DATE_FEATURE_LOGIC START\n    if is_pure_day_number_column(out[date_col]):\n        print(f\"INFO: skip date expansion for '{date_col}' (pure day-of-month numbers detected).\")\n        return out\n    parsed = pd.to_datetime(out[date_col], errors=\"coerce\")\n    if parsed.notna().sum() == 0:\n        print(f\"INFO: skip date expansion for '{date_col}' (no valid datetime parse).\")\n        return out\n    # REGION: DATE_FEATURE_LOGIC END\n    out[f\"{date_col}_year\"] = parsed.dt.year\n    out[f\"{date_col}_month\"] = parsed.dt.month\n    out[f\"{date_col}_day\"] = parsed.dt.day\n    out[f\"{date_col}_weekday\"] = parsed.dt.dayofweek\n    out[f\"{date_col}_is_month_start\"] = parsed.dt.is_month_start.astype(\"float\")\n    out[f\"{date_col}_is_month_end\"] = parsed.dt.is_month_end.astype(\"float\")\n    out = out.drop(columns=[date_col])\n    return out\n\n\ndef build_preprocessor(X: pd.DataFrame) -> ColumnTransformer:\n    numeric_cols = X.select_dtypes(include=[\"number\", \"bool\"]).columns.tolist()\n    categorical_cols = [c for c in X.columns if c not in numeric_cols]\n    # REGION: PREPROCESS_PIPELINE START\n    numeric_transformer = Pipeline(steps=[(\"imputer\", SimpleImputer(strategy=\"median\"))])\n    categorical_transformer = Pipeline(\n        steps=[\n            (\"imputer\", SimpleImputer(strategy=\"most_frequent\")),\n            (\"onehot\", OneHotEncoder(handle_unknown=\"ignore\")),\n        ]\n    )\n    # REGION: PREPROCESS_PIPELINE END\n    return ColumnTransformer(\n        transformers=[\n            (\"num\", numeric_transformer, numeric_cols),\n            (\"cat\", categorical_transformer, categorical_cols),\n        ]\n    )\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 2345,
+  "n_lines": 61
+ },
+ "error": null,
+ "warnings": []
+}

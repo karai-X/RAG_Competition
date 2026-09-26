@@ -1,0 +1,17 @@
+{
+  "data_csv": "data/train.csv",
+  "column_doc": "data/カラム説明.md",
+  "target_column": "loan_status",
+  "date_column": null,
+  "use_date_features": true,
+  "model_type": "extra_trees",
+  "model_params": {
+    "n_estimators": 500,
+    "max_depth": null,
+    "min_samples_leaf": 1
+  },
+  "output_dir": "artifacts/analysis_outputs",
+  "random_state": 42,
+  "test_size": 0.2,
+  "analysis_spec_path": "artifacts/06a_analysis_spec.json"
+}

@@ -1,0 +1,25 @@
+{
+ "doc_id": "cf14a1cb21c0",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/infer.py",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "py",
+ "md5": "06e0bcd9c364789c2e1ffd48823f9b46",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```python\nfrom __future__ import annotations\n\nimport pandas as pd\nfrom sklearn.base import BaseEstimator\n\n\ndef run_inference(model: BaseEstimator, X: pd.DataFrame):\n    return model.predict(X)\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 183,
+  "n_lines": 9
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,25 @@
+{
+ "doc_id": "8df11f4415f9",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/data/カラム説明.md",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "md",
+ "md5": "e219929aea9d7844d899ef4878736d30",
+ "pages": [
+  {
+   "no": 1,
+   "text": "| カラム名 | データ型 | 説明 | データの例 |\n| --- | --- | --- | --- |\n| **id** | 整数 | 顧客の一意の識別ID | `1`, `2` |\n| **age** | 整数 | 顧客の年齢 | `39`, `51` |\n| **job** | 文字列 | 職業 | `blue-collar`, `management` |\n| **marital** | 文字列 | 婚姻状況 | `married`, `single` |\n| **education** | 文字列 | 学歴 | `secondary`, `tertiary` |\n| **default** | 文字列 | 債務不履行（デフォルト）の有無 | `no`, `yes` |\n| **balance** | 整数 | 年間平均残高（口座残高） | `1756`, `436` |\n| **housing** | 文字列 | 住宅ローンの有無 | `yes`, `no` |\n| **loan** | 文字列 | 個人ローンの有無 | `no`, `yes` |\n| **contact** | 文字列 | 連絡手段 | `cellular`, `telephone` |\n| **day** | 整数 | 最後に連絡した日（日にち） | `3`, `18` |\n| **month** | 文字列 | 最後に連絡した月 | `apr`, `feb` |\n| **duration** | 整数 | 最後の連絡の通話時間（秒） | `939`, `172` |\n| **campaign** | 整数 | 今回のキャンペーンにおける連絡回数 | `1`, `10` |\n| **pdays** | 整数 | 前回のキャンペーンで最後に連絡してからの経過日数（-1は未連絡） | `-1`, `595` |\n| **previous** | 整数 | 今回のキャンペーンより前に行われた連絡回数 | `0`, `2` |\n| **poutcome** | 文字列 | 前回のキャンペーンの結果 | `unknown`, `success` |\n| **y** | 整数 | (目的変数)定期預金などを契約したかどうか（目的変数 / 1: 契約, 0: 未契約など） | `1`, `0` |\n",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 1002,
+  "n_lines": 21
+ },
+ "error": null,
+ "warnings": []
+}

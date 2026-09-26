@@ -1,0 +1,25 @@
+{
+ "doc_id": "ae8d5836e4ae",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_outputs/metrics.json",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "0b716c6623ddf4fc73383b9cb15dcc9b",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"task_type\": \"classification\",\n  \"encoding\": \"utf-8-sig\",\n  \"target_column\": \"y\",\n  \"date_column\": \"day\",\n  \"use_date_features\": true,\n  \"model_type\": \"gradient_boosting\",\n  \"model_params\": {},\n  \"row_count\": 27128,\n  \"feature_count\": 17,\n  \"train_rows\": 21702,\n  \"test_rows\": 5426,\n  \"accuracy\": 0.8999262808698857,\n  \"f1_macro\": 0.7224266113840854,\n  \"auc_roc\": 0.9249547626208591,\n  \"brier_score\": 0.06627112835317771,\n  \"precision_at_top10pct\": 0.5893186003683242,\n  \"eda_summary\": {\n    \"row_count\": 27128,\n    \"column_count\": 18,\n    \"target_column\": \"y\",\n    \"missing_ratio_top10\": {\n      \"id\": 0.0,\n      \"age\": 0.0,\n      \"job\": 0.0,\n      \"marital\": 0.0,\n      \"education\": 0.0,\n      \"default\": 0.0,\n      \"balance\": 0.0,\n      \"housing\": 0.0,\n      \"loan\": 0.0,\n      \"contact\": 0.0\n    },\n    \"target_dtype\": \"int64\",\n    \"target_unique\": 2\n  }\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 865,
+  "n_lines": 38
+ },
+ "error": null,
+ "warnings": []
+}

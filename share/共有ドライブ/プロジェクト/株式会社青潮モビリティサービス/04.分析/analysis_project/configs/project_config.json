@@ -1,0 +1,51 @@
+{
+  "data_csv": "data/train.tsv",
+  "column_doc": "data/カラム説明.md",
+  "target_column": "cnt",
+  "date_column": "dteday",
+  "use_date_features": true,
+  "use_numeric_interactions": false,
+  "use_cyclical_time_features": true,
+  "split_strategy": "time_ordered",
+  "transform_target": "log1p",
+  "validation_size": 0.1,
+  "early_stopping": true,
+  "early_stopping_patience": 2,
+  "early_stopping_min_delta": 0.0,
+  "model_type": "hist_gradient_boosting",
+  "model_params": {
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "max_iter": 400
+  },
+  "output_dir": "artifacts/analysis_outputs",
+  "random_state": 42,
+  "test_size": 0.2,
+  "feature_plan": {
+    "exclude_identifier_like_columns": true,
+    "identifier_exact_names": [
+      "id",
+      "uuid",
+      "code"
+    ],
+    "identifier_prefixes": [
+      "id_",
+      "uuid_",
+      "code_"
+    ],
+    "identifier_suffixes": [
+      "_id",
+      "_uuid",
+      "_code"
+    ],
+    "categorical_encoding": "one_hot",
+    "categorical_unique_limit": 50,
+    "exclude_high_cardinality_at_or_above_limit": true,
+    "numeric_imputation": "median",
+    "categorical_imputation": "most_frequent",
+    "date_features_enabled": true,
+    "date_feature_source_column": "dteday"
+  },
+  "analysis_spec_path": "artifacts/06a_analysis_spec.json",
+  "task_type": "regression"
+}

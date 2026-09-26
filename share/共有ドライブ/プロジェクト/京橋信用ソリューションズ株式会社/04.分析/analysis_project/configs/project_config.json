@@ -1,0 +1,13 @@
+{
+  "data_csv": "data/train.csv",
+  "column_doc": "data/カラム説明.md",
+  "target_column": "y",
+  "date_column": "day",
+  "use_date_features": true,
+  "model_type": "gradient_boosting",
+  "model_params": {},
+  "output_dir": "artifacts/analysis_outputs",
+  "random_state": 42,
+  "test_size": 0.2,
+  "analysis_spec_path": "artifacts/06a_analysis_spec.json"
+}

@@ -1,0 +1,28 @@
+{
+ "doc_id": "6cd0d46f315d",
+ "relpath": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/date_feature_trend.png",
+ "mount": "",
+ "project": "株式会社青嶺不動産アセットマネジメント",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "c7ca9d9d9d6fb7ac0071399f67a79634",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/date_feature_trend.png (1894x614) md5:c7ca9d9d — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: その他]\nTAX CLASS AT TIME OF SALE は純粋な日番号列のため日付展開を行いません",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/reports/figures/date_feature_trend.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1894,
+  "height": 614,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+ "md5": "b56580e55f07af0c2a4628400e334521",
+ "engine": "codex",
+ "prompt_version": "v1",
+ "content_type": "グラフ",
+ "markdown": "- タイトル：target の分布\n- 横軸ラベル：target\n- 横軸目盛り：0、1、2、3、4、5\n- 縦軸ラベル：件数\n- 縦軸目盛り：0、500、1000、1500、2000、2500、3000",
+ "figure_description": "縦棒グラフ。横軸は「target」で、目盛りは0、1、2、3、4、5。縦軸は「件数」で、目盛りは0、500、1000、1500、2000、2500、3000。0、1、2、3、4、5の各値に対応する棒が青色で塗られている。棒上の数値ラベルはない。凡例はない。灰色の水平グリッド線が表示されている。",
+ "layout": "",
+ "confident": true,
+ "error": null,
+ "latency_sec": 16.77,
+ "source": "プロジェクト/株式会社東都人材プラットフォーム/04.分析/analysis_project/notebooks/01_eda.ipynb :: cell10_img2.png"
+}

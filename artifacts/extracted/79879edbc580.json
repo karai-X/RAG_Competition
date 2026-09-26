@@ -1,0 +1,25 @@
+{
+ "doc_id": "79879edbc580",
+ "relpath": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/configs/project_config.json",
+ "mount": "",
+ "project": "京橋信用ソリューションズ株式会社",
+ "category": "04.分析",
+ "filetype": "json",
+ "md5": "7af2412ee6342ba6a834ea7d5b0ba2d6",
+ "pages": [
+  {
+   "no": 1,
+   "text": "```json\n{\n  \"data_csv\": \"data/train.csv\",\n  \"column_doc\": \"data/カラム説明.md\",\n  \"target_column\": \"y\",\n  \"date_column\": \"day\",\n  \"use_date_features\": true,\n  \"model_type\": \"gradient_boosting\",\n  \"model_params\": {},\n  \"output_dir\": \"artifacts/analysis_outputs\",\n  \"random_state\": 42,\n  \"test_size\": 0.2,\n  \"analysis_spec_path\": \"artifacts/06a_analysis_spec.json\"\n}\n\n```",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encoding": "utf-8-sig",
+  "n_chars": 352,
+  "n_lines": 14
+ },
+ "error": null,
+ "warnings": []
+}

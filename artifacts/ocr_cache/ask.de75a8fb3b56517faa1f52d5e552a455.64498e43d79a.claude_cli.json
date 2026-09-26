@@ -1,0 +1,10 @@
+{
+ "md5": "de75a8fb3b56517faa1f52d5e552a455",
+ "question": "TM案件において、RATEが変更されたのは何年何月1日からと想定されますか。",
+ "engine": "claude_cli",
+ "answer": "この画像からは判断できません。画像は「数値特徴量の相関ヒートマップ」（id, age, balance, day, duration, campaign, pdays, previous, y の相関行列）であり、TM案件やRATEの変更時期に関する情報は含まれていません。",
+ "evidence": "画像全体を確認しましたが、内容は銀行マーケティング系データセットと思われる数値特徴量の相関ヒートマップのみで、RATEという項目や日付・月次の情報は一切表示されていません。",
+ "confident": false,
+ "error": null,
+ "latency_sec": 13.03
+}

@@ -1,0 +1,28 @@
+{
+ "doc_id": "e3d5d77c3835",
+ "relpath": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/target_distribution.png",
+ "mount": "",
+ "project": "医療法人社団 蒼泉会 ひがし丘総合病院",
+ "category": "04.分析",
+ "filetype": "png",
+ "md5": "838ec0b8dde2b511dfaa084c6bd8b512",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[画像ファイル: プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/target_distribution.png (1025x651) md5:838ec0b8 — read_image で確認可能]\n\n[画像読み取り]\n[画像種別: グラフ]\n目的変数の分布\n\n- 縦軸ラベル：件数\n- 横軸ラベル：charges\n- 横軸目盛り：0、1、2\n- 縦軸目盛り：0、200、400、600、800、1000、1200\n[図の説明] 縦棒グラフ。横軸は「charges」で、目盛りは0、1、2。縦軸は「件数」で、目盛りは0から1200まで200刻み。凡例はない。0、1、2の各値に対応する緑色で塗られた棒が1本ずつある。0の棒が最も高く、1200の目盛りを上回っている。1の棒は200の目盛り付近、2の棒は200の目盛りより低い。各棒の数値ラベルは記載されていない。",
+   "label": "",
+   "needs_vision": true,
+   "assets": [
+    "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/04.分析/analysis_project/reports/figures/target_distribution.png"
+   ]
+  }
+ ],
+ "meta": {
+  "width": 1025,
+  "height": 651,
+  "ocr_engine": "codex",
+  "ocr_applied": true
+ },
+ "error": null,
+ "warnings": []
+}

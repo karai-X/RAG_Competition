@@ -1,0 +1,160 @@
+{
+ "doc_id": "821e451594ee",
+ "relpath": "プロジェクト/白峰信用リスク評価株式会社/06.報告書/白峰信用リスク評価株式会社_最終報告.pptx",
+ "mount": "",
+ "project": "白峰信用リスク評価株式会社",
+ "category": "06.報告書",
+ "filetype": "pptx",
+ "md5": "c782ea252c47cb044cccc4ec7b0b051b",
+ "pages": [
+  {
+   "no": 1,
+   "text": "## スライド 1\n\n**最終分析報告書**\n[c:3D3D3D]企業財務指標を用いた3年後倒産予測分析プロジェクト[/c]\n\n[c:6E6E6E]クライアント: 白峰信用リスク評価株式会社 審査企画部[/c]\n[c:6E6E6E]ベンダ: 株式会社データアステル データサイエンス部[/c]",
+   "label": "slide1",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 2,
+   "text": "## スライド 2\n\n[c:FFFFFF]**目次**[/c]\n\n[c:FFFFFF]**01**[/c]\n{shape-fill:#8B2500 茶}\n\nエグゼクティブサマリ\n\n[c:FFFFFF]**02**[/c]\n{shape-fill:#8B2500 茶}\n\nプロジェクト目的とスコープ\n\n[c:FFFFFF]**03**[/c]\n{shape-fill:#8B2500 茶}\n\n実施方法\n\n[c:FFFFFF]**04**[/c]\n{shape-fill:#8B2500 茶}\n\n主要な分析結果と解釈\n\n[c:FFFFFF]**05**[/c]\n{shape-fill:#8B2500 茶}\n\n業務提言\n\n[c:FFFFFF]**06**[/c]\n{shape-fill:#8B2500 茶}\n\n実装・運用計画\n\n[c:FFFFFF]**07**[/c]\n{shape-fill:#8B2500 茶}\n\n制約事項と残余リスク\n\n[c:FFFFFF]**08**[/c]\n{shape-fill:#8B2500 茶}\n\n今後の拡張ロードマップ\n\n[c:FFFFFF]**09**[/c]\n{shape-fill:#8B2500 茶}\n\n成果物サマリ\n\n[c:FFFFFF]**10**[/c]\n{shape-fill:#8B2500 茶}\n\n提案・契約との差分管理\n\n[c:FFFFFF]**11**[/c]\n{shape-fill:#8B2500 茶}\n\n総括",
+   "label": "slide2",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 3,
+   "text": "## スライド 3\n\n[c:8B2500]01[/c]  [c:FFFFFF]エグゼクティブサマリ[/c]\n\n[c:3D3D3D]本報告書は「企業財務指標を用いた3年後倒産予測分析プロジェクト」のクローズ向け最終報告書（Single Source of Truth）である。[/c]\n\n[c:8B2500]**主要成果**[/c]\n[c:3D3D3D]対象データ: 7,352件・66列[/c]\n[c:3D3D3D]ROC-AUC = 0.859[/c]\n[c:3D3D3D]Precision@top10% = 0.257[/c]\n[c:3D3D3D]Accuracy = 0.957[/c]\n\n[c:8B2500]**重要観察事項**[/c]\n[c:3D3D3D]Attr37の欠損率が約45.25%[/c]\n[c:3D3D3D]→ 投入可否が分析上の重要論点[/c]\n[c:3D3D3D]不均衡（倒産率 ≈ 4.95%）への[/c]\n[c:3D3D3D]対応が必要[/c]\n\n[c:8B2500]**要アクション（未完事項）**[/c]\n[c:3D3D3D]AI-05: 着手金支払の事後確認[/c]\n[c:3D3D3D]AI-09: Attr37の最終採否比較[/c]\n[c:3D3D3D]AI-08: 前処理仕様の確定[/c]\n\n[c:6E6E6E]*※ 本書は「確認済事項（Facts）」と「仮定（Assumptions）」を明確に分離して記載している。*[/c]",
+   "label": "slide3",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 4,
+   "text": "## スライド 4\n\n[c:8B2500]02[/c]  [c:FFFFFF]プロジェクト目的とスコープ[/c]\n\n[c:FFFFFF]**目的**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:8B2500]**1**[/c]\n\n倒産予測に有効な財務指標群の特定\n\n[c:8B2500]**2**[/c]\n\nリスクセグメント別企業分類（上位リスク抽出）\n\n[c:8B2500]**3**[/c]\n\n説明可能なモデル候補の比較と初期採用方針提示\n\n[c:8B2500]**4**[/c]\n\n監査対応可能な前処理・評価・出力の記録方針の確立\n\n[c:FFFFFF]**スコープ（実施対象）**[/c]\n{shape-fill:#4A4A4A グレー}\n\ntrain.csvの品質確認・EDA\n前処理方針策定\nベースライン・複数モデル候補比較\nリスクセグメンテーション\n監査対応を意識した文書一式の作成\n\n[c:FFFFFF]**対象外（契約明記）**[/c]\n\n[c:6E6E6E]本番システム実装 / API化[/c]\n[c:6E6E6E]外部データ取得 / 監視基盤構築[/c]",
+   "label": "slide4",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 5,
+   "text": "## スライド 5\n\n[c:8B2500]03[/c]  [c:FFFFFF]実施方法[/c]\n\n[c:FFFFFF]**立ち上げ**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]契約締結\nスケジュール合意[/c]\n\n[c:FFFFFF]**データ理解**[/c]\n{shape-fill:#6E6E6E グレー}\n\n[c:3D3D3D]EDA\n欠損・分布分析[/c]\n\n[c:FFFFFF]**ベースライン**[/c]\n{shape-fill:#6E6E6E グレー}\n\n[c:3D3D3D]gradient_boosting\n初期評価[/c]\n\n[c:FFFFFF]**モデル高度化**[/c]\n{shape-fill:#6E6E6E グレー}\n\n[c:3D3D3D]比較実験\n説明性整理[/c]\n\n[c:FFFFFF]**最終整理**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]報告書作成\n提言策定[/c]\n\n**手法・設定**\n\n[c:8B2500]**モデル候補**[/c]\n[c:3D3D3D]線形（ロジスティック）と木系（gradient_boosting等）を比較。seed固定・stratified split（80/20）[/c]\n\n[c:8B2500]**不均衡対応**[/c]\n[c:3D3D3D]class_weight、サンプリング、しきい値最適化を比較。主評価指標: Recall、ROC-AUC、Precision@top10%[/c]\n\n[c:8B2500]**前処理**[/c]\n[c:3D3D3D]欠損補完（中央値＋欠損フラグ）、外れ値処理（1%/99% winsorize）、線形系と木系で処理方針を分離[/c]",
+   "label": "slide5",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 6,
+   "text": "## スライド 6\n\n[c:8B2500]04[/c]  [c:FFFFFF]データ概要と確認済み分析結果[/c]\n\n[c:8B2500]**7,352**[/c]\n[c:6E6E6E]レコード数[/c]\n\n[c:4A4A4A]**66**[/c]\n[c:6E6E6E]カラム数[/c]\n\n[c:8B2500]**4.95%**[/c]\n[c:6E6E6E]倒産率（class=1）[/c]\n\n[c:4A4A4A]**65**[/c]\n[c:6E6E6E]説明変数数[/c]\n\n**欠損上位変数**\n\n**Attr37**\n\n[c:FFFFFF]**45.25%**[/c]\n{shape-fill:#8B2500 茶}\n\n**Attr21**\n\n[c:FFFFFF]**7.24%**[/c]\n{shape-fill:#6E6E6E グレー}\n\n**Attr27**\n\n[c:FFFFFF]**7.11%**[/c]\n{shape-fill:#6E6E6E グレー}\n\n**Attr60**\n\n[c:FFFFFF]**5.58%**[/c]\n{shape-fill:#999999 グレー}\n\n**Attr45**\n\n[c:FFFFFF]**5.56%**[/c]\n{shape-fill:#999999 グレー}\n\n[c:8B2500]**⚠ Attr37: 高欠損率（≈45%）のため「投入あり／なし」の比較実験に基づく採否決定が必須（M02で方針合意）**[/c]",
+   "label": "slide6",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 7,
+   "text": "## スライド 7\n\n[c:8B2500]04[/c]  [c:FFFFFF]ベースライン評価結果（gradient_boosting）[/c]\n\n[グラフ (COLUMN_CLUSTERED (51)): Test評価指標]\n| 系列 | ROC-AUC | Accuracy | F1 (macro) | Precision@10% | Brier Score |\n|---|---|---|---|---|---|\n| (無名) | 0.859 | 0.957 | 0.608 | 0.257 | 0.038 |\n\n[c:8B2500]**解釈**[/c]\n**識別力**\n[c:3D3D3D]AUC≈0.86は「実務検討に値する」水準。ただし不均衡のためAccuracyは誤解を招きやすい。[/c]\n**上位リスク集中**\n[c:3D3D3D]Precision@top10%≈0.257は上位スコア帯に倒産事例が一定程度集中。「優先確認候補抽出」に有用。[/c]\n**説明可能性**\n[c:3D3D3D]木系モデルは高い識別力を示したが、SHAP等の特徴量寄与提示が必須。線形モデルとのハイブリッド採用を推奨。[/c]",
+   "label": "slide7",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 8,
+   "text": "## スライド 8\n\n| [c:FFFFFF]**Rank**[/c] | [c:FFFFFF]**Model Type**[/c] | [c:FFFFFF]**F1 (macro)**[/c] | [c:FFFFFF]**Accuracy**[/c] |\n|---|---|---|---|\n| [c:8B2500]**1**[/c] | [c:8B2500]**gradient_boosting**[/c] | [c:8B2500]**0.6079**[/c] | [c:8B2500]**0.9565**[/c] |\n| [c:3D3D3D]2[/c] | [c:3D3D3D]random_forest[/c] | [c:3D3D3D]0.4999[/c] | [c:3D3D3D]0.9490[/c] |\n| [c:3D3D3D]3[/c] | [c:3D3D3D]random_forest[/c] | [c:3D3D3D]0.4975[/c] | [c:3D3D3D]0.9494[/c] |\n| [c:3D3D3D]4[/c] | [c:3D3D3D]extra_trees[/c] | [c:3D3D3D]0.4873[/c] | [c:3D3D3D]0.9504[/c] |\n| [c:3D3D3D]5[/c] | [c:3D3D3D]random_forest[/c] | [c:3D3D3D]0.4873[/c] | [c:3D3D3D]0.9504[/c] |\n| [c:3D3D3D]6[/c] | [c:3D3D3D]extra_trees[/c] | [c:3D3D3D]0.4873[/c] | [c:3D3D3D]0.9504[/c] |\n\n[c:8B2500]04[/c]  [c:FFFFFF]モデル比較リーダーボード[/c]\n\n[c:8B2500]**Key Insight:**[/c] [c:3D3D3D]gradient_boostingがF1 macroで他モデルを大幅に上回り、ベースライン採用として妥当。ロジスティック回帰との併用によるハイブリッド運用を推奨。[/c]",
+   "label": "slide8",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 9,
+   "text": "## スライド 9\n\n[c:8B2500]04[/c]  [c:FFFFFF]未解決事項・制約（中間報告時点）[/c]\n\n[c:FFFFFF]**Open**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:6E6E6E]**AI-08**[/c]\n\n**前処理仕様の確定**\n[c:3D3D3D]欠損補完ルール、外れ値処理閾値、スケーリング方針の最終化が未完了。監査証跡・再現性の確保に必須。[/c]\n\n[c:FFFFFF]**Open**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:6E6E6E]**AI-09**[/c]\n\n**Attr37の最終採否比較**\n[c:3D3D3D]「投入あり vs 除外」の比較実験結果に基づき、定量基準（ΔROC-AUC >= 0.002等）で採否を判定する必要がある。[/c]\n\n[c:FFFFFF]**保留**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:6E6E6E]**Recall目標**[/c]\n\n**再現率目標の再評価**\n[c:3D3D3D]metrics.jsonにRecallの正式値が含まれておらず、当初目標Recall 0.70の達成判定が保留。閾値設計と合わせて対応が必要。[/c]\n\n[c:FFFFFF]**Open**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:6E6E6E]**AI-05**[/c]\n\n**着手金支払ステータスの確定**\n[c:3D3D3D]中間報告時点で着手金（40%）の支払確認が未完了。契約クローズに関わるため、支払完了 or 回避合意の確認が必要。[/c]",
+   "label": "slide9",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 10,
+   "text": "## スライド 10\n\n[c:8B2500]05[/c]  [c:FFFFFF]業務提言：直近（本番化前・必須事項）[/c]\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B2500 茶}\n\n**前処理仕様の確定とドキュメント化**\n[c:3D3D3D]欠損補完ルール（中央値＋欠損フラグ）、外れ値処理（列単位winsorize閾値）、カテゴリ処理・スケーリング方針を確定し、前処理パイプラインをコード化する。[/c]\n[c:6E6E6E]**担当: 乙: 斎藤 悠斗、山本 彩乃\nレビュー: 甲: 松原部長**[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#8B2500 茶}\n\n**Attr37の採否決定（定量基準）**\n[c:3D3D3D]「投入あり vs 除外」の比較実験を実施。ROC-AUC / Recall / Precision@top10%の差分で判断。採否基準例: ΔROC-AUC >= 0.002 かつRecallに著しい悪化なし。[/c]\n[c:6E6E6E]**担当: 甲と合意のうえ決定**[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#8B2500 茶}\n\n**再現率（Recall）目標の再評価と閾値設計**\n[c:3D3D3D]業務KPIは倒産検知の取りこぼし最小化が重要。モデルスコア閾値を運用目的に合わせて調整し、精度と業務負荷のトレードオフを明確化する。[/c]\n[c:6E6E6E]**担当: 乙: 松本 真央 / 山本 彩乃\n甲: 審査担当と合意**[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#8B2500 茶}\n\n**着手金／検収金の支払ステータス確定**\n[c:3D3D3D]契約（固定価格）に基づく資金フローの確認はプロジェクトクローズに不可欠。中間報告時点で着手金支払確認が未完了。[/c]\n[c:6E6E6E]**担当: 甲: 支払処理\nPM: 伊藤 翔太**[/c]",
+   "label": "slide10",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 11,
+   "text": "## スライド 11\n\n[c:8B2500]05[/c]  [c:FFFFFF]業務提言：中期・長期[/c]\n\n[c:FFFFFF]**中期（本番スコア出力→審査運用接続）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:8B2500]**スコア出力仕様の策定**[/c]\n[c:3D3D3D]スコア（0-1）、score band、主要寄与変数トップ5、欠損フラグを出力[/c]\n\n[c:8B2500]**閾値運用の段階的導入**[/c]\n[c:3D3D3D]パイロット→段階拡大。一部審査チームでの並行運用を3ヶ月観測[/c]\n\n[c:8B2500]**モデル説明性の運用化**[/c]\n[c:3D3D3D]SHAP等の寄与説明レポートを自動生成し、ダッシュボードで提供[/c]\n\n[c:8B2500]**モデル検証プロセスの明確化**[/c]\n[c:3D3D3D]四半期の性能レビューと年次のガバナンスレビューを設置[/c]\n\n[c:FFFFFF]**長期（戦略的提言）**[/c]\n\n[c:8B2500]**外部データの導入検証**[/c]\n[c:3D3D3D]信用情報、業界指標、景気指標による性能改善の検証[/c]\n\n[c:8B2500]**期待損失への接続設計**[/c]\n[c:3D3D3D]スコア→PD→LGD等のマッピング設計[/c]\n\n[c:8B2500]**本番監視基盤・自動再学習**[/c]\n[c:3D3D3D]契約範囲外のため別フェーズ見積で実施を推奨（契約書§14準拠）[/c]",
+   "label": "slide11",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 12,
+   "text": "## スライド 12\n\n[c:8B2500]06[/c]  [c:FFFFFF]実装工程（短期・必須）[/c]\n\n[c:FFFFFF]**1**[/c]\n{shape-fill:#8B2500 茶}\n\n**前処理パイプラインのプロダクト化**\n[c:3D3D3D]入力検証、欠損処理、外れ値処理、フィーチャー生成、欠損フラグ付与を一貫パイプラインとして実装[/c]\n\n[c:6E6E6E]担当: 乙: 斎藤 悠斗[/c]\n\n[c:FFFFFF]**2**[/c]\n{shape-fill:#8B2500 茶}\n\n**モデル選定とアーティファクトの固定化**\n[c:3D3D3D]最終候補モデル（gradient_boosting + ロジスティック併用）およびハイパーパラメータを確定し、モデルバージョンを管理[/c]\n\n[c:6E6E6E]担当: 乙: 山本 彩乃[/c]\n\n[c:FFFFFF]**3**[/c]\n{shape-fill:#8B2500 茶}\n\n**スコア出力仕様書作成とAPI/バッチ定義**\n[c:3D3D3D]スコア、派生指標、説明出力形式を定義。インタフェース契約（API仕様またはバッチレイアウト）を甲と合意[/c]\n\n[c:6E6E6E]担当: 甲 + 乙: 松本 真央[/c]\n\n[c:FFFFFF]**4**[/c]\n{shape-fill:#8B2500 茶}\n\n**監査用ログ・アクセス制御実装**\n[c:3D3D3D]入力データスナップショット、前処理・モデルバージョン、スコア、説明、ユーザアクセスログを保存。保存期間・アクセス権は甲のガバナンスに準拠[/c]\n\n[c:6E6E6E]担当: 甲指示の下、乙が実装支援[/c]",
+   "label": "slide12",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 13,
+   "text": "## スライド 13\n\n[c:8B2500]06[/c]  [c:FFFFFF]運用体制・KPI[/c]\n\n[c:FFFFFF]**運用体制**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:FFFFFF]**運用オーナー（甲）**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]審査企画部 松原 陽介\nスコア運用、閾値変更・業務判断の最終責任[/c]\n\n[c:FFFFFF]**技術運用（乙）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]モデル保守、再学習支援、障害対応\nSLAを定めて対応時間を規定（例: 2営業日以内の初動）[/c]\n\n[c:FFFFFF]**ガバナンス委員会**[/c]\n{shape-fill:#6E6E6E グレー}\n\n[c:3D3D3D]四半期レビューで性能・運用指標をレビュー\n甲/乙の代表＋監査担当[/c]\n\n[c:FFFFFF]**運用指標（KPI）**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:8B2500]**技術KPI**[/c]\n[c:3D3D3D]AUC、Recall（ターゲット: 甲と合意）[/c]\n[c:3D3D3D]Precision@top10%、Brier score[/c]\n[c:3D3D3D]モデル安定性（データドリフト指標）[/c]\n\n[c:8B2500]**業務KPI**[/c]\n[c:3D3D3D]上位10%の倒産占有率（ベースライン上回り）[/c]\n[c:3D3D3D]審査工数削減率[/c]\n[c:3D3D3D]誤検知による追加確認コスト[/c]\n\n**モニタリング頻度**\n[c:3D3D3D]日次（データ健全性）/ 週次（スコア分布）/ 四半期（性能レビュー）[/c]",
+   "label": "slide13",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 14,
+   "text": "## スライド 14\n\n[c:8B2500]06[/c]  [c:FFFFFF]本番化スケジュール（概案）[/c]\n\n**W1**\n\n**W2**\n\n**W3**\n\n**W4**\n\n**W5**\n\n**W6**\n\n**W7**\n\n**W8**\n\n前処理パイプライン\nコード化・ユニットテスト\n\nモデル最終化・\n説明出力自動化（SHAP等）\n\nパイロット運用\n（並行運用・フィードバック）\n\n本番導入・\n監査ログ運用開始\n\n[c:6E6E6E]*※ 詳細は別途本番化要件定義で詰めることを推奨*[/c]\n\nパイロット運用\n\n本番導入\n\n**モデル最終化**\n\n**前処理パイプライン等**",
+   "label": "slide14",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 15,
+   "text": "## スライド 15\n\n[c:8B2500]07[/c]  [c:FFFFFF]制約事項と残余リスク[/c]\n\n[c:FFFFFF]**主な制約（確認事実）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]利用データはtrain.csvのみ（契約上の前提）。外部データは本フェーズでは取得しない。[/c]\n\n[c:3D3D3D]時系列情報が含まれていないため、景気・年度差の影響検証は不可能。[/c]\n\n[c:3D3D3D]契約形態: 固定価格（工数実績による事後精算は行わない）。[/c]\n\n[c:FFFFFF]**残余リスク**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:FFFFFF]**高**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]Attr37（高欠損）に起因するバイアス・性能変動リスク[/c]\n\n[c:FFFFFF]**高**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]クラス不均衡（倒産率≈4.95%）による再現率不足[/c]\n\n[c:FFFFFF]**中**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]外れ値の影響によるモデル不安定性[/c]\n\n[c:FFFFFF]**中**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]着手金未確認の商務リスク[/c]\n\n[c:FFFFFF]**中**[/c]\n{shape-fill:#A0522D オレンジ}\n\n[c:3D3D3D]運用/監査要件不備による導入遅延リスク[/c]\n\n[c:FFFFFF]**対応方針**[/c]\n{shape-fill:#6E6E6E グレー}\n\n[c:3D3D3D]Attr37は比較実験に基づき採否を決定、欠損フラグを常に保持[/c]\n[c:3D3D3D]不均衡対策（class_weight、サンプリング、コストベース閾値設計）を導入し、RecallをKPIで保証[/c]\n[c:3D3D3D]本番前に監査ログ・アクセス制御のテストを実施[/c]",
+   "label": "slide15",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 16,
+   "text": "## スライド 16\n\n[c:8B2500]08[/c]  [c:FFFFFF]今後の拡張ロードマップ[/c]\n\n[c:FFFFFF]**短期（0-3ヶ月）**[/c]\n{shape-fill:#8B2500 茶}\n\n[c:3D3D3D]前処理仕様・モデル最終化・スコア出力仕様の確定と文書化（必須）[/c]\n\n[c:3D3D3D]パイロット運用（並行運用）による運用指標の観測（3ヶ月）[/c]\n\n[c:3D3D3D]パフォーマンス閾値・運用ルールの確定（審査部門と合意）[/c]\n\n[c:FFFFFF]**中期（3-12ヶ月）**[/c]\n{shape-fill:#4A4A4A グレー}\n\n[c:3D3D3D]期待損失（expected loss）算定フレームワークの構築（スコア→PDマッピング、LGD想定）[/c]\n\n[c:3D3D3D]外部データ（信用情報、業界統計、景気指標）の導入検証[/c]\n\n[c:3D3D3D]モニタリング基盤の構築（自動アラート: ドリフト、性能低下、データ欠損増加）[/c]\n\n[c:FFFFFF]**長期（12ヶ月以上）**[/c]\n{shape-fill:#6E6E6E グレー}\n\n[c:3D3D3D]本番監視基盤・再学習自動化（MLOps）とSLAの整備（要別途見積）[/c]\n\n[c:3D3D3D]公平性・バイアス評価の充実（属性データが利用可能になった場合）[/c]\n\n[c:3D3D3D]審査業務プロセスへの完全統合（API化・UI化）と組織内承認フローの確立[/c]",
+   "label": "slide16",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 17,
+   "text": "## スライド 17\n\n| [c:FFFFFF]**成果物**[/c] | [c:FFFFFF]**ステータス**[/c] | [c:FFFFFF]**備考**[/c] |\n|---|---|---|\n| [c:3D3D3D]提案書[/c] | [c:2D5016]**完了**[/c] | [c:3D3D3D]提出済[/c] |\n| [c:3D3D3D]契約書[/c] | [c:2D5016]**完了**[/c] | [c:3D3D3D]締結済（2025-05-13）[/c] |\n| [c:3D3D3D]スケジュール[/c] | [c:2D5016]**完了**[/c] | [c:3D3D3D]提出済[/c] |\n| [c:3D3D3D]議事録（M01-M03）[/c] | [c:2D5016]**完了**[/c] | [c:3D3D3D]M01〜M03 提出済[/c] |\n| [c:3D3D3D]中間報告書[/c] | [c:2D5016]**完了**[/c] | [c:3D3D3D]M01〜M03 報告資料提出済[/c] |\n| [c:3D3D3D]最終報告書[/c] | [c:A0522D]**提出中**[/c] | [c:3D3D3D]本報告書が正本候補[/c] |\n| [c:3D3D3D]前処理仕様書[/c] | [c:8B2500]**未確定**[/c] | [c:3D3D3D]AI-08にて追行中[/c] |\n\n[c:8B2500]09[/c]  [c:FFFFFF]成果物サマリ[/c]",
+   "label": "slide17",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 18,
+   "text": "## スライド 18\n\n| [c:FFFFFF]**項目**[/c] | [c:FFFFFF]**合意（契約）**[/c] | [c:FFFFFF]**実績（事実）**[/c] | [c:FFFFFF]**差分・対応**[/c] |\n|---|---|---|---|\n| **成果物** | [c:3D3D3D]提案書〜最終報告書の納品（§4.1）[/c] | [c:3D3D3D]M01-M03議事録・中間報告済。前処理仕様書は未確定[/c] | [c:3D3D3D]AI-08で追行中。M02で方針合意済[/c] |\n| **スコープ** | [c:3D3D3D]外部データ取得・システム実装は対象外（§3）[/c] | [c:3D3D3D]契約範囲内で実施。追加要求は未発生[/c] | [c:3D3D3D]差分なし。MS6で変更管理運用[/c] |\n| **KPI基準** | [c:3D3D3D]Recall 0.70目標候補。ROC-AUC等も評価指標[/c] | [c:3D3D3D]ROC-AUC≈0.859算出済。Recall正式値は未算出[/c] | [c:3D3D3D]M03で指標追加確認。次手順で算出[/c] |\n| **支払条件** | [c:3D3D3D]固定価格6,800,000円（税抜）40%/60%分割[/c] | [c:3D3D3D]着手金支払確認が未完了（AI-05）[/c] | [c:3D3D3D]PM伊藤のフォロー。必要時エスカレーション[/c] |\n\n[c:8B2500]10[/c]  [c:FFFFFF]提案・契約との差分管理[/c]\n\n[c:6E6E6E]*※ 上記差分は「契約条件そのものの変更」ではなく「実行上の遅延・未解決事項」である。契約項目の正式変更は双方書面合意を要する（§14）。*[/c]",
+   "label": "slide18",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 19,
+   "text": "## スライド 19\n\n[c:8B2500]11[/c]  [c:FFFFFF]総括[/c]\n\n[c:8B2500]**達成事項**[/c]\n[c:3D3D3D]データ理解→ベースライン構築→中間レビューまでを予定どおり進行。ベースラインモデル（gradient_boosting）が実用的な識別力（AUC ≈ 0.86）を示した。上位10%に倒産企業が一定程度集中しており、審査業務の優先確認候補抽出への経済効果が見込める。[/c]\n\n[c:8B2500]**残課題**[/c]\n[c:3D3D3D]Attr37の高欠損、クラス不均衡、再現率（Recall）指標の完全な確認不足等、運用移行前に解決すべき技術的・運用的課題が残っている。これらは文書化されたアクションリスト（AI-08/09/10等）で管理されている。[/c]\n\n[c:8B2500]**次ステップへの推奨**[/c]\n[c:3D3D3D]契約上は固定価格での実施であり、現段階での追加作業は別見積が必要（契約書§14）。運用移行にあたっては、本報告書の「直近の必須事項」を完了した上でパイロット運用を行うことを推奨する。[/c]",
+   "label": "slide19",
+   "needs_vision": false,
+   "assets": []
+  },
+  {
+   "no": 20,
+   "text": "## 埋め込み画像・オブジェクト\n### 埋め込みグラフ (barChart): Test評価指標 [ppt/charts/chart1.xml]\n| 系列 | ROC-AUC | Accuracy | F1 (macro) | Precision@10% | Brier Score |\n|---|---|---|---|---|---|\n| Score | 0.85899999999999999 | 0.95699999999999996 | 0.60799999999999998 | 0.25700000000000001 | 3.7999999999999999E-2 |",
+   "label": "media",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "n_slides": 19,
+  "n_pictures": 0,
+  "n_charts": 1,
+  "n_media": 0,
+  "n_emf_parsed": 0
+ },
+ "error": null,
+ "warnings": []
+}

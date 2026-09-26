@@ -1,0 +1,23 @@
+{
+ "doc_id": "178346d7ae9e",
+ "relpath": "プロジェクト/医療法人社団 恒一会 かえで総合病院/02.計画/スケジュール.xlsx",
+ "mount": "",
+ "project": "医療法人社団 恒一会 かえで総合病院",
+ "category": "02.計画",
+ "filetype": "xlsx",
+ "md5": "b097a2a0ac5eade2a11aad3362dfc383",
+ "pages": [
+  {
+   "no": 1,
+   "text": "[暗号化ファイル: プロジェクト/医療法人社団 恒一会 かえで総合病院/02.計画/スケジュール.xlsx] パスワード保護されています。横断参照フォルダのパスワード導出規則から導出したパスワードで decrypt ツールを使用してください。",
+   "label": "",
+   "needs_vision": false,
+   "assets": []
+  }
+ ],
+ "meta": {
+  "encrypted": true
+ },
+ "error": null,
+ "warnings": []
+}
