@@ -10,7 +10,7 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 
 **解説ページ（GitHub Pages）**: https://karai-x.github.io/RAG_Competition/
 コンペの概要、前処理、100問それぞれの解き方、情報源を見つけるための工夫を
-[`portfolio/`](portfolio/) の静的ページにまとめています。公開の手順は [portfolio/README.md](portfolio/README.md) にあります。
+[`portfolio/`](portfolio/) の静的ページにまとめています。
 
 ---
 
@@ -29,7 +29,7 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 加えて、**ドライブ全体のツリーをsystemプロンプトへ常駐させています。**
 その結果、100問のうちベクトル検索を呼んだのは1問だけで、残りは最初のツール呼び出しで
 ファイルを名指ししました。設計の詳細と、それが効いた設問は
-[経路ビューア](portfolio/)の「情報源を見つける工夫」で読めます。
+解説ページの[「情報源を見つける工夫」](https://karai-x.github.io/RAG_Competition/#tech)で読めます。
 
 ---
 
@@ -82,6 +82,12 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 │   │   └── chain.py        切り詰めない完全経路のJSONL記録
 │   └── submit/             回答CSVの形式検証とzip化
 ├── portfolio/              解説ページ（GitHub Pages で公開。100問の記録を同梱）
+│   ├── index.html app.css app.js  ページ本体（外部ライブラリなし）
+│   ├── data/ materials/    100問の経路・カタログ・解説と、解説に載せる資料の画像
+│   ├── explain/            設問ごとの解説の原稿（q0.json〜q99.json）
+│   ├── build_data.py       実行ログ（logs/）とカタログから data/questions.js・corpus.js を作る
+│   ├── build_explain.py    explain/ から data/explain.js と materials/ を作る
+│   └── serve.py            手元で確認するためのサーバ（キャッシュさせない）
 ├── share/共有ドライブ/       データソース。ここだけを読む（同梱）
 ├── artifacts/              抽出・OCR・索引の成果物（前処理済みのものを同梱）
 ├── logs/                   回答と経路（.gitignore 対象）
