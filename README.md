@@ -8,9 +8,9 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 投げた質問と評価用100問の回答経路をツールの引数・戻り値つきで読む、APIキーと画像読み取りエンジンを設定する、
 ができます。
 
-**解説ページ（GitHub Pages）**: https://karai-x.github.io/RAG_Competition/
-コンペの概要、前処理、100問それぞれの解き方、情報源を見つけるための工夫を
-[`portfolio/`](portfolio/) の静的ページにまとめています。
+**解説ページ: https://karai-x.github.io/RAG_Competition/**
+
+コンペの内容、システムの実装と前処理、100問それぞれの解き方、情報源を見つけるための工夫をまとめています。まずはこちらをご覧ください。
 
 ---
 
