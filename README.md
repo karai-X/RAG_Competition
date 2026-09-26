@@ -8,10 +8,9 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 投げた質問と評価用100問の回答経路をツールの引数・戻り値つきで読む、APIキーと画像読み取りエンジンを設定する、
 ができます。
 
-**解説ページ（GitHub Pages）**: コンペの概要、前処理、100問それぞれの解き方、
-情報源を見つけるための工夫を [`portfolio/`](portfolio/) の静的ページにまとめ、GitHub Pages で公開しています
-（URL: `https://<ユーザー名>.github.io/<リポジトリ名>/` — 公開後に差し替え）。
-公開の手順は [portfolio/README.md](portfolio/README.md) にあります。
+**解説ページ（GitHub Pages）**: https://karai-x.github.io/RAG_Competition/
+コンペの概要、前処理、100問それぞれの解き方、情報源を見つけるための工夫を
+[`portfolio/`](portfolio/) の静的ページにまとめています。公開の手順は [portfolio/README.md](portfolio/README.md) にあります。
 
 ---
 
@@ -102,8 +101,8 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 
 ```powershell
 winget install --exact --id astral-sh.uv   # uv が無ければ。入れたら PowerShell を開き直す
-git clone https://github.com/<ユーザー名>/<リポジトリ名>.git
-cd <リポジトリ名>
+git clone https://github.com/karai-X/RAG_Competition.git
+cd RAG_Competition
 uv sync --frozen                           # Python 3.13.3 と依存関係をそろえる
 uv run streamlit run streamlit_app.py      # → http://127.0.0.1:8501/
 ```

@@ -23,7 +23,7 @@
 （`build_data.py` などは公開しません）。
 
 初回だけ、リポジトリの Settings → Pages → Build and deployment の Source を
-**GitHub Actions** にしてください。公開URLは `https://<ユーザー名>.github.io/<リポジトリ名>/` です。
+**GitHub Actions** にしてください。公開URLは https://karai-x.github.io/RAG_Competition/ です（ユーザー名は小文字になります）。
 無料プランの GitHub Pages は公開リポジトリでだけ使えます。
 
 ## 手元で見る
