@@ -1,0 +1,29 @@
+{
+  "ask": "青葉与信マネジメントの最終報告資料のモデル比較で、上位2件のスコア差を生んでいる設定の違いは何かを答えさせる問い。",
+  "types": [
+    "複数資料の突き合わせ"
+  ],
+  "point": "報告書のモデル比較表には順位・モデル名・F1・Accuracy しかなく、1位と2位はどちらも extra_trees なので、表からは違いが見えない。表の注記「モデルの詳細は leaderboard.csv に記載」をたどり、F1 の値で該当する2行を特定したうえで、設定列を1つずつ比べて違いを切り出す必要がある。報告書の表と実験記録を結びつけ、スコア差を生んだ設定を特定できるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/青葉与信マネジメント株式会社/06.報告書/青葉与信マネジメント株式会社_最終報告.pptx",
+      "kind": "slide",
+      "index": 6,
+      "caption": "モデル比較：1位・2位ともに extra_trees で、報告書の表には設定の違いが書かれていない"
+    },
+    {
+      "file": "プロジェクト/青葉与信マネジメント株式会社/04.分析/analysis_outputs/experiments/leaderboard.csv",
+      "kind": "text",
+      "text": "trial_index,status,model_type,n_estimators,use_date_features,random_state,test_size,task_type,primary_metric,primary_value,secondary_metric,secondary_value\n10,ok,extra_trees,500,True,42,0.2,classification,f1_macro,0.60266642,accuracy,0.77800000\n6,ok,extra_trees,300,True,42,0.2,classification,f1_macro,0.59534963,accuracy,0.77514286\n7,ok,gradient_boosting,300,True,42,0.2,classification,f1_macro,0.58988905,accuracy,0.80114286",
+      "caption": "実験記録：上位2件は n_estimators（500 と 300）だけが異なり、他の設定列は同じ"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "最終報告資料を読むと、スライド6のモデル比較で1位（F1 0.6027）と2位（F1 0.5953）がどちらも extra_trees だった。表からは設定の違いが読み取れない。",
+    "分析フォルダの leaderboard.csv を読むと、F1 の値が報告書と一致する trial 10 と trial 6 が上位2件に当たった。",
+    "2行を比べると、use_date_features・random_state・test_size は同じで、n_estimators だけが 500 と 300 で異なっていた。",
+    "analysis_outputs の metrics.json でも extra_trees・n_estimators=500（F1 0.6027）であり、報告書本文にも「ベースライン: extra_trees (n_estimators=500)」とあることを確かめた。",
+    "したがって、差を生んでいる設定は n_estimators（1位 500、2位 300）だと回答した。"
+  ]
+}

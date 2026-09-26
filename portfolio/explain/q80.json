@@ -1,0 +1,43 @@
+{
+  "ask": "東都人材プラットフォームの train.xlsx の Sheet2 で黄色にハイライトされたセルについて、どの条件で抽出したデータの、何を集計した値なのかを答えさせる問い。",
+  "types": [
+    "埋め込みオブジェクト",
+    "書式が答え",
+    "表の構造の読み解き"
+  ],
+  "point": "Sheet2 のセルは空で、ピボット表は EMF 画像としてしか存在しない。抽出テキストからは黄色の値が「61」とわかるが、表の中に 61 は2か所あり、元データを集計しても61件になる組み合わせが2つあるため、数字だけでは行を特定できない。EMF 内で黄色く塗られた矩形の位置を割り出し、各グループの先頭にしか書かれない行ラベルをさかのぼって条件を復元できるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/株式会社東都人材プラットフォーム/03.データ/train.xlsx",
+      "kind": "image",
+      "asset": "62bf4c63fcaa/image1.emf",
+      "crop": [
+        0,
+        0,
+        1,
+        0.0025
+      ],
+      "caption": "Sheet2 に貼られた EMF 画像の先頭。列は Gender・target・Age・Profession・「個数 / id」"
+    },
+    {
+      "file": "プロジェクト/株式会社東都人材プラットフォーム/03.データ/train.xlsx",
+      "kind": "image",
+      "asset": "62bf4c63fcaa/image1.emf",
+      "crop": [
+        0,
+        0.931,
+        1,
+        0.9958
+      ],
+      "caption": "同じ画像の下の方（Gender=Male の範囲）。target=3 → Age 30-34 → Software Engineer の行の「61」が黄色"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "openpyxl で Sheet2 を開くと範囲は A1:A1 だけで、セルに値はなかった。抽出テキストを見ると、ブックには EMF オブジェクト（image1.emf）が埋め込まれ、ピボット表（Gender・target・Age・Profession・個数 / id）が描かれていた。",
+    "抽出テキストの塗り分け情報で、黄色（#FFFF00）が付いているのは値「61」だとわかった。ただし表の中に 61 は2か所あった（Male/25-29/Research Scientist と Male/30-34/Software Engineer）。train.csv を Gender・target・Age・Profession で集計しても、61件になる組み合わせは target=1 の前者と target=3 の後者の2つだった。",
+    "どちらが黄色かを決めるため、run_python で EMF のレコードを解析した。黄色いブラシで塗られた矩形は y=32436〜32472 にあり、その位置のテキストは「Software Engineer」と「61」だった。",
+    "それより上で各列に最後に現れたラベルをたどると、Gender は Male、target は 3、Age は 30-34 だった。",
+    "したがって、抽出条件は Gender=Male・target=3・Age=30-34・Profession=Software Engineer、集計内容は id の個数（個数 / id）と回答した。"
+  ]
+}

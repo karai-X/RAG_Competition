@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drive Trace</title>
+<meta name="description" content="社内共有ドライブを調べて答えるエージェントRAGが、100問をどの経路でたどったかの記録。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <span class="brand__mark">Drive Trace</span>
+      <span class="brand__sub">agentic RAG / 共有ドライブ</span>
+    </div>
+    <nav class="nav" id="nav" aria-label="セクション">
+      <button data-view="competition" aria-selected="true">コンペについて</button>
+      <button data-view="impl" aria-selected="false">実装</button>
+      <button data-view="corpus" aria-selected="false">探索先の構成</button>
+      <button data-view="routes" aria-selected="false">設問別の経路</button>
+      <button data-view="tech" aria-selected="false">情報源を見つける工夫</button>
+    </nav>
+    <button class="theme-btn" id="theme-btn" type="button">テーマ</button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ コンペ ============================ -->
+<section class="section" id="view-competition">
+  <p class="eyebrow">Competition</p>
+  <h1 class="page-title">煩雑な社内ドライブを、Agentic RAGで調べ切る</h1>
+  <p class="lede">
+    SIGNATE で開催された <a href="https://user.competition.signate.jp/ja/competition/detail/?competition=098a4365f4514c2fa197d4e16548b3bb" target="_blank" rel="noopener">AI Engineering Challenge ～煩雑な社内ドライブをハックせよ～</a>
+    への参加作品。架空のデータ分析コンサルティング会社「データアステル社」の社内AI担当として、共有ドライブに溜まった案件資料から、社内の質問に根拠つきで答えるRAGシステムを作ることが課題だった。渡された質問100問に回答し、どれだけ正しく答えられたかをスコアで競った。このサイトは、作ったエージェントで100問を解いたときの実行ログから作った。どのファイルに当たりを付け、どのツールで中身を開き、何を見て答えを確定させたかが、100問ぶんそのまま入っている。
+  </p>
+
+  <h2 class="head">何が難しいのか</h2>
+  <p class="head-note">
+    共有ドライブの資料は形式も粒度もそろっておらず、必要な情報が複数の場所に散らばっている。答えは本文だけでなく、埋め込み画像やグラフ、セルの塗り色、図の中の位置関係、パスワードのかかった契約書にも置かれている。さらに、特定の質問や手元のデータに合わせ込むのではなく、
+    <strong>未知の案件や資料が追加されても同じ方針で答えられる</strong>パイプラインであることが求められた。
+  </p>
+
+  <h2 class="head">渡されたもの</h2>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th>もの</th><th>中身</th></tr></thead>
+      <tbody>
+        <tr><td>共有ドライブ</td><td><code>プロジェクト/</code>（10案件 × 工程別7フォルダ）と <code>社内管理/</code>（社内用語集などの横断参照4文書）。docx / xlsx / pptx / pdf / ipynb / 画像 / コードなど403ファイル</td></tr>
+        <tr><td>質問</td><td>100問。単一資料の読解のほか、複数資料・複数案件にまたがる検索・照合・集計、社内略称を含む質問がある</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================ 実装 ============================ -->
+<section class="section" id="view-impl" hidden>
+  <p class="eyebrow">Implementation</p>
+  <h1 class="page-title">前処理で読める形にし、エージェントには探させる</h1>
+  <p class="lede">
+    質問が来る前に、全ファイルをテキスト・表・画像の読み取り結果へ変換して索引を作っておく。質問が来たら、LLMがツールを選んで資料を調べ、回答を確定するまでループする。ツールと、そのループの中身は自前で実装した。
+  </p>
+
+  <h2 class="head">システム構成</h2>
+  <p class="head-note">質問が来る前に一度だけ行う前処理と、質問ごとに回るエージェントの2つに分かれる。LangChain 系のライブラリで使っているのは LangGraph だけで、役割はエージェントのループの枠組みに限られる。Gemini API は Google の公式SDK（google-genai）で直接呼び、ツールの定義と実行は自前のコード（ToolBox）で行う。</p>
+  <div class="scroll-x">
+  <svg class="arch" viewBox="0 0 1100 730" role="img" aria-label="システム構成図。前処理で共有ドライブを走査・抽出・OCR・索引化して artifacts に保存し、回答時は LangGraph のループで Gemini と ToolBox を往復し、記録を Web UI と解説ページが読む">
+    <defs>
+      <marker id="arch-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path class="arch-ah" d="M0,0 L10,5 L0,10 z"/>
+      </marker>
+    </defs>
+
+    <!-- ===== 前処理 ===== -->
+    <rect class="arch-band" x="8" y="8" width="1084" height="190" rx="8"/>
+    <text class="arch-lane" x="22" y="32">前処理　rag_cli.py preprocess（質問の前に1回）</text>
+
+    <rect class="arch-box" x="20" y="52" width="150" height="110" rx="6"/>
+    <text class="arch-t" x="95" y="78">共有ドライブ</text>
+    <text class="arch-s" x="95" y="100">share/共有ドライブ/</text>
+    <text class="arch-s" x="95" y="118">403ファイル（原本）</text>
+
+    <rect class="arch-box" x="198" y="52" width="150" height="110" rx="6"/>
+    <text class="arch-t" x="273" y="78">走査</text>
+    <text class="arch-m" x="273" y="100">app/corpus</text>
+    <text class="arch-s" x="273" y="118">md5で新規・変更・削除</text>
+    <text class="arch-s" x="273" y="136">版違いを相互リンク</text>
+
+    <rect class="arch-box" x="376" y="52" width="150" height="110" rx="6"/>
+    <text class="arch-t" x="451" y="78">抽出</text>
+    <text class="arch-m" x="451" y="100">app/extract</text>
+    <text class="arch-s" x="451" y="118">python-docx・openpyxl</text>
+    <text class="arch-s" x="451" y="136">python-pptx・pypdfium2</text>
+    <text class="arch-s" x="451" y="154">Word / LibreOffice（組版）</text>
+
+    <rect class="arch-box" x="554" y="52" width="150" height="110" rx="6"/>
+    <text class="arch-t" x="629" y="78">OCR</text>
+    <text class="arch-m" x="629" y="100">app/ocr</text>
+    <text class="arch-s" x="629" y="118">Codex CLI で画像を読む</text>
+    <text class="arch-s" x="629" y="136">画像md5でキャッシュ</text>
+
+    <rect class="arch-box" x="732" y="52" width="150" height="110" rx="6"/>
+    <text class="arch-t" x="807" y="78">索引</text>
+    <text class="arch-m" x="807" y="100">app/index</text>
+    <text class="arch-s" x="807" y="118">SudachiPy + rank-bm25</text>
+    <text class="arch-s" x="807" y="136">ruri-v3-310m・リランカ</text>
+    <text class="arch-s" x="807" y="154">（sentence-transformers）</text>
+
+    <rect class="arch-box arch-store" x="910" y="52" width="170" height="110" rx="6"/>
+    <text class="arch-t" x="995" y="78">artifacts/</text>
+    <text class="arch-s" x="995" y="100">抽出テキスト・切り出し画像</text>
+    <text class="arch-s" x="995" y="118">カタログ・ドライブのツリー</text>
+    <text class="arch-s" x="995" y="136">BM25・密ベクトルの索引</text>
+
+    <line class="arch-ln" x1="170" y1="107" x2="196" y2="107" marker-end="url(#arch-ah)"/>
+    <line class="arch-ln" x1="348" y1="107" x2="374" y2="107" marker-end="url(#arch-ah)"/>
+    <line class="arch-ln" x1="526" y1="107" x2="552" y2="107" marker-end="url(#arch-ah)"/>
+    <line class="arch-ln" x1="704" y1="107" x2="730" y2="107" marker-end="url(#arch-ah)"/>
+    <line class="arch-ln" x1="882" y1="107" x2="908" y2="107" marker-end="url(#arch-ah)"/>
+
+    <!-- ===== 回答時 ===== -->
+    <rect class="arch-band" x="8" y="214" width="1084" height="396" rx="8"/>
+    <text class="arch-lane" x="22" y="238">回答時（1問ごと）</text>
+
+    <rect class="arch-box" x="20" y="286" width="130" height="58" rx="6"/>
+    <text class="arch-t" x="85" y="310">質問</text>
+    <text class="arch-s" x="85" y="330">CSV / Web UI</text>
+
+    <rect class="arch-box" x="20" y="366" width="130" height="92" rx="6"/>
+    <text class="arch-t" x="85" y="390">systemプロンプト</text>
+    <text class="arch-s" x="85" y="410">回答方針・ツール規範</text>
+    <text class="arch-s" x="85" y="428">ドライブのツリー</text>
+    <text class="arch-s" x="85" y="446">横断参照文書の全文</text>
+
+    <!-- LangGraph -->
+    <rect class="arch-box arch-lg" x="178" y="254" width="394" height="266" rx="8"/>
+    <text class="arch-t arch-lg-t arch-end" x="556" y="276">LangGraph（StateGraph）</text>
+    <text class="arch-m arch-end" x="556" y="294">app/agent/graph.py</text>
+
+    <rect class="arch-box arch-node" x="196" y="310" width="160" height="76" rx="6"/>
+    <text class="arch-t" x="276" y="338">agent ノード</text>
+    <text class="arch-s" x="276" y="358">LLMを1回呼び</text>
+    <text class="arch-s" x="276" y="374">次のツールを選ばせる</text>
+
+    <rect class="arch-box arch-node" x="394" y="310" width="160" height="76" rx="6"/>
+    <text class="arch-t" x="474" y="338">tools ノード</text>
+    <text class="arch-s" x="474" y="358">ツールを実行し</text>
+    <text class="arch-s" x="474" y="374">結果を会話に足す</text>
+
+    <line class="arch-ln" x1="356" y1="336" x2="392" y2="336" marker-end="url(#arch-ah)"/>
+    <line class="arch-ln" x1="392" y1="360" x2="358" y2="360" marker-end="url(#arch-ah)"/>
+
+    <rect class="arch-box" x="196" y="424" width="358" height="80" rx="6"/>
+    <text class="arch-t" x="375" y="450">submit_answer → 差し戻しゲート</text>
+    <text class="arch-s" x="375" y="470">OCR由来の値のまま確定しようとしたら差し戻す</text>
+    <text class="arch-s" x="375" y="488">通れば回答・確信度・根拠ファイルを受け取って終了</text>
+    <line class="arch-ln" x1="474" y1="386" x2="474" y2="422" marker-end="url(#arch-ah)"/>
+
+    <line class="arch-ln" x1="150" y1="316" x2="194" y2="330" marker-end="url(#arch-ah)"/>
+    <line class="arch-ln" x1="150" y1="400" x2="194" y2="372" marker-end="url(#arch-ah)"/>
+
+    <!-- LLM -->
+    <rect class="arch-box arch-ext" x="604" y="254" width="220" height="104" rx="6"/>
+    <text class="arch-t" x="714" y="278">Gemini API</text>
+    <text class="arch-s" x="714" y="298">gemini-3.7-flash（温度0・シード固定）</text>
+    <text class="arch-s" x="714" y="316">function calling で9ツールを渡す</text>
+    <text class="arch-m" x="714" y="338">LLMBackend → google-genai</text>
+    <polyline class="arch-ln" points="276,310 276,244 714,244 714,252" marker-start="url(#arch-ah)" marker-end="url(#arch-ah)"/>
+
+    <!-- ToolBox -->
+    <rect class="arch-box arch-node" x="604" y="384" width="220" height="156" rx="6"/>
+    <text class="arch-t" x="714" y="408">ToolBox（9ツール）</text>
+    <text class="arch-m" x="714" y="428">app/agent/tools.py</text>
+    <text class="arch-s" x="714" y="450">search・grep・read</text>
+    <text class="arch-s" x="714" y="468">read_image・ask_image</text>
+    <text class="arch-s" x="714" y="486">run_python・diff・decrypt</text>
+    <text class="arch-s" x="714" y="504">（submit_answer はループ側）</text>
+    <polyline class="arch-ln" points="554,348 580,348 580,462 602,462" marker-end="url(#arch-ah)"/>
+
+    <!-- ToolBox → artifacts -->
+    <polyline class="arch-ln arch-ln-ref" points="824,396 842,396 842,180 995,180 995,164" marker-end="url(#arch-ah)"/>
+    <text class="arch-s arch-lbl" x="918" y="194">抽出テキスト・索引を読む</text>
+
+    <!-- 右列 -->
+    <rect class="arch-box arch-ext" x="866" y="408" width="214" height="50" rx="6"/>
+    <text class="arch-t" x="973" y="428">画像読み取りエンジン</text>
+    <text class="arch-s" x="973" y="446">Claude Code CLI（既定）/ Codex / Gemini</text>
+
+    <rect class="arch-box" x="866" y="468" width="214" height="50" rx="6"/>
+    <text class="arch-t" x="973" y="488">run_python サンドボックス</text>
+    <text class="arch-s" x="973" y="506">別プロセス・APIキーは渡さない</text>
+
+    <rect class="arch-box" x="866" y="528" width="214" height="50" rx="6"/>
+    <text class="arch-t" x="973" y="548">原本ファイル</text>
+    <text class="arch-s" x="973" y="566">read_image の描画・decrypt</text>
+
+    <line class="arch-ln" x1="824" y1="433" x2="864" y2="433" marker-end="url(#arch-ah)"/>
+    <line class="arch-ln" x1="824" y1="493" x2="864" y2="493" marker-end="url(#arch-ah)"/>
+    <polyline class="arch-ln" points="824,530 850,530 850,553 864,553" marker-end="url(#arch-ah)"/>
+
+    <!-- 記録 -->
+    <rect class="arch-box arch-store" x="20" y="480" width="130" height="92" rx="6"/>
+    <text class="arch-t" x="85" y="504">経路の記録</text>
+    <text class="arch-m" x="85" y="524">ChainLogger</text>
+    <text class="arch-s" x="85" y="542">logs/…/chain/*.jsonl</text>
+    <text class="arch-s" x="85" y="560">切り詰めない全記録</text>
+    <polyline class="arch-ln" points="178,500 164,500 164,526 152,526" marker-end="url(#arch-ah)"/>
+
+    <rect class="arch-box" x="196" y="540" width="358" height="56" rx="6"/>
+    <text class="arch-t" x="375" y="562">整形・書き出し</text>
+    <text class="arch-s" x="375" y="582">app/answer・app/submit → predictions.csv</text>
+    <line class="arch-ln" x1="375" y1="520" x2="375" y2="538" marker-end="url(#arch-ah)"/>
+
+    <!-- ===== 記録の利用 ===== -->
+    <rect class="arch-band" x="8" y="626" width="1084" height="96" rx="8"/>
+    <text class="arch-lane" x="22" y="650">記録の利用</text>
+
+    <rect class="arch-box" x="180" y="662" width="400" height="50" rx="6"/>
+    <text class="arch-t" x="380" y="682">Web UI（Streamlit）</text>
+    <text class="arch-s" x="380" y="700">streamlit_app.py・webui/　質問する・回答経路・100問の記録・設定</text>
+
+    <rect class="arch-box" x="620" y="662" width="460" height="50" rx="6"/>
+    <text class="arch-t" x="850" y="682">解説ページ（このページ）</text>
+    <text class="arch-s" x="850" y="700">portfolio/　build_data.py・build_explain.py → GitHub Pages</text>
+
+    <polyline class="arch-ln" points="132,572 132,640 380,640 380,660" marker-end="url(#arch-ah)"/>
+    <polyline class="arch-ln" points="380,640 850,640 850,660" marker-end="url(#arch-ah)"/>
+  </svg>
+  </div>
+  <p class="caption">実線の枠は自前のコード、破線の枠は外部のサービス・CLI。Web UI は同じエージェント（LangGraph のループ）で新しい質問を実行し、記録を同じ形式で残す。</p>
+
+  <h2 class="head">全体の流れ</h2>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th>段階</th><th>やること</th><th>実装</th></tr></thead>
+      <tbody>
+        <tr><td>前処理</td><td>共有ドライブの全ファイルを、書式の注記つきテキスト・表・画像の読み取り結果に変換し、検索索引を作って <code>artifacts/</code> に保存する。質問が来る前に1回だけ行う（次の節）</td><td><code>submission/pipeline.py</code></td></tr>
+        <tr><td>エージェント</td><td>1問ごとに、LLMとツールのループで資料を調べて回答を確定する。一括実行は8並列</td><td><code>app/agent/</code> · <code>app/run/</code></td></tr>
+        <tr><td>整形・書き出し</td><td>回答を決定的な処理で整え、CSVの形式とトークン数を検証して書き出す</td><td><code>app/answer/</code> · <code>app/submit/</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="head">前処理でやっていること</h2>
+  <p class="head-note">前処理は7段からなり、<code>rag_cli.py preprocess</code> で順に実行する。OCRはそのうちの1段で、前処理のコードの半分以上は、Office文書やPDFから書式・表・グラフ・ページ位置を取り出す「抽出」が占めている。どの段でも、失敗があればその場で前処理を止める。</p>
+  <div class="stats">
+    <div class="stat"><span class="stat__n">403</span><span class="stat__k">対象ファイル</span></div>
+    <div class="stat"><span class="stat__n">253</span><span class="stat__k">OCRした画像</span></div>
+    <div class="stat"><span class="stat__n">45</span><span class="stat__k">ページ位置を確定したdocx</span></div>
+    <div class="stat"><span class="stat__n">10,918</span><span class="stat__k">検索チャンク</span></div>
+    <div class="stat"><span class="stat__n">161<small>分</small></span><span class="stat__k">全件の前処理の所要時間</span></div>
+  </div>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th style="min-width: 8.5em">段</th><th>やること</th><th>今回の結果</th><th>実装</th></tr></thead>
+      <tbody>
+        <tr><td>1. 登録</td><td>全ファイルを列挙し、内容のmd5で新規・変更・削除を判定する。パスの位置から案件と工程を決める</td><td>403ファイル</td><td><code>app/corpus/</code></td></tr>
+        <tr><td>2. 抽出</td><td>形式ごとの抽出器で、書式の注記つきMarkdownに変換する（下の表）。埋め込み画像は別ファイルに切り出し、docxのページ位置もここで確定させる。最後に、全ファイルの台帳と、systemプロンプトに入れるドライブのツリーを作り、版違いを相互にリンクする</td><td>403文書、抽出エラー0</td><td><code>app/extract/</code></td></tr>
+        <tr><td>3. 健全性の確認</td><td>抽出エラー、本文が空の文書、抽出されていないファイル、zipの中の画像の数と切り出した数の食い違いを全件洗い出す</td><td>いずれも0件</td><td><code>app/extract/health.py</code></td></tr>
+        <tr><td>4. OCR</td><td>画像ファイル、文書に埋め込まれた画像、テキスト層のないPDFページを Codex CLI で読み取る</td><td>253枚（PDFページ131・埋め込み画像68・画像ファイル54）</td><td><code>app/ocr/</code></td></tr>
+        <tr><td>5. OCRの統合</td><td>読み取り結果を、元の文書の該当ページに書き足す。そのあと健全性の確認をもう一度行い、書き足し漏れがないかも調べる</td><td>84文書に反映</td><td><code>app/ocr/runner.py</code></td></tr>
+        <tr><td>6. 索引</td><td>ページ・シート・スライドを単位にチャンクへ分け、BM25と密ベクトルの索引を作る</td><td>10,918チャンク</td><td><code>app/index/</code></td></tr>
+        <tr><td>7. 状態の記録</td><td>全段が成功した時点の、各ファイルのmd5・サイズ・更新日時を <code>artifacts/preprocess_state.json</code> に書く。次回 <code>--skip-processed</code> を付けて実行すると、変わっていないファイルを飛ばす</td><td>403ファイル</td><td><code>submission/storage.py</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">所要時間は、403ファイルすべてを初めて処理したときのもの（2026年8月29日 21:48〜8月30日 0:29）。</p>
+
+  <h2 class="head">形式ごとに取り出しているもの</h2>
+  <p class="head-note">書式は <code>**太字**</code>・<code>==ハイライト=={色名}</code>・<code>[c:RRGGBB]文字色[/c]</code>・<code>値 {fill:#RRGGBB 色名}</code>（セルの塗り）・<code>{fml:=式}</code>（数式）のような記法で本文に埋める。記法は <code>app/extract/markup.py</code> の1か所で定義し、どの形式でも同じものを使う。</p>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th>形式</th><th style="white-space: nowrap">ファイル数</th><th>取り出すもの</th></tr></thead>
+      <tbody>
+        <tr><td>docx</td><td>46</td><td>段落（見出しは <code>#</code> つき）・表・コメント（対象の箇所と作成者つき）。太字・斜体・下線・取消線・ハイライト・文字色を記法で埋める。本文の先頭に、確定させたページ情報（全何ページか、各ページにある見出し）を置く</td></tr>
+        <tr><td>xlsx</td><td>20</td><td>シートごとの表（行番号と列記号つき）。セルの塗り色・文字色・太字・下線・数式を記法で埋める。条件付き書式の規則、ピボットテーブルの定義、非表示のシートであること、画像だけが貼られたシートであることも書く。200行または60列を超えるシートは先頭25行だけにし、全量は run_python で読むよう書き添える</td></tr>
+        <tr><td>pptx</td><td>25</td><td>スライドごとのテキスト・表・ノート。図形の塗り色を記法で埋める。グループ化された図形は中まで辿る</td></tr>
+        <tr><td>pdf</td><td>28</td><td>ページごとのテキスト。文字色・ハイライト・太字・斜体・下線を1文字ずつ調べて記法で埋める。文字がほとんどなく画像を含むページは、スキャンページとしてOCRに回す</td></tr>
+        <tr><td>ipynb</td><td>11</td><td>セルごとのソースと出力（標準出力・実行結果・エラー）。出力の図と、Markdownセルに埋め込まれた画像は、別ファイルに切り出してOCRに回す</td></tr>
+        <tr><td>csv / tsv</td><td>31</td><td>表として整形する。200行を超えるものは先頭25行と列名だけにし、全量は run_python で読むよう書き添える</td></tr>
+        <tr><td>画像</td><td>54</td><td>寸法とmd5だけを記録し、中身はOCRで読む</td></tr>
+        <tr><td>テキスト</td><td>188</td><td>py・md・json・toml・txt・lock。文字コードを判定して全文を入れる（40万字まで）</td></tr>
+        <tr><td>共通</td><td>—</td><td>docx・xlsx・pptx に埋め込まれたグラフは、ファイル内に保存された値から表に復元する。EMF形式の画像として貼られた表は、中身を解析してセルの値を取り出す。パスワード付きのファイルは中身を読まずに印だけを付け、回答時に decrypt で開くよう本文に書いておく</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="head">前処理で工夫したこと</h2>
+  <p class="head-note">書式の焼き込み、EMFの表の解析、docxのページ位置、OCRの先行実行は、どんな設問に効いたかと合わせて「情報源を見つける工夫」の章にも書いた。ここでは前処理の実装の側から、工夫をまとめる。</p>
+
+    <div class="tech">
+      <h3 class="tech__t">失敗を黙って通さない</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>抽出の失敗は、例外で止まるとは限らない。本文が空になる、画像の一部が切り出されない、という形で静かに起きることがある。開発中にも、埋め込み画像の処理で起きた例外のせいで、画像を含むxlsxの本文が丸ごと空になっていたことがあった。エージェントからは「資料に書かれていない」ように見えるので、誤答の原因として気づきにくい。</dd>
+        <dt>やったこと</dt>
+        <dd>抽出器が例外を投げても文書は捨てず、「[抽出失敗: パス]」と書いたページを必ず1枚残す。抽出のあとで健全性の確認を行い、抽出エラー・本文が空の文書・抽出されていないファイル・画像の数の食い違いを全件洗い出す。OCRのあとにもう一度確認し、読み取ったのに本文へ書き足されていない画像がないかも調べる。<strong>1件でもあれば前処理を止め、対象のファイル名を示す。</strong>除外したファイル（Officeのロックファイルなど）も、理由つきで一覧できるようにした。</dd>
+        <dt>結果</dt>
+        <dd>最終的な前処理では、どの項目も0件だった。</dd>
+      </dl>
+      <p class="tech__src">app/extract/health.py · app/extract/pipeline.py <code>extract_one()</code> · submission/pipeline.py</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">色は、人が呼ぶ名前で書く</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>質問は「オレンジにハイライトされている行」のように色名で聞かれる。RGB値のままでは色名で探せないし、同じ「薄いオレンジ」でも資料ごとにRGB値が違う。</dd>
+        <dt>やったこと</dt>
+        <dd>RGB値を色相・彩度・明度に変換し、色相の範囲で赤・オレンジ・黄・緑・水色・青・紫・ピンクなどに分ける。淡い色には「薄」、暗い色には「濃」を付け、白は注記しない。セルの塗り・図形の塗り・PDFのハイライト・EMFの塗りは、すべてこの関数で色名にする。xlsxのテーマ色は、テーマの配色と明るさの補正（tint）を解決してからRGBにする。Wordのハイライトは、定義済みの16色をそれぞれの名前に対応づける。</dd>
+        <dt>結果</dt>
+        <dd>「薄オレンジ」も「オレンジ」を含むので、<code>grep</code> で「オレンジ」を探せば、形式をまたいで濃淡の違う塗りまで拾える。</dd>
+      </dl>
+      <p class="tech__src">app/extract/markup.py <code>color_name()</code> · app/extract/xlsx.py</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">PDFの書式も、1文字ずつ取り出す</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>PDFから普通にテキストを取り出すと、マーカーや太字は消える。この資料群のPDFでは、ハイライトは文字の背後に描かれた色付きの矩形で、下線も細い矩形だった。「ここはハイライト」という情報そのものは、ファイルに入っていない。</dd>
+        <dt>やったこと</dt>
+        <dd>pypdfium2 で1文字ずつ、文字色・フォントの太さと名前・位置を取り出す。ハイライトは、文字の中心が入る塗り矩形の色で判定する。下線は、文字の下にあり、厚みが文字サイズの1/5未満の矩形とみなす。斜体の書体を持たないフォントでは、文字を傾けて斜体を表すことがある。これはフォント名に表れないので、文字の変換行列の傾きから判定する。同じ書式が続く範囲をまとめて、Office文書と同じ記法で埋める。</dd>
+      </dl>
+      <p class="tech__src">app/extract/pdf.py <code>_styled_text()</code> · <code>_underlined_chars()</code> · <code>_char_skew()</code></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">セルの値に出てこない情報を、本文に書く</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>openpyxl や pandas はセルの値しか見ない。条件付き書式による塗り、非表示のシート、グラフだけが貼られたシート、画像として貼られた表は、値を読むだけでは存在ごと消える。グラフだけのシートは「空シート」に見えてしまう。</dd>
+        <dt>やったこと</dt>
+        <dd>条件付き書式は、規則ごとに範囲・条件・塗り色を主語つきで書く（例: <code>範囲 L2:L31: セルの値 に 完了 を含む → 塗り {fill:#C6EFCE 薄緑}</code>）。範囲がシートの端から始まる場合は、先頭行・先頭列の見出しも添える。大きなシートで表が切り詰められても残るよう、規則は表より前に置く。非表示のシートは見出しに「（hidden）」と付け、画像だけが貼られたシートには枚数と読み取り結果の場所を書く。ピボットテーブルは、行・列・フィルタ・値のフィールドと集計方法を書く。グラフは、ファイル内に保存されている系列の値から表を復元し、軸のタイトルも添える。EMF形式で貼られた表は、描画命令（文字列の位置と塗り矩形）を解析して表に組み直す。</dd>
+        <dt>結果</dt>
+        <dd>条件付き書式17シート、ピボットテーブル10個、グラフ11個、EMFの表3個を本文に書き出した。</dd>
+      </dl>
+      <p class="tech__src">app/extract/xlsx.py · app/extract/ooxml_chart.py · app/extract/emf.py</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">docxのページは、Wordに組版させて決める</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>docxはページを持たない形式で、何ページ目かは組版してはじめて決まる。見出しの順番や文字数から推測すると外れる。</dd>
+        <dt>やったこと</dt>
+        <dd>Wordが保存時に書き込んだ改ページの記録があればそれを使い、なければ一時コピーをWord本体に組版させて、記録を読み戻す（元のファイルには書き込まない）。Wordの起動は、並列の抽出に入る前に1回だけ行い、結果はdocxのmd5ごとに保存する。Wordがない環境ではLibreOfficeで代用するが、照合で一致率が8割に届かなければ採用せず、前処理を止める。確定したページ情報は、本文の先頭に「[ページ情報] 全○ページ」と、各ページにある見出しとして入る。</dd>
+        <dt>結果</dt>
+        <dd>パスワード付きの1ファイルを除く45ファイルのうち、10ファイルはWordの記録から、35ファイルはWordで組版して確定した。Wordの記録を持つ10ファイルを組版し直して照合すると、総ページ数は10件中9件、見出しの位置は98件中95件、改ページの位置は65件中52件が一致した。</dd>
+      </dl>
+      <p class="tech__src">app/extract/pagemap.py · app/extract/word_paginate.ps1</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">OCRは推測させず、読み切るまで止めない</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>画像の読み取りでは、潰れた数字や描かれていない値を、もっともらしく埋めてしまうことがある。前処理のOCR結果は本文に統合されるので、あとから普通のテキストと区別しにくい。</dd>
+        <dt>やったこと</dt>
+        <dd>プロンプトで「読み取れないもの・書かれていないものは推測で補わず、空のままにする」と指示し、表はMarkdown、書式は抽出と同じ記法で書かせる。出力はJSONスキーマで、画像の種別・書き起こし・図の説明（種類・軸・凡例・読み取れる数値）・確信の有無に固定する。確信がないと答えた画像には「読み取りに不確かな箇所あり」と注記する。本文には「[画像読み取り] 画像名」という見出しを付けて書き足すので、回答時にもOCR由来の部分を見分けられる（差し戻しゲートはこれを目印にしている）。見出しに画像名が入るので、同じページに画像が複数あっても、二重に書き足したり2枚目を落としたりしない。Codex CLI がタイムアウトしたら待ち時間を倍にして、読み切るまでやり直す。それ以外の理由で読めない画像が1枚でも残れば、前処理を止める。</dd>
+        <dt>結果</dt>
+        <dd>253枚をすべて読み切り、84文書に書き足した。</dd>
+      </dl>
+      <p class="tech__src">app/ocr/prompt.py · app/ocr/engines.py · app/ocr/runner.py · app/ocr/cache.py</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">変わっていない部分は、計算し直さない</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>全件の前処理には約2時間40分かかる。資料が1つ増えただけで全部やり直すのは無駄が大きい。</dd>
+        <dt>やったこと</dt>
+        <dd>時間のかかる段の結果を、入力の中身から作ったキーで保存しておく。組版はdocxのmd5と仮定した用紙の組ごと、OCRは画像の画素から作ったmd5・エンジン・プロンプトの版の組ごと、密ベクトルはチャンク本文のsha1ごとに保存し、新しいものだけを計算する。OCRのキーをファイルのバイト列でなく画素から作るのは、PNGの圧縮のされ方が違っても、同じ画像を同じものとみなすため。<code>--skip-processed</code> を付けると、抽出もmd5の台帳と比べて新規・変更されたファイルだけをやり直し、削除されたファイルの結果は消す。全件をやり直す既定の実行でも、組版・OCR・密ベクトルのキャッシュは効く。</dd>
+      </dl>
+      <p class="tech__src">app/corpus/manifest.py · app/ocr/cache.py · app/ocr/targets.py <code>image_key()</code> · app/index/dense.py · submission/storage.py</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">表を割らずにチャンクにする</h3>
+      <dl>
+        <dt>課題</dt>
+        <dd>表を行の途中で割ると、値と列名が別のチャンクに分かれ、検索で当たっても何の値か分からなくなる。</dd>
+        <dt>やったこと</dt>
+        <dd>チャンクはページ・シート・スライド・セルを単位にし、約600トークンを大きく超えるものだけを段落の境目で分ける。表のように長い段落は行の境目でしか切らず、前のチャンクの最後の2行を次のチャンクの頭に重ねる。各チャンクの先頭には「[パス / シート名 p3]」のような見出しを付け、検索で当たった場所がどのファイルのどこかを分かるようにする。BM25の分かち書きでは、SudachiPyで切った語に加えて、英数字の識別子（<code>T04</code>・<code>AG_ratio</code>・<code>max_depth</code> など）を元の形のまま足す。</dd>
+      </dl>
+      <p class="tech__src">app/index/chunk.py · app/index/tokenize_ja.py · app/index/build.py</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">読み違えやすい入力をそろえる</h3>
+      <dl>
+        <dt>ファイル名</dt>
+        <dd>共有ドライブには、NFC（濁点が一体の形）とNFD（濁点が分かれた形）のファイル名が混在している。表示・ID・検索にはNFCに正規化したパスを使い、ファイルを開くときは元のパスを使う。</dd>
+        <dt>文字コード</dt>
+        <dd>テキストは UTF-8（BOMつきを含む）→ cp932 → EUC-JP → Latin-1 の順に試して読む。</dd>
+        <dt>画像</dt>
+        <dd>透過PNGは白い背景に合成する。暗い背景で表示すると、黒い文字が見えなくなるため。長辺は1,568pxに縮める。</dd>
+        <dt>notebook</dt>
+        <dd>Markdownセルにbase64で直接埋め込まれた画像は、そのままだと巨大な文字列として本文や索引に流れ込み、OCRの対象にもならない。画像ファイルに切り出し、本文には参照だけを残す。</dd>
+        <dt>除外</dt>
+        <dd>Officeのロックファイル（<code>~$*</code>）や <code>.pyc</code> などの機械生成物だけを除き、<code>uv.lock</code> のように中身のあるファイルは残す。</dd>
+      </dl>
+      <p class="tech__src">app/corpus/walk.py · app/extract/plain.py · app/ocr/image_util.py · app/extract/notebook.py</p>
+    </div>
+
+  <h2 class="head">エージェントのループ</h2>
+  <p class="head-note">
+    LangGraph で「LLMを呼ぶノード」と「ツールを実行するノード」を往復させている。
+    LLMは毎ターン、それまでの会話全体と9つのツールの定義を受け取り、次に呼ぶツールを選ぶ。
+    <code>submit_answer</code> が呼ばれて回答が確定するまで、これを繰り返す。
+  </p>
+  <div class="flow" role="img" aria-label="エージェントのループ: 質問からLLMとツールの往復を経て回答の確定へ">
+    <div class="flow__box">
+      <span class="flow__k">入力</span>
+      <span class="flow__t">systemプロンプト＋質問</span>
+    </div>
+    <span class="flow__arrow" aria-hidden="true">→</span>
+    <div class="flow__loop">
+      <div class="flow__box flow__box--main">
+        <span class="flow__k">agent ノード</span>
+        <span class="flow__t">Gemini がツールを選ぶ</span>
+      </div>
+      <span class="flow__arrow" aria-hidden="true">⇄</span>
+      <div class="flow__box flow__box--main">
+        <span class="flow__k">tools ノード</span>
+        <span class="flow__t">ToolBox で実行し、結果を会話に足す</span>
+      </div>
+      <span class="flow__note">回答が確定するまで繰り返す</span>
+    </div>
+    <span class="flow__arrow" aria-hidden="true">→</span>
+    <div class="flow__box">
+      <span class="flow__k">出力</span>
+      <span class="flow__t">submit_answer で回答を確定</span>
+    </div>
+  </div>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th>仕組み</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>差し戻し</td><td>前処理OCRの結果を根拠に使ったまま、元画像を確認せずに <code>submit_answer</code> を呼ぶと、確定させずに「元画像を read_image / ask_image で確認してから、やり直す」よう返す</td></tr>
+        <tr><td>文章だけの返事</td><td>ツールを呼ばずに文章だけを返したら、<code>submit_answer</code> で答えるよう1回だけ促す。それでも文章なら、短い回答らしい場合に限って回答として拾う</td></tr>
+        <tr><td>履歴の圧縮</td><td>会話が約25万トークン（アプリ側で文字数から見積もった値。モデルの上限ではない）を超えたら、古いツール結果を600字に切り詰め、古い画像を省く。最初の質問と直近8件はそのまま残す</td></tr>
+        <tr><td>打ち切り</td><td>1問あたり最大40ターン、または3,600秒</td></tr>
+        <tr><td>記録</td><td>LLMへの送信内容、応答、ツールの引数と戻り値を、切り詰めずに1問1ファイルのJSONLへ書く</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">app/agent/graph.py · app/run/chain.py</p>
+
+  <h2 class="head">systemプロンプトの中身</h2>
+  <p class="head-note">
+    最初の呼び出しで渡すsystemプロンプトは約4万字で、全問で共通。内容を固定しているので、Gemini の暗黙的キャッシュ（同じ先頭部分を持つリクエストで自動的に効くキャッシュ）が効く。コードでキャッシュを明示的に作ってはいない。10問（LLM呼び出し116回）で測ると、入力約494万トークンのうち84%がキャッシュから読まれた。各問の最初の呼び出しでも63%、2回目以降は85%で、共通のsystemプロンプトが問をまたいで再利用されている。
+  </p>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th>部分</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>回答方針</td><td>要求された値だけを書く、単位や小数桁は質問文に従う、確信が持てなければ「わかりません」、列挙の順序、抽出条件の書き方など</td></tr>
+        <tr><td>ツールの使い方</td><td>計算は暗算せず run_python で、会話で見た数値をコードに手写ししない、集計が0件ならまず自分のコードを疑う、書式の注記の読み方など</td></tr>
+        <tr><td>ドライブのツリー</td><td>全403ファイルのパスと、形式・ページ数・シート名・版違いなどの注記</td></tr>
+        <tr><td>横断参照の文書</td><td><code>社内管理/</code> の文書の全文（用語集・パスワード導出規則・決裁基準など）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">app/agent/prompts.py</p>
+
+  <h2 class="head">用意したツール</h2>
+  <p class="head-note">
+    ツールは前処理で作った抽出結果を見せるだけで、判断は持たない。どのファイルのどこを見るかを決めるのはLLMだ。見出しの右の数字は、100問の実行で呼ばれた回数。
+  </p>
+    <div class="tech tool-card" style="--tc: var(--t-search)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-search)"><span class="dot"></span>search</span> ハイブリッド検索<span class="tool-card__n" data-tool-count="search"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>共有ドライブ全体から、質問に関係しそうな資料を探す。</dd>
+        <dt>引数</dt><dd><code>query</code>（必須）、<code>k</code>（既定8・最大20）、<code>project</code> / <code>category</code> / <code>filetype</code>（絞り込み）</dd>
+        <dt>実装</dt><dd>SudachiPy（mode C）で分かち書きしたBM25と、<code>ruri-v3-310m</code> の密ベクトル検索を、それぞれの順位からRRF（k=60）で融合する。上位20件を日本語cross-encoderで並べ直して上位k件を返す。</dd>
+        <dt>返すもの</dt><dd>ファイルパス・ページ・本文の抜粋（260字）。前処理OCRの結果に当たった場合は、元画像の確認待ちとして記録する。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.search</code> · app/index/search.py · app/index/rerank.py</p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-grep)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-grep)"><span class="dot"></span>grep</span> 正規表現検索<span class="tool-card__n" data-tool-count="grep"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>抽出済みの全文から、識別子・数値・書式の注記（<code>==ハイライト=={色}</code> など）を漏れなく拾う。</dd>
+        <dt>引数</dt><dd><code>pattern</code>（必須）、<code>project</code>、<code>path_glob</code>、<code>max_hits</code>（既定30・最大100）</dd>
+        <dt>実装</dt><dd>カタログの全文書をページ単位で走査し、マッチした行を集める。上限に達したら、パターンを絞るよう促す一文を付けて返す。</dd>
+        <dt>返すもの</dt><dd>ファイルパス・ページ・マッチした行。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.grep</code></p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-read)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-read)"><span class="dot"></span>read</span> 抽出済みの内容を読む<span class="tool-card__n" data-tool-count="read"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>ファイルの中身を、書式の注記つきMarkdownとして読む。</dd>
+        <dt>引数</dt><dd><code>relpath</code>（必須）、<code>pages</code>（例: <code>'1-5'</code>、<code>'10-'</code>）</dd>
+        <dt>実装</dt><dd>1回の戻りを4,000トークンに抑える。収まらないページは先頭だけを返し、読めなかったページの目次と、そこにあるもの（EMF表・グラフ・コメントなど）を添える。</dd>
+        <dt>返すもの</dt><dd>ページ範囲つきの本文と、未表示ページの目次。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.read</code></p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-read_image)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-read_image)"><span class="dot"></span>read_image</span> 画像を見る<span class="tool-card__n" data-tool-count="read_image"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>図・グラフ・スキャンページを、画像のまま見る。</dd>
+        <dt>引数</dt><dd><code>relpath</code> / <code>page</code>（PDF）/ <code>asset_id</code>（埋め込み画像）、<code>region</code>（<code>'x0,y0,x1,y1'</code> の割合で部分拡大）</dd>
+        <dt>実装</dt><dd>PDFは pypdfium2 でページを描画し、<code>region</code> 指定時は3倍の解像度で切り出す。長辺1,568pxに縮めてJPEGで返す。同時に、設定した画像読み取りエンジン（既定は Claude Code）にも同じ画像と元の質問を渡し、その読み取り結果を添える。</dd>
+        <dt>返すもの</dt><dd>画像そのものと、画像読み取りエンジンの読み取り結果。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.read_image</code> · app/ocr/ask.py</p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-ask_image)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-ask_image)"><span class="dot"></span>ask_image</span> 画像に質問する<span class="tool-card__n" data-tool-count="ask_image"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>図の中の位置関係・並び・矢印の指す先など、見ただけでは判断しにくいことを、画像専用のモデルに確かめる。</dd>
+        <dt>引数</dt><dd><code>question</code>（必須）、<code>relpath</code> / <code>asset_id</code> / <code>page</code> / <code>region</code></dd>
+        <dt>実装</dt><dd>位置・方向・包含・隣接などの空間関係を問うときは、範囲内の候補を該当・非該当にかかわらず全件列挙させ、候補ごとに関係を分類させる専用のJSONスキーマを使う。それ以外は「回答・根拠・確信の有無」を返す汎用のスキーマ。結果は画像のmd5・質問・エンジンの組でキャッシュする。</dd>
+        <dt>返すもの</dt><dd>構造化された回答（空間関係なら候補の一覧と分類）。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.ask_image</code> · app/ocr/ask.py <code>ask()</code> / <code>ask_spatial()</code></p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-run_python)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-run_python)"><span class="dot"></span>run_python</span> コードを実行する<span class="tool-card__n" data-tool-count="run_python"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>集計・計算・条件抽出・全案件を横断した走査を、会話ではなくコードでやる。</dd>
+        <dt>引数</dt><dd><code>code</code>（必須）</dd>
+        <dt>実装</dt><dd>別プロセスのPythonで実行する。APIキーなどの環境変数は渡さず、コーパスへの書き込みは実行後に元へ戻す。120秒でタイムアウト、出力は12,000字まで。コーパス用のヘルパを最初から読み込んである: <code>projects()</code>・<code>files(project=, category=, pattern=)</code>（対象の列挙）、<code>read_text(rel)</code>（抽出済みテキスト。<code>plain=True</code> で書式の注記を外す）、<code>tables(rel)</code>（文書中の表を <code>{header, rows}</code> で）、<code>read_csv</code> / <code>read_excel</code>。numpy・pandas・scipy・openpyxl・Pillow などが使える。</dd>
+        <dt>返すもの</dt><dd>標準出力。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.run_python</code> · app/agent/sandbox.py</p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-diff)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-diff)"><span class="dot"></span>diff</span> 版を比較する<span class="tool-card__n" data-tool-count="diff"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>版違い（<code>_v1</code> / <code>_old</code> / <code>_final</code> など）の2ファイルの差分を取る。</dd>
+        <dt>引数</dt><dd><code>relpath_a</code>（旧版）、<code>relpath_b</code>（新版）</dd>
+        <dt>実装</dt><dd>抽出テキストの unified diff（<code>difflib</code>）。画像はmd5で同一かを判定し、差し替わった画像だけを画像読み取りエンジンに2枚並べて比較させる。</dd>
+        <dt>返すもの</dt><dd>差分と、差し替わった画像の比較結果。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.diff</code></p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-decrypt)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-decrypt)"><span class="dot"></span>decrypt</span> 暗号化ファイルを開く<span class="tool-card__n" data-tool-count="decrypt"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>パスワードで保護されたOfficeファイルを復号し、中身を読めるようにする。</dd>
+        <dt>引数</dt><dd><code>relpath</code>（必須）、<code>passwords</code>（候補のリスト、必須）</dd>
+        <dt>実装</dt><dd>msoffcrypto-tool で候補を順に試す。成功したら通常と同じ抽出処理にかけ、以後は <code>read</code> で読めるようにする。候補の作り方はツール側に持たず、エージェントが社内規定のパスワード導出規則から組み立てて渡す。</dd>
+        <dt>返すもの</dt><dd>成否と、成功した場合は本文の冒頭。</dd>
+      </dl>
+      <p class="tech__src">app/agent/tools.py <code>ToolBox.decrypt</code> · app/extract/encrypted.py</p>
+    </div>
+    <div class="tech tool-card" style="--tc: var(--t-submit)">
+      <h3 class="tech__t"><span class="chip" style="color: var(--t-submit)"><span class="dot"></span>submit_answer</span> 回答を確定する<span class="tool-card__n" data-tool-count="submit_answer"></span></h3>
+      <dl>
+        <dt>役割</dt><dd>最終回答を確定し、ループを終える。</dd>
+        <dt>引数</dt><dd><code>answer</code>（必須）、<code>confidence</code>（0〜1、必須）、<code>evidence</code>（根拠にしたファイル）</dd>
+        <dt>実装</dt><dd>ToolBox にメソッドはなく、ループ側で受け取る。前処理OCRの結果を根拠に使ったまま元画像を確認していなければ、確定させずに差し戻し、確認すべき資料を示す。確定した回答は、LLMを使わない決定的な処理で整える（空・エラー・確信度0.35未満は「わかりません」、改行やタグの除去、トークン数の検証）。</dd>
+        <dt>返すもの</dt><dd>—（ここでループが終わる）</dd>
+      </dl>
+      <p class="tech__src">app/agent/graph.py · app/answer/finalize.py</p>
+    </div>
+
+  <h2 class="head">ツールの作り方</h2>
+  <p class="head-note">
+    LangChain のツール機能（<code>@tool</code> など）やエージェント機能は使わず、ツールの定義と実装を自前で書いた。
+    LangGraph は、LLMとツールを往復させるループの枠組みとしてだけ使っている。
+  </p>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th>部分</th><th>書き方</th></tr></thead>
+      <tbody>
+        <tr><td>定義</td><td><code>TOOL_DEFS</code> に、ツールごとの名前・説明文・引数のJSON Schemaを辞書で並べる。LLMが読むのはこの説明文なので、使いどころや注意もここに書く</td></tr>
+        <tr><td>実装</td><td><code>ToolBox</code> クラスに、ツールと同じ名前のメソッドとして書く。<code>ToolBox.call()</code> が名前でメソッドを呼び、例外は落とさず「[エラー] …」という文字列にしてLLMへ返す</td></tr>
+        <tr><td>LLMへの渡し方</td><td><code>TOOL_DEFS</code> を Google の公式SDK（google-genai）の <code>FunctionDeclaration</code> に変換し、毎ターンのリクエストに添える</td></tr>
+        <tr><td>差し替え</td><td>LLMは抽象クラス <code>LLMBackend</code> 越しに扱う。ループとツールは応答の形しか知らないので、Gemini以外のモデルにも替えられる</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">app/agent/tools.py · app/agent/backend.py · app/agent/graph.py</p>
+
+  <h2 class="head">使ったモデルとライブラリ</h2>
+  <div class="scroll-x">
+    <table class="matrix matrix--text">
+      <thead><tr><th>役割</th><th>使ったもの</th></tr></thead>
+      <tbody>
+        <tr><td>回答（エージェント）</td><td>Gemini <code>gemini-3.7-flash</code>（温度0・シード固定）。100問の実行ログに応答元として記録されていたモデル名は <code>gemini-3.7-flash</code> と <code>gemini-3.6-flash</code> の2つで、指定したのは前者だけ</td></tr>
+        <tr><td>回答中の画像の読み取り</td><td>Claude Code CLI（<code>fable</code>、effort high）。Web UI から Codex や Gemini にも切り替えられる</td></tr>
+        <tr><td>前処理のOCR</td><td>Codex CLI（<code>gpt-5.6-sol</code>、reasoning effort xhigh）</td></tr>
+        <tr><td>検索</td><td><code>cl-nagoya/ruri-v3-310m</code>（密ベクトル）、<code>hotchpotch/japanese-reranker-cross-encoder-small-v1</code>（リランク）、SudachiPy・rank-bm25</td></tr>
+        <tr><td>文書の読み取り</td><td>python-docx・openpyxl・python-pptx・pypdfium2・msoffcrypto-tool。docxのページ位置は Microsoft Word（無ければ LibreOffice）で組版して確定</td></tr>
+        <tr><td>ループと実行環境</td><td>LangGraph、Python 3.13、uv</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notice ok">
+    <p class="notice__t">同じ経路を、自分の質問で走らせる</p>
+    <p class="notice__d">
+      リポジトリの Web UI（Streamlit）から、その場で1問を実行できる。ツールを呼ぶたびに経路が伸びていく様子と、このページと同じ形式の記録が残る。前処理済みのデータと APIキーが要るので、手順はリポジトリの README を参照のこと。
+    </p>
+  </div>
+</section>
+
+<!-- ============================ 構成 ============================ -->
+<section class="section" id="view-corpus" hidden>
+  <p class="eyebrow">Corpus</p>
+  <h1 class="page-title">探索先は、案件フォルダと横断参照フォルダの2つ</h1>
+  <p class="lede">
+    読み取り対象は <code>share/共有ドライブ/</code> の下だけ。ここは <code>プロジェクト/</code> と <code>社内管理/</code> の2つに分かれていて、この分け方がそのまま検索フィルタとプロンプト構成に効いている。
+  </p>
+
+  <h2 class="head">フォルダ構成</h2>
+  <p class="head-note">
+    エージェントが探索するのは <code>share/共有ドライブ/</code> の下だけで、中身は大きく2つに分かれている。
+    <code>プロジェクト/</code> には案件（顧客企業）ごとのフォルダが10個あり、どの案件も提案から報告書までの工程ごとに、同じ7つのフォルダを持つ。<code>社内管理/</code> には、どの案件にも属さない社内共通の資料（用語集・社内規定・決裁基準・座席表）が置かれている。
+  </p>
+  <div class="dirtree" role="img" aria-label="共有ドライブのフォルダ構成">
+    <span class="t">share/共有ドライブ/</span><span class="c"></span>
+    <span class="t">├── プロジェクト/</span><span class="c">案件（顧客企業）ごとのフォルダ。10案件</span>
+    <span class="t">│   ├── 京橋信用ソリューションズ株式会社/</span><span class="c"></span>
+    <span class="t">│   │   ├── 00.提案/</span><span class="c">提案書・調査資料。版違い（_v1 / _final など）が並ぶことがある</span>
+    <span class="t">│   │   ├── 01.契約/</span><span class="c">契約書。パスワードで保護されたものがある</span>
+    <span class="t">│   │   ├── 02.計画/</span><span class="c">スケジュール（xlsx）。ガントの期間はセルの塗り色で表されている</span>
+    <span class="t">│   │   ├── 03.データ/</span><span class="c">学習データ（train.csv / xlsx）とカラム説明</span>
+    <span class="t">│   │   ├── 04.分析/</span><span class="c">分析プロジェクト一式（src/ notebooks/ reports/figures/ …）と実験結果</span>
+    <span class="t">│   │   ├── 05.会議/</span><span class="c">会議録/（pdf）と 報告資料/（docx）</span>
+    <span class="t">│   │   └── 06.報告書/</span><span class="c">最終報告</span>
+    <span class="t">│   ├── 医療法人社団 恒一会 かえで総合病院/</span><span class="c">以下の案件も同じ7フォルダを持つ</span>
+    <span class="t">│   ├── 株式会社東都人材プラットフォーム/</span><span class="c"></span>
+    <span class="t">│   └── …（ほか7案件）</span><span class="c"></span>
+    <span class="t">└── 社内管理/</span><span class="c">案件に属さない、社内共通の資料</span>
+    <span class="t">    ├── 社内用語集.docx</span><span class="c">社内略称 → 通常の表現</span>
+    <span class="t">    ├── データアステル社内規定_パスワード導出規則.docx</span><span class="c">暗号化された資料のパスワードの作り方</span>
+    <span class="t">    ├── データアステル社内管理_決裁基準.md</span><span class="c">金額に応じた承認者</span>
+    <span class="t">    └── 座席表.pptx</span><span class="c">社員の席と内線番号（図）</span>
+  </div>
+  <p class="caption">全403ファイル（案件フォルダ399、社内管理4）。案件名は架空の企業。</p>
+
+  <div class="stats" id="corpus-stats"></div>
+
+  <h2 class="head">案件フォルダ — 番号が工程の順序になっている</h2>
+  <p class="head-note">
+    10案件すべてが <code>00.提案</code> から <code>06.報告書</code> までの同じ7フォルダを持つ。番号は装飾ではなく案件の進行順で、質問の「提案時の見込みと最終請求の差額は」のような問いは、この番号の両端を突き合わせることになる。フォルダ名の位置から <code>project</code> / <code>category</code> を導出しているので、検索の絞り込みにもサンドボックスの <code>files(project=, category=)</code> にもそのまま使える。
+  </p>
+  <div class="spine" id="lifecycle"></div>
+
+  <h2 class="head">横断参照フォルダ — systemプロンプトに全文で常駐する</h2>
+  <p class="head-note">
+    <code>社内管理/</code> の4文書は案件に属さず、どの質問からも参照されうる。小さいので、検索させずに毎回systemプロンプトへ全文で載せている。略語の展開やパスワードの導出規則は「検索して見つける」ものではなく、調査を始める前から手元にあるべき前提であるため。
+  </p>
+  <div class="scroll-x">
+    <table class="matrix" id="internal-docs"></table>
+  </div>
+
+  <h2 class="head">案件 × 工程のファイル分布</h2>
+  <p class="head-note">
+    <code>04.分析</code> に偏っているのは、分析プロジェクト一式（<code>src/</code>・<code>notebooks/</code>・<code>reports/figures/</code>）がまるごと置かれているため。ここだけはコードとして読む必要がある。
+  </p>
+  <div class="scroll-x">
+    <table class="matrix" id="corpus-matrix"></table>
+  </div>
+
+  <h2 class="head">素直に読めないファイルがどこにあるか</h2>
+  <p class="head-note">
+    前処理では、普通にテキストを取り出すだけでは中身を取りこぼすファイル（埋め込み画像がある、スキャンしたページを含む、暗号化されているなど）を見分け、ツリーの各ファイルに注記として書き添えている。ツリーはsystemプロンプトに入るので、エージェントはファイルを開く前から「このxlsxにはピボットがある」「このpdfはスキャンだ」と分かる。
+  </p>
+  <div class="bars" id="flag-bars"></div>
+
+  <h2 class="head">ツリー</h2>
+  <p class="head-note">
+    実際にsystemプロンプトへ渡しているツリーと同じ構造。フォルダをクリックすると開閉する。
+  </p>
+  <div class="tree-tools">
+    <input type="search" id="tree-q" placeholder="ファイル名・パスで絞り込み" aria-label="ファイル名・パスで絞り込み">
+    <button class="btn" type="button" id="tree-expand">すべて開く</button>
+    <button class="btn" type="button" id="tree-collapse">すべて閉じる</button>
+  </div>
+  <div class="tree" id="tree"></div>
+</section>
+
+<!-- ============================ 経路 ============================ -->
+<section class="section" id="view-routes" hidden>
+  <p class="eyebrow">Routes</p>
+  <h1 class="page-title">100問が、それぞれどこを通ったか</h1>
+  <p class="lede">
+    左の一覧から設問を選ぶと、その問いの探索経路が最初のツール呼び出しから回答の確定まで右に並ぶ。ツール名・引数・返ってきた内容の冒頭・所要秒数は、すべて実行ログそのまま。
+  </p>
+
+  <div class="stats" id="routes-stats-run"></div>
+  <div class="stats" id="routes-stats"></div>
+  <p class="caption" id="routes-caption"></p>
+
+  <h2 class="head">最初に呼んだツール</h2>
+  <p class="head-note">
+    探索の入口。100問中99問が、検索を経ずに最初からファイルを名指ししている。ツリーと横断参照文書をプロンプトに常駐させた結果で、ベクトル検索は「当たりが付かないときの保険」の位置に下がった。
+  </p>
+  <div class="bars" id="entry-bars"></div>
+
+  <h2 class="head">主経路の内訳</h2>
+  <p class="head-note">
+    使われたツールの組み合わせから、その設問を特徴づける経路を1つ割り当てている（強い手掛かりを持つものが優先 — 復号 &gt; 図版照会 &gt; 版比較 &gt; 画像読取 &gt; コード走査 &gt; 全文検索 &gt; 意味検索 &gt; 直読）。
+  </p>
+  <div class="bars" id="route-bars"></div>
+
+  <h2 class="head">設問一覧</h2>
+  <div class="filters">
+    <input type="search" id="q-search" placeholder="設問・回答・根拠パスを検索" aria-label="設問・回答・根拠パスを検索">
+    <select id="q-route" aria-label="主経路で絞り込み"></select>
+    <select id="q-project" aria-label="案件で絞り込み"></select>
+    <button class="btn" type="button" id="q-gate" aria-pressed="false">提出が差し戻された設問</button>
+  </div>
+  <div class="legend" id="tool-legend-filter"></div>
+  <p class="result-line" id="q-count"></p>
+  <div class="qpane">
+    <nav class="qside" id="qlist" aria-label="設問の一覧"></nav>
+    <article class="qdetail" id="qdetail" aria-live="polite"></article>
+  </div>
+</section>
+
+<!-- ============================ 工夫 ============================ -->
+<section class="section" id="view-tech" hidden>
+  <p class="eyebrow">Techniques</p>
+  <h1 class="page-title">答えの出どころへ、どうやって行き着かせたか</h1>
+  <p class="lede">
+    このコーパスで難しいのは、文章として書かれていない情報が答えになることだった。セルの塗り色、図の中の位置関係、docxの何ページ目か、パスワードのかかった契約書。以下は、それぞれをエージェントが手を伸ばせる形に変えるためにやったこと。設問番号のボタンを押すと、その工夫が実際に効いた経路へ飛ぶ。
+  </p>
+
+  <!-- ---- group 1 ---- -->
+  <div class="tech-group">
+    <p class="tech-group__n">GROUP 1 — 入口</p>
+    <h2 class="tech-group__t">「どこを見るか」を検索で当てさせない</h2>
+    <p class="tech-group__d">
+      ベクトル検索は、質問と資料の言葉が違っていても届くのが利点だ。ただし今回のように資料の置き場所に規則があるなら、規則のほうを先に渡したほうが速くて確実だった。
+    </p>
+
+    <div class="tech">
+      <h3 class="tech__t">ドライブ全体のツリーをsystemプロンプトへ常駐させる</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>検索から始めると、上位に出た数チャンクの外側が見えない。「全案件で最も〜な案件」のような問いでは、そもそも取りこぼしたことに気づけない。</dd>
+        <dt>対策</dt>
+        <dd>403ファイルのツリーを、形式・ページ数・シート名・列名・版違いの注記付きで<strong>毎回丸ごと渡す</strong>。エージェントは最初のターンから全ファイルの存在と概形を知っている。プロンプトの内容は固定してあるので、Gemini のキャッシュが効く（10問の実測で入力の84%）。</dd>
+        <dt>結果</dt>
+        <dd>100問のうち <code>search</code> を呼んだのは<strong>1問だけ</strong>。残りは最初のツール呼び出しでファイルを名指ししている。</dd>
+      </dl>
+      <p class="tech__src">app/agent/prompts.py · app/extract/catalog.py → artifacts/catalog/tree.txt</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">横断参照フォルダの4文書を全文で載せる</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>質問文に社内略称が入ると、その略称のまま検索しても本文に出てこない。用語集を引く手順を毎回踏ませるとターンを食う。</dd>
+        <dt>対策</dt>
+        <dd>案件に属さない <code>社内管理/</code> の文書（用語集・決裁基準・パスワード導出規則・座席表）を、トークン予算の範囲で<strong>全文</strong>プロンプトへ入れる。略称の展開、承認権限の判定、パスワードの組み立てが、調査を始める前に済んでいる状態を作る。</dd>
+        <dt>結果</dt>
+        <dd>略称を含む質問でも、展開後の語で直接ファイルに当たれる。復号が要る9問も、規則を読みに行く往復なしでパスワード候補を作れている。</dd>
+      </dl>
+      <p class="tech__src">app/agent/prompts.py <code>internal_docs_text()</code></p>
+      <p data-qrefs="3,13,38,40,46,67,79,86,92"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">検索は残す — BM25 + 密ベクトル + リランク</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>日本語では片方だけだと必ず落ちる。BM25は <code>AG_ratio</code> <code>max_depth</code> <code>T04</code> のような識別子に強く、密ベクトルは「予測に影響が高い特徴量」→ feature importance のような言い換えに強い。</dd>
+        <dt>対策</dt>
+        <dd>SudachiPy mode C で分かち書きしたBM25と、<code>ruri-v3-310m</code> の密検索を<strong>RRFで融合</strong>し、日本語cross-encoderで並べ直す。スコアのスケールが違う2系統を混ぜるためにRRFを使っている。案件・カテゴリ・拡張子でのメタフィルタ付き。</dd>
+        <dt>結果</dt>
+        <dd>実行では出番がほぼ無かった。ツリー常駐が効いた結果であって、当たりが付かない質問が来たときの縮退先としては残す価値がある。</dd>
+      </dl>
+      <p class="tech__src">app/index/search.py · app/index/tokenize_ja.py · app/index/rerank.py</p>
+    </div>
+  </div>
+
+  <!-- ---- group 2 ---- -->
+  <div class="tech-group">
+    <p class="tech-group__n">GROUP 2 — 可読化</p>
+    <h2 class="tech-group__t">文章になっていない情報を、検索できる形に落とす</h2>
+    <p class="tech-group__d">
+      答えがセルの塗り色や図の中にあるとき、素のテキスト抽出では消える。消える前に、テキストと同じ平面へ写しておく必要があった。
+    </p>
+
+    <div class="tech">
+      <h3 class="tech__t">書式を本文へ焼き込み、grepで拾えるようにする</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>「オレンジにハイライトされている行」「太字・下線・イタリックすべてに該当する箇所」が設問になる。通常のテキスト抽出では色も太字も落ちるため、画像として見るしかなくなる。</dd>
+        <dt>対策</dt>
+        <dd>抽出の時点で書式を記法としてテキストに埋める。<code>**太字**</code> / <code>==ハイライト=={色名}</code> / <code>[c:RRGGBB]文字色[/c]</code> / <code>値 {fill:#RRGGBB 色名}</code>（セル塗り） / <code>{shape-fill:#RRGGBB 色名}</code> / <code>{fml:=式}</code>。色名は淡い色でも基本色名を含める（薄オレンジ→「薄橙」ではなく基本色名を残す）ので、<strong>色名でgrepできる</strong>。xlsxはテーマ色も解決する。</dd>
+        <dt>結果</dt>
+        <dd>ガントの塗りや強調セルが、画像を開かずに正規表現で網羅できる。読む用と検索用で <code>read_text(rel)</code> / <code>read_text(rel, plain=True)</code> を切り替えられる。</dd>
+      </dl>
+      <p class="tech__src">app/extract/markup.py · app/extract/xlsx.py</p>
+      <p data-qrefs="2,3,11,7"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">EMFで埋め込まれた表を、バイナリから直接読む</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>Office文書では表やピボットが <strong>EMF画像オブジェクト</strong>として貼り込まれていることがある。シートXMLにセル値が無いので、探しても見つからず「該当なし」と誤答しやすい。実データでは docx / xlsx / pptx の3形式すべてに存在した。</dd>
+        <dt>対策</dt>
+        <dd>EMFのレコード列を決定的に解析する。<code>EMR_EXTTEXTOUTW</code> から参照点付きの文字列、<code>EMR_CREATEBRUSHINDIRECT</code> / <code>EMR_SELECTOBJECT</code> / <code>EMR_BITBLT</code> から塗り矩形を取り、座標で表に組み直す。以前はこの手順をプロンプトに散文で書いてLLMにバイナリを読ませていたが、不安定で高コストだった。解析できなければPNGへラスタライズして画像経路へ落とす。</dd>
+        <dt>結果</dt>
+        <dd>画像として埋まっていた表のセル値が、他の表と同じ <code>tables(rel)</code> で取れる。</dd>
+      </dl>
+      <p class="tech__src">app/extract/emf.py · app/extract/ooxml_chart.py</p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">docxのページ位置を、組版して確定させる</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>「この見出しがあるのは何ページか」に答えるには、docxが本来持っていないページ境界が要る。docxは組版してはじめてページが決まる形式で、見出しの並び順や本文量から推測すると静かに外れる。</dd>
+        <dt>対策</dt>
+        <dd>4段で確定させる。① Wordが保存時に書き込む改ページ記録 <code>w:lastRenderedPageBreak</code> があればそれを使う。② 無ければ一時コピーを<strong>Word本体に組版させて</strong>記録を読み戻す。③ Wordが無い環境はLibreOfficeで代用するが、改ページ記録を持つdocxで較正して一致率が閾値を満たさなければ採用しない。④ どれも駄目なら前処理をエラーで止める。用紙サイズを持たない文書はA4・余白25.4mmを仮定し、その旨を本文に明記する。元ファイルは常に読むだけ。</dd>
+        <dt>結果</dt>
+        <dd>確定したページ情報は抽出テキストの先頭に <code>[ページ情報]</code> 行として入る。<code>判定不能</code> と書かれた文書のページを問われた場合は、推測せず「わかりません」と答える規約にしている。</dd>
+      </dl>
+      <p class="tech__src">app/extract/pagemap.py · app/extract/word_paginate.ps1</p>
+      <p data-qrefs="12"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">OCRは質問が来る前に焼き切る</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>図・スキャンPDF・埋め込み画像を回答中に読むと、1問の時間予算をOCRに食われる。同じ図を複数の設問が参照するので無駄も出る。</dd>
+        <dt>対策</dt>
+        <dd>前処理で3系統（直置き画像・Office/notebookの埋め込み画像・テキスト層が空のPDFページ）を列挙し、<strong>画像md5をキーにキャッシュ</strong>しながら並列で読み切って本文へ統合する。EMFとして決定的に解析できたものは対象外。失敗は空を返して次回リトライされる冪等な作り。</dd>
+        <dt>結果</dt>
+        <dd>回答時の画像アクセスは「確認」に用途が絞られ、探索の時間予算から外れる。</dd>
+      </dl>
+      <p class="tech__src">app/ocr/targets.py · app/ocr/runner.py · app/ocr/cache.py</p>
+    </div>
+  </div>
+
+  <!-- ---- group 3 ---- -->
+  <div class="tech-group">
+    <p class="tech-group__n">GROUP 3 — 検証</p>
+    <h2 class="tech-group__t">出どころが確かめられるまで、提出させない</h2>
+    <p class="tech-group__d">
+      見つけたつもりで間違えるのが一番厄介だ。数え落とし、手写しの転記ミス、
+      OCRの読み違い。どれも本人には正しく見えるので、仕組みの側で止めるようにした。
+    </p>
+
+    <div class="tech">
+      <h3 class="tech__t">OCR由来の値のままでは提出を通さないゲート</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>前処理OCRの読み取りは本文に統合されているので、エージェントからは普通のテキストに見える。グラフの軸目盛りのような細かい数字をOCRのまま信じて提出してしまう。</dd>
+        <dt>対策</dt>
+        <dd>調査でOCR由来のテキストに触れたかを追跡し、その状態で <code>submit_answer</code> が呼ばれたら<strong>提出を差し戻す</strong>。差し戻しメッセージには、確認すべき資料と「読めなければ <code>region</code> で拡大せよ」という具体的な次の手を入れる。チェックポイントから再開しても状態を失わないよう、グラフの状態にも複製する。</dd>
+        <dt>結果</dt>
+        <dd>100問中<strong>26問</strong>で発火し、いずれも元画像を見直してから再提出している。差し戻された経路は設問一覧の「提出が差し戻された設問」で絞り込める。</dd>
+      </dl>
+      <p class="tech__src">app/agent/graph.py · app/agent/tools.py <code>_track_ocr_output()</code></p>
+      <p data-qrefs="4,5,29,54,66,91"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">図の空間関係は、候補を全列挙してから分類する</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>「この矢印が指している先は」「この枠の中に入っているのはどれか」は、画像を眺めて答えると、該当しそうなものだけを見て答えてしまう。非該当の候補を数え上げないと、他にもあるかどうかが分からない。</dd>
+        <dt>対策</dt>
+        <dd><code>ask_image</code> は画像専用モデルへ質問を投げるツールだが、位置・方向・包含・隣接・接続を問う場合は、<strong>指定範囲の候補を該当・非該当にかかわらず全件列挙して、候補ごとに関係を分類して返す</strong>専用スキーマを使う。回答には確信度が付き、低ければ断定しない規約。</dd>
+        <dt>結果</dt>
+        <dd>15問がこの経路を通っている。<code>read_image</code> で自分で見た結果をそのまま提出せず、関係だけを別途検証する形になる。</dd>
+      </dl>
+      <p class="tech__src">app/ocr/ask.py · app/agent/tools.py</p>
+      <p data-qrefs="0,10,11,20,22,29,34,44,55,56,58,64,68,86,99"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">数えるのも計算するのも、会話ではなくコードにやらせる</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>全案件横断の質問を案件ごとに読んでいくとターンが尽きる。さらに、会話に流れてきた表をコードへ手写しすると、拾い漏れても誰も気づかない。</dd>
+        <dt>対策</dt>
+        <dd>読み取り専用のサンドボックスに、コーパス前提のヘルパを注入する。<code>projects()</code> / <code>files(project=, category=, pattern=)</code> で対象を列挙し、<code>P()</code> で実パスへ解決、<code>read_text(rel)</code> で書式注記つきの抽出済みテキスト、<code>tables(rel)</code> で文書中の表を <code>{header, rows}</code> として受け取る。APIキーなどの環境変数は<strong>渡さない</strong>。規約側でも「会話で見た数値をコードに手写ししない」「集計後は件数と内訳をprintして確認する」「0件になったらまず自分のコードを疑う」を明文化している。</dd>
+        <dt>結果</dt>
+        <dd>96問が <code>run_python</code> を使い、79問はこれが最初の一手だった。10案件の横断集計が1回のコード実行で閉じる。</dd>
+      </dl>
+      <p class="tech__src">app/agent/sandbox.py · app/agent/prompts.py</p>
+      <p data-qrefs="40,46,13"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">パスワードはコードに書かず、規則から導出させる</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>暗号化された契約書が中身ごと読めない。かといって導出済みのパスワードをコードに埋め込むと、配布物に秘密が残る。</dd>
+        <dt>対策</dt>
+        <dd>復号モジュールは「渡された候補を順に試す」だけを担当し、候補の作り方は持たない。エージェント側が横断参照フォルダのパスワード導出規則を読み、規則に沿って候補を組み立てて <code>decrypt</code> へ渡す。</dd>
+        <dt>結果</dt>
+        <dd>9問がこの経路を通っている。規則が変わっても、変えるのは資料側だけで済む。</dd>
+      </dl>
+      <p class="tech__src">app/extract/encrypted.py · app/agent/tools.py</p>
+      <p data-qrefs="3,13,38,40,46,67,79,86,92"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">版違いを走査時に相互リンクしておく</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>「old版と最新版を比較して実質的な変更を挙げよ」に答えるには、まず対になるファイルを見つける必要がある。命名は <code>_v1</code> <code>_old</code> <code>_r2</code> <code>_final</code> と揺れる。</dd>
+        <dt>対策</dt>
+        <dd>走査時に版を示す接尾辞を落として正規化キーを作り、同じキーのファイルを <code>version_peers</code> として相互リンクする。ツリーにも「版違い: 〜」と併記されるので、エージェントは比較対象を探さずに済む。差分は <code>diff</code> ツールで取り、画像はmd5が同じなら中身も同じとみなして、異なるものだけ見比べる。</dd>
+        <dt>結果</dt>
+        <dd>19ファイルが版違いとして紐づいた。版を比べる設問は、いずれも最初のツール呼び出しで両方のパスを指定している。Q22 では、ノートブックに貼られた統計表の画像が差し替わっていることを <code>diff</code> が見つけ、2枚を比べて class 列の統計が加わったことを示した。</dd>
+      </dl>
+      <p class="tech__src">app/extract/catalog.py · app/agent/tools.py</p>
+      <p data-qrefs="0,1,9,14,22,74,95"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">経路を切り詰めずに残す</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>表示用のトレースは読める長さに切ってあるので、後から「なぜこの答えになったか」を検証するには足りない。</dd>
+        <dt>対策</dt>
+        <dd>1問1ファイルのJSONLへ、発生順に全部書く。systemプロンプトの全文とハッシュ、送信メッセージ、応答テキストとusageとレイテンシ、<strong>切り詰めないツール引数</strong>、ツールの戻り、最終回答と停止理由。<code>python -m app.run.chain --run-id &lt;id&gt; --index &lt;n&gt;</code> で経路を読み直せる。</dd>
+        <dt>結果</dt>
+        <dd>このページのデータそのもの。100問・2,293ステップぶんの経路が残っている。</dd>
+      </dl>
+      <p class="tech__src">app/run/chain.py · app/run/runner.py</p>
+    </div>
+  </div>
+
+  <p class="footer">
+    このページは <code>logs/&lt;run-id&gt;/q*.json</code> と <code>artifacts/catalog/catalog.jsonl</code> から
+    <code>portfolio/build_data.py</code> が生成した静的データだけで動いている。資料そのものは含まない。コーパスは架空の企業・案件で構成された評価用データ。出典: <a href="https://user.competition.signate.jp/ja/competition/detail/?competition=098a4365f4514c2fa197d4e16548b3bb" target="_blank" rel="noopener">SIGNATE「AI Engineering Challenge ～煩雑な社内ドライブをハックせよ～」</a>
+  </p>
+</section>
+
+
+</main>
+
+<script src="data/corpus.js"></script>
+<script src="data/questions.js"></script>
+<script src="data/explain.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

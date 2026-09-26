@@ -1,0 +1,26 @@
+# 秘密情報（APIキー）。雛形の .env.example だけは載せる
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# コンペの資料と、そこから作ったもの。リポジトリには含めない（README の「配布」を参照）
+share/
+artifacts/
+logs/
+jobs/
+checkpoints.sqlite*
+questions_test*.csv
+
+# Python の環境とキャッシュ
+.venv/
+__pycache__/
+*.py[cod]
+
+# ツール・OS が作るもの
+.playwright-mcp/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

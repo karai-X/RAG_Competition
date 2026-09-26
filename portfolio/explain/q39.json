@@ -1,0 +1,35 @@
+{
+  "ask": "青潮モビリティサービス（AOSHIO）の train.xlsx で、Sheet1 に置かれたグラフ1がどのカラムを可視化したものかを答えさせる問い。",
+  "types": [
+    "埋め込みオブジェクト"
+  ],
+  "point": "Sheet1 はセルが空で、グラフ1は0〜1の値を区間に分けたヒストグラムだが、グラフ上には列名も凡例もなく、0〜1の値をとる列は temp・atemp・hum・windspeed と複数あるため形からは決められない。しかもこのグラフは Excel 2016 以降の chartEx 形式で、openpyxl ではグラフとして認識されない。xlsx の中で drawing1.xml から chartEx1.xml へのつながりをたどり、系列の定義から可視化対象の列を特定できるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/株式会社青潮モビリティサービス/03.データ/train.xlsx",
+      "kind": "sheet",
+      "sheet": "Sheet1",
+      "range": "A1:I14",
+      "caption": "Sheet1 のグラフ1。0〜1の値を区間に分けた度数のグラフで、どの列かはグラフ上に書かれていない",
+      "crop": [
+        0.1,
+        0.06,
+        0.73,
+        0.34
+      ]
+    },
+    {
+      "file": "プロジェクト/株式会社青潮モビリティサービス/03.データ/train.xlsx",
+      "kind": "text",
+      "text": "### 埋め込みグラフ (clusteredColumn): グラフ1 [xl/charts/chartEx1.xml]\n| 系列 | グラフ種別 | データ参照 |\n|---|---|---|\n| hum | clusteredColumn | _xlchart.v1.3 |\n\n### 埋め込みグラフ (clusteredColumn): グラフ2 [xl/charts/chartEx2.xml]\n| 系列 | グラフ種別 | データ参照 |\n|---|---|---|\n| atemp | clusteredColumn | _xlchart.v1.5 |",
+      "caption": "前処理で抽出したテキスト（原本の抜粋ではない）。グラフ1の系列は hum"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "read_text で train.xlsx の抽出テキストを読んだ。Sheet1 はセルが空で、末尾の「埋め込みグラフ」欄にグラフ1〜3の系列が載っていた。グラフ1（chartEx1.xml）の系列は hum だった。",
+    "openpyxl ではこのグラフ（Excel 2016 以降の chartEx 形式）が読めなかったため、xlsx を zip として開き、sheet1 → drawing1.xml → chartEx1〜3.xml のつながりを確かめた。",
+    "drawing1.xml の「グラフ 1」が chartEx1.xml につながり、そのタイトルも「グラフ1」で、データは定義名 _xlchart.v1.3 を参照していた。",
+    "したがって、グラフ1が可視化しているのは hum 列だと判断して回答した。"
+  ]
+}

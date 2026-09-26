@@ -1,0 +1,36 @@
+{
+  "ask": "恒一会（かえで総合病院）の提案書にある「閾値未満のカテゴリ数なら One-Hot Encoding」という方針について、閾値の値を実装の設定ファイルで確かめ、その条件で One-Hot Encoding の対象になるカテゴリ列をすべて答えさせる問い。",
+  "types": [
+    "複数資料の突き合わせ",
+    "社内略称の展開"
+  ],
+  "point": "PP は提案書を指す社内略称で、恒一会（かえで総合病院）の提案書の前処理方針には「閾値未満のカテゴリ数の場合に適用」とあるだけで、閾値の数字はない。実装設定 project_config.json には rare_category_min_count（20）など似たカテゴリ関連の数値設定が並ぶため、One-Hot の上限（categorical_unique_limit＝100）を見極め、データ定義の列型と照らしてカテゴリ列を絞り込む必要がある。提案書・実装設定・データ定義の3つを結びつけられるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/医療法人社団 恒一会 かえで総合病院/00.提案/提案書.pptx",
+      "kind": "slide",
+      "index": 9,
+      "caption": "前処理方針。カテゴリ変換は One-Hot Encoding で「閾値未満のカテゴリ数の場合に適用」、高カーディナリティ列は除外、Gender列は2値カテゴリとして変換対象"
+    },
+    {
+      "file": "プロジェクト/医療法人社団 恒一会 かえで総合病院/04.分析/analysis_project/configs/project_config.json",
+      "kind": "text",
+      "text": "    \"categorical_encoding\": \"one_hot\",\n    \"categorical_unique_limit\": 100,\n    \"exclude_high_cardinality_at_or_above_limit\": true,",
+      "caption": "実装設定の feature_plan。カテゴリ数の上限は100で、100以上の列は除外する"
+    },
+    {
+      "file": "プロジェクト/医療法人社団 恒一会 かえで総合病院/03.データ/カラム説明.md",
+      "kind": "text",
+      "text": "| 0 | id | int | インデックスとして使用 |\n| 1 | Age | int | 年齢 |\n| 2 | Gender | char | 性別 |\n| 3 | T_Bil | float | 検査項目1： 総ビリルビン (Total Bilirubin) |\n…\n| 11 | disease | int | 肝疾患の有無（0:無, 1:有） |",
+      "caption": "列の型。文字型（カテゴリ）の列は Gender だけで、他は int / float"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "提案書.pptx のテキストから「One-Hot」「カテゴリ」「閾値」などを含む行を探し、さらに「One-Hot」か「カテゴリ」を含むスライドを表示して、スライド9の前処理方針に「閾値未満のカテゴリ数の場合に適用」「高カーディナリティのカテゴリ列は除外」とあることを確認した。",
+    "実装設定 project_config.json を読むと、categorical_encoding が one_hot、categorical_unique_limit が100（categorical_unique_limit_override も100）で、上限以上の列を除外する設定だった。features.py でも MAX_CATEGORICAL_UNIQUE = 100 と定義されていた。",
+    "train.csv を pandas で読み、列ごとの型とユニーク数を数えた。object型（カテゴリ）の列は Gender（Male/Female の2値）だけで、他は数値列だった。",
+    "カラム説明.md でも char 型は Gender だけで、disease は目的変数、id はインデックスだった。",
+    "Gender のカテゴリ数2は閾値100未満なので One-Hot の対象になると判断し、「Gender」を回答した。"
+  ]
+}

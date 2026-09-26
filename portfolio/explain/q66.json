@@ -1,0 +1,28 @@
+{
+  "ask": "京橋信用ソリューションズのEDAで作られた日付分析のグラフで、件数が最も多いのは何日かを答えさせる問い。",
+  "types": [
+    "図・画像の読み取り",
+    "複数資料の突き合わせ"
+  ],
+  "point": "グラフのファイル名は figure_06.png で「日付分析」とは書かれておらず、EDAノートブックの日付分析セルが保存先にこのファイルを指定していることから特定する必要がある。グラフは件数（左軸・青）と目的変数平均（右軸・オレンジ）を重ねた凡例のない2軸グラフで、見た目の高さだけなら1日のオレンジの点も20日の青の点と同じくらい高い。軸の色と系列を対応づけ、件数の山を正しく読めるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/notebooks/01_eda.ipynb",
+      "kind": "text",
+      "text": "            agg = tmp.groupby(used_col).agg(件数=(target_col, 'size'))\n            ...\n            ax1.plot(agg.index, agg['件数'], marker='o', color='tab:blue')\n            ax1.set_title(f'{used_col} による件数推移')\n            ax1.set_xlabel('日')\n            ...\n            plt.savefig(FIG_DIR / 'figure_06.png', dpi=150, bbox_inches='tight')",
+      "caption": "EDAノートブックの日付分析セル：day ごとの件数を折れ線にして figure_06.png に保存している"
+    },
+    {
+      "file": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/reports/figures/figure_06.png",
+      "kind": "image",
+      "caption": "日付分析のグラフ：青線（件数）は20日で最も高く、約1,600件"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "EDAノートブック 01_eda.ipynb を読むと、固定EDA計画の8番目が日付列の傾向確認で、該当セルは day 列ごとの件数を集計し、折れ線グラフを figure_06.png に保存していた。",
+    "同じ集計を train.csv で計算し直すと、day=20 が 1,612件で最多、次が 18日の 1,345件だった。",
+    "reports/figures/figure_06.png を read_image で確認すると、「day による件数推移」の青線が20日で約1,600件の最も高い山になっており、集計と一致した。",
+    "したがって、件数が最も高いのは20日と回答した。"
+  ]
+}

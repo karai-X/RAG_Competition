@@ -1,0 +1,29 @@
+{
+  "ask": "京橋信用ソリューションズの分析コードで、今回の学習で勾配ブースティングのモデルに実際に渡される n_estimators・learning_rate・random_state を、設定ファイルに書かれていない値も含め、実行時にコードが適用する値で答えさせる問い。",
+  "types": [
+    "複数資料の突き合わせ"
+  ],
+  "point": "設定ファイルの model_params は空で、n_estimators と learning_rate は書かれていない。コードには既定値 300／0.1 のほかに、勾配ブースティングの回帰側だけに 500／0.3 の固定値が書かれており、どちらが使われるかは設定にないタスク種別（目的変数 y から自動判定）で決まる。設定ファイル・コード・データをつなげて、実行時に実際に適用される値を特定できるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/configs/project_config.json",
+      "kind": "text",
+      "text": "  \"target_column\": \"y\",\n  \"model_type\": \"gradient_boosting\",\n  \"model_params\": {},\n  \"random_state\": 42,\n  \"test_size\": 0.2,",
+      "caption": "設定ファイル：model_type は gradient_boosting、model_params は空、random_state は 42"
+    },
+    {
+      "file": "プロジェクト/京橋信用ソリューションズ株式会社/04.分析/analysis_project/src/modeling.py",
+      "kind": "text",
+      "text": "    n_estimators = to_int(model_params.get(\"n_estimators\"), 300)\n    learning_rate = to_float(model_params.get(\"learning_rate\"), 0.1)\n    ...\n    if task_type == \"regression\":\n        ...\n        elif model_key == \"gradient_boosting\":\n            model = GradientBoostingRegressor(\n                n_estimators=500,\n                learning_rate=0.3,\n                ...\n    else:\n        ...\n        elif model_key == \"gradient_boosting\":\n            model = GradientBoostingClassifier(\n                n_estimators=n_estimators,\n                learning_rate=learning_rate,\n                random_state=random_state,\n            )",
+      "caption": "モデル構築コード：回帰では 500／0.3 の固定値、分類では既定値 300／0.1 が使われる"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "project_config.json を読むと、model_type は gradient_boosting、model_params は空の {}、random_state は 42 だった。",
+    "run_train.py で設定の読み込み方を確認し、modeling.py の build_pipeline を読んだ。model_params が空なので、n_estimators は既定値 300、learning_rate は既定値 0.1 になる。",
+    "ただし勾配ブースティングは回帰なら 500／0.3 の固定値、分類なら上の変数を渡す作りで、タスク種別で値が変わる。",
+    "目的変数 y を train.csv で確かめると 0/1 の2値で、metrics.json の task_type も classification だったため、分類側の GradientBoostingClassifier が使われる。",
+    "したがって n_estimators=300、learning_rate=0.1、random_state=42 を回答した。"
+  ]
+}

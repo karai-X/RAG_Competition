@@ -1,0 +1,28 @@
+{
+  "ask": "青嶺不動産アセットマネジメント（AOMINE）の分析出力 metrics.json にある feature_selection.selected_columns のうち、分析コードが生成した数値の交互作用特徴量にあたる列名をすべて挙げさせる問い。",
+  "types": [
+    "複数資料の突き合わせ"
+  ],
+  "point": "metrics.json の selected_columns には19列が並んでいるだけで、どれが元データの列でどれが分析コードで作られた列かは書かれていない。src/features.py には日付の分解、sin/cos の周期変換、出現頻度、交互作用など複数の派生特徴量があり、数値の交互作用は augment_numeric_interactions が「左__x__右」という名前で作ることを突き止めて照合する必要がある。分析の出力とそれを生成したコードを結びつけられるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_outputs/metrics.json",
+      "kind": "text",
+      "text": "  \"feature_selection\": {\n    \"selected_columns\": [\n      \"BOROUGH\",\n      \"BUILDING CLASS CATEGORY\",\n      \"TAX CLASS AT PRESENT\",\n      \"BLOCK\",\n      \"LOT\",\n      \"ZIP CODE\",\n      \"RESIDENTIAL UNITS\",\n      \"COMMERCIAL UNITS\",\n      \"TOTAL UNITS\",\n      \"LAND SQUARE FEET\",\n      \"GROSS SQUARE FEET\",\n      \"YEAR BUILT\",\n      \"TAX CLASS AT TIME OF SALE\",\n      \"BOROUGH__x__BLOCK\",\n      \"BOROUGH__x__LOT\",\n      \"BOROUGH__x__ZIP CODE\",\n      \"BLOCK__x__LOT\",\n      \"BLOCK__x__ZIP CODE\",\n      \"LOT__x__ZIP CODE\"\n    ],",
+      "caption": "selected_columns の19列。末尾6列が「__x__」でつながれた列名になっている"
+    },
+    {
+      "file": "プロジェクト/株式会社青嶺不動産アセットマネジメント/04.分析/analysis_project/src/features.py",
+      "kind": "text",
+      "text": "def augment_numeric_interactions(\n    df: pd.DataFrame,\n    enabled: bool,\n    max_numeric_features: int = 4,\n    max_interaction_pairs: int = 6,\n) -> pd.DataFrame:\n    ...\n    for i, left in enumerate(ranked):\n        for right in ranked[i + 1 :]:\n            feature_name = f\"{left}__x__{right}\"\n            out[feature_name] = pd.to_numeric(out[left], errors=\"coerce\") * pd.to_numeric(out[right], errors=\"coerce\")",
+      "caption": "数値列の上位4列から2列ずつ組み、積を「左__x__右」という名前の列にする（最大6ペア）"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "metrics.json を読み込み、feature_selection.selected_columns の19列を取り出した。設定値として use_numeric_interactions が true になっていることも確認した。",
+    "分析コードの src/features.py を読むと、augment_numeric_interactions が数値列2つの積を f\"{left}__x__{right}\" という名前で追加していた。",
+    "selected_columns のうちこの命名規則に当てはまるのは、BOROUGH・BLOCK・LOT・ZIP CODE の4列から作った6ペアで、上限の max_interaction_pairs=6 とも数が合う。",
+    "したがって、BOROUGH__x__BLOCK、BOROUGH__x__LOT、BOROUGH__x__ZIP CODE、BLOCK__x__LOT、BLOCK__x__ZIP CODE、LOT__x__ZIP CODE の6列を回答した。"
+  ]
+}

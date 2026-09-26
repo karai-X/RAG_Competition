@@ -1,0 +1,36 @@
+{
+  "ask": "ひがし丘総合病院の train.xlsx の Sheet1 で黄色くハイライトされた数値が、どの条件で抽出したデータを、どう集計した値なのかを答えさせる問い。",
+  "types": [
+    "書式が答え",
+    "表の構造の読み解き"
+  ],
+  "point": "対象の数値は黄色の塗りでしか特定できず、Sheet1 は sex・smoker・region・charges を行に階層化したピボット表になっている。黄色の F22 の行では上位の見出しが空欄なので、上の行へさかのぼって female・yes・southeast・charges=2 の組を復元し、列見出し「平均 / bmi」から集計方法を読む必要がある。塗りから対象セルを見つけ、ピボット表の構造から抽出条件と集計内容を組み立てられるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/03.データ/train.xlsx",
+      "kind": "sheet",
+      "sheet": "Sheet1",
+      "range": "A3:F25",
+      "caption": "sex・smoker・region・charges で階層化したピボット表。F22（平均 / bmi）が黄色",
+      "crop": [
+        0.07,
+        0.05,
+        0.88,
+        0.58
+      ]
+    },
+    {
+      "file": "プロジェクト/医療法人社団 蒼泉会 ひがし丘総合病院/03.データ/train.csv",
+      "kind": "text",
+      "text": "id,age,sex,bmi,children,smoker,region,charges",
+      "caption": "元データ train.csv の列。条件で絞って平均を取ると F22 の値と一致した"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "read_text で train.xlsx の Sheet1 を読むと、行見出しが sex・smoker・region・charges、値が「平均 / age」「平均 / bmi」のピボット表で、22行目F列（35.9509…）に黄色の塗りが付いていた。",
+    "openpyxl で各セルの値と塗りを取り直し、空欄になっている上位の見出しをたどって、22行目が female・yes・southeast・charges=2 の組であることを確認した。",
+    "元データの train.csv を pandas で読み、sex=female、smoker=yes、region=southeast、charges=2 で絞り込むと17件になり、bmi の平均が 35.95092784352941 で黄色のセルと一致した（age の平均 39 も E22 と一致）。",
+    "したがって、抽出条件は sex が female・smoker が yes・region が southeast・charges が 2、集計内容は bmi の平均と回答した。"
+  ]
+}

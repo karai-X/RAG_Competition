@@ -1,0 +1,43 @@
+{
+  "ask": "青嶺不動産アセットマネジメントの train.xlsx で、黄色くハイライトされたセルは回帰モデルの予測と実際の値の誤差を計算している。その予測の対象になっている物件（行）を特定し、建設年を答えさせる問い。",
+  "types": [
+    "書式が答え",
+    "計算・集計"
+  ],
+  "point": "黄色の塗りは Sheet2 の回帰分析結果の下にある B22 の1セルだけで、値は誤差の2乗の数値にすぎず、どの物件の予測かは数式を読まないとわからない。数式は係数×説明変数＋切片から Sheet1 の26118行目の SALE PRICE を引いて2乗しており、参照先は末尾の U〜W列に写した列で、説明変数の YEAR BUILT_fillna は 127 と建設年そのものではない。塗りで対象セルを見つけ、回帰の数式から対象の行を特定して YEAR BUILT の列までたどれるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/株式会社青嶺不動産アセットマネジメント/03.データ/train.xlsx",
+      "kind": "sheet",
+      "sheet": "Sheet2",
+      "range": "A16:I22",
+      "caption": "Sheet2 の回帰分析結果（係数）と、黄色の B22。B22 の数式は Sheet1 の26118行目を参照している",
+      "crop": [
+        0.07,
+        0.05,
+        0.92,
+        0.18
+      ]
+    },
+    {
+      "file": "プロジェクト/株式会社青嶺不動産アセットマネジメント/03.データ/train.xlsx",
+      "kind": "sheet",
+      "sheet": "Sheet1",
+      "range": "O26117:W26119",
+      "caption": "Sheet1 の26117〜26119行目の O〜W列。中央の26118行目（id: train_26116）が B22 の参照先で、O列 YEAR BUILT が 1899、P列 YEAR BUILT_fillna が 127。U〜W列は数式が参照する YEAR BUILT_fillna・BOROUGH・SALE PRICE の写し",
+      "crop": [
+        0.08,
+        0.05,
+        0.92,
+        0.14
+      ]
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "openpyxl で全セルの塗りを走査する処理は120秒でタイムアウトし、次に read_text の抽出テキストから「黄」「fill:」などを含む行を探した。見つかった黄色の塗りは Sheet2 の B22（値 141250325712.5…）だけだった。Sheet2 は YEAR BUILT_fillna と BOROUGH を説明変数にした回帰分析の結果になっている。",
+    "openpyxl で B22 の数式を確認すると「=(B18*Sheet1!U26118+Sheet2!B19*Sheet1!V26118+Sheet2!B17-Sheet1!W26118)^2」で、係数×説明変数＋切片で予測値を作り、Sheet1 の26118行目の SALE PRICE との差を2乗していた。",
+    "Sheet1 の見出しと26118行目を読むと、id は train_26116（BOROUGH 3、GOWANUS の一戸建て）で、YEAR BUILT は 1899、YEAR BUILT_fillna は 127 だった。",
+    "したがって、予測の対象の物件の建設年は1899年と回答した。"
+  ]
+}

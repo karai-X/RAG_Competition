@@ -1,0 +1,13 @@
+[server]
+# エージェントはモデルが書いたコードを実行する。外部から到達できるアドレスへ公開しない。
+address = "127.0.0.1"
+port = 8501
+# リポジトリ全体（.venv・artifacts を含む）を監視すると起動が重くなる
+fileWatcherType = "none"
+
+[browser]
+serverAddress = "127.0.0.1"
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"

@@ -1,0 +1,37 @@
+{
+  "ask": "青葉与信マネジメントの分析データで、標準化した loan_amnt が0未満の行のうち、purpose が credit_card で、かつ loan_amnt が credit_card 全体の平均を上回る行が何%あるかを、小数第2位まで答えさせる問い。",
+  "types": [
+    "計算・集計",
+    "複数資料の突き合わせ"
+  ],
+  "point": "「標準化」シートには標準化した loan_amnt などの4列しかなく、purpose は train シート（または train.csv）と行を対応させて引く必要がある。分母は標準化値が0未満の行、比較に使う平均は絞り込む前の credit_card 全体の平均で、標準化値0未満は全体平均（約1,583）未満を意味するため、該当するのは credit_card 平均（約1,541）との間の狭い範囲の行だけになる。どの集合で割り、どの集合で平均を取るかを取り違えずに、多段の条件を組み立てられるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/青葉与信マネジメント株式会社/03.データ/train.xlsx",
+      "kind": "sheet",
+      "sheet": "標準化",
+      "range": "A1:D12",
+      "crop": [
+        0.05,
+        0.05,
+        0.48,
+        0.34
+      ],
+      "caption": "標準化シート。loan_amnt・interest_rate・credit_score の3列は STANDARDIZE 関数で、平均と母標準偏差（STDEV.P）を使って標準化されている"
+    },
+    {
+      "file": "プロジェクト/青葉与信マネジメント株式会社/03.データ/train.csv",
+      "kind": "text",
+      "text": "id,loan_amnt,term,interest_rate,grade,employment_length,purpose,credit_score,application_type,loan_status\n...\n11,1138.61238,3 years,13.83419115,C1,10 years,debt_consolidation,658.2411451,Individual,0\n12,1493.010459,3 years,6.884324802,A1,0 years,credit_card,722.4684121,Joint App,0\n13,1138.156973,3 years,14.2537142,C5,6 years,house,727.7930126,Individual,0\n14,1216.649361,3 years,14.85282714,C5,10 years,credit_card,681.0775638,Individual,0\n...",
+      "caption": "元データ。purpose 列に credit_card などの用途が入っている（17,500行）"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "train.xlsx のシート（回帰分析・標準化・抽出・train）と train.csv を確認した。「標準化」シートの loan_amnt は、csv の loan_amnt を母標準偏差で標準化した値と一致した。数式も STANDARDIZE と STDEV.P を使っていた。",
+    "標準化した loan_amnt が0未満の行は10,938行で、標本標準偏差で計算しても、シートの値を使っても同じ行数だった。",
+    "purpose=credit_card は3,053行で、その loan_amnt の平均は 1,540.84 だった。",
+    "10,938行のうち、purpose=credit_card で loan_amnt が 1,540.84 を上回る行は129行で、129 ÷ 10,938 = 1.1794% になった。",
+    "したがって、小数第2位に丸めた 1.18% を回答した。"
+  ]
+}

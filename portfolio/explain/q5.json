@@ -1,0 +1,29 @@
+{
+  "ask": "青潮モビリティサービスの最終報告で最良モデルとされているモデルについて、パラメータ max_depth の設定値を答えさせる問い。",
+  "types": [
+    "複数資料の突き合わせ"
+  ],
+  "point": "最終報告には、最良モデルの種類と評価値は書かれているが、max_depth は書かれていない。報告書が出典に挙げる分析出力（metrics.json）までたどり、同じ評価値のモデルの設定を探す必要がある。報告書と分析の成果物を結びつけられるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/株式会社青潮モビリティサービス/06.報告書/株式会社青潮モビリティサービス_最終報告.pdf",
+      "kind": "page",
+      "index": 5,
+      "caption": "最良モデルの最終評価（metrics.json）。HistGB で R2=0.8452、RMSE=46.9838。max_depth は書かれていない"
+    },
+    {
+      "file": "プロジェクト/株式会社青潮モビリティサービス/04.分析/analysis_outputs/metrics.json",
+      "kind": "text",
+      "text": "  \"model_type\": \"hist_gradient_boosting\",\n  \"model_params\": {\n    \"learning_rate\": 0.05,\n    \"max_depth\": 6,\n    \"max_iter\": 400\n  },\n  ...\n  \"rmse\": 46.9838340445052,\n  \"mae\": 29.604146561708138,\n  \"r2\": 0.8451664555487036,",
+      "caption": "報告書が出典に挙げる metrics.json。同じ RMSE・R2 のモデルの max_depth は 6"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "run_python の files() で 04.分析 の中身を一覧し、metrics.json と run_summary.json の冒頭を読んだ。どちらも model_type は hist_gradient_boosting、model_params は learning_rate 0.05・max_depth 6・max_iter 400 だった。",
+    "最終報告.pdf を読むと、Histogram-based Gradient Boosting を採用し R2 0.845・best_iteration=400 と書かれていた。報告書の本文には max_depth の記載はなかった。",
+    "leaderboard.csv でも、log1p 変換した hist_gradient_boosting の試行（RMSE 46.98、R2 0.845）が最上位で、src/modeling.py では model_params の max_depth がそのまま HistGradientBoostingRegressor に渡されることを確かめた。",
+    "提出時に元画像の確認を求められたため、read_image で報告書5ページを見た。最良モデルは HistGB で、RMSE=46.9838・R2=0.8452 と、leaderboard.csv 最上位の試行と同じ値だった（max_depth はこのページにもない）。",
+    "したがって、最良モデルの max_depth は metrics.json に記録された 6 だと回答した。"
+  ]
+}

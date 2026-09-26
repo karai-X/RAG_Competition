@@ -1,0 +1,28 @@
+{
+  "ask": "京橋信用ソリューションズ（KSS）の最終報告スライドで、F1スコアの順位が gradient_boosting の次になるモデルの Accuracy を答えさせる問い。",
+  "types": [
+    "隠れた情報"
+  ],
+  "point": "スライド7のリーダーボード表は、上に重ねられた注記の枠で1〜5位の行が隠れていて、描画したスライドでは6位の行しか見えない。2〜6位はいずれも random_forest で、モデル名だけでは行が決まらない。見た目ではなく pptx の表オブジェクトから隠れた行を取り出し、順位で2位の行を特定できるかを見る問題。",
+  "materials": [
+    {
+      "file": "プロジェクト/京橋信用ソリューションズ株式会社/06.報告書/京橋信用ソリューションズ株式会社_最終報告.pptx",
+      "kind": "slide",
+      "index": 7,
+      "caption": "スライド7を描画したもの。表の上に注記の枠が重なり、1〜5位の行が隠れている"
+    },
+    {
+      "file": "プロジェクト/京橋信用ソリューションズ株式会社/06.報告書/京橋信用ソリューションズ株式会社_最終報告.pptx",
+      "kind": "text",
+      "text": "['Rank', 'モデル種別', 'F1 (macro)', 'Accuracy']\n['1', 'gradient_boosting', '0.72243', '0.89993']\n['2', 'random_forest', '0.71486', '0.90527']\n['3', 'random_forest', '0.70972', '0.90269']\n['4', 'random_forest', '0.70496', '0.90270']\n['5', 'random_forest', '0.70172', '0.89956']\n['6', 'random_forest', '0.70149', '0.90327']",
+      "caption": "エージェントが python-pptx で取り出したスライド7の表の中身。2位は random_forest、Accuracy 0.90527"
+    }
+  ],
+  "layout": "stack",
+  "reasoning": [
+    "python-pptx で最終報告の全スライドのテキストと表を取り出した。",
+    "スライド7「モデル比較 ─ リーダーボード」の表に Rank・モデル種別・F1 (macro)・Accuracy が並び、1位が gradient_boosting、2位が random_forest（F1 0.71486、Accuracy 0.90527）だった。",
+    "念のため分析出力の leaderboard.csv も読み、F1 macro の高い順に並んだ表で gradient_boosting（0.722427）の次が random_forest（0.714863、accuracy 0.905271）であることを確かめた。",
+    "したがって、スライドの表記どおり 0.90527 を回答した。"
+  ]
+}

@@ -1,0 +1,41 @@
+# portfolio/ の静的ページを GitHub Pages へ公開する。
+# 表示に要るファイル（index.html / app.css / app.js / data/ / materials/）だけを載せ、
+# build_data.py・explain/ などは公開しない。
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ["portfolio/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect static files
+        run: |
+          mkdir -p _site
+          cp portfolio/index.html portfolio/app.css portfolio/app.js _site/
+          cp -r portfolio/data _site/data
+          cp -r portfolio/materials _site/materials
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
