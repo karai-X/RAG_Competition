@@ -14,25 +14,6 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 
 ---
 
-## 何が難しく、何をしたか
-
-このコーパスで答えの根拠になるのは、文章として書かれていない情報でした。
-
-| 答えの在り処 | 素のテキスト抽出では | 対策 |
-| --- | --- | --- |
-| セルの塗り色・ハイライト・太字 | 消える | 書式を記法として本文へ焼き込み、色名でgrepできるようにした |
-| 図・グラフ・スキャンページ | 読めない | 前処理でOCRを焼き切り、本文へ統合した |
-| 画像として貼られた表（EMF） | セル値が存在しない | EMFレコードをバイナリから決定的に解析した |
-| docxの「何ページ目か」 | ページの概念がない | Word本体に組版させて改ページを確定させた |
-| パスワード保護された契約書 | 開けない | 社内規定の導出規則を読ませ、候補を組み立てさせた |
-
-加えて、**ドライブ全体のツリーをsystemプロンプトへ常駐させています。**
-その結果、100問のうちベクトル検索を呼んだのは1問だけで、残りは最初のツール呼び出しで
-ファイルを名指ししました。設計の詳細と、それが効いた設問は
-解説ページの[「情報源を見つける工夫」](https://karai-x.github.io/RAG_Competition/#tech)で読めます。
-
----
-
 ## リポジトリ構成
 
 ```
@@ -40,54 +21,20 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 ├── .github/workflows/pages.yml  portfolio/ を GitHub Pages へ公開
 ├── LICENSE                 MIT（コードのみ。末尾の「ライセンス」を参照）
 ├── rag_cli.py              CLI入口（preprocess / status / answer-csv）
-├── streamlit_app.py        Web UI入口（質問する / 回答経路 / 100問の記録 / 設定）
+├── streamlit_app.py        Web UI入口
 ├── start_app.bat           Web UIの起動（ダブルクリック可）
 ├── webui/                  Web UIの実装
-│   ├── core.py             前提チェック・1問のバックグラウンド実行・経路の読み出し
-│   ├── settings_store.py   設定画面の保存先（.env）
-│   ├── render.py           回答と経路の描画
-│   └── views/              ask.py / history.py / benchmark.py / settings.py
 ├── app/
 │   ├── config.py           全設定の単一入口（環境変数 > デフォルト）
-│   ├── corpus/             走査・台帳・増分判定
-│   │   ├── walk.py         全ファイルの列挙。NFC/NFD混在パスの二重保持
-│   │   ├── manifest.py     md5で新規/変更/削除を判定する
-│   │   └── mounts.py       データソース share/共有ドライブ の解決
-│   ├── extract/            文書 → 書式つきMarkdown
-│   │   ├── docx.py xlsx.py pptx.py pdf.py notebook.py plain.py
-│   │   ├── markup.py       書式アノテーションの単一定義
-│   │   ├── pagemap.py      docxのページ位置確定（Word → LibreOffice → 停止）
-│   │   ├── emf.py          EMF埋め込み表の決定的解析
-│   │   ├── ooxml_chart.py  グラフのキャッシュ値から表を復元
-│   │   ├── encrypted.py    暗号化Officeの検出と復号
-│   │   └── catalog.py      catalog.jsonl とツリーの生成
-│   ├── ocr/                画像・スキャンページのOCR（md5キャッシュ、冪等）
-│   │   ├── targets.py      OCR対象の列挙（直置き画像/埋め込み/スキャンPDF）
-│   │   ├── runner.py       並列バッチ実行と本文への統合
-│   │   └── ask.py          回答中に画像へ質問する経路（空間関係の検証つき）
-│   ├── index/              検索索引
-│   │   ├── tokenize_ja.py  SudachiPy mode C。識別子を壊さない
-│   │   ├── dense.py        ruri-v3-310m による密ベクトル
-│   │   ├── search.py       BM25 + 密ベクトル → RRF融合 → リランク
-│   │   └── build.py        チャンク化と索引構築
-│   ├── agent/              探索ループ
-│   │   ├── prompts.py      systemプロンプト（方針 + ツリー + 横断参照文書）
-│   │   ├── tools.py        9ツールの定義と実装
-│   │   ├── graph.py        LangGraph の agent ↔ tools ループ
-│   │   ├── sandbox.py      run_python の読み取り専用サンドボックス
-│   │   └── backend.py      LLMバックエンド抽象
-│   ├── answer/             正規化・裁定・最終整形（LLMを使わない決定的処理）
+│   ├── corpus/             走査・md5台帳・増分判定
+│   ├── extract/            文書 → 書式つきMarkdown（EMF・グラフ・docxのページ・暗号化を含む）
+│   ├── ocr/                画像・スキャンページのOCR
+│   ├── index/              検索索引（BM25 + 密ベクトル + リランク）
+│   ├── agent/              探索ループ（systemプロンプト・9ツール・サンドボックス）
+│   ├── answer/             回答の最終整形（LLMを使わない決定的処理）
 │   ├── run/                バッチ実行と経路記録
-│   │   ├── runner.py       質問CSV → 各問実行 → predictions.csv
-│   │   └── chain.py        切り詰めない完全経路のJSONL記録
 │   └── submit/             回答CSVの形式検証とzip化
-├── portfolio/              解説ページ（GitHub Pages で公開。100問の記録を同梱）
-│   ├── index.html app.css app.js  ページ本体（外部ライブラリなし）
-│   ├── data/ materials/    100問の経路・カタログ・解説と、解説に載せる資料の画像
-│   ├── explain/            設問ごとの解説の原稿（q0.json〜q99.json）
-│   ├── build_data.py       実行ログ（logs/）とカタログから data/questions.js・corpus.js を作る
-│   ├── build_explain.py    explain/ から data/explain.js と materials/ を作る
-│   └── serve.py            手元で確認するためのサーバ（キャッシュさせない）
+├── portfolio/              解説ページ（GitHub Pages で公開）
 ├── share/共有ドライブ/       データソース。ここだけを読む（同梱）
 ├── artifacts/              抽出・OCR・索引の成果物（前処理済みのものを同梱）
 ├── logs/                   回答と経路（.gitignore 対象）
@@ -98,6 +45,7 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 クローンして「セットアップ」を済ませれば、前処理をせずに Web UI から質問できます。
 同梱しないのは `.env`（APIキー）、`logs/`、`jobs/`、`artifacts/embed_cache/`（前処理をやり直すときだけ使う埋め込みのキャッシュ）です。
 資料を含むため、リポジトリは約310MBあります。
+`share/` と `artifacts/` は `.gitattributes` で改行コードの変換を止めています（変換されると md5 が変わり、前処理の台帳と食い違うため）。
 
 ---
 
@@ -198,6 +146,8 @@ Codex CLIとClaude CLIをサブスクリプションで使う場合、キーは�
 - `share/共有ドライブ/プロジェクト/` — 案件フォルダ
 - `share/共有ドライブ/社内管理/` — 横断参照フォルダ
 
+フォルダ構成と案件×工程のファイル分布は、解説ページの[「探索先の構成」](https://karai-x.github.io/RAG_Competition/#corpus)で見られます。
+
 ### 2. 前処理
 
 同梱の `artifacts/` は前処理済みなので、そのまま質問できます。
@@ -262,65 +212,6 @@ uv run streamlit run streamlit_app.py    # → http://127.0.0.1:8501/
 
 ---
 
-## 配布
-
-リポジトリそのものが、前処理を済ませた配布物です。受け取った側では前処理は不要です。
-
-| リポジトリに入っている | 入っていない |
-| --- | --- |
-| コード一式、`share/共有ドライブ/`（資料）、`artifacts/`（抽出・OCR・索引） | `.env`（APIキー）、`.venv/`、`logs/`、`jobs/`、`artifacts/embed_cache/` |
-
-受け取った側は「セットアップ」の1〜3を済ませてから Web UI を起動し、設定画面で APIキーを入力します。
-初回の質問では、カタログと検索索引の読み込みと、密ベクトル・リランカのモデルのダウンロードに時間がかかります。
-
-- `share/` と `artifacts/` は `.gitattributes` で改行コードの変換を止めています。
-  変換されるとファイルの md5 が変わり、前処理の台帳と食い違うためです。
-- 暗号化ファイル2つの抽出結果は、前処理直後の状態（本文を読めず、decrypt で開くよう案内する状態）で入っています。
-- `logs/` は入れていません。100問の記録の画面は、同梱の要約版（`portfolio/data/questions.js`）を表示します。
-  `logs/csv-20260830-072745/` を置くと、切り詰めない完全な経路を読めます。
-
----
-
-## 探索対象のフォルダ構成
-
-`share/共有ドライブ/` は2つに分かれ、この分け方がそのまま検索フィルタと
-プロンプト構成に対応します。
-
-```
-share/共有ドライブ/
-├── プロジェクト/            案件フォルダ（10案件）
-│   └── <案件名>/
-│       ├── 00.提案/         提案書・調査資料
-│       ├── 01.契約/         契約書（暗号化されているものがある）
-│       ├── 02.計画/         スケジュール（ガント期間はセルの塗り色）
-│       ├── 03.データ/       学習データとカラム説明
-│       ├── 04.分析/         分析プロジェクト一式
-│       │   ├── analysis_outputs/    metrics.json / experiments/
-│       │   └── analysis_project/    src/ notebooks/ reports/figures/ configs/
-│       ├── 05.会議/         会議録/ と 報告資料/
-│       └── 06.報告書/       最終報告（old版と並ぶことがある）
-└── 社内管理/                横断参照フォルダ（案件に属さない）
-    ├── 社内用語集.docx
-    ├── データアステル社内規定_パスワード導出規則.docx
-    ├── データアステル社内管理_決裁基準.md
-    └── 座席表.pptx
-```
-
-**番号は工程の順序です。** 「提案時の見込みと最終請求の差額は」のような問いは、
-この番号の両端を突き合わせることになります。
-マウント相対パスの位置から `project` / `category` を導出しているため、
-検索の絞り込みにも、サンドボックスの `files(project=, category=)` にもそのまま使えます。
-
-`社内管理/` の4文書はどの質問からも参照されうるので、検索させずに
-**systemプロンプトへ全文で常駐させています**。略語の展開やパスワードの導出規則は
-「検索して見つける」ものではなく、調査を始める前から手元にあるべき前提だからです。
-
-同梱の記録では403ファイル（`py` 100 / `png` 54 / `docx` 46 / `md` 31 / `csv` 29 /
-`json` 28 / `pdf` 28 / `pptx` 25 / `xlsx` 20 / `ipynb` 11 ほか）を対象にしています。
-案件×工程の分布とファイル単位の一覧は、経路ビューアの「探索先の構成」で見られます。
-
----
-
 ## 保存先
 
 以下はすべて `rag_cli.py` と同じディレクトリを基準にした相対パスです。
@@ -356,11 +247,8 @@ uv run python -m app.run.chain --run-id <id> --summary     # 全問を1行ずつ
 | Codex CLI | 前処理時の画像OCR |
 | Claude CLI | 回答中の画像に対する追加検証 |
 
-docxのページ位置は、使用するフォント・用紙サイズ・余白・組版エンジンによって変わります。
-文書内にWordが保存した改ページ情報があればそれを使い、無ければWordで再組版します。
-Wordを使えない場合はLibreOfficeで試みますが、組版結果がWordと一致するとは限らないため、
-既存のページ情報を持つ文書との照合が設定した一致率を満たす場合だけ採用します。
-どちらも使えない、または組版に失敗した場合は、対象を含むエラーを表示して前処理を停止します。
+docxのページ位置は、Wordが保存した改ページ情報があればそれを使い、無ければWord（使えなければLibreOffice）で組版して決めます。
+どちらでも決められなければ、前処理を停止します。
 
 ### CLIのモデル・effort
 
