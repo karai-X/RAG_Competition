@@ -37,7 +37,7 @@
   <h1 class="page-title">煩雑な社内ドライブを、Agentic RAGで調べ切る</h1>
   <p class="lede">
     SIGNATE で開催された <a href="https://user.competition.signate.jp/ja/competition/detail/?competition=098a4365f4514c2fa197d4e16548b3bb" target="_blank" rel="noopener">AI Engineering Challenge ～煩雑な社内ドライブをハックせよ～</a>
-    への参加作品。架空のデータ分析コンサルティング会社「データアステル社」の社内AI担当として、共有ドライブに溜まった案件資料から、社内の質問に根拠つきで答えるRAGシステムを作ることが課題だった。渡された質問100問に回答し、どれだけ正しく答えられたかをスコアで競った。このサイトは、作ったエージェントで100問を解いたときの実行ログから作った。どのファイルに当たりを付け、どのツールで中身を開き、何を見て答えを確定させたかが、100問ぶんそのまま入っている。
+    への参加作品。架空のデータ分析コンサルティング会社「データアステル社」の社内AI担当として、共有ドライブに溜まった案件資料から、社内の質問に根拠つきで答えるRAGシステムを作ることが課題だった。渡された質問100問に回答し、どれだけ正しく答えられたかをスコアで競った。
   </p>
 
   <h2 class="head">何が難しいのか</h2>
@@ -67,7 +67,7 @@
   </p>
 
   <h2 class="head">システム構成</h2>
-  <p class="head-note">質問が来る前に一度だけ行う前処理と、質問ごとに回るエージェントの2つに分かれる。LangChain 系のライブラリで使っているのは LangGraph だけで、役割はエージェントのループの枠組みに限られる。Gemini API は Google の公式SDK（google-genai）で直接呼び、ツールの定義と実行は自前のコード（ToolBox）で行う。</p>
+  <p class="head-note">質問が来る前に一度だけ行う前処理と、質問ごとに回るエージェントの2つに分かれる。エージェントのループの枠組みには LangGraph を使う。Gemini API は Google の公式SDK（google-genai）で直接呼び、ツールの定義と実行は自前のコード（ToolBox）で行う。</p>
   <div class="scroll-x">
   <svg class="arch" viewBox="0 0 1100 730" role="img" aria-label="システム構成図。前処理で共有ドライブを走査・抽出・OCR・索引化して artifacts に保存し、回答時は LangGraph のループで Gemini と ToolBox を往復し、記録を Web UI と解説ページが読む">
     <defs>
@@ -166,10 +166,11 @@
 
     <!-- LLM -->
     <rect class="arch-box arch-ext" x="604" y="254" width="220" height="104" rx="6"/>
-    <text class="arch-t" x="714" y="278">Gemini API</text>
-    <text class="arch-s" x="714" y="298">gemini-3.7-flash（温度0・シード固定）</text>
-    <text class="arch-s" x="714" y="316">function calling で9ツールを渡す</text>
-    <text class="arch-m" x="714" y="338">LLMBackend → google-genai</text>
+    <text class="arch-t" x="714" y="276">Gemini API</text>
+    <text class="arch-s" x="714" y="294">gemini-3.7-flash</text>
+    <text class="arch-s" x="714" y="309">temperature 0・シード固定</text>
+    <text class="arch-s" x="714" y="324">function calling で9ツールを渡す</text>
+    <text class="arch-m" x="714" y="343">LLMBackend → google-genai</text>
     <polyline class="arch-ln" points="276,310 276,244 714,244 714,252" marker-start="url(#arch-ah)" marker-end="url(#arch-ah)"/>
 
     <!-- ToolBox -->
@@ -269,7 +270,6 @@
       </tbody>
     </table>
   </div>
-  <p class="caption">所要時間は、403ファイルすべてを初めて処理したときのもの（2026年8月29日 21:48〜8月30日 0:29）。</p>
 
   <h2 class="head">形式ごとに取り出しているもの</h2>
   <p class="head-note">書式は <code>**太字**</code>・<code>==ハイライト=={色名}</code>・<code>[c:RRGGBB]文字色[/c]</code>・<code>値 {fill:#RRGGBB 色名}</code>（セルの塗り）・<code>{fml:=式}</code>（数式）のような記法で本文に埋める。記法は <code>app/extract/markup.py</code> の1か所で定義し、どの形式でも同じものを使う。</p>
@@ -289,124 +289,6 @@
       </tbody>
     </table>
   </div>
-
-  <h2 class="head">前処理で工夫したこと</h2>
-  <p class="head-note">書式の焼き込み、PDFの書式の取り出し、セルの値に出てこない情報の書き出し、EMFの表の解析、docxのページ位置、OCRの先行実行は、どんな設問に効いたかと合わせて「情報源を見つける工夫」の章にも書いた。ここでは前処理の実装の側から、工夫をまとめる。</p>
-
-    <div class="tech">
-      <h3 class="tech__t">失敗を黙って通さない</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>抽出の失敗は、例外で止まるとは限らない。本文が空になる、画像の一部が切り出されない、という形で静かに起きることがある。開発中にも、埋め込み画像の処理で起きた例外のせいで、画像を含むxlsxの本文が丸ごと空になっていたことがあった。エージェントからは「資料に書かれていない」ように見えるので、誤答の原因として気づきにくい。</dd>
-        <dt>やったこと</dt>
-        <dd>抽出器が例外を投げても文書は捨てず、「[抽出失敗: パス]」と書いたページを必ず1枚残す。抽出のあとで健全性の確認を行い、抽出エラー・本文が空の文書・抽出されていないファイル・画像の数の食い違いを全件洗い出す。OCRのあとにもう一度確認し、読み取ったのに本文へ書き足されていない画像がないかも調べる。<strong>1件でもあれば前処理を止め、対象のファイル名を示す。</strong>除外したファイル（Officeのロックファイルなど）も、理由つきで一覧できるようにした。</dd>
-        <dt>結果</dt>
-        <dd>最終的な前処理では、どの項目も0件だった。</dd>
-      </dl>
-      <p class="tech__src">app/extract/health.py · app/extract/pipeline.py <code>extract_one()</code> · submission/pipeline.py</p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">色は、人が呼ぶ名前で書く</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>質問は「オレンジにハイライトされている行」のように色名で聞かれる。RGB値のままでは色名で探せないし、同じ「薄いオレンジ」でも資料ごとにRGB値が違う。</dd>
-        <dt>やったこと</dt>
-        <dd>RGB値を色相・彩度・明度に変換し、色相の範囲で赤・オレンジ・黄・緑・水色・青・紫・ピンクなどに分ける。淡い色には「薄」、暗い色には「濃」を付け、白は注記しない。セルの塗り・図形の塗り・PDFのハイライト・EMFの塗りは、すべてこの関数で色名にする。xlsxのテーマ色は、テーマの配色と明るさの補正（tint）を解決してからRGBにする。Wordのハイライトは、定義済みの16色をそれぞれの名前に対応づける。</dd>
-        <dt>結果</dt>
-        <dd>「薄オレンジ」も「オレンジ」を含むので、<code>grep</code> で「オレンジ」を探せば、形式をまたいで濃淡の違う塗りまで拾える。</dd>
-      </dl>
-      <p class="tech__src">app/extract/markup.py <code>color_name()</code> · app/extract/xlsx.py</p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">PDFの書式も、1文字ずつ取り出す</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>PDFから普通にテキストを取り出すと、マーカーや太字は消える。この資料群のPDFでは、ハイライトは文字の背後に描かれた色付きの矩形で、下線も細い矩形だった。「ここはハイライト」という情報そのものは、ファイルに入っていない。</dd>
-        <dt>やったこと</dt>
-        <dd>pypdfium2 で1文字ずつ、文字色・フォントの太さと名前・位置を取り出す。ハイライトは、文字の中心が入る塗り矩形の色で判定する。下線は、文字の下にあり、厚みが文字サイズの1/5未満の矩形とみなす。斜体の書体を持たないフォントでは、文字を傾けて斜体を表すことがある。これはフォント名に表れないので、文字の変換行列の傾きから判定する。同じ書式が続く範囲をまとめて、Office文書と同じ記法で埋める。</dd>
-      </dl>
-      <p class="tech__src">app/extract/pdf.py <code>_styled_text()</code> · <code>_underlined_chars()</code> · <code>_char_skew()</code></p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">セルの値に出てこない情報を、本文に書く</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>openpyxl や pandas はセルの値しか見ない。条件付き書式による塗り、非表示のシート、グラフだけが貼られたシート、画像として貼られた表は、値を読むだけでは存在ごと消える。グラフだけのシートは「空シート」に見えてしまう。</dd>
-        <dt>やったこと</dt>
-        <dd>条件付き書式は、規則ごとに範囲・条件・塗り色を主語つきで書く（例: <code>範囲 L2:L31: セルの値 に 完了 を含む → 塗り {fill:#C6EFCE 薄緑}</code>）。範囲がシートの端から始まる場合は、先頭行・先頭列の見出しも添える。大きなシートで表が切り詰められても残るよう、規則は表より前に置く。非表示のシートは見出しに「（hidden）」と付け、画像だけが貼られたシートには枚数と読み取り結果の場所を書く。ピボットテーブルは、行・列・フィルタ・値のフィールドと集計方法を書く。グラフは、ファイル内に保存されている系列の値から表を復元し、軸のタイトルも添える。EMF形式で貼られた表は、描画命令（文字列の位置と塗り矩形）を解析して表に組み直す。</dd>
-        <dt>結果</dt>
-        <dd>条件付き書式17シート、ピボットテーブル10個、グラフ11個、EMFの表3個を本文に書き出した。</dd>
-      </dl>
-      <p class="tech__src">app/extract/xlsx.py · app/extract/ooxml_chart.py · app/extract/emf.py</p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">docxのページは、Wordに組版させて決める</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>docxはページを持たない形式で、何ページ目かは組版してはじめて決まる。見出しの順番や文字数から推測すると外れる。</dd>
-        <dt>やったこと</dt>
-        <dd>Wordが保存時に書き込んだ改ページの記録があればそれを使い、なければ一時コピーをWord本体に組版させて、記録を読み戻す（元のファイルには書き込まない）。Wordの起動は、並列の抽出に入る前に1回だけ行い、結果はdocxのmd5ごとに保存する。Wordがない環境ではLibreOfficeで代用するが、照合で一致率が8割に届かなければ採用せず、前処理を止める。確定したページ情報は、本文の先頭に「[ページ情報] 全○ページ」と、各ページにある見出しとして入る。</dd>
-        <dt>結果</dt>
-        <dd>パスワード付きの1ファイルを除く45ファイルのうち、10ファイルはWordの記録から、35ファイルはWordで組版して確定した。Wordの記録を持つ10ファイルを組版し直して照合すると、総ページ数は10件中9件、見出しの位置は98件中95件、改ページの位置は65件中52件が一致した。</dd>
-      </dl>
-      <p class="tech__src">app/extract/pagemap.py · app/extract/word_paginate.ps1</p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">OCRは推測させず、読み切るまで止めない</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>画像の読み取りでは、潰れた数字や描かれていない値を、もっともらしく埋めてしまうことがある。前処理のOCR結果は本文に統合されるので、あとから普通のテキストと区別しにくい。</dd>
-        <dt>やったこと</dt>
-        <dd>プロンプトで「読み取れないもの・書かれていないものは推測で補わず、空のままにする」と指示し、表はMarkdown、書式は抽出と同じ記法で書かせる。出力はJSONスキーマで、画像の種別・書き起こし・図の説明（種類・軸・凡例・読み取れる数値）・確信の有無に固定する。確信がないと答えた画像には「読み取りに不確かな箇所あり」と注記する。本文には「[画像読み取り] 画像名」という見出しを付けて書き足すので、回答時にもOCR由来の部分を見分けられる（差し戻しゲートはこれを目印にしている）。見出しに画像名が入るので、同じページに画像が複数あっても、二重に書き足したり2枚目を落としたりしない。Codex CLI がタイムアウトしたら待ち時間を倍にして、読み切るまでやり直す。それ以外の理由で読めない画像が1枚でも残れば、前処理を止める。</dd>
-        <dt>結果</dt>
-        <dd>253枚をすべて読み切り、84文書に書き足した。</dd>
-      </dl>
-      <p class="tech__src">app/ocr/prompt.py · app/ocr/engines.py · app/ocr/runner.py · app/ocr/cache.py</p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">変わっていない部分は、計算し直さない</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>全件の前処理には約2時間40分かかる。資料が1つ増えただけで全部やり直すのは無駄が大きい。</dd>
-        <dt>やったこと</dt>
-        <dd>時間のかかる段の結果を、入力の中身から作ったキーで保存しておく。組版はdocxのmd5と仮定した用紙の組ごと、OCRは画像の画素から作ったmd5・エンジン・プロンプトの版の組ごと、密ベクトルはチャンク本文のsha1ごとに保存し、新しいものだけを計算する。OCRのキーをファイルのバイト列でなく画素から作るのは、PNGの圧縮のされ方が違っても、同じ画像を同じものとみなすため。<code>--skip-processed</code> を付けると、抽出もmd5の台帳と比べて新規・変更されたファイルだけをやり直し、削除されたファイルの結果は消す。全件をやり直す既定の実行でも、組版・OCR・密ベクトルのキャッシュは効く。</dd>
-      </dl>
-      <p class="tech__src">app/corpus/manifest.py · app/ocr/cache.py · app/ocr/targets.py <code>image_key()</code> · app/index/dense.py · submission/storage.py</p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">表を割らずにチャンクにする</h3>
-      <dl>
-        <dt>課題</dt>
-        <dd>表を行の途中で割ると、値と列名が別のチャンクに分かれ、検索で当たっても何の値か分からなくなる。</dd>
-        <dt>やったこと</dt>
-        <dd>チャンクはページ・シート・スライド・セルを単位にし、約600トークンを大きく超えるものだけを段落の境目で分ける。表のように長い段落は行の境目でしか切らず、前のチャンクの最後の2行を次のチャンクの頭に重ねる。各チャンクの先頭には「[パス / シート名 p3]」のような見出しを付け、検索で当たった場所がどのファイルのどこかを分かるようにする。BM25の分かち書きでは、SudachiPyで切った語に加えて、英数字の識別子（<code>T04</code>・<code>AG_ratio</code>・<code>max_depth</code> など）を元の形のまま足す。</dd>
-      </dl>
-      <p class="tech__src">app/index/chunk.py · app/index/tokenize_ja.py · app/index/build.py</p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">読み違えやすい入力をそろえる</h3>
-      <dl>
-        <dt>ファイル名</dt>
-        <dd>共有ドライブには、NFC（濁点が一体の形）とNFD（濁点が分かれた形）のファイル名が混在している。表示・ID・検索にはNFCに正規化したパスを使い、ファイルを開くときは元のパスを使う。</dd>
-        <dt>文字コード</dt>
-        <dd>テキストは UTF-8（BOMつきを含む）→ cp932 → EUC-JP → Latin-1 の順に試して読む。</dd>
-        <dt>画像</dt>
-        <dd>透過PNGは白い背景に合成する。暗い背景で表示すると、黒い文字が見えなくなるため。長辺は1,568pxに縮める。</dd>
-        <dt>notebook</dt>
-        <dd>Markdownセルにbase64で直接埋め込まれた画像は、そのままだと巨大な文字列として本文や索引に流れ込み、OCRの対象にもならない。画像ファイルに切り出し、本文には参照だけを残す。</dd>
-        <dt>除外</dt>
-        <dd>Officeのロックファイル（<code>~$*</code>）や <code>.pyc</code> などの機械生成物だけを除き、<code>uv.lock</code> のように中身のあるファイルは残す。</dd>
-      </dl>
-      <p class="tech__src">app/corpus/walk.py · app/extract/plain.py · app/ocr/image_util.py · app/extract/notebook.py</p>
-    </div>
 
   <h2 class="head">エージェントのループ</h2>
   <p class="head-note">
@@ -444,8 +326,6 @@
       <tbody>
         <tr><td>差し戻し</td><td>前処理OCRの結果を根拠に使ったまま、元画像を確認せずに <code>submit_answer</code> を呼ぶと、確定させずに「元画像を read_image / ask_image で確認してから、やり直す」よう返す</td></tr>
         <tr><td>文章だけの返事</td><td>ツールを呼ばずに文章だけを返したら、<code>submit_answer</code> で答えるよう1回だけ促す。それでも文章なら、短い回答らしい場合に限って回答として拾う</td></tr>
-        <tr><td>履歴の圧縮</td><td>会話が約25万トークン（アプリ側で文字数から見積もった値。モデルの上限ではない）を超えたら、古いツール結果を600字に切り詰め、古い画像を省く。最初の質問と直近8件はそのまま残す</td></tr>
-        <tr><td>打ち切り</td><td>1問あたり最大40ターン、または3,600秒</td></tr>
         <tr><td>記録</td><td>LLMへの送信内容、応答、ツールの引数と戻り値を、切り詰めずに1問1ファイルのJSONLへ書く</td></tr>
       </tbody>
     </table>
@@ -454,7 +334,7 @@
 
   <h2 class="head">systemプロンプトの中身</h2>
   <p class="head-note">
-    最初の呼び出しで渡すsystemプロンプトは約4万字で、全問で共通。内容を固定しているので、KVキャッシュ（同じ先頭部分を持つリクエストで自動的に効くキャッシュ）が効く。コードでキャッシュを明示的に作ってはいない。10問（LLM呼び出し116回）で測ると、入力約494万トークンのうち84%がキャッシュから読まれた。各問の最初の呼び出しでも63%、2回目以降は85%で、共通のsystemプロンプトが問をまたいで再利用されている。
+    最初の呼び出しで渡すsystemプロンプトは約4万字で、全問で共通。内容を固定しているので、KVキャッシュが効く。入力約494万トークンのうち84%がキャッシュから読まれた。各問の最初の呼び出しでも63%、2回目以降は85%で、共通のsystemプロンプトが問をまたいで再利用されている。
   </p>
   <div class="scroll-x">
     <table class="matrix matrix--text">
@@ -587,7 +467,7 @@
     <table class="matrix matrix--text">
       <thead><tr><th>役割</th><th>使ったもの</th></tr></thead>
       <tbody>
-        <tr><td>回答（エージェント）</td><td>Gemini <code>gemini-3.7-flash</code>（温度0・シード固定）。100問の実行ログに応答元として記録されていたモデル名は <code>gemini-3.7-flash</code> と <code>gemini-3.6-flash</code> の2つで、指定したのは前者だけ</td></tr>
+        <tr><td>回答（エージェント）</td><td>Gemini <code>gemini-3.7-flash</code>（temperature 0・シード固定）。100問の実行ログに応答元として記録されていたモデル名は <code>gemini-3.7-flash</code> と <code>gemini-3.6-flash</code> の2つで、指定したのは前者だけ</td></tr>
         <tr><td>回答中の画像の読み取り</td><td>Claude Code CLI（<code>fable</code>、effort high）。Web UI から Codex や Gemini にも切り替えられる</td></tr>
         <tr><td>前処理のOCR</td><td>Codex CLI（<code>gpt-5.6-sol</code>、reasoning effort xhigh）</td></tr>
         <tr><td>検索</td><td><code>cl-nagoya/ruri-v3-310m</code>（密ベクトル）、<code>hotchpotch/japanese-reranker-cross-encoder-small-v1</code>（リランク）、SudachiPy・rank-bm25</td></tr>
@@ -715,7 +595,7 @@
   <p class="eyebrow">Techniques</p>
   <h1 class="page-title">答えの出どころへ、どうやって行き着かせたか</h1>
   <p class="lede">
-    このコーパスで難しいのは、文章として書かれていない情報が答えになることだった。セルの塗り色、図の中の位置関係、docxの何ページ目か、パスワードのかかった契約書。以下は、それぞれをエージェントが手を伸ばせる形に変えるためにやったこと。設問番号のボタンを押すと、その工夫が実際に効いた経路へ飛ぶ。
+    難しいのは、文章として書かれていない情報が答えになることだった。セルの塗り色、図の中の位置関係、docxの何ページ目か、パスワードのかかった契約書など。以下は、エージェントが答えを見つけるためにやったこと。設問番号のボタンを押すと、その工夫が実際に効いた経路へ飛ぶ。
   </p>
 
   <!-- ---- group 1 ---- -->
@@ -991,85 +871,6 @@
   <div class="tech-group">
     <p class="tech-group__n">GROUP 3 — 検証</p>
     <h2 class="tech-group__t">出どころが確かめられるまで、提出させない</h2>
-    <p class="tech-group__d">
-      見つけたつもりで間違えるのが一番厄介だ。数え落とし、手写しの転記ミス、
-      OCRの読み違い。どれも本人には正しく見えるので、仕組みの側で止めるようにした。
-    </p>
-
-    <div class="tech">
-      <h3 class="tech__t">OCR由来の値のままでは提出を通さないゲート</h3>
-      <dl>
-        <dt>問題</dt>
-        <dd>前処理OCRの読み取りは本文に統合されているので、エージェントからは普通のテキストに見える。グラフの軸目盛りのような細かい数字をOCRのまま信じて提出してしまう。</dd>
-        <dt>対策</dt>
-        <dd>調査でOCR由来のテキストに触れたかを追跡し、その状態で <code>submit_answer</code> が呼ばれたら<strong>提出を差し戻す</strong>。差し戻しメッセージには、確認すべき資料と「読めなければ <code>region</code> で拡大せよ」という具体的な次の手を入れる。チェックポイントから再開しても状態を失わないよう、グラフの状態にも複製する。</dd>
-        <dt>結果</dt>
-        <dd>100問中<strong>26問</strong>で発火し、いずれも元画像を見直してから再提出している。</dd>
-      </dl>
-    <figure class="tech-ex">
-      <div class="tech-ex__view">
-        <p class="tech-ex__k">資料の見た目</p>
-        <a href="materials/tech/gate.webp" target="_blank" rel="noopener"><img src="materials/tech/gate.webp" alt="TP のヒストグラム。ビンのラベルは途中で切れている" width="753" height="450" loading="lazy"></a>
-      </div>
-      <div class="tech-ex__text">
-        <p class="tech-ex__k">実行ログ（抜粋）</p>
-        <pre>① run_python で read_text(&quot;…/train.xlsx&quot;) を表示
-   → [画像読み取り] image8.png
-     ## [c:濃い灰色]**TP**[/c]
-     …
-     | (6.088138493,... | [c:白]494[/c] | 濃い青緑色 |   ← 前処理OCRの結果
-
-② submit_answer(&quot;(6.088138, 6.288138]&quot;)
-   → [提出保留] 回答候補の調査でOCR画像の読み取り結果を使用しています（…）。
-     OCRテキストだけでは提出できません。…根拠に使う同じ資料の元画像を
-     read_image または ask_image で確認してから、submit_answer をやり直してください。
-     細部が読めない場合は region で拡大してください。
-
-③ read_image(&quot;4dee02739805/image8.png&quot;)
-   → ヒストグラムのカウントは高い順に618、521、494で、3番目に多いのは494のビン。
-     …この区間は(6.088138493, 6.288138493]であり、小数第6位までで(6.088138, 6.288138]となる。
-
-④ submit_answer(&quot;(6.088138, 6.288138]&quot;)   → 確定</pre>
-      </div>
-      <figcaption><span class="tech-ex__file">train.xlsx のシート「グラフ」（Q29）</span>OCRの読み取り結果を見たまま提出しようとしたので、ゲートが差し戻した。元画像を自分で確認してから、同じ答えで提出し直している。</figcaption>
-    </figure>
-      <p class="tech__src">app/agent/graph.py · app/agent/tools.py <code>_track_ocr_output()</code></p>
-      <p data-qrefs="4,5,29,54,66,91"></p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">図の空間関係は、候補を全列挙してから分類する</h3>
-      <dl>
-        <dt>問題</dt>
-        <dd>「この矢印が指している先は」「この枠の中に入っているのはどれか」は、画像を眺めて答えると、該当しそうなものだけを見て答えてしまう。非該当の候補を数え上げないと、他にもあるかどうかが分からない。</dd>
-        <dt>対策</dt>
-        <dd><code>ask_image</code> は画像専用モデルへ質問を投げるツールだが、位置・方向・包含・隣接・接続を問う場合は、<strong>指定範囲の候補を該当・非該当にかかわらず全件列挙して、候補ごとに関係を分類して返す</strong>専用スキーマを使う。回答には確信度が付き、低ければ断定しない規約。</dd>
-        <dt>結果</dt>
-        <dd>15問がこの経路を通っている。<code>read_image</code> で自分で見た結果をそのまま提出せず、関係だけを別途検証する形になる。</dd>
-      </dl>
-    <figure class="tech-ex">
-      <div class="tech-ex__view">
-        <p class="tech-ex__k">資料の見た目</p>
-        <a href="materials/tech/spatial.webp" target="_blank" rel="noopener"><img src="materials/tech/spatial.webp" alt="座席表の POD 2。4つの机と役員席に内線番号のラベルが付いている" width="509" height="576" loading="lazy"></a>
-      </div>
-      <div class="tech-ex__text">
-        <p class="tech-ex__k">ask_image の返答（抜粋）</p>
-        <pre>[画像への空間関係質問] …井上さんの向かいに座っている方のEXTを教えてください。
-  検証済み選択集合（候補ごとの関係判定から選択）: ☎7103 渡辺(DS)
-  確認範囲: POD 2 Island（…POD 1/POD 3は範囲外）
-  基準対象: 井上さん（EXT 7105, BA）— POD 2の島の東側（画面右側）の机
-  基準の向き: 西（島の中心方向）。…
-  候補全件:
-    - ☎7103 渡辺(DS): sector=front; 該当; …井上さんの机と島中心を挟んで正反対（東⇔西）, 互いに島中心を向いて対面
-    - ☎7102 伊藤(PM): sector=front_right; 非該当; …向かい（正面対向）ではなく斜め前右の隣席
-    - ☎7104 斎藤(DE): sector=front_left; 非該当; …向かいではなく斜め前左の隣席
-    - ☎7101 山田(Exec): sector=back_right; 非該当; …島の対面関係に参加していない</pre>
-      </div>
-      <figcaption><span class="tech-ex__file">社内管理/座席表.pptx（Q58）</span>「向かい」を答えるために、同じ島の4人全員を該当・非該当に分け、それぞれの位置関係を書かせている。該当しそうな1人だけを見て答えることがない。</figcaption>
-    </figure>
-      <p class="tech__src">app/ocr/ask.py · app/agent/tools.py</p>
-      <p data-qrefs="0,10,11,20,22,29,34,44,55,56,58,64,68,86,99"></p>
-    </div>
 
     <div class="tech">
       <h3 class="tech__t">数えるのも計算するのも、会話ではなくコードにやらせる</h3>
@@ -1077,7 +878,7 @@
         <dt>問題</dt>
         <dd>全案件横断の質問を案件ごとに読んでいくとターンが尽きる。さらに、会話に流れてきた表をコードへ手写しすると、拾い漏れても誰も気づかない。</dd>
         <dt>対策</dt>
-        <dd>読み取り専用のサンドボックスに、コーパス前提のヘルパを注入する。<code>projects()</code> / <code>files(project=, category=, pattern=)</code> で対象を列挙し、<code>P()</code> で実パスへ解決、<code>read_text(rel)</code> で書式注記つきの抽出済みテキスト、<code>tables(rel)</code> で文書中の表を <code>{header, rows}</code> として受け取る。APIキーなどの環境変数は<strong>渡さない</strong>。規約側でも「会話で見た数値をコードに手写ししない」「集計後は件数と内訳をprintして確認する」「0件になったらまず自分のコードを疑う」を明文化している。</dd>
+        <dd>エージェントが書いた Python コードは、資料を読むことしかできない環境（サンドボックス）で動かす。この環境には、資料を扱う関数をあらかじめ用意しておく。<code>projects()</code> で案件の一覧、<code>files(project=, category=, pattern=)</code> で条件に合うファイルの一覧が取れ、<code>read_text(rel)</code> で前処理済みのテキスト（書式の注記つき）を、<code>tables(rel)</code> で文書中の表を見出しと行に分けて受け取れる。APIキーなどの環境変数は<strong>渡さない</strong>。あわせてプロンプトで、「会話で見た数値をコードに書き写さない」「集計したら件数と内訳を表示して確かめる」「結果が0件ならまず自分のコードを疑う」と指示している。</dd>
         <dt>結果</dt>
         <dd>96問が <code>run_python</code> を使い、79問はこれが最初の一手だった。10案件の横断集計が1回のコード実行で閉じる。</dd>
       </dl>
@@ -1184,31 +985,6 @@ diff(&quot;…/01_eda_old.ipynb&quot;, &quot;…/01_eda.ipynb&quot;)
     </figure>
       <p class="tech__src">app/extract/catalog.py · app/agent/tools.py</p>
       <p data-qrefs="0,1,9,14,22,74,95"></p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">経路を切り詰めずに残す</h3>
-      <dl>
-        <dt>問題</dt>
-        <dd>表示用のトレースは読める長さに切ってあるので、後から「なぜこの答えになったか」を検証するには足りない。</dd>
-        <dt>対策</dt>
-        <dd>1問1ファイルのJSONLへ、発生順に全部書く。systemプロンプトの全文とハッシュ、送信メッセージ、応答テキストとusageとレイテンシ、<strong>切り詰めないツール引数</strong>、ツールの戻り、最終回答と停止理由。<code>python -m app.run.chain --run-id &lt;id&gt; --index &lt;n&gt;</code> で経路を読み直せる。</dd>
-        <dt>結果</dt>
-        <dd>このページのデータそのもの。100問・2,293ステップぶんの経路が残っている。</dd>
-      </dl>
-    <figure class="tech-ex tech-ex--text">
-      <div class="tech-ex__text">
-        <p class="tech-ex__k">logs/&lt;run-id&gt;/chain/q58.jsonl（抜粋）</p>
-        <pre>{&quot;seq&quot;: 1, &quot;type&quot;: &quot;question&quot;, &quot;index&quot;: 58, &quot;question&quot;: &quot;社内管理フォルダにあるFMにおいて、井上さんの向かいに座っている方のEXTを教えてください。&quot;, &quot;model&quot;: &quot;gemini-3.7-flash&quot;, &quot;max_turns&quot;: 40, &quot;system_prompt_sha1&quot;: &quot;ee3ed1087c49&quot;, &quot;system_prompt_chars&quot;: 41317, …}
-{&quot;seq&quot;: 2, &quot;type&quot;: &quot;llm_request&quot;, &quot;turn&quot;: 1, &quot;n_messages&quot;: 2, …}
-…
-{&quot;seq&quot;: 8, &quot;type&quot;: &quot;tool_call&quot;, &quot;name&quot;: &quot;ask_image&quot;, &quot;args&quot;: {&quot;question&quot;: &quot;座席表画像において、井上（☎7105）の向かい（対面）に座っている人の名前と内線番号（☎数値）を教えてください。…&quot;, &quot;asset_id&quot;: &quot;27b0614e5d0d/image1.png&quot;}}
-{&quot;seq&quot;: 9, &quot;type&quot;: &quot;tool_result&quot;, &quot;name&quot;: &quot;ask_image&quot;, &quot;elapsed_sec&quot;: 744.45, &quot;result_kind&quot;: &quot;text&quot;, &quot;content&quot;: &quot;[画像への空間関係質問] …&quot;}
-…</pre>
-      </div>
-      <figcaption><span class="tech-ex__file">1問ぶんの実行記録</span>systemプロンプトのハッシュ、ツールの引数と戻り値、所要秒数まで、発生順に1行ずつ残る。上の「図の空間関係」の例は、この記録から抜き出したもの。</figcaption>
-    </figure>
-      <p class="tech__src">app/run/chain.py · app/run/runner.py</p>
     </div>
   </div>
 

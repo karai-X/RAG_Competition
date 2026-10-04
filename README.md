@@ -4,13 +4,13 @@
 提案書・契約書・スケジュール・分析ノートブック・会議録・最終報告といった実務の資料群を対象に、
 **どのファイルのどこを見て答えを出したか**を経路として残します。
 
-Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新しい質問を投げる、
+Streamlit の Web UI では、新しい質問を投げる、
 投げた質問と評価用100問の回答経路をツールの引数・戻り値つきで読む、APIキーと画像読み取りエンジンを設定する、
 ができます。
 
-**解説ページ: https://karai-x.github.io/RAG_Competition/**
+コンペの内容、システムの実装と前処理、100問それぞれの解き方、情報源を見つけるための工夫をまとめています。まずは以下をご覧ください。
 
-コンペの内容、システムの実装と前処理、100問それぞれの解き方、情報源を見つけるための工夫をまとめています。まずはこちらをご覧ください。
+**解説ページ: https://karai-x.github.io/RAG_Competition/**
 
 ---
 
@@ -19,7 +19,6 @@ Streamlit の Web UI（[`streamlit_app.py`](streamlit_app.py)）では、新し�
 ```
 .
 ├── .github/workflows/pages.yml  portfolio/ を GitHub Pages へ公開
-├── LICENSE                 MIT License
 ├── rag_cli.py              CLI入口（preprocess / status / answer-csv）
 ├── streamlit_app.py        Web UI入口
 ├── start_app.bat           Web UIの起動（ダブルクリック可）
@@ -209,15 +208,3 @@ docxのページ位置は、Wordが保存した改ページ情報があればそ
 | ---------- | -------------------- | --------------- | ---------- |
 | Codex CLI  | 前処理時の画像OCR    | `gpt-5.6-sol` | `xhigh`  |
 | Claude CLI | 回答時の画像追加検証 | `fable`       | `high`   |
-
-Codex CLIには `--ignore-user-config` を渡すため、利用者の設定ファイルにある
-別モデルやeffortには影響されません。既定値はリポジトリ内で固定しています。
-回答時の画像読み取りについては、Web UI の設定画面でエンジン・課金方法・effortを変えられます
-（`.env` の `RAG_MODEL_IMAGE` などに保存されます）。CLIのモデルは固定で、画面からも `.env` からも変えられません。
-前処理時のOCRの設定は変わりません。
-
----
-
-## 注意
-
-- 同梱のコーパスと質問は、**架空の企業・案件で構成された評価用データ**です。
