@@ -111,11 +111,6 @@
     return m;
   }
 
-  function sortedEntries(map) {
-    return Object.keys(map).map(function (k) { return [k, map[k]]; })
-      .sort(function (a, b) { return b[1] - a[1]; });
-  }
-
   // ---------- view switching ----------
 
   var views = {};
@@ -160,17 +155,11 @@
   // ================= 集計（複数のページで使う） =================
 
   var toolCalls = Object.create(null);
-  var stepTotal = 0;
   QS.forEach(function (q) {
     q.steps.forEach(function (s) {
-      stepTotal++;
       if (s.k === "tool") toolCalls[s.name] = (toolCalls[s.name] || 0) + 1;
     });
   });
-
-  var gateQs = QS.filter(function (q) { return q.blocked > 0; });
-  var doneQs = QS.filter(function (q) { return q.stop === "submitted"; });
-  var totalTok = QS.reduce(function (a, q) { return a + q.tok; }, 0);
 
   // ================= CORPUS =================
 
@@ -407,39 +396,10 @@
 
   // ================= ROUTES =================
 
-  var state = { text: "", route: "", project: "", gate: false, tool: "" };
+  var state = { text: "", route: "", project: "", tool: "" };
   var selected = 0;              // 右に表示している設問の番号
 
   (function routes() {
-    var host = document.getElementById("routes-stats");
-    var turns = QS.map(function (q) { return q.turns; }).sort(function (a, b) { return a - b; });
-    var secs = QS.map(function (q) { return q.sec; }).sort(function (a, b) { return a - b; });
-    [
-      statTile(n(QS.length), "問", "一括回答した設問"),
-      statTile(n(stepTotal), "ステップ", "記録された経路の長さ"),
-      statTile(fmtSec(RUN.run.elapsed_sec), "", "100問の実行時間（" + RUN.run.parallel + "並列）"),
-      statTile(n(Math.round(totalTok / 1000)) + "k", "tokens", "総トークン")
-    ].forEach(function (t) { document.getElementById("routes-stats-run").appendChild(t); });
-    [
-      statTile(String(turns[Math.floor(turns.length / 2)]), "ターン", "1問あたりの中央値"),
-      statTile(fmtSec(secs[Math.floor(secs.length / 2)]), "", "1問の所要時間の中央値"),
-      statTile(String(gateQs.length), "問", "提出が差し戻された"),
-      statTile(String(QS.filter(function (q) { return q.tools.indexOf("search") >= 0; }).length),
-               "問", "ベクトル検索を使った"),
-      statTile(String(QS.filter(function (q) {
-        return q.tools.indexOf("read_image") >= 0 || q.tools.indexOf("ask_image") >= 0;
-      }).length), "問", "画像を見に行った")
-    ].forEach(function (t) { host.appendChild(t); });
-
-    var rest = QS.length - doneQs.length;
-    document.getElementById("routes-caption").textContent =
-      "実行ID " + RUN.run.run_id + " ／ " + doneQs.length + "問で回答を確定" +
-      (rest ? "（残り" + rest + "問は途中で中断）" : "") + "。";
-
-    var entries = countBy(QS, function (q) { return q.entry; });
-    fillBars(document.getElementById("entry-bars"),
-      sortedEntries(entries), toolColor, " 問");
-
     var routeCounts = countBy(QS, function (q) { return q.route; });
     fillBars(document.getElementById("route-bars"),
       ROUTE_ORDER.filter(function (r) { return routeCounts[r]; })
@@ -502,19 +462,12 @@
     projSel.addEventListener("change", function (e) {
       state.project = e.target.value; renderList();
     });
-    var gateBtn = document.getElementById("q-gate");
-    gateBtn.addEventListener("click", function () {
-      state.gate = !state.gate;
-      gateBtn.setAttribute("aria-pressed", String(state.gate));
-      renderList();
-    });
 
     renderList();
   }());
 
   function matches(q) {
     if (state.route && q.route !== state.route) return false;
-    if (state.gate && !q.blocked) return false;
     if (state.tool && q.tools.indexOf(state.tool) < 0) return false;
     if (state.project) {
       var hit = q.ev.some(function (e) { return e.indexOf(state.project) >= 0; }) ||
@@ -559,12 +512,7 @@
     b.setAttribute("aria-current", String(q.i === selected));
     b.appendChild(el("span", "qnav__i", qid(q.i)));
     b.appendChild(el("span", "qnav__t", q.q));
-    var m = el("span", "qnav__m", q.route);
-    if (q.blocked) {
-      m.appendChild(document.createTextNode(" ・ "));
-      m.appendChild(el("span", "gate", "差し戻し"));
-    }
-    b.appendChild(m);
+    b.appendChild(el("span", "qnav__m", q.route));
     b.addEventListener("click", function () { select(q.i); });
     return b;
   }
@@ -613,11 +561,6 @@
     var routeChip = el("span", "chip", q.route);
     routeChip.style.color = q.stop === "submitted" ? "var(--ink)" : "var(--halt)";
     meta.appendChild(routeChip);
-    if (q.blocked) {
-      var g = el("span", "chip", "差し戻し ×" + q.blocked);
-      g.style.color = "var(--gate)";
-      meta.appendChild(g);
-    }
     var t = el("span", "chip", q.turns + "ターン / " + fmtSec(q.sec));
     t.style.color = "var(--faint)";
     meta.appendChild(t);
@@ -780,11 +723,10 @@
   });
 
   function openQuestion(i) {
-    state = { text: "", route: "", project: "", gate: false, tool: "" };
+    state = { text: "", route: "", project: "", tool: "" };
     document.getElementById("q-search").value = "";
     document.getElementById("q-route").value = "";
     document.getElementById("q-project").value = "";
-    document.getElementById("q-gate").setAttribute("aria-pressed", "false");
     document.querySelectorAll("#tool-legend-filter [data-tool]").forEach(function (c) {
       c.setAttribute("aria-pressed", "true");
     });

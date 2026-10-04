@@ -764,7 +764,6 @@ select {
   overflow: hidden;
 }
 .qnav__m { grid-column: 2; font-size: 11px; color: var(--faint); margin-top: 2px; }
-.qnav__m .gate { color: var(--gate); }
 
 .qdetail { min-width: 0; }
 .qd-nav {
@@ -1114,6 +1113,65 @@ select {
   padding-top: 11px;
   border-top: 1px solid var(--line-soft);
   overflow-wrap: anywhere;
+}
+
+/* 工夫カードの例: 資料の見た目と、前処理後のテキストを並べる */
+.tech-ex {
+  margin: 16px 0 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px 16px;
+  align-items: start;
+}
+.tech-ex--text,
+.tech-ex--wide { grid-template-columns: minmax(0, 1fr); }   /* 横長の資料は、画像の下にテキストを置く */
+.tech-ex__k {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  color: var(--faint);
+  margin: 0 0 6px;
+}
+.tech-ex img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 340px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+}
+.tech-ex--tall img { max-height: 420px; }
+.tech-ex pre {
+  margin: 0;
+  padding: 10px 12px;
+  max-height: 340px;
+  overflow: auto;
+  background: var(--sunk);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.tech-ex figcaption {
+  grid-column: 1 / -1;
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.tech-ex__file {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink);
+  margin-right: 8px;
+}
+@media (max-width: 760px) {
+  .tech-ex { grid-template-columns: minmax(0, 1fr); }
 }
 
 .qref {

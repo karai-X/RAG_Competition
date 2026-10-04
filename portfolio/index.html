@@ -291,7 +291,7 @@
   </div>
 
   <h2 class="head">前処理で工夫したこと</h2>
-  <p class="head-note">書式の焼き込み、EMFの表の解析、docxのページ位置、OCRの先行実行は、どんな設問に効いたかと合わせて「情報源を見つける工夫」の章にも書いた。ここでは前処理の実装の側から、工夫をまとめる。</p>
+  <p class="head-note">書式の焼き込み、PDFの書式の取り出し、セルの値に出てこない情報の書き出し、EMFの表の解析、docxのページ位置、OCRの先行実行は、どんな設問に効いたかと合わせて「情報源を見つける工夫」の章にも書いた。ここでは前処理の実装の側から、工夫をまとめる。</p>
 
     <div class="tech">
       <h3 class="tech__t">失敗を黙って通さない</h3>
@@ -454,7 +454,7 @@
 
   <h2 class="head">systemプロンプトの中身</h2>
   <p class="head-note">
-    最初の呼び出しで渡すsystemプロンプトは約4万字で、全問で共通。内容を固定しているので、Gemini の暗黙的キャッシュ（同じ先頭部分を持つリクエストで自動的に効くキャッシュ）が効く。コードでキャッシュを明示的に作ってはいない。10問（LLM呼び出し116回）で測ると、入力約494万トークンのうち84%がキャッシュから読まれた。各問の最初の呼び出しでも63%、2回目以降は85%で、共通のsystemプロンプトが問をまたいで再利用されている。
+    最初の呼び出しで渡すsystemプロンプトは約4万字で、全問で共通。内容を固定しているので、KVキャッシュ（同じ先頭部分を持つリクエストで自動的に効くキャッシュ）が効く。コードでキャッシュを明示的に作ってはいない。10問（LLM呼び出し116回）で測ると、入力約494万トークンのうち84%がキャッシュから読まれた。各問の最初の呼び出しでも63%、2回目以降は85%で、共通のsystemプロンプトが問をまたいで再利用されている。
   </p>
   <div class="scroll-x">
     <table class="matrix matrix--text">
@@ -690,16 +690,6 @@
     左の一覧から設問を選ぶと、その問いの探索経路が最初のツール呼び出しから回答の確定まで右に並ぶ。ツール名・引数・返ってきた内容の冒頭・所要秒数は、すべて実行ログそのまま。
   </p>
 
-  <div class="stats" id="routes-stats-run"></div>
-  <div class="stats" id="routes-stats"></div>
-  <p class="caption" id="routes-caption"></p>
-
-  <h2 class="head">最初に呼んだツール</h2>
-  <p class="head-note">
-    探索の入口。100問中99問が、検索を経ずに最初からファイルを名指ししている。ツリーと横断参照文書をプロンプトに常駐させた結果で、ベクトル検索は「当たりが付かないときの保険」の位置に下がった。
-  </p>
-  <div class="bars" id="entry-bars"></div>
-
   <h2 class="head">主経路の内訳</h2>
   <p class="head-note">
     使われたツールの組み合わせから、その設問を特徴づける経路を1つ割り当てている（強い手掛かりを持つものが優先 — 復号 &gt; 図版照会 &gt; 版比較 &gt; 画像読取 &gt; コード走査 &gt; 全文検索 &gt; 意味検索 &gt; 直読）。
@@ -711,7 +701,6 @@
     <input type="search" id="q-search" placeholder="設問・回答・根拠パスを検索" aria-label="設問・回答・根拠パスを検索">
     <select id="q-route" aria-label="主経路で絞り込み"></select>
     <select id="q-project" aria-label="案件で絞り込み"></select>
-    <button class="btn" type="button" id="q-gate" aria-pressed="false">提出が差し戻された設問</button>
   </div>
   <div class="legend" id="tool-legend-filter"></div>
   <p class="result-line" id="q-count"></p>
@@ -734,7 +723,7 @@
     <p class="tech-group__n">GROUP 1 — 入口</p>
     <h2 class="tech-group__t">「どこを見るか」を検索で当てさせない</h2>
     <p class="tech-group__d">
-      ベクトル検索は、質問と資料の言葉が違っていても届くのが利点だ。ただし今回のように資料の置き場所に規則があるなら、規則のほうを先に渡したほうが速くて確実だった。
+      ベクトル検索は、質問と資料の言葉が違っていても届くのが利点だが、今回のように資料の置き場所に規則があるなら、規則のほうを先に渡したほうが速くて確実だった。
     </p>
 
     <div class="tech">
@@ -743,10 +732,34 @@
         <dt>問題</dt>
         <dd>検索から始めると、上位に出た数チャンクの外側が見えない。「全案件で最も〜な案件」のような問いでは、そもそも取りこぼしたことに気づけない。</dd>
         <dt>対策</dt>
-        <dd>403ファイルのツリーを、形式・ページ数・シート名・列名・版違いの注記付きで<strong>毎回丸ごと渡す</strong>。エージェントは最初のターンから全ファイルの存在と概形を知っている。プロンプトの内容は固定してあるので、Gemini のキャッシュが効く（10問の実測で入力の84%）。</dd>
+        <dd>形式・ページ数・シート名・列名・版違いの注記を付けた全403ファイルのツリーを前処理で自動生成し、systemプロンプトに組み込む。エージェントは最初のターンから全ファイルの存在と概形を知っている。1問あたりの入力トークンは増えるが、プロンプトの内容は固定してあるので KVキャッシュが効き（実測で入力の84%がキャッシュから読まれた）、結果的にコストは抑えられる。</dd>
         <dt>結果</dt>
         <dd>100問のうち <code>search</code> を呼んだのは<strong>1問だけ</strong>。残りは最初のツール呼び出しでファイルを名指ししている。</dd>
       </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目（最終報告.pdf の1ページ）</p>
+        <a href="materials/tech/tree.webp" target="_blank" rel="noopener"><img src="materials/tech/tree.webp" alt="最終報告の「特徴量と臨床上の解釈」のスライド。スキャン画像のPDF" width="1600" height="900" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">systemプロンプトのツリー（抜粋）と、最初のツール呼び出し</p>
+        <pre>  医療法人社団 蒼樹会 みなみ野女性医療センター/
+    …
+    04.分析/
+      …
+        reports/
+          figures/
+            feature_correlation_heatmap.png  [png; 1294x1176; 画像1]
+            …
+    06.報告書/
+      医療法人社団 蒼樹会 みなみ野女性医療センター_最終報告.pdf  [pdf; 15ページ; スキャン15p]
+
+① run_python
+   pdf_rel = &#x27;医療法人社団 蒼樹会 みなみ野女性医療センター/06.報告書/医療法人社団 蒼樹会 みなみ野女性医療センター_最終報告.pdf&#x27;
+   txt = read_text(pdf_rel)</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">「分析結果として予測に影響が高いと報告されている特徴量」を問う設問（Q28）</span>設問にファイル名は書かれていないが、ツリーに最終報告のパスと「スキャン15p」の注記があるので、最初の一手でそのPDFを開いている。相関を確かめる図（feature_correlation_heatmap.png）の場所もツリーで分かる。</figcaption>
+    </figure>
       <p class="tech__src">app/agent/prompts.py · app/extract/catalog.py → artifacts/catalog/tree.txt</p>
     </div>
 
@@ -760,21 +773,27 @@
         <dt>結果</dt>
         <dd>略称を含む質問でも、展開後の語で直接ファイルに当たれる。復号が要る9問も、規則を読みに行く往復なしでパスワード候補を作れている。</dd>
       </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目（会議録_2025-04-29.pdf）</p>
+        <a href="materials/tech/glossary.webp" target="_blank" rel="noopener"><img src="materials/tech/glossary.webp" alt="会議録の主要議論。F1(macro) 0.589 の 0.589 が黄色ハイライトかつ赤字" width="1558" height="485" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">systemプロンプトの社内用語集（抜粋）と、最初のツール呼び出し</p>
+        <pre>| 会議録 | MM | Meeting Minutes |
+| 黄色ハイライト | YL | Yellow Highlight |
+| 赤字 | RED | Red Font |
+| 青葉与信マネジメント株式会社 | AYM | 青葉, 青マネ, 与信青葉, AY | AYM を正式 |
+
+設問: AYMのMMにおいて、黄色ハイライトかつREDになっている数値を対象に…
+
+① run_python
+   files = sorted(glob.glob(&quot;プロジェクト/青葉与信マネジメント株式会社/05.会議/会議録/*.pdf&quot;))</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">略称だけで書かれた設問（Q17）</span>「AYM」「MM」「RED」は社内用語集の略称。用語集がsystemプロンプトに全文で入っているので、用語集を引きに行く手順なしで、最初の一手から青葉与信マネジメントの会議録フォルダを開いている。</figcaption>
+    </figure>
       <p class="tech__src">app/agent/prompts.py <code>internal_docs_text()</code></p>
       <p data-qrefs="3,13,38,40,46,67,79,86,92"></p>
-    </div>
-
-    <div class="tech">
-      <h3 class="tech__t">検索は残す — BM25 + 密ベクトル + リランク</h3>
-      <dl>
-        <dt>問題</dt>
-        <dd>日本語では片方だけだと必ず落ちる。BM25は <code>AG_ratio</code> <code>max_depth</code> <code>T04</code> のような識別子に強く、密ベクトルは「予測に影響が高い特徴量」→ feature importance のような言い換えに強い。</dd>
-        <dt>対策</dt>
-        <dd>SudachiPy mode C で分かち書きしたBM25と、<code>ruri-v3-310m</code> の密検索を<strong>RRFで融合</strong>し、日本語cross-encoderで並べ直す。スコアのスケールが違う2系統を混ぜるためにRRFを使っている。案件・カテゴリ・拡張子でのメタフィルタ付き。</dd>
-        <dt>結果</dt>
-        <dd>実行では出番がほぼ無かった。ツリー常駐が効いた結果であって、当たりが付かない質問が来たときの縮退先としては残す価値がある。</dd>
-      </dl>
-      <p class="tech__src">app/index/search.py · app/index/tokenize_ja.py · app/index/rerank.py</p>
     </div>
   </div>
 
@@ -794,10 +813,79 @@
         <dt>対策</dt>
         <dd>抽出の時点で書式を記法としてテキストに埋める。<code>**太字**</code> / <code>==ハイライト=={色名}</code> / <code>[c:RRGGBB]文字色[/c]</code> / <code>値 {fill:#RRGGBB 色名}</code>（セル塗り） / <code>{shape-fill:#RRGGBB 色名}</code> / <code>{fml:=式}</code>。色名は淡い色でも基本色名を含める（薄オレンジ→「薄橙」ではなく基本色名を残す）ので、<strong>色名でgrepできる</strong>。xlsxはテーマ色も解決する。</dd>
         <dt>結果</dt>
-        <dd>ガントの塗りや強調セルが、画像を開かずに正規表現で網羅できる。読む用と検索用で <code>read_text(rel)</code> / <code>read_text(rel, plain=True)</code> を切り替えられる。</dd>
+        <dd>ガントの塗りや強調セルが、画像を開かずに正規表現で網羅できる。</dd>
       </dl>
+    <figure class="tech-ex tech-ex--wide">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/format-xlsx.webp" target="_blank" rel="noopener"><img src="materials/tech/format-xlsx.webp" alt="スケジュール表。T01の行だけが薄いオレンジで塗られている" width="1461" height="290" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">前処理後のテキスト（エージェントが読むもの）</p>
+        <pre>| 2 | **1** {fill:#F2E0D0 薄オレンジ} | **P1 立上げ・前提固定** {fill:#F2E0D0 薄オレンジ} | **T01** {fill:#F2E0D0 薄オレンジ} | **プロジェクトキックオフ実施** {fill:#F2E0D0 薄オレンジ} | …
+| 3 | 2 | P1 立上げ・前提固定 | T02 | 正本前提・スコープ・役割分担確定 | …
+| 4 | 3 | P1 立上げ・前提固定 | T03 | データ受領確認・読込検証 | …</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">スケジュール_r2.xlsx（Q02）</span>T01の行だけが薄いオレンジで塗られ、太字になっている。抽出テキストでは各セルに {fill:#F2E0D0 薄オレンジ} と ** が付くので、「オレンジ」でgrepすれば該当する行だけが拾える。</figcaption>
+    </figure>
       <p class="tech__src">app/extract/markup.py · app/extract/xlsx.py</p>
       <p data-qrefs="2,3,11,7"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">PDFの書式も、1文字ずつ取り出して焼き込む</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>PDFから普通にテキストを取り出すと、マーカーや太字は消える。この資料群のうち Word から出力されたPDFでは、太字こそ太字のフォントで描かれていたが、斜体は文字を傾けて描いているだけ、ハイライトは文字の背後の色付き矩形、下線は細い矩形で、「ここは斜体」「ここは下線」という情報はどこにも書かれていなかった。</dd>
+        <dt>対策</dt>
+        <dd>pypdfium2 で<strong>1文字ずつ</strong>、文字色・フォントの太さと名前・位置を取り出す。ハイライトは文字の中心が入る塗り矩形の色、下線は文字の下にあって厚みが文字サイズの1/5未満の矩形とみなす。斜体の書体を持たないフォントは文字を傾けて斜体を表すので、文字の変換行列の傾きから判定する。同じ書式が続く範囲をまとめ、Office文書と同じ記法で埋める。</dd>
+        <dt>結果</dt>
+        <dd>docxとPDFを同じ正規表現で探せる。太字＋下線の行の中で1か所だけ斜体になっている金額や、数値の先頭3桁だけにかかった黄色ハイライト＋赤字を、文字単位で切り出せている。</dd>
+      </dl>
+    <figure class="tech-ex tech-ex--wide">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/format-pdf.webp" target="_blank" rel="noopener"><img src="materials/tech/format-pdf.webp" alt="太字と下線の付いた行。金額の部分だけが斜体" width="1420" height="132" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">前処理後のテキスト（エージェントが読むもの）</p>
+        <pre>o &lt;u&gt;**商務トピック（Report facts に基づく）: 想定総工数 170 時間、見込金額（税抜）4,250,000**&lt;/u&gt;
+&lt;u&gt;**円、消費税 425,000 円、見込金額（税込）**&lt;/u&gt;&lt;u&gt;***4,675,000 円***&lt;/u&gt;&lt;u&gt;**、支払スキームは最終一括精算（支払**&lt;/u&gt;
+&lt;u&gt;**条件: 検収後 5 営業日以内）**&lt;/u&gt;&lt;u&gt;。&lt;/u&gt;</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">報告資料_2025-08-06.pdf p1（Q11）</span>行全体が太字＋下線で、金額「4,675,000 円」だけが斜体にもなっている。抽出テキストでは太字が **、下線が &lt;u&gt;、斜体が * で表れ、3つがそろう &lt;u&gt;***…***&lt;/u&gt; の箇所を正規表現で特定できる。</figcaption>
+    </figure>
+      <p class="tech__src">app/extract/pdf.py <code>_styled_text()</code> · <code>_underlined_chars()</code> · <code>_char_skew()</code></p>
+      <p data-qrefs="11,17"></p>
+    </div>
+
+    <div class="tech">
+      <h3 class="tech__t">セルの値に出てこない情報を、本文に書き出す</h3>
+      <dl>
+        <dt>問題</dt>
+        <dd>openpyxl や pandas はセルの値しか見ない。条件付き書式による塗り、非表示のシート、ピボットテーブルの定義、グラフの元の値は、値を読むだけでは存在ごと消える。グラフだけが貼られたシートは「空シート」に見え、「該当なし」と誤答しやすい。</dd>
+        <dt>対策</dt>
+        <dd>条件付き書式は、規則ごとに範囲・条件・塗り色を書く（例: <code>範囲 L2:L31: セルの値 に 完了 を含む → 塗り {fill:#C6EFCE 薄緑}</code>）。大きなシートで表が切り詰められても残るよう、規則は表より前に置く。非表示のシートは見出しに「（hidden）」と付ける。ピボットテーブルは行・列・フィルタ・値のフィールドと集計方法を書く。グラフは、ファイル内に保存されている<strong>系列の値から表を復元</strong>し、軸のタイトルも添える。docxに埋め込まれたグラフも同じ扱い。</dd>
+        <dt>結果</dt>
+        <dd>条件付き書式17シート、ピボットテーブル10個、グラフ11個を本文に書き出した。目盛りが0.01刻みで見た目からは読めないグラフの値も、保存値から小数第5位まで答えられる。</dd>
+      </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/chart.webp" target="_blank" rel="noopener"><img src="materials/tech/chart.webp" alt="折れ線グラフ「グラフ1」。目盛りは0.01刻み" width="1189" height="696" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">前処理後のテキスト（エージェントが読むもの）</p>
+        <pre>### 埋め込みグラフ (lineChart): グラフ1 [word/charts/chart1.xml]
+- x軸: カテゴリ値は埋め込まれていない。列見出しの 1,2,3… は描画上のx軸の位置（1始まり）を表す
+| 系列 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|
+| 系列1 | 0.48274573517465574 | 0.49839676113360443 | 0.50533551554828282 | 0.50239218877136205 | 0.49327346938775768 | 0.47610976594027604 | 0.46606012658227802 |</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">基礎分析.docx（Q54）</span>目盛りは0.01刻みで、見た目からは小数第3位までしか読めない。ファイルに保存されている系列の値を表に戻しておくので、x=3 の点が 0.50533551… だとテキストで分かる。</figcaption>
+    </figure>
+      <p class="tech__src">app/extract/xlsx.py · app/extract/ooxml_chart.py</p>
+      <p data-qrefs="2,65,54"></p>
     </div>
 
     <div class="tech">
@@ -810,6 +898,29 @@
         <dt>結果</dt>
         <dd>画像として埋まっていた表のセル値が、他の表と同じ <code>tables(rel)</code> で取れる。</dd>
       </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/emf.webp" target="_blank" rel="noopener"><img src="materials/tech/emf.webp" alt="ピボット表の画像。Software Engineer の 61 が黄色" width="303" height="190" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">前処理後のテキスト（エージェントが読むもの）</p>
+        <pre>### 埋め込みEMFオブジェクト: image1.emf (テキスト1933件, 塗り6件)
+
+| Gender | target | Age | Profession | 個数 / id |
+|---|---|---|---|---|
+…
+|  |  |  | Research Scientist | 38 |
+|  |  |  | Salesperson | 2 |
+|  |  |  | Software Engineer | 61 |
+|  |  |  | Statistician | 5 |
+|  |  |  | Student | 6 |
+…
+
+塗り分け: #C0E6F5 薄水色 → Gender, target, Age, Profession, 個数 / id; #FFFF00 黄 → 61</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">train.xlsx の Sheet2（Q80）</span>シートのセルは空で、ピボット表はEMF画像としてしか存在しない。描画命令から文字と塗り矩形を取り出して表に組み直し、黄色の塗りが掛かっている値（61）も書き出す。</figcaption>
+    </figure>
       <p class="tech__src">app/extract/emf.py · app/extract/ooxml_chart.py</p>
     </div>
 
@@ -817,12 +928,28 @@
       <h3 class="tech__t">docxのページ位置を、組版して確定させる</h3>
       <dl>
         <dt>問題</dt>
-        <dd>「この見出しがあるのは何ページか」に答えるには、docxが本来持っていないページ境界が要る。docxは組版してはじめてページが決まる形式で、見出しの並び順や本文量から推測すると静かに外れる。</dd>
+        <dd>「この見出しがあるのは何ページか」に答えるには、docxが本来持っていないページ境界が要る。docxは組版してはじめてページが決まる。AIで生成されたdocx文書は、wordで一度も開かれておらず、改ページの情報が含まれていない。</dd>
         <dt>対策</dt>
-        <dd>4段で確定させる。① Wordが保存時に書き込む改ページ記録 <code>w:lastRenderedPageBreak</code> があればそれを使う。② 無ければ一時コピーを<strong>Word本体に組版させて</strong>記録を読み戻す。③ Wordが無い環境はLibreOfficeで代用するが、改ページ記録を持つdocxで較正して一致率が閾値を満たさなければ採用しない。④ どれも駄目なら前処理をエラーで止める。用紙サイズを持たない文書はA4・余白25.4mmを仮定し、その旨を本文に明記する。元ファイルは常に読むだけ。</dd>
+        <dd>次の手順で改ページを確定させる。① Wordが保存時に書き込む改ページ記録 <code>w:lastRenderedPageBreak</code> があればそれを使う。② 無ければ一時コピーをWordで開いて改ページ記録を読み戻す。</dd>
         <dt>結果</dt>
         <dd>確定したページ情報は抽出テキストの先頭に <code>[ページ情報]</code> 行として入る。<code>判定不能</code> と書かれた文書のページを問われた場合は、推測せず「わかりません」と答える規約にしている。</dd>
       </dl>
+    <figure class="tech-ex tech-ex--tall">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/pagemap.webp" target="_blank" rel="noopener"><img src="materials/tech/pagemap.webp" alt="docxを組版した2ページ目。2.2と2.3の見出しがある" width="1237" height="1600" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">前処理後のテキスト（エージェントが読むもの）</p>
+        <pre>[ページ情報] 全8ページ（この文書はページ設定を持たないため、A4・余白25.4,25.4,25.4,25.4mm を仮定して組版した結果。用紙設定が違えばページ数も変わる）
+  p1: 分析進捗報告書 / 1. 報告サマリー / 2. 進捗状況 / 2.1 チェックポイント時点の全体進捗
+  p2: 2.2 スケジュールとのトレーサビリティ / 2.3 WBS観点の進捗状況
+  p3: 2.4 タスク件数サマリ / 3. 主要な分析結果 / 3.1 現時点で確認できる分析上の主要所見 / 3.2 分析前提として重要な確認事項
+  p4: 3.3 現時点での暫定的な示唆 / 4. データ品質と実装状況 / 4.1 データ品質の既知情報
+  …</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">報告資料_2025-07-08.docx p2（Q12）</span>docxはページを持たない形式だが、Wordで組版した結果を本文の先頭に書いておく。「2.3 WBS観点の進捗状況」が2ページ目にあることが、テキストだけで分かる。</figcaption>
+    </figure>
       <p class="tech__src">app/extract/pagemap.py · app/extract/word_paginate.ps1</p>
       <p data-qrefs="12"></p>
     </div>
@@ -837,6 +964,25 @@
         <dt>結果</dt>
         <dd>回答時の画像アクセスは「確認」に用途が絞られ、探索の時間予算から外れる。</dd>
       </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/ocr.webp" target="_blank" rel="noopener"><img src="materials/tech/ocr.webp" alt="AG_ratio のヒストグラム。棒のラベルが重なっている" width="754" height="449" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">前処理後のテキスト（エージェントが読むもの）</p>
+        <pre>[画像読み取り] image1.png
+[画像種別: グラフ]
+**[c:濃い灰色]AG_ratio[/c]**
+[図の説明] 種類：縦棒グラフ（ヒストグラム状）。
+…
+棒：左から44本。0以外の棒は濃い青緑色で塗られている。0の棒には高さのある塗りは見えない。
+
+データラベル（左から）：[c:黒]109[/c]、[c:白]170[/c]、[c:黒]8[/c]、[c:黒]4[/c]、[c:黒]92[/c]、[c:黒]39[/c]、[c:白]518[/c]、[c:白]431[/c]、[c:白]172[/c]、[c:黒]34[/c]、[c:黒]20[/c]、[c:白]958[/c]、…
+[注: 読み取りに不確かな箇所あり]</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">train.xlsx のシート「グラフ」に貼られた画像（Q10）</span>ラベルが重なって読みにくいヒストグラムも、前処理で一度だけ読んで本文に書き足しておく。[画像読み取り] の見出しが付くので、OCR由来の部分だと見分けられる。</figcaption>
+    </figure>
       <p class="tech__src">app/ocr/targets.py · app/ocr/runner.py · app/ocr/cache.py</p>
     </div>
   </div>
@@ -858,8 +1004,35 @@
         <dt>対策</dt>
         <dd>調査でOCR由来のテキストに触れたかを追跡し、その状態で <code>submit_answer</code> が呼ばれたら<strong>提出を差し戻す</strong>。差し戻しメッセージには、確認すべき資料と「読めなければ <code>region</code> で拡大せよ」という具体的な次の手を入れる。チェックポイントから再開しても状態を失わないよう、グラフの状態にも複製する。</dd>
         <dt>結果</dt>
-        <dd>100問中<strong>26問</strong>で発火し、いずれも元画像を見直してから再提出している。差し戻された経路は設問一覧の「提出が差し戻された設問」で絞り込める。</dd>
+        <dd>100問中<strong>26問</strong>で発火し、いずれも元画像を見直してから再提出している。</dd>
       </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/gate.webp" target="_blank" rel="noopener"><img src="materials/tech/gate.webp" alt="TP のヒストグラム。ビンのラベルは途中で切れている" width="753" height="450" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">実行ログ（抜粋）</p>
+        <pre>① run_python で read_text(&quot;…/train.xlsx&quot;) を表示
+   → [画像読み取り] image8.png
+     ## [c:濃い灰色]**TP**[/c]
+     …
+     | (6.088138493,... | [c:白]494[/c] | 濃い青緑色 |   ← 前処理OCRの結果
+
+② submit_answer(&quot;(6.088138, 6.288138]&quot;)
+   → [提出保留] 回答候補の調査でOCR画像の読み取り結果を使用しています（…）。
+     OCRテキストだけでは提出できません。…根拠に使う同じ資料の元画像を
+     read_image または ask_image で確認してから、submit_answer をやり直してください。
+     細部が読めない場合は region で拡大してください。
+
+③ read_image(&quot;4dee02739805/image8.png&quot;)
+   → ヒストグラムのカウントは高い順に618、521、494で、3番目に多いのは494のビン。
+     …この区間は(6.088138493, 6.288138493]であり、小数第6位までで(6.088138, 6.288138]となる。
+
+④ submit_answer(&quot;(6.088138, 6.288138]&quot;)   → 確定</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">train.xlsx のシート「グラフ」（Q29）</span>OCRの読み取り結果を見たまま提出しようとしたので、ゲートが差し戻した。元画像を自分で確認してから、同じ答えで提出し直している。</figcaption>
+    </figure>
       <p class="tech__src">app/agent/graph.py · app/agent/tools.py <code>_track_ocr_output()</code></p>
       <p data-qrefs="4,5,29,54,66,91"></p>
     </div>
@@ -874,6 +1047,26 @@
         <dt>結果</dt>
         <dd>15問がこの経路を通っている。<code>read_image</code> で自分で見た結果をそのまま提出せず、関係だけを別途検証する形になる。</dd>
       </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目</p>
+        <a href="materials/tech/spatial.webp" target="_blank" rel="noopener"><img src="materials/tech/spatial.webp" alt="座席表の POD 2。4つの机と役員席に内線番号のラベルが付いている" width="509" height="576" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">ask_image の返答（抜粋）</p>
+        <pre>[画像への空間関係質問] …井上さんの向かいに座っている方のEXTを教えてください。
+  検証済み選択集合（候補ごとの関係判定から選択）: ☎7103 渡辺(DS)
+  確認範囲: POD 2 Island（…POD 1/POD 3は範囲外）
+  基準対象: 井上さん（EXT 7105, BA）— POD 2の島の東側（画面右側）の机
+  基準の向き: 西（島の中心方向）。…
+  候補全件:
+    - ☎7103 渡辺(DS): sector=front; 該当; …井上さんの机と島中心を挟んで正反対（東⇔西）, 互いに島中心を向いて対面
+    - ☎7102 伊藤(PM): sector=front_right; 非該当; …向かい（正面対向）ではなく斜め前右の隣席
+    - ☎7104 斎藤(DE): sector=front_left; 非該当; …向かいではなく斜め前左の隣席
+    - ☎7101 山田(Exec): sector=back_right; 非該当; …島の対面関係に参加していない</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">社内管理/座席表.pptx（Q58）</span>「向かい」を答えるために、同じ島の4人全員を該当・非該当に分け、それぞれの位置関係を書かせている。該当しそうな1人だけを見て答えることがない。</figcaption>
+    </figure>
       <p class="tech__src">app/ocr/ask.py · app/agent/tools.py</p>
       <p data-qrefs="0,10,11,20,22,29,34,44,55,56,58,64,68,86,99"></p>
     </div>
@@ -888,6 +1081,37 @@
         <dt>結果</dt>
         <dd>96問が <code>run_python</code> を使い、79問はこれが最初の一手だった。10案件の横断集計が1回のコード実行で閉じる。</dd>
       </dl>
+    <figure class="tech-ex tech-ex--wide">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目（白峰信用リスク評価の契約書）</p>
+        <a href="materials/tech/code.webp" target="_blank" rel="noopener"><img src="materials/tech/code.webp" alt="支払条件の表。第1回の着手金は40%・税抜2,720,000円" width="1478" height="440" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">run_python のコードと出力（抜粋）</p>
+        <pre>for proj in projects():
+    c_files = files(project=proj, category=&quot;契約&quot;) + files(project=proj, category=&quot;提案&quot;)
+    for f in c_files:
+        txt = read_text(f, plain=True)
+        if &quot;着手金&quot; in txt:
+            lines = [line.strip() for line in txt.split(&#x27;\n&#x27;) if &quot;着手金&quot; in line]
+            …
+
+&gt;&gt;&gt;
+Project: 京橋信用ソリューションズ株式会社
+  Deposit Found: True
+  Details:  [.../01.契約/契約書.docx]: | 第1回 | 着手金 | 50% | 2,625,000円 | …
+Project: 医療法人社団 恒一会 かえで総合病院
+  Deposit Found: False
+…
+Project: 白峰信用リスク評価株式会社
+  Deposit Found: True
+  Details:  [.../01.契約/契約書.docx]: | 1 | 着手金 | 40% | 2,720,000円 | …
+Project: 青葉与信マネジメント株式会社
+  Deposit Found: True
+  Details:  [.../01.契約/契約書.docx]: | 1 | 着手金 | 50% | 契約締結後5営業日以内 | 2,100,000円 | …</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">「着手金が最も高い案件」を探す設問（Q46）</span>10案件の契約書と提案書を1回のコード実行で走査し、着手金のある案件を洗い出した。会話で1案件ずつ読んで数えないので、拾い漏れがあれば出力で分かる。</figcaption>
+    </figure>
       <p class="tech__src">app/agent/sandbox.py · app/agent/prompts.py</p>
       <p data-qrefs="40,46,13"></p>
     </div>
@@ -902,6 +1126,24 @@
         <dt>結果</dt>
         <dd>9問がこの経路を通っている。規則が変わっても、変えるのは資料側だけで済む。</dd>
       </dl>
+    <figure class="tech-ex tech-ex--wide">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">資料の見た目（復号後）</p>
+        <a href="materials/tech/decrypt.webp" target="_blank" rel="noopener"><img src="materials/tech/decrypt.webp" alt="スケジュール.xlsx の担当者ごとの想定工数" width="1461" height="456" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">導出規則と、decrypt の呼び出し（抜粋）</p>
+        <pre>社内管理/データアステル社内規定_パスワード導出規則.docx
+  DA-[案件略号]-[開始年月日8桁]-[拡張子コード]
+社内管理/社内用語集.docx
+  | 医療法人社団 恒一会 かえで総合病院 | KAEDE | かえで, 恒一会, 楓病院, 楓 | KAEDE を正式 |
+
+decrypt(relpath=&quot;医療法人社団 恒一会 かえで総合病院/02.計画/スケジュール.xlsx&quot;,
+        passwords=[&quot;DA-KAEDE-20250902-xlsx&quot;, &quot;DA-KAEDE-20250902-XLSX&quot;, &quot;kaede20250902&quot;])
+→ [成功] パスワードが一致しました。以後 read(…/スケジュール.xlsx) で全文を読めます。</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">恒一会 かえで総合病院のスケジュール.xlsx（Q79）</span>規則と略称はsystemプロンプトに全文で入っているので、エージェントはその場で候補を組み立てて渡す。復号モジュールは渡された候補を順に試すだけで、パスワードを知らない。</figcaption>
+    </figure>
       <p class="tech__src">app/extract/encrypted.py · app/agent/tools.py</p>
       <p data-qrefs="3,13,38,40,46,67,79,86,92"></p>
     </div>
@@ -916,6 +1158,30 @@
         <dt>結果</dt>
         <dd>19ファイルが版違いとして紐づいた。版を比べる設問は、いずれも最初のツール呼び出しで両方のパスを指定している。Q22 では、ノートブックに貼られた統計表の画像が差し替わっていることを <code>diff</code> が見つけ、2枚を比べて class 列の統計が加わったことを示した。</dd>
       </dl>
+    <figure class="tech-ex">
+      <div class="tech-ex__view">
+        <p class="tech-ex__k">旧版 01_eda_old.ipynb</p>
+        <a href="materials/tech/version-old.webp" target="_blank" rel="noopener"><img src="materials/tech/version-old.webp" alt="旧版の基本統計量の表。Attr64 で終わっている" width="740" height="485" loading="lazy"></a>
+        <p class="tech-ex__k">新版 01_eda.ipynb</p>
+        <a href="materials/tech/version-new.webp" target="_blank" rel="noopener"><img src="materials/tech/version-new.webp" alt="新版の同じ表。右端に class 列が加わっている" width="740" height="491" loading="lazy"></a>
+      </div>
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">ツリーの注記と diff の出力（抜粋）</p>
+        <pre>01_eda.ipynb  [ipynb; 22セル; 画像7; 版違い: 01_eda_old.ipynb]
+01_eda_old.ipynb  [ipynb; 22セル; 画像7; 版違い: 01_eda.ipynb]
+
+diff(&quot;…/01_eda_old.ipynb&quot;, &quot;…/01_eda.ipynb&quot;)
+--- …/01_eda_old.ipynb
++++ …/01_eda.ipynb
+@@ -305,3 +305,3 @@
+-![embedded-image]([画像: DOC/cell8_src1.png md5:68804293 — read_image で確認可能])
++![embedded-image]([画像: DOC/cell8_src1.png md5:627964be — read_image で確認可能])
+@@ -309,127 +309,127 @@
+-| Attr1 |  | Attr2 |  | Attr3 |  | …
+…</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">白峰信用リスク評価のノートブック（Q22）</span>ツリーに「版違い」が書いてあるので、比較相手を探さずに最初の一手で diff を呼べる。diff は画像のmd5が変わったことを示すので、その2枚だけを見比べればよい。</figcaption>
+    </figure>
       <p class="tech__src">app/extract/catalog.py · app/agent/tools.py</p>
       <p data-qrefs="0,1,9,14,22,74,95"></p>
     </div>
@@ -930,6 +1196,18 @@
         <dt>結果</dt>
         <dd>このページのデータそのもの。100問・2,293ステップぶんの経路が残っている。</dd>
       </dl>
+    <figure class="tech-ex tech-ex--text">
+      <div class="tech-ex__text">
+        <p class="tech-ex__k">logs/&lt;run-id&gt;/chain/q58.jsonl（抜粋）</p>
+        <pre>{&quot;seq&quot;: 1, &quot;type&quot;: &quot;question&quot;, &quot;index&quot;: 58, &quot;question&quot;: &quot;社内管理フォルダにあるFMにおいて、井上さんの向かいに座っている方のEXTを教えてください。&quot;, &quot;model&quot;: &quot;gemini-3.7-flash&quot;, &quot;max_turns&quot;: 40, &quot;system_prompt_sha1&quot;: &quot;ee3ed1087c49&quot;, &quot;system_prompt_chars&quot;: 41317, …}
+{&quot;seq&quot;: 2, &quot;type&quot;: &quot;llm_request&quot;, &quot;turn&quot;: 1, &quot;n_messages&quot;: 2, …}
+…
+{&quot;seq&quot;: 8, &quot;type&quot;: &quot;tool_call&quot;, &quot;name&quot;: &quot;ask_image&quot;, &quot;args&quot;: {&quot;question&quot;: &quot;座席表画像において、井上（☎7105）の向かい（対面）に座っている人の名前と内線番号（☎数値）を教えてください。…&quot;, &quot;asset_id&quot;: &quot;27b0614e5d0d/image1.png&quot;}}
+{&quot;seq&quot;: 9, &quot;type&quot;: &quot;tool_result&quot;, &quot;name&quot;: &quot;ask_image&quot;, &quot;elapsed_sec&quot;: 744.45, &quot;result_kind&quot;: &quot;text&quot;, &quot;content&quot;: &quot;[画像への空間関係質問] …&quot;}
+…</pre>
+      </div>
+      <figcaption><span class="tech-ex__file">1問ぶんの実行記録</span>systemプロンプトのハッシュ、ツールの引数と戻り値、所要秒数まで、発生順に1行ずつ残る。上の「図の空間関係」の例は、この記録から抜き出したもの。</figcaption>
+    </figure>
       <p class="tech__src">app/run/chain.py · app/run/runner.py</p>
     </div>
   </div>
